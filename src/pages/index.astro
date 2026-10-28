@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+import { business, services, areas, brands, runningCosts, faqs } from '../data/business.js';
+
+const title = 'Air Conditioning Installation Ringwood | No1 Air Conditioning';
+const description = `Air conditioning installed across Ringwood, the New Forest, Hampshire and Dorset from ${business.priceFrom} inc. VAT. Visit our Ringwood showroom. 0% finance, up to 5 year warranty.`;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Base title={title} description={description} schema={[faqSchema]}>
+  <div class="offer">Air conditioning installed from {business.priceFrom} inc. VAT · 0% finance available</div>
+
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">Hampshire, Dorset &amp; New Forest air conditioning</p>
+        <h1>Air conditioning installers in Ringwood and the New Forest</h1>
+        <p class="lead">Stay cool in summer, warm in winter and breathe cleaner air all year. We design, install and look after air conditioning for homes and businesses within {business.radiusMiles} miles of our Ringwood showroom, where you can see and hear the units working before you buy.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-lg" href="#quote">Get a free quote</a>
+          <a class="btn btn-ghost btn-lg" href={`tel:${business.phoneIntl}`}>Call {business.phone}</a>
+        </div>
+        <ul class="ticks">
+          <li>Cooling and heating</li>
+          <li>Ultra quiet systems</li>
+          <li>Up to 5 year warranty</li>
+          <li>0% finance available</li>
+          <li>Refcom certified installers</li>
+          <li>Showroom you can visit</li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <div class="photo" role="img" aria-label="Photo of a No1 Air Conditioning installation">[Hero photo: one of your installs]</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Our services</p>
+        <h2>Air conditioning for your home or business</h2>
+        <p>Whether you need a cooler bedroom, a comfortable workspace or a full multi-room system, we install, service and maintain air conditioning across Hampshire and Dorset.</p>
+      </div>
+      <div class="grid">
+        {services.map((s) => (
+          <div class="card">
+            <h3>{s.name}</h3>
+            <p>{s.blurb}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap split">
+      <div>
+        <h2>Not just for heatwaves</h2>
+        <p>The systems we fit are air-to-air heat pumps. The same unit that cools your bedroom in July heats it in January, delivering up to 4 units of warmth for every 1 unit of electricity, which is often cheaper to run than gas.</p>
+        <p>They also dehumidify as they cool and filter out pollen, dust and allergens, so rooms feel fresher all year.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="costs">
+          <caption class="small" style="caption-side: bottom; text-align: left; padding-top: 10px; color: #aebbd4;">Typical running costs. Actual costs depend on your tariff, insulation and usage.</caption>
+          <thead><tr><th scope="col">Room</th><th scope="col">Cooling</th><th scope="col">Heating</th></tr></thead>
+          <tbody>
+            {runningCosts.map((r) => (
+              <tr><td style="color: var(--ink)">{r.room} ({r.size})</td><td style="color: var(--ink)">{r.cooling}</td><td style="color: var(--ink)">{r.heating}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="showroom">
+    <div class="wrap split">
+      <div class="photo" role="img" aria-label="Photo of the Ringwood showroom">[Photo: Ringwood showroom with display units]</div>
+      <div>
+        <p class="eyebrow">See before you buy</p>
+        <h2 style="font-size: clamp(30px, 3.6vw, 42px); margin: 0 0 16px;">A showroom you can actually visit</h2>
+        <p>Most air conditioning companies only show you brochures. At our Ringwood showroom you can compare {brands.map((b) => b.name).join(', ').replace(/, ([^,]*)$/, ' and $1')} side by side, hear the real noise levels and choose the right style and colour for your home.</p>
+        <p><strong>{business.street}, {business.town}, {business.postcode}</strong></p>
+        <a class="btn" href="#quote">Book a showroom visit</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Brands we install</p>
+        <h2>Which brand is right for you?</h2>
+      </div>
+      <div class="grid">
+        {brands.map((b) => (
+          <div class="card"><h3>{b.name}</h3><p>{b.note}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>From first message to a comfortable room in three steps</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Tell us about your property</h3><p>A short enquiry form about your rooms and what you want to achieve. It takes about 2 minutes.</p></li>
+        <li><h3>Free survey and fixed quote</h3><p>We check the rooms and pipe routes, recommend the right system and give you a fixed price. No obligation.</p></li>
+        <li><h3>Install and handover</h3><p>Our Refcom certified team installs cleanly and tidily, then walks you through every feature.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="areas" class="tint">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Areas we cover</p>
+        <h2 style="font-size: clamp(30px, 3.6vw, 42px); margin: 0 0 16px;">Air conditioning across Hampshire, Dorset and the New Forest</h2>
+        <p>We install within a {business.radiusMiles} mile radius of our Ringwood showroom.</p>
+      </div>
+      <ul class="areas">
+        {areas.map((a) => <li>{a}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section id="faqs">
+    <div class="wrap">
+      <div class="section-head" style="margin-left: auto; margin-right: auto; text-align: center;">
+        <p class="eyebrow">Common questions</p>
+        <h2>Air conditioning FAQs</h2>
+      </div>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details><summary>{f.q}</summary><p>{f.a}</p></details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="quote-box">
+        <div>
+          <h2>Get your free quote</h2>
+          <p>Tell us about your space and we'll come back with a fixed, no-obligation price. Prefer to talk? Call <a href={`tel:${business.phoneIntl}`} style="color:#fff;font-weight:700">{business.phone}</a>.</p>
+          <p>0% finance available on qualifying installations, from as little as £25 a week.</p>
+        </div>
+        <div class="form-slot">
+          <!-- GHL quote form embed goes here once Danny sends the embed code. -->
+          <p><strong>Quote form coming soon.</strong></p>
+          <p>Call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a> or email <a href={`mailto:${business.email}`}>{business.email}</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://no1aircon.co.uk/sitemap-index.xml
