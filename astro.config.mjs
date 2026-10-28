@@ -1,3 +1,4 @@
+// Build configuration for Cloudflare Pages
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
