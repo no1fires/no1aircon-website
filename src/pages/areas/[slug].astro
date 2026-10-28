@@ -1,0 +1,71 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuickAnswers from '../../components/QuickAnswers.astro';
+import FaqList from '../../components/FaqList.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import Related from '../../components/Related.astro';
+import { towns, getTown, getTownsBySlugs } from '../../data/towns.js';
+import { getServicesBySlugs } from '../../data/services.js';
+import { todo } from '../../data/placeholders.js';
+import { business } from '../../data/business.js';
+
+export function getStaticPaths() {
+  return towns.map((town) => ({ params: { slug: town.slug } }));
+}
+
+const town = getTown(Astro.params.slug);
+const services = getServicesBySlugs(town.services);
+const nearby = getTownsBySlugs(town.nearby);
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Areas', href: '/areas/' },
+  { name: town.name, href: `/areas/${town.slug}/` },
+];
+const distance = town.miles
+  ? `${town.name} is about ${town.miles} miles from the showroom at ${business.street}, ${business.town}.`
+  : `The showroom is in ${town.name}, at ${business.street}.`;
+---
+<Base title={town.title} description={town.description} crumbs={crumbs} faqs={[...town.answerFaqs, ...town.faqs]}>
+  <PageHero eyebrow={town.eyebrow} title={town.h1} lead={town.lead} crumbs={crumbs} />
+  <QuickAnswers faqs={town.answerFaqs} />
+  <section class="section">
+    <div class="container prose">
+      <p><strong>{distance}</strong> {town.county}.</p>
+      {town.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+  <section class="section tint">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Useful here</p>
+        <h2>Services that suit {town.name}</h2>
+        <p>{town.servicesIntro}</p>
+      </div>
+      <div class="related-grid">
+        {services.map((service) => (
+          <a class="area-link" href={`/services/${service.slug}/`}>
+            {service.name} in {town.name}
+            <span>{service.blurb}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="todo-slot">
+        <p class="eyebrow">Local job</p>
+        <h2>A real {town.name} job will go here</h2>
+        <p>This is a placeholder. It is not a finished project and it is not a review. We will not invent a street, a customer or a result.</p>
+        <ul>
+          <li>Town: {town.name}, {town.county}</li>
+          <li>{todo('localJob')}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <Related towns={nearby} heading={`Towns near ${town.name}`} />
+  <FaqList faqs={town.faqs} heading={`Questions about ${town.name}`} />
+  <QuoteSection title={`Quote for a property in ${town.name}`} intro={`Tell us the ${town.name} address, or just the postcode, and which rooms you want looked at. We survey within about ${business.radiusMiles} miles of Ringwood.`} />
+</Base>

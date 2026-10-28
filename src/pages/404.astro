@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import { business } from '../data/business.js';
+
+const title = 'Page not found | No1 Air Con';
+const description = 'That page is not on the No1 Air Conditioning website. Try the services, the areas, or call the Ringwood showroom.';
+---
+<Base title={title} description={description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow eyebrow-on-dark">404</p>
+      <h1>That page is not here</h1>
+      <p class="lead">The address may have changed. The services and the town pages are linked below, or call {business.phone}.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/">Back to the homepage</a>
+        <a class="btn btn-outline" href={`tel:${business.phoneIntl}`}>Call {business.phone}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container cluster">
+      <a class="btn btn-navy" href="/services/">Services</a>
+      <a class="btn btn-navy" href="/areas/">Areas</a>
+      <a class="btn btn-navy" href="/contact/">Contact</a>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>

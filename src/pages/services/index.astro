@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import Icon from '../../components/Icon.astro';
+import { services } from '../../data/services.js';
+import { business } from '../../data/business.js';
+
+const title = 'Air Conditioning Services | No1 Air Con';
+const description = `Home air conditioning, heating and cooling, commercial systems, servicing and repairs from the No1 Air Con showroom in Ringwood. Single rooms from ${business.priceFrom} inc. VAT.`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services/' },
+];
+---
+<Base title={title} description={description} crumbs={crumbs}>
+  <PageHero
+    eyebrow="Services"
+    title="Air conditioning services"
+    lead="Six services at launch. Each page explains who it is for, what it costs where we know, and what we still need to confirm."
+    crumbs={crumbs}
+  />
+  <section class="section">
+    <div class="container card-grid">
+      {services.map((service) => (
+        <a class="service-card" href={`/services/${service.slug}/`}>
+          <span class="icon-tile"><Icon name={service.icon} size={28} /></span>
+          <h2>{service.name}</h2>
+          <p>{service.blurb}</p>
+          <span class="more">Read the {service.name.toLowerCase()} page <Icon name="arrow" size={16} /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <QuoteSection />
+</Base>

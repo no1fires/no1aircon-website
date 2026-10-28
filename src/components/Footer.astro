@@ -1,0 +1,56 @@
+---
+import { business } from '../data/business.js';
+import { services } from '../data/services.js';
+import { towns } from '../data/towns.js';
+import { addressLine } from '../data/business.js';
+
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img class="footer-logo" src="/images/no1-aircon-logo-white.svg" alt={business.name} width="176" height="44" />
+      <p>Air conditioning installation, servicing and repairs for homes and businesses, from our showroom in Ringwood.</p>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        {services.map((service) => (
+          <li><a href={`/services/${service.slug}/`}>{service.name}</a></li>
+        ))}
+        <li><a class="view-all" href="/services/">View all services</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Areas</h2>
+      <ul>
+        {towns.map((town) => (
+          <li><a href={`/areas/${town.slug}/`}>{town.name}</a></li>
+        ))}
+        <li><a class="view-all" href="/areas/">View all areas</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/about/#showroom">Showroom</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/faqs/">FAQs</a></li>
+        <li><a href="/case-studies/">Case studies</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href={`tel:${business.phoneIntl}`}>{business.phone}</a></li>
+        <li><a href={`mailto:${business.email}`}>{business.email}</a></li>
+        <li>{addressLine()}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-base">
+    <p>© {year} {business.legalName}, trading as {business.name}.</p>
+    <p>
+      <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/cookies/">Cookies</a>
+      · <a href={business.facebook} rel="noopener noreferrer">Facebook</a>
+      · <a href={business.instagram} rel="noopener noreferrer">Instagram</a>
+    </p>
+  </div>
+</footer>

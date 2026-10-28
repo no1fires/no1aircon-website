@@ -1,0 +1,20 @@
+---
+import { business } from '../data/business.js';
+import QuoteForm from './QuoteForm.astro';
+
+const { title = 'Tell us about the space', intro = 'A short note is enough. We will arrange a free survey and then send a fixed price. There is no obligation to go ahead.' } = Astro.props;
+---
+<section class="section tint" id="quote" aria-labelledby="quote-heading">
+  <div class="container quote-grid">
+    <div>
+      <p class="eyebrow">Free quote</p>
+      <h2 id="quote-heading">{title}</h2>
+      <p class="lead">{intro}</p>
+      <p>Prefer to talk now? Call <a href={`tel:${business.phoneIntl}`}><strong>{business.phone}</strong></a> or email <a href={`mailto:${business.email}`}>{business.email}</a>.</p>
+      <p class="muted">{business.financeNote}</p>
+    </div>
+    <div class="quote-card">
+      <QuoteForm id="quote-form" />
+    </div>
+  </div>
+</section>

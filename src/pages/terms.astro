@@ -1,11 +1,35 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import { business } from '../data/business.js';
+import { todo } from '../data/placeholders.js';
+
+const title = 'Terms and Conditions | No1 Air Conditioning';
+const description = `Terms for quotes and installation enquiries with ${business.name} at the Ringwood showroom. Published from-prices are not a quote for your property.`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Terms', href: '/terms/' },
+];
 ---
-<Base title="Terms and conditions | No1 Air Conditioning" description="Terms and conditions for No1 Air Conditioning, Ringwood." noindex>
-  <section>
-    <div class="wrap" style="max-width: 820px;">
-      <h1>Terms and conditions</h1>
-      <p>[Copy across the terms from the current site before launch.]</p>
+<Base title={title} description={description} crumbs={crumbs}>
+  <PageHero eyebrow="Legal" title="Terms and conditions" lead="Short terms for using this website and asking for a quote. They are not a substitute for the terms of a signed installation." crumbs={crumbs} />
+  <section class="section">
+    <div class="container prose">
+      <p><span class="todo">{todo('termsReview')}</span></p>
+      <h2>Quotes</h2>
+      <p>A single room system is published from {business.priceFrom} including VAT. That is a starting price, not a quote for your property. The price we will work to is the fixed price after a survey. You do not have to accept it.</p>
+      <p>Prices we have not published are not agreed by filling in the form. Multi-room, commercial, ducted, servicing and repair prices are confirmed separately. <span class="todo">{todo('multiRoomPrice')}</span></p>
+      <h2>Surveys</h2>
+      <p>The survey is described as free. We look at the rooms, the pipe run and the outdoor unit position. {todo('quoteTurnaround')}</p>
+      <h2>Finance and warranty</h2>
+      <p>{business.financeNote} <span class="todo">{todo('financeDetail')}</span></p>
+      <p>{business.warranty} <span class="todo">{todo('warrantyDetail')}</span></p>
+      <h2>The website</h2>
+      <p>We take care with the facts on this site. Where a figure is not confirmed it is marked as a to-do, and it is not an offer. Photos and case studies that are marked as placeholders are not descriptions of completed work.</p>
+      <h2>Who the contract is with</h2>
+      <p>Installation work, once you accept a quote, is with {business.legalName}, trading as {business.name}, of {business.street}, {business.town}, {business.county} {business.postcode}. Company number: <span class="todo">{todo('companyNumber')}</span>.</p>
     </div>
   </section>
+  <QuoteSection />
 </Base>

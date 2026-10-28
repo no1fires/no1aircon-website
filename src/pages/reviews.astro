@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import { business, reviews } from '../data/business.js';
+import { todo } from '../data/placeholders.js';
+
+const title = 'Reviews | No1 Air Con Ringwood';
+const description = 'Customer reviews for No1 Air Conditioning in Ringwood. None are published yet. We do not invent quotes or star ratings.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Reviews', href: '/reviews/' },
+];
+---
+<Base title={title} description={description} crumbs={crumbs}>
+  <PageHero
+    eyebrow="Reviews"
+    title="What customers say"
+    lead="This page will show real reviews once they are supplied. It does not show a star rating, a review count, or a quote we wrote ourselves."
+    crumbs={crumbs}
+  />
+  <section class="section">
+    <div class="container">
+      {reviews.length > 0 ? (
+        <div class="card-grid">
+          {reviews.map((review) => (
+            <blockquote class="card" style="padding:24px;">
+              <p>{review.quote}</p>
+              <footer><strong>{review.name}</strong>{review.town ? `, ${review.town}` : ''}</footer>
+            </blockquote>
+          ))}
+        </div>
+      ) : (
+        <div class="todo-slot">
+          <h2>No reviews published yet</h2>
+          <p>Add reviews to <code>reviews</code> in <code>src/data/business.js</code>. Each one needs the customer’s words, their name, the town, and what was fitted. A Google rating and review count can be added at the same time. Until those fields are real, the site will not show stars and will not add rating data for search engines.</p>
+          <p><span class="todo">{todo('reviews')}</span></p>
+          <p><span class="todo">{todo('googleRating')}</span> <span class="todo">{todo('reviewCount')}</span></p>
+          <p><span class="todo">{todo('googleBusinessUrl')}</span></p>
+          <p style="margin-top:12px;">If you have already used us, the most useful review mentions the town and what was fitted. We reply to reviews ourselves. We do not buy them.</p>
+        </div>
+      )}
+      <p style="margin-top:24px;">To talk to us directly, call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>.</p>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>

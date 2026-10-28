@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import { towns } from '../../data/towns.js';
+import { business, alsoCovered } from '../../data/business.js';
+
+const title = 'Air Conditioning Areas | Hampshire and Dorset | No1 Air Con';
+const description = `Towns we cover from the Ringwood showroom: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton. About ${business.radiusMiles} miles.`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Areas', href: '/areas/' },
+];
+---
+<Base title={title} description={description} crumbs={crumbs}>
+  <PageHero
+    eyebrow="Areas"
+    title="Air conditioning across Hampshire and Dorset"
+    lead={`We install within about ${business.radiusMiles} miles of the showroom at ${business.street}, ${business.town}. These eight towns each have their own page, because a cottage in Fordingbridge is not the same job as a bungalow in New Milton.`}
+    crumbs={crumbs}
+  />
+  <section class="section">
+    <div class="container">
+      <div class="area-grid">
+        {towns.map((town) => (
+          <a class="area-link" href={`/areas/${town.slug}/`}>
+            Air conditioning in {town.name}
+            <span>{town.lead}</span>
+          </a>
+        ))}
+      </div>
+      <div class="prose" style="margin-top:36px;">
+        <h2>Further afield</h2>
+        <p>
+          The existing business details also name {alsoCovered.join(', ')} as places inside the same radius.
+          Those towns do not have pages yet, so they are listed here as text rather than as thin location pages.
+          Call {business.phone} if you want to know whether we will survey a particular address.
+        </p>
+      </div>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>

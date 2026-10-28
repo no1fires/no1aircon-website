@@ -1,0 +1,95 @@
+---
+import { business, quoteEndpoint } from '../data/business.js';
+import { services } from '../data/services.js';
+
+const { id = 'quote', variant = 'quote' } = Astro.props;
+const isGuide = variant === 'guide';
+const endpoint = quoteEndpoint || '';
+const page = Astro.url.pathname;
+const success = isGuide
+  ? 'Thanks. We have your details. The buyer’s guide is not published yet, so this is a request to be told when it is. Call us if you need advice now.'
+  : 'Thanks. We have received your enquiry and will be in touch. If it is urgent, please call.';
+---
+<form
+  class:list={['quote-form', { 'form-dark': isGuide }]}
+  id={id}
+  data-form={isGuide ? 'buyers-guide' : 'quote'}
+  data-endpoint={endpoint}
+  data-page={page}
+  data-phone={business.phone}
+  data-phone-href={`tel:${business.phoneIntl}`}
+  data-email={business.email}
+  data-success={success}
+  novalidate
+>
+  <div class="hp" aria-hidden="true">
+    <label for={`${id}-company`}>Company website</label>
+    <input id={`${id}-company`} name="company_website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class={isGuide ? 'form-row' : undefined}>
+    <div class="field">
+      <label for={`${id}-name`}>Name</label>
+      <input id={`${id}-name`} name="name" type="text" autocomplete="name" data-required data-label="Name" />
+      <span class="error" id={`${id}-name-error`}></span>
+    </div>
+    {isGuide ? (
+      <div class="field">
+        <label for={`${id}-email`}>Email</label>
+        <input id={`${id}-email`} name="email" type="email" autocomplete="email" data-required data-label="Email" />
+        <span class="error"></span>
+      </div>
+    ) : (
+      <div class="field">
+        <label for={`${id}-phone`}>Phone</label>
+        <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" data-required data-kind="phone" data-label="Phone" />
+        <span class="error"></span>
+      </div>
+    )}
+  </div>
+
+  {isGuide ? (
+    <div class="field">
+      <label for={`${id}-phone`}>Phone</label>
+      <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" data-required data-kind="phone" data-label="Phone" />
+      <span class="error"></span>
+    </div>
+  ) : (
+    <>
+      <div class="form-row">
+        <div class="field">
+          <label for={`${id}-email`}>Email</label>
+          <input id={`${id}-email`} name="email" type="email" autocomplete="email" data-required data-label="Email" />
+          <span class="error"></span>
+        </div>
+        <div class="field">
+          <label for={`${id}-location`}>Postcode or town</label>
+          <input id={`${id}-location`} name="location" type="text" autocomplete="postal-code" data-required data-label="Postcode or town" />
+          <span class="error"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for={`${id}-service`}>Service</label>
+        <select id={`${id}-service`} name="service" data-required data-label="Service">
+          <option value="">Choose a service</option>
+          {services.map((service) => <option value={service.name}>{service.name}</option>)}
+          <option value="Not sure">Not sure yet</option>
+          <option value="Showroom visit">Showroom visit</option>
+        </select>
+        <span class="error"></span>
+      </div>
+      <div class="field">
+        <label for={`${id}-message`}>Message</label>
+        <textarea id={`${id}-message`} name="message" data-required data-min="10" data-label="Message"></textarea>
+        <span class="error"></span>
+      </div>
+    </>
+  )}
+
+  <button class="btn" type="submit">{isGuide ? 'Send me the guide' : 'Request a quote'}</button>
+  <p class="status" data-status role="status" aria-live="polite"></p>
+  <p class={isGuide ? undefined : 'muted'} style={isGuide ? 'margin-top:12px' : 'margin-top:12px'}>
+    Or call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>
+    {business.whatsappIntl ? <> or <a href={`https://wa.me/${business.whatsappIntl.replace('+', '')}`}>WhatsApp</a></> : null}.
+  </p>
+</form>

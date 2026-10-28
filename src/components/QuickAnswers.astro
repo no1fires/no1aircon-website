@@ -1,0 +1,21 @@
+---
+const { faqs = [] } = Astro.props;
+---
+{faqs.length > 0 && (
+  <section class="section tint" aria-labelledby="quick-answers">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="quick-answers">The short version</h2>
+      </div>
+      <div class="answer-list">
+        {faqs.map((faq) => (
+          <article class="answer">
+            <h3>{faq.q}</h3>
+            <p>{faq.a}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

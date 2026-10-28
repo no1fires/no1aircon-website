@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import { business } from '../data/business.js';
+import { todo } from '../data/placeholders.js';
+
+const title = 'Cookie Policy | No1 Air Conditioning';
+const description = `Cookies used on ${business.url}. This static site does not set advertising or analytics cookies of its own.`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Cookies', href: '/cookies/' },
+];
+---
+<Base title={title} description={description} crumbs={crumbs}>
+  <PageHero eyebrow="Legal" title="Cookie policy" lead="What this website stores on your device, written for the site as it is built today." crumbs={crumbs} />
+  <section class="section">
+    <div class="container prose">
+      <h2>What we use</h2>
+      <p>The pages are static. The quote form does not set a cookie in your browser. We do not run a marketing pixel, and we have not added Google Analytics or a cookie banner, because there is nothing non-essential to opt out of.</p>
+      <p>The site is hosted on Cloudflare. Cloudflare may set a strictly necessary cookie to keep the site secure and reliable. We do not use that for advertising.</p>
+      <h2>If analytics is added later</h2>
+      <p><span class="todo">{todo('analyticsChoice')}</span> If a measurement tool is switched on, this page has to be updated before it goes live, and a banner added if the tool is not cookieless.</p>
+      <h2>How to control cookies</h2>
+      <p>You can block or delete cookies in your browser settings. Blocking a strictly necessary host cookie should not stop you reading the pages or calling {business.phone}.</p>
+      <p>Questions: <a href={`mailto:${business.email}`}>{business.email}</a>.</p>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>

@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuickAnswers from '../../components/QuickAnswers.astro';
+import FaqList from '../../components/FaqList.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import Related from '../../components/Related.astro';
+import Icon from '../../components/Icon.astro';
+import { services, getService, getServicesBySlugs } from '../../data/services.js';
+import { getTownsBySlugs } from '../../data/towns.js';
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug } }));
+}
+
+const service = getService(Astro.params.slug);
+const related = getServicesBySlugs(service.related);
+const towns = getTownsBySlugs(service.towns);
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services/' },
+  { name: service.name, href: `/services/${service.slug}/` },
+];
+const faqs = [...service.answerFaqs, ...service.faqs];
+---
+<Base title={service.title} description={service.description} crumbs={crumbs} faqs={faqs} service={service}>
+  <PageHero eyebrow={service.eyebrow} title={service.h1} lead={service.lead} crumbs={crumbs} />
+  <QuickAnswers faqs={service.answerFaqs} />
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        {service.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        <p><strong>{service.priceNote}</strong></p>
+      </div>
+      <div>
+        <h2>Where it fits</h2>
+        <ul class="check-list" style="margin-top:16px;">
+          {service.suitable.map((item) => (
+            <li><Icon name="check" size={18} /><span>{item}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="section tint">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>What this includes</h2>
+      </div>
+      <div class="card-grid">
+        {service.provides.map((item) => (
+          <article class="provide">
+            <span class="icon-tile"><Icon name={service.icon} size={26} /></span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Related services={related} towns={towns} />
+  <FaqList faqs={service.faqs} />
+  <QuoteSection title={`Quote for ${service.name.toLowerCase()}`} />
+</Base>
