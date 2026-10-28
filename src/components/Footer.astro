@@ -1,8 +1,7 @@
 ---
-import { business } from '../data/business.js';
+import { addressLine, business, openingHoursText } from '../data/business.js';
 import { services } from '../data/services.js';
 import { towns } from '../data/towns.js';
-import { addressLine } from '../data/business.js';
 
 const year = new Date().getFullYear();
 ---
@@ -42,6 +41,7 @@ const year = new Date().getFullYear();
         <li><a href={`tel:${business.phoneIntl}`}>{business.phone}</a></li>
         <li><a href={`mailto:${business.email}`}>{business.email}</a></li>
         <li>{addressLine()}</li>
+        <li>Opening hours: {openingHoursText()}</li>
       </ul>
     </div>
   </div>

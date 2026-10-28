@@ -1,4 +1,4 @@
-import { business, brands } from './business.js';
+import { business, brands, openingHoursText } from './business.js';
 import { todo } from './placeholders.js';
 
 const brandNames = `${brands[0].name}, ${brands[1].name} and ${brands[2].name}`;
@@ -205,7 +205,7 @@ export const services = [
     lead: 'An annual service keeps the warranty valid, the filters clean and the system efficient. We service the brands we install, from the Ringwood showroom.',
     paragraphs: [
       `${business.warranty} Skipping the service is the usual reason a warranty claim is turned down, so we would rather book the next visit before we leave.`,
-      'A service is a check, not a five-minute filter rinse. We look at filters, indoor and outdoor coils, the condensate drain, temperatures, electrical connections and signs of a refrigerant leak. Refrigerant work is done by certified engineers. The current site describes the installers as Refcom certified. The registration number is still to be added.',
+      'A service is a check, not a five-minute filter rinse. We look at filters, indoor and outdoor coils, the condensate drain, temperatures, electrical connections and signs of a refrigerant leak. Refrigerant work is done by certified engineers. The current site describes the installers as Refcom certified.',
       'Care plans are a way to put that visit on a schedule, sometimes with priority if the system stops. We are not publishing tiers, prices or inclusions until they are confirmed. If a page elsewhere on the internet lists a Gold or Silver plan for No1 Air Con, it did not come from us.',
       'If the system is already leaking, showing an error code or not cooling, that is a repair rather than a service. Tell us the symptoms when you book and we will bring the right kit.',
     ],
@@ -267,7 +267,7 @@ export const services = [
     lead: 'Not cooling, leaking water, making a new noise, or showing an error code. We diagnose and repair the brands we install: Mitsubishi Electric, Daikin and Clivet.',
     paragraphs: [
       'Tell us the brand, roughly how old the system is, and what it is doing. A photo of the error code on the controller saves a wasted visit. We will say honestly if we need a part ordered before we can finish the job.',
-      `We do not claim a same-day promise and we do not claim to be on call overnight. Phone ${business.phone} during the working day. Opening hours for the showroom are still to be confirmed, so if the phone is not answered, email ${business.email} and we will come back to you.`,
+      `We do not claim a same-day promise and we do not claim to be on call overnight. Phone ${business.phone} during showroom hours: ${openingHoursText()}. If the phone is not answered, email ${business.email} and we will come back to you.`,
       'Water indoors is often a blocked condensate drain, but it can also be a frozen coil or a poor pipe fall. We do not ask you to take the unit apart. Switch it off at the isolator if water is coming into the room, and call us.',
       'If the system is under the installation warranty and it has been serviced, say so when you book. If it has never been serviced, we can still look at it, but a warranty claim may not stand.',
     ],
@@ -303,7 +303,7 @@ export const services = [
     faqs: [
       {
         q: 'Do you offer 24 hour call-out?',
-        a: `No. We have not published out-of-hours cover. Call ${business.phone} or email ${business.email}. ${todo('openingHours')}`,
+        a: `No. We have not published out-of-hours cover. Call ${business.phone} or email ${business.email}. Showroom hours: ${openingHoursText()}.`,
       },
       {
         q: 'Is a water leak an emergency?',

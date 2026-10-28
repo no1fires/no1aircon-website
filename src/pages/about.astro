@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
-import { business, brands } from '../data/business.js';
+import { business, brands, openingHoursText } from '../data/business.js';
 import { todo } from '../data/placeholders.js';
 import { brandList } from '../lib/format.js';
 
@@ -25,12 +25,12 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.
     <div class="container prose">
       <h2>Who we are</h2>
       <p>{business.name}, also called {business.shortName}, is the trading name of {business.legalName}. The same company trades as <a href={business.sister.url} rel="noopener noreferrer">{business.sister.name}</a>.</p>
-      <p>The showroom and the phone number are how you reach us. We do not publish staff names, a company number or accreditation numbers until they are confirmed.</p>
+      <p>The showroom and the phone number are how you reach us. We do not publish staff names or a company number until they are confirmed.</p>
       <p>Company number: <span class="todo">{business.companyNumber || todo('companyNumber')}</span>. VAT number: <span class="todo">{business.vatNumber || todo('vatNumber')}</span>.</p>
       <h2>What we do</h2>
       <p>Home air conditioning, heating and cooling, commercial systems, servicing, repairs, and ducted or ceiling systems where the building can take them. A single room is installed from {business.priceFrom} including VAT. {business.warranty}</p>
       <p>Brands we install: {brandList(brands)}. {brands.map((brand) => brand.note).join(' ')}</p>
-      <p>{business.refcomCertified ? 'The current website describes the installers as Refcom certified.' : ''} <span class="todo">{todo('refcomNumber')}</span> <span class="todo">{todo('fgasNumber')}</span> <span class="todo">{todo('accreditations')}</span></p>
+      <p>{business.refcomCertified ? 'The current website describes the installers as Refcom certified.' : ''} <span class="todo">{todo('accreditations')}</span></p>
       <h2>Photos still to add</h2>
       <p><span class="todo">{todo('teamPhoto')}</span></p>
       <p><span class="todo">{todo('installPhoto')}</span></p>
@@ -44,7 +44,7 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.
         <p>Christchurch Road is in Ringwood, Hampshire. It is not the town of Christchurch. Come and compare {brandList(brands)} side by side, and listen to them, before you decide.</p>
         <p><strong>{business.street}, {business.town}, {business.county} {business.postcode}</strong></p>
         <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br /><a href={`mailto:${business.email}`}>{business.email}</a></p>
-        <p>Opening hours: <span class="todo">{todo('openingHours')}</span></p>
+        <p>Opening hours: {openingHoursText()}.</p>
         <p><span class="todo">{todo('showroomPhoto')}</span></p>
         <p style="margin-top:16px;"><a class="btn" href="/contact/#quote">Book a visit</a></p>
       </div>
