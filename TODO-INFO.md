@@ -25,8 +25,6 @@ Put real values on the matching fields in `src/data/business.js` (or the reviews
 | WhatsApp number | Contact page, and the floating WhatsApp button once `whatsappIntl` is set (digits only, with country code, e.g. `447…`) |
 | Company number | About, privacy, terms, the facts strip |
 | VAT number | About |
-| F-Gas number | Facts strip and about |
-| REFCOM number | Facts strip and about. The “Refcom certified” wording is already a published claim; the number is not |
 | Google rating and review count | Only fill `business.rating` as `{ value, count }` when both numbers are real. The site will not output rating schema before that |
 | Real reviews | `reviews` array: `{ quote, name, town, detail }`. Empty means the reviews blocks stay placeholders |
 | GHL form or webhook URL | `quoteEndpoint` in `business.js`, or the `PUBLIC_QUOTE_ENDPOINT` build variable if the URL contains a token. Until it is an `https://` URL, the form does not send and tells people to call or email |
@@ -65,4 +63,4 @@ The honeypot field is `company_website` and is not posted. The webhook must acce
 
 ## Do not invent
 
-Prices, a WhatsApp number, the company number, F-Gas and REFCOM numbers, extra brands, warranty small print, review scores, named customers, or case-study results. If it is not in `business.js`, it stays a placeholder.
+Prices, a WhatsApp number, the company number, extra brands, warranty small print, review scores, named customers, or case-study results. If it is not in `business.js`, it stays a placeholder. Do not add an F-Gas or REFCOM registration number.

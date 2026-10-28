@@ -18,8 +18,6 @@ const townList = towns.map((town) => town.name).join(', ');
     <p>
       We install, service and repair air conditioning and air-to-air heat pumps for homes and businesses in {townList}.
       {business.refcomCertified ? 'The current site describes our installers as Refcom certified.' : ''}
-      {business.refcomNumber ? ` REFCOM ${business.refcomNumber}.` : <> REFCOM number: <span class="todo">{todo('refcomNumber')}</span>.</>}
-      {business.fgasNumber ? ` F-Gas ${business.fgasNumber}.` : <> F-Gas number: <span class="todo">{todo('fgasNumber')}</span>.</>}
       Company number: {business.companyNumber || <span class="todo">{todo('companyNumber')}</span>}.
     </p>
     <p>

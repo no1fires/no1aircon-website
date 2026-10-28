@@ -205,7 +205,7 @@ export const services = [
     lead: 'An annual service keeps the warranty valid, the filters clean and the system efficient. We service the brands we install, from the Ringwood showroom.',
     paragraphs: [
       `${business.warranty} Skipping the service is the usual reason a warranty claim is turned down, so we would rather book the next visit before we leave.`,
-      'A service is a check, not a five-minute filter rinse. We look at filters, indoor and outdoor coils, the condensate drain, temperatures, electrical connections and signs of a refrigerant leak. Refrigerant work is done by certified engineers. The current site describes the installers as Refcom certified. The registration number is still to be added.',
+      'A service is a check, not a five-minute filter rinse. We look at filters, indoor and outdoor coils, the condensate drain, temperatures, electrical connections and signs of a refrigerant leak. Refrigerant work is done by certified engineers. The current site describes the installers as Refcom certified.',
       'Care plans are a way to put that visit on a schedule, sometimes with priority if the system stops. We are not publishing tiers, prices or inclusions until they are confirmed. If a page elsewhere on the internet lists a Gold or Silver plan for No1 Air Con, it did not come from us.',
       'If the system is already leaking, showing an error code or not cooling, that is a repair rather than a service. Tell us the symptoms when you book and we will bring the right kit.',
     ],

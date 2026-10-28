@@ -25,7 +25,7 @@ Preview note: indexing is switched off until `INDEXABLE` is set to true in `src/
 
 - Warranty published on the site: up to 5 years, kept valid by annual servicing. Fuller warranty terms are not confirmed.
 - 0% finance is available on qualifying installations, from as little as £25 a week. Lender and eligibility rules are not confirmed.
-- The existing site describes the installers as Refcom certified. The REFCOM number and the F-Gas number are not on the site yet. Do not invent them.
+- The existing site describes the installers as Refcom certified. No F-Gas or REFCOM registration number is published.
 - Company number, VAT number and WhatsApp number are not published yet.
 - Showroom opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 

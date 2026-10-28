@@ -36,7 +36,7 @@ export const business = {
   // "from as little as £25 a week" line. Lender and eligibility are not.
   financeNote: '0% finance is available on qualifying installations, from as little as £25 a week.',
   warranty: 'Up to 5 years. Annual servicing keeps the warranty valid.',
-  // Stated on the current site. The registration number is not.
+  // Stated on the current site. Do not publish an F-Gas or REFCOM number.
   refcomCertified: true,
   sister: { name: 'No1 Fires', url: 'https://no1fires.co.uk' },
   // Null until Danny supplies them. Pages show the matching placeholder.
@@ -44,8 +44,6 @@ export const business = {
   whatsappIntl: null,
   companyNumber: null,
   vatNumber: null,
-  fgasNumber: null,
-  refcomNumber: null,
   // Danny confirmed these showroom hours. Closed Sunday and Monday.
   // Pages print them through openingHoursText().
   hours: [
