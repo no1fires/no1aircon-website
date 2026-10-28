@@ -46,9 +46,15 @@ export const business = {
   vatNumber: null,
   fgasNumber: null,
   refcomNumber: null,
-  // When known, use:
-  // [{ days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' }]
-  hours: null,
+  // Danny confirmed these showroom hours. Closed Sunday and Monday.
+  // Pages print them through openingHoursText().
+  hours: [
+    {
+      days: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '10:00',
+      closes: '16:00',
+    },
+  ],
   // Only set when the numbers are real. Schema will not emit a rating otherwise.
   // { value: 4.8, count: 36 }
   rating: null,
@@ -126,6 +132,47 @@ export const faqs = [
     a: `Call ${business.phone}, email ${business.email}, or use the quote form. We survey the property and then give you a fixed, no-obligation price.`,
   },
 ];
+
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+function clockLabel(value) {
+  const [hourPart, minutePart] = value.split(':');
+  const hour = Number(hourPart);
+  const minute = Number(minutePart);
+  const suffix = hour >= 12 ? 'pm' : 'am';
+  const hour12 = hour % 12 || 12;
+  return minute === 0 ? `${hour12}${suffix}` : `${hour12}:${minutePart}${suffix}`;
+}
+
+function daySpan(days) {
+  const indexes = [...new Set(days.map((day) => weekdays.indexOf(day)))]
+    .filter((index) => index >= 0)
+    .sort((a, b) => a - b);
+  const groups = [];
+  for (const index of indexes) {
+    const current = groups.at(-1);
+    if (current && index === current.at(-1) + 1) current.push(index);
+    else groups.push([index]);
+  }
+  return groups.map((group) => {
+    const names = group.map((index) => weekdays[index]);
+    if (names.length === 1) return names[0];
+    if (names.length === 2) return `${names[0]} and ${names[1]}`;
+    return `${names[0]} to ${names.at(-1)}`;
+  }).join(', ');
+}
+
+// Customer-facing hours, derived from business.hours so the pages cannot drift.
+export function openingHoursText() {
+  const slots = Array.isArray(business.hours) ? business.hours : [];
+  if (!slots.length) return '';
+  const open = new Set(slots.flatMap((slot) => slot.days));
+  const openText = slots
+    .map((slot) => `${daySpan(slot.days)}, ${clockLabel(slot.opens)} to ${clockLabel(slot.closes)}`)
+    .join('; ');
+  const closed = weekdays.filter((day) => !open.has(day));
+  return closed.length ? `${openText}; closed ${daySpan(closed)}` : openText;
+}
 
 export function addressLine() {
   return `${business.street}, ${business.town}, ${business.county} ${business.postcode}`;

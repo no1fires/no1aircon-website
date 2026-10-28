@@ -1,14 +1,11 @@
 ---
-import { business, contentUpdated } from '../data/business.js';
+import { business, contentUpdated, openingHoursText } from '../data/business.js';
 import { todo } from '../data/placeholders.js';
 import { formatDate } from '../lib/format.js';
 import { towns } from '../data/towns.js';
 
 const { updated = contentUpdated } = Astro.props;
 const townList = towns.map((town) => town.name).join(', ');
-const hours = Array.isArray(business.hours) && business.hours.length
-  ? business.hours.map((slot) => `${slot.days.join(', ')} ${slot.opens}–${slot.closes}`).join('; ')
-  : null;
 ---
 <aside class="entity-band" aria-label="Business details">
   <div class="container">
@@ -26,7 +23,7 @@ const hours = Array.isArray(business.hours) && business.hours.length
       Company number: {business.companyNumber || <span class="todo">{todo('companyNumber')}</span>}.
     </p>
     <p>
-      Showroom hours: {hours || <span class="todo">{todo('openingHours')}</span>}
+      Showroom hours: {openingHoursText()}.
       Last updated <time datetime={updated}>{formatDate(updated)}</time>.
     </p>
   </div>

@@ -1,4 +1,4 @@
-import { business, brands } from './business.js';
+import { business, brands, openingHoursText } from './business.js';
 import { todo } from './placeholders.js';
 
 const brandNames = `${brands[0].name}, ${brands[1].name} and ${brands[2].name}`;
@@ -267,7 +267,7 @@ export const services = [
     lead: 'Not cooling, leaking water, making a new noise, or showing an error code. We diagnose and repair the brands we install: Mitsubishi Electric, Daikin and Clivet.',
     paragraphs: [
       'Tell us the brand, roughly how old the system is, and what it is doing. A photo of the error code on the controller saves a wasted visit. We will say honestly if we need a part ordered before we can finish the job.',
-      `We do not claim a same-day promise and we do not claim to be on call overnight. Phone ${business.phone} during the working day. Opening hours for the showroom are still to be confirmed, so if the phone is not answered, email ${business.email} and we will come back to you.`,
+      `We do not claim a same-day promise and we do not claim to be on call overnight. Phone ${business.phone} during showroom hours: ${openingHoursText()}. If the phone is not answered, email ${business.email} and we will come back to you.`,
       'Water indoors is often a blocked condensate drain, but it can also be a frozen coil or a poor pipe fall. We do not ask you to take the unit apart. Switch it off at the isolator if water is coming into the room, and call us.',
       'If the system is under the installation warranty and it has been serviced, say so when you book. If it has never been serviced, we can still look at it, but a warranty claim may not stand.',
     ],
@@ -303,7 +303,7 @@ export const services = [
     faqs: [
       {
         q: 'Do you offer 24 hour call-out?',
-        a: `No. We have not published out-of-hours cover. Call ${business.phone} or email ${business.email}. ${todo('openingHours')}`,
+        a: `No. We have not published out-of-hours cover. Call ${business.phone} or email ${business.email}. Showroom hours: ${openingHoursText()}.`,
       },
       {
         q: 'Is a water leak an emergency?',

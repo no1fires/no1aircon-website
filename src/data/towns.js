@@ -1,4 +1,4 @@
-import { business } from './business.js';
+import { business, openingHoursText } from './business.js';
 import { todo } from './placeholders.js';
 
 const showroom = `${business.street}, ${business.town} ${business.postcode}`;
@@ -44,7 +44,7 @@ export const towns = [
       },
       {
         q: 'When is the showroom open?',
-        a: todo('openingHours'),
+        a: `${openingHoursText()}.`,
       },
     ],
   },

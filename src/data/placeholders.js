@@ -9,7 +9,6 @@ export const placeholders = {
   vatNumber: '[TODO: add VAT number]',
   fgasNumber: '[TODO: add F-Gas number]',
   refcomNumber: '[TODO: add REFCOM number]',
-  openingHours: '[TODO: add showroom opening hours]',
   googleRating: '[TODO: add Google rating]',
   reviewCount: '[TODO: add review count]',
   reviews: '[TODO: add real customer reviews — name, town, what was fitted, and the words they used]',

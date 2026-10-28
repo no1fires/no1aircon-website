@@ -26,7 +26,8 @@ Preview note: indexing is switched off until `INDEXABLE` is set to true in `src/
 - Warranty published on the site: up to 5 years, kept valid by annual servicing. Fuller warranty terms are not confirmed.
 - 0% finance is available on qualifying installations, from as little as £25 a week. Lender and eligibility rules are not confirmed.
 - The existing site describes the installers as Refcom certified. The REFCOM number and the F-Gas number are not on the site yet. Do not invent them.
-- Company number, VAT number, showroom opening hours and WhatsApp number are not published yet.
+- Company number, VAT number and WhatsApp number are not published yet.
+- Showroom opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 
 ## Areas
 
@@ -45,7 +46,7 @@ Also named as inside the 30-mile radius, without their own pages yet: Bournemout
 - Instagram: https://www.instagram.com/no1aircon1/
 - Quote form: posts to a GHL webhook URL stored in `src/data/business.js`. Until that URL is set, the form does not send and tells the visitor to call or email.
 - Google Business Profile URL: not added yet.
-- Opening hours: not added yet.
+- Opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 - Reviews: none are published. The site does not show a star rating.
 
 ## Key pages
@@ -83,6 +84,9 @@ A: 10 Christchurch Road, Ringwood, Hampshire BH24 1DN. Christchurch Road is in R
 
 Q: What phone number should be used everywhere?
 A: 01425 333760. The email is info@no1aircon.co.uk. Do not use a different number.
+
+Q: When is the Ringwood showroom open?
+A: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 
 Q: How much does installation cost?
 A: A single room is from £1,999 including VAT. The fixed price is given after a free survey. Other prices are not published yet.
