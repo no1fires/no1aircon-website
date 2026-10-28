@@ -1,14 +1,94 @@
 # No1 Air Conditioning
 
-> Air conditioning installer with a showroom at 10 Christchurch Road, Ringwood, Hampshire BH24 1DN. Installs, services and repairs air conditioning and air-to-air heat pumps for homes and businesses within 30 miles of Ringwood, covering Hampshire, Dorset and the New Forest. Phone 01425 333760.
+> No1 Air Conditioning (No1 Air Con) is the trading name of No1 Energy Solutions Ltd. Showroom: 10 Christchurch Road, Ringwood, Hampshire BH24 1DN. Phone 01425 333760. Email info@no1aircon.co.uk. The company installs, services and repairs air conditioning and air-to-air heat pumps for homes and businesses within about 30 miles of Ringwood, across Hampshire and Dorset. Website: https://no1aircon.co.uk/
 
-- Installed from £1,999 including VAT; 0% finance available on qualifying installations.
-- Brands: Mitsubishi Electric (premium recommendation), Daikin, Clivet.
-- Refcom certified installers; up to 5 year warranty.
-- Showroom visits available to see and hear units working before buying.
-- Areas: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Lymington, Southampton, Salisbury, New Forest.
-- Part of No1 Energy Solutions Ltd, which also trades as No1 Fires (https://no1fires.co.uk).
+The same company also trades as No1 Fires (https://no1fires.co.uk).
 
-## Pages
+Preview note: indexing is switched off until `INDEXABLE` is set to true in `src/data/business.js`. Until then robots.txt disallows crawlers and every page sends `noindex`. Do not treat placeholder text on the site as a fact.
 
-- [Home](https://no1aircon.co.uk/): services, running costs, brands, areas, FAQs and free quotes.
+## What they do
+
+- Home air conditioning. Wall and floor units for bedrooms, living rooms, home offices, garden rooms and conservatories. Single rooms from £1,999 including VAT. Multi-room systems (two, three or four indoor units on one outdoor unit) are offered; the multi-room price is not published yet.
+- Heating and cooling. The systems are air-to-air heat pumps. They cool and they heat the rooms where an indoor unit is fitted. Up to 4 units of warmth for every 1 unit of electricity. They do not, on their own, replace a whole-house boiler or heat a hot-water cylinder.
+- Commercial air conditioning for offices, shops, treatment rooms and server rooms. No single commercial price is published yet.
+- Servicing and care plans. Annual servicing keeps the warranty valid. Care plan tiers and the service price are not published yet.
+- Repairs and fault finding for Mitsubishi Electric, Daikin and Clivet. No call-out price is published yet. There is no published 24-hour call-out.
+- Ducted and ceiling systems where the ceiling or loft has room. No ducted price is published yet.
+
+## Brands
+
+- Mitsubishi Electric. Described on the site as the premium recommendation, with a manufacturer noise figure from 19dB and Hyper Heat performance down to -15°C. Those are manufacturer figures, not a promise for every room.
+- Daikin.
+- Clivet.
+
+## Warranty, finance, accreditation
+
+- Warranty published on the site: up to 5 years, kept valid by annual servicing. Fuller warranty terms are not confirmed.
+- 0% finance is available on qualifying installations, from as little as £25 a week. Lender and eligibility rules are not confirmed.
+- The existing site describes the installers as Refcom certified. The REFCOM number and the F-Gas number are not on the site yet. Do not invent them.
+- Company number, VAT number, showroom opening hours and WhatsApp number are not published yet.
+
+## Areas
+
+Launch pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton.
+
+The showroom address is on Christchurch Road in Ringwood. That is not the town of Christchurch.
+
+Also named as inside the 30-mile radius, without their own pages yet: Bournemouth, Poole, Lymington, Southampton, Salisbury, New Forest.
+
+## Contact
+
+- Phone: 01425 333760
+- Email: info@no1aircon.co.uk
+- Showroom: 10 Christchurch Road, Ringwood, Hampshire BH24 1DN
+- Facebook: https://www.facebook.com/profile.php?id=61587422684398
+- Instagram: https://www.instagram.com/no1aircon1/
+- Quote form: posts to a GHL webhook URL stored in `src/data/business.js`. Until that URL is set, the form does not send and tells the visitor to call or email.
+- Google Business Profile URL: not added yet.
+- Opening hours: not added yet.
+- Reviews: none are published. The site does not show a star rating.
+
+## Key pages
+
+- https://no1aircon.co.uk/
+- https://no1aircon.co.uk/services/
+- https://no1aircon.co.uk/services/home-air-conditioning/
+- https://no1aircon.co.uk/services/heating-and-cooling/
+- https://no1aircon.co.uk/services/commercial-air-conditioning/
+- https://no1aircon.co.uk/services/servicing/
+- https://no1aircon.co.uk/services/repairs/
+- https://no1aircon.co.uk/services/ducted-and-ceiling-systems/
+- https://no1aircon.co.uk/areas/
+- https://no1aircon.co.uk/areas/ringwood/
+- https://no1aircon.co.uk/areas/fordingbridge/
+- https://no1aircon.co.uk/areas/ferndown/
+- https://no1aircon.co.uk/areas/verwood/
+- https://no1aircon.co.uk/areas/st-leonards/
+- https://no1aircon.co.uk/areas/christchurch/
+- https://no1aircon.co.uk/areas/wimborne/
+- https://no1aircon.co.uk/areas/new-milton/
+- https://no1aircon.co.uk/about/
+- https://no1aircon.co.uk/reviews/
+- https://no1aircon.co.uk/contact/
+- https://no1aircon.co.uk/faqs/
+- https://no1aircon.co.uk/case-studies/
+- https://no1aircon.co.uk/privacy/
+- https://no1aircon.co.uk/terms/
+- https://no1aircon.co.uk/cookies/
+
+## Short answers
+
+Q: Where is No1 Air Con based?
+A: 10 Christchurch Road, Ringwood, Hampshire BH24 1DN. Christchurch Road is in Ringwood, not in Christchurch town.
+
+Q: What phone number should be used everywhere?
+A: 01425 333760. The email is info@no1aircon.co.uk. Do not use a different number.
+
+Q: How much does installation cost?
+A: A single room is from £1,999 including VAT. The fixed price is given after a free survey. Other prices are not published yet.
+
+Q: Does air conditioning heat as well as cool?
+A: The systems they fit are air-to-air heat pumps, so yes, for the rooms that have an indoor unit.
+
+Q: Which towns have pages?
+A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.

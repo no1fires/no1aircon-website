@@ -1,38 +1,26 @@
 ---
 import '../styles/global.css';
-import { business, services, areas } from '../data/business.js';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import EntityFacts from '../components/EntityFacts.astro';
+import Icon from '../components/Icon.astro';
+import { INDEXABLE, business, contentUpdated } from '../data/business.js';
+import { buildGraph } from '../lib/schema.js';
 
-const { title, description, schema = [], noindex = false } = Astro.props;
+const {
+  title,
+  description,
+  crumbs = [],
+  faqs = [],
+  service = null,
+  updated = contentUpdated,
+} = Astro.props;
+
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-
-const localBusiness = {
-  '@context': 'https://schema.org',
-  '@type': 'HVACBusiness',
-  '@id': `${business.url}/#business`,
-  name: business.name,
-  alternateName: business.shortName,
-  legalName: business.legalName,
-  url: business.url + '/',
-  logo: `${business.url}/images/no1-aircon-logo.svg`,
-  image: `${business.url}/images/no1-aircon-logo.svg`,
-  telephone: business.phoneIntl,
-  email: business.email,
-  priceRange: `From ${business.priceFrom}`,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: business.street,
-    addressLocality: business.town,
-    addressRegion: business.county,
-    postalCode: business.postcode,
-    addressCountry: 'GB',
-  },
-  geo: { '@type': 'GeoCoordinates', latitude: business.geo.lat, longitude: business.geo.lng },
-  areaServed: areas.map((a) => ({ '@type': 'Place', name: a })),
-  sameAs: [business.facebook, business.instagram],
-  makesOffer: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.name } })),
-};
-const allSchema = [localBusiness, ...schema];
-const year = new Date().getFullYear();
+const graph = buildGraph({ canonical, crumbs, faqs, service });
+const json = JSON.stringify(graph).replace(/</g, '\\u003c');
+const image = `${business.url}/images/og-default.png`;
+const whatsapp = business.whatsappIntl ? `https://wa.me/${String(business.whatsappIntl).replace('+', '')}` : '';
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -42,82 +30,52 @@ const year = new Date().getFullYear();
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
-  {noindex && <meta name="robots" content="noindex" />}
+  {!INDEXABLE && <meta name="robots" content="noindex" />}
+  <meta name="theme-color" content="#0f1e3d" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content={business.name} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
-  <meta property="og:site_name" content={business.name} />
-  <meta property="og:locale" content="en_GB" />
-  <meta name="theme-color" content="#0f1e3d" />
+  <meta property="og:image" content={image} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="No1 Air Conditioning, Ringwood showroom, Hampshire and Dorset" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="sitemap" href="/sitemap-index.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet" />
-  {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  {INDEXABLE && <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />}
+  <script type="application/ld+json" set:html={json} />
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-  <div class="topbar">
-    <div class="wrap topbar-in">
-      <span>Showroom: {business.street}, {business.town} {business.postcode}</span>
-      <span>0% finance available · Up to 5 year warranty</span>
-    </div>
-  </div>
-  <header class="header">
-    <div class="wrap header-in">
-      <a href="/" class="logo" aria-label={`${business.name} home`}>
-        <img src="/images/no1-aircon-logo.svg" alt={business.name} width="224" height="56" />
-      </a>
-      <nav aria-label="Main" class="nav">
-        <a href="/#services">Services</a>
-        <a href="/#areas">Areas</a>
-        <a href="/#showroom">Showroom</a>
-        <a href="/#faqs">FAQs</a>
-        <a href="/#quote">Contact</a>
-      </nav>
-      <div class="header-cta">
-        <a class="phone" href={`tel:${business.phoneIntl}`}>{business.phone}</a>
-        <a class="btn" href="/#quote">Get a free quote</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
+  <a class="skip" href="#main-content">Skip to content</a>
+  {!INDEXABLE && (
+    <p class="preview-bar">Preview site. Pages are set to noindex until INDEXABLE is turned on in the business details.</p>
+  )}
+  <Header />
+  <main id="main-content">
     <slot />
+    <EntityFacts updated={updated} />
   </main>
-
-  <footer class="footer">
-    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="wrap footer-grid">
-      <div>
-        <img src="/images/no1-aircon-logo-white.svg" alt={business.name} width="208" height="52" />
-        <p>Air conditioning installation, servicing and repairs across Hampshire, Dorset and the New Forest, from our showroom in Ringwood.</p>
-      </div>
-      <div>
-        <h2>Services</h2>
-        <ul>{services.map((s) => <li><a href="/#services">{s.name}</a></li>)}</ul>
-      </div>
-      <div>
-        <h2>Areas</h2>
-        <ul>{areas.slice(0, 8).map((a) => <li><a href="/#areas">{a}</a></li>)}</ul>
-      </div>
-      <div>
-        <h2>Contact</h2>
-        <address>
-          {business.street}<br />{business.town}, {business.county}<br />{business.postcode}<br />
-          <a class="footer-phone" href={`tel:${business.phoneIntl}`}>{business.phone}</a><br />
-          <a href={`mailto:${business.email}`}>{business.email}</a>
-        </address>
-        <p class="social"><a href={business.facebook}>Facebook</a> · <a href={business.instagram}>Instagram</a></p>
-      </div>
-    </div>
-    <div class="wrap footer-base">
-      <span>© {year} {business.legalName}, trading as {business.name}.</span>
-      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span>
-    </div>
-  </footer>
+  <Footer />
+  <div class="float-stack">
+    {whatsapp && (
+      <a class="float-btn wa" href={whatsapp} aria-label="WhatsApp No1 Air Conditioning">
+        <Icon name="quote" size={26} />
+      </a>
+    )}
+    <a class="float-btn" href={`tel:${business.phoneIntl}`} aria-label={`Call ${business.phone}`}>
+      <Icon name="phone" size={26} />
+    </a>
+  </div>
+  <script>
+    import '../scripts/site.js';
+  </script>
 </body>
 </html>

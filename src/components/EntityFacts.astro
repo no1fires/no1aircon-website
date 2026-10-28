@@ -1,0 +1,33 @@
+---
+import { business, contentUpdated } from '../data/business.js';
+import { todo } from '../data/placeholders.js';
+import { formatDate } from '../lib/format.js';
+import { towns } from '../data/towns.js';
+
+const { updated = contentUpdated } = Astro.props;
+const townList = towns.map((town) => town.name).join(', ');
+const hours = Array.isArray(business.hours) && business.hours.length
+  ? business.hours.map((slot) => `${slot.days.join(', ')} ${slot.opens}–${slot.closes}`).join('; ')
+  : null;
+---
+<aside class="entity-band" aria-label="Business details">
+  <div class="container">
+    <p>
+      <strong>{business.name}</strong> is the trading name of {business.legalName}.
+      Showroom: {business.street}, {business.town}, {business.county} {business.postcode}.
+      Phone <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>.
+      Email <a href={`mailto:${business.email}`}>{business.email}</a>.
+    </p>
+    <p>
+      We install, service and repair air conditioning and air-to-air heat pumps for homes and businesses in {townList}.
+      {business.refcomCertified ? 'The current site describes our installers as Refcom certified.' : ''}
+      {business.refcomNumber ? ` REFCOM ${business.refcomNumber}.` : <> REFCOM number: <span class="todo">{todo('refcomNumber')}</span>.</>}
+      {business.fgasNumber ? ` F-Gas ${business.fgasNumber}.` : <> F-Gas number: <span class="todo">{todo('fgasNumber')}</span>.</>}
+      Company number: {business.companyNumber || <span class="todo">{todo('companyNumber')}</span>}.
+    </p>
+    <p>
+      Showroom hours: {hours || <span class="todo">{todo('openingHours')}</span>}
+      Last updated <time datetime={updated}>{formatDate(updated)}</time>.
+    </p>
+  </div>
+</aside>

@@ -1,0 +1,18 @@
+---
+import { business } from '../data/business.js';
+import Breadcrumbs from './Breadcrumbs.astro';
+
+const { eyebrow, title, lead, crumbs = [] } = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    {crumbs.length > 0 && <Breadcrumbs crumbs={crumbs} />}
+    {eyebrow && <p class="eyebrow eyebrow-on-dark">{eyebrow}</p>}
+    <h1>{title}</h1>
+    {lead && <p class="lead">{lead}</p>}
+    <div class="hero-actions">
+      <a class="btn" href="#quote">Get a free quote</a>
+      <a class="btn btn-outline" href={`tel:${business.phoneIntl}`}>Call {business.phone}</a>
+    </div>
+  </div>
+</section>

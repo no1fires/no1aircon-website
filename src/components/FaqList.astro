@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+const { faqs = [], heading = 'Questions we get asked' } = Astro.props;
+---
+{faqs.length > 0 && (
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow">FAQs</p>
+        <h2 id="faq-heading">{heading}</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>
+              {faq.q}
+              <span class="faq-toggle"><Icon name="chevron" size={16} /></span>
+            </summary>
+            <div class="faq-answer"><p>{faq.a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

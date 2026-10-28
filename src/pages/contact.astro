@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import { business } from '../data/business.js';
+import { todo } from '../data/placeholders.js';
+
+const title = 'Contact No1 Air Con | Ringwood Showroom';
+const description = `Contact No1 Air Conditioning at ${business.street}, ${business.town} ${business.postcode}. Call ${business.phone} or email ${business.email} for a survey and a fixed quote.`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Contact', href: '/contact/' },
+];
+const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.street}, ${business.town} ${business.postcode}`)}&z=16&output=embed`;
+---
+<Base title={title} description={description} crumbs={crumbs}>
+  <PageHero
+    eyebrow="Contact"
+    title="Talk to us about the room"
+    lead="Call, email, or send the form. We survey the property and then give a fixed price. The form is only delivered once the enquiry address is connected."
+    crumbs={crumbs}
+  />
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <h2>Showroom and phone</h2>
+        <p><strong>{business.name}</strong><br />{business.legalName}</p>
+        <p>{business.street}<br />{business.town}<br />{business.county}<br />{business.postcode}</p>
+        <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br /><a href={`mailto:${business.email}`}>{business.email}</a></p>
+        <p>Opening hours: <span class="todo">{todo('openingHours')}</span></p>
+        <p>WhatsApp: {business.whatsapp ? <a href={`https://wa.me/${String(business.whatsappIntl).replace('+', '')}`}>{business.whatsapp}</a> : <span class="todo">{todo('whatsapp')}</span>}</p>
+        <p>Tell us the town or postcode, which rooms, and whether you want cooling, heating, or both. A photo of the wall and the outside of the house helps, but it does not replace the survey.</p>
+      </div>
+      <div class="map-wrap" data-map-wrap data-map-src={mapSrc}>
+        <button class="btn" type="button" data-map-button>Show the showroom on a map</button>
+      </div>
+    </div>
+  </section>
+  <QuoteSection title="Send an enquiry" />
+</Base>

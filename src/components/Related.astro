@@ -1,0 +1,39 @@
+---
+const { services = [], towns = [], heading = 'Keep reading' } = Astro.props;
+---
+{(services.length > 0 || towns.length > 0) && (
+  <section class="section" aria-labelledby="related-heading">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Related</p>
+        <h2 id="related-heading">{heading}</h2>
+      </div>
+      {services.length > 0 && (
+        <>
+          <h3>Services</h3>
+          <div class="related-grid" style="margin: 16px 0 28px;">
+            {services.map((service) => (
+              <a class="area-link" href={`/services/${service.slug}/`}>
+                {service.name}
+                <span>{service.blurb}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
+      {towns.length > 0 && (
+        <>
+          <h3>Towns</h3>
+          <div class="related-grid" style="margin-top: 16px;">
+            {towns.map((town) => (
+              <a class="area-link" href={`/areas/${town.slug}/`}>
+                Air conditioning in {town.name}
+                <span>{town.county}{town.miles ? `, about ${town.miles} miles from the showroom` : ', our showroom town'}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  </section>
+)}

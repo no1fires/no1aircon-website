@@ -1,165 +1,208 @@
 ---
 import Base from '../layouts/Base.astro';
-import { business, services, areas, brands, runningCosts, faqs } from '../data/business.js';
+import Icon from '../components/Icon.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import FaqList from '../components/FaqList.astro';
+import { business, brands, faqs, reviews } from '../data/business.js';
+import { todo } from '../data/placeholders.js';
+import { services } from '../data/services.js';
+import { towns } from '../data/towns.js';
 
-const title = 'Air Conditioning Installation Ringwood | No1 Air Conditioning';
-const description = `Air conditioning installed across Ringwood, the New Forest, Hampshire and Dorset from ${business.priceFrom} inc. VAT. Visit our Ringwood showroom. 0% finance, up to 5 year warranty.`;
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-};
+const title = 'Air Conditioning Installers in Ringwood | No1 Air Conditioning';
+const description = `Air conditioning installation, servicing and repairs from our Ringwood showroom. Single rooms from ${business.priceFrom} inc. VAT across Hampshire and Dorset. Call ${business.phone}.`;
+const steps = [
+  { n: 'Step 1', title: 'Tell us about the room', text: 'A short form or a phone call. Say which rooms, and whether you want cooling, heating, or both.' },
+  { n: 'Step 2', title: 'We visit and survey', text: 'We check the room, the pipe run, the power supply and where the outdoor unit can go. The survey is free.' },
+  { n: 'Step 3', title: 'You get a fixed quote', text: 'The price is fixed after the survey, with no obligation to go ahead. Finance terms are only confirmed once we know the job qualifies.' },
+  { n: 'Step 4', title: 'Install and handover', text: 'We fit the system and walk you through the controls, including heating mode, before we leave.' },
+];
 ---
-<Base title={title} description={description} schema={[faqSchema]}>
-  <div class="offer">Air conditioning installed from {business.priceFrom} inc. VAT · 0% finance available</div>
-
+<Base title={title} description={description} faqs={faqs}>
   <section class="hero">
-    <div class="wrap hero-in">
+    <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Hampshire, Dorset &amp; New Forest air conditioning</p>
-        <h1>Air conditioning installers in Ringwood and the New Forest</h1>
-        <p class="lead">Stay cool in summer, warm in winter and breathe cleaner air all year. We design, install and look after air conditioning for homes and businesses within {business.radiusMiles} miles of our Ringwood showroom, where you can see and hear the units working before you buy.</p>
-        <div class="hero-ctas">
+        <p class="eyebrow">Hampshire, Dorset and New Forest specialists</p>
+        <h1>Air conditioning installers in Ringwood &amp; across Hampshire and Dorset</h1>
+        <p class="lead">Cool in summer, warm in winter, from a showroom you can actually visit. We design, install and look after air conditioning for homes and businesses within about {business.radiusMiles} miles of Ringwood.</p>
+        <div class="hero-actions">
           <a class="btn btn-lg" href="#quote">Get a free quote</a>
-          <a class="btn btn-ghost btn-lg" href={`tel:${business.phoneIntl}`}>Call {business.phone}</a>
+          <a class="btn btn-lg btn-navy" href={`tel:${business.phoneIntl}`}>Call {business.phone}</a>
         </div>
-        <ul class="ticks">
-          <li>Cooling and heating</li>
-          <li>Ultra quiet systems</li>
-          <li>Up to 5 year warranty</li>
-          <li>0% finance available</li>
-          <li>Refcom certified installers</li>
-          <li>Showroom you can visit</li>
+        <ul class="trust-row">
+          <li><Icon name="phone" /> Call {business.phone}</li>
+          <li><Icon name="pin" /> Showroom in Ringwood</li>
+          <li><Icon name="check" /> Fixed-price quotes</li>
         </ul>
       </div>
-      <div class="hero-media">
-        <div class="photo" role="img" aria-label="Photo of a No1 Air Conditioning installation">[Hero photo: one of your installs]</div>
-      </div>
+      <aside class="hero-card">
+        <p class="eyebrow">See it working</p>
+        <h2>See and hear the units before you buy</h2>
+        <p>Compare {brands.map((brand) => brand.name).join(', ')} at {business.street}, {business.town} {business.postcode}. Most companies only send a brochure.</p>
+        <p><strong>Opening hours:</strong> {business.hours ? 'Published on the contact page.' : <span class="todo">{todo('openingHours')}</span>}</p>
+        <a class="btn" href="/about/#showroom">Book a showroom visit</a>
+      </aside>
     </div>
   </section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head">
+  <section class="section tint" id="services">
+    <div class="container">
+      <div class="section-head center">
         <p class="eyebrow">Our services</p>
         <h2>Air conditioning for your home or business</h2>
-        <p>Whether you need a cooler bedroom, a comfortable workspace or a full multi-room system, we install, service and maintain air conditioning across Hampshire and Dorset.</p>
+        <p>Installation, heating and cooling, commercial work, servicing and repairs. A single room starts from {business.priceFrom} including VAT.</p>
       </div>
-      <div class="grid">
-        {services.map((s) => (
-          <div class="card">
-            <h3>{s.name}</h3>
-            <p>{s.blurb}</p>
-          </div>
+      <div class="card-grid">
+        {services.map((service, index) => (
+          <a class="service-card fade-in" data-delay={index * 60} href={`/services/${service.slug}/`}>
+            <span class="icon-tile"><Icon name={service.icon} size={28} /></span>
+            <h3>{service.name}</h3>
+            <p>{service.blurb}</p>
+            <span class="more">Learn more <Icon name="arrow" size={16} /></span>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="dark">
-    <div class="wrap split">
-      <div>
+  <section class="band">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-on-dark">All year</p>
         <h2>Not just for heatwaves</h2>
-        <p>The systems we fit are air-to-air heat pumps. The same unit that cools your bedroom in July heats it in January, delivering up to 4 units of warmth for every 1 unit of electricity, which is often cheaper to run than gas.</p>
-        <p>They also dehumidify as they cool and filter out pollen, dust and allergens, so rooms feel fresher all year.</p>
+        <p>The systems we fit are air-to-air heat pumps. The unit that cools a bedroom in July heats it in January, delivering up to 4 units of warmth for every 1 unit of electricity.</p>
       </div>
-      <div class="table-wrap">
-        <table class="costs">
-          <caption class="small" style="caption-side: bottom; text-align: left; padding-top: 10px; color: #aebbd4;">Typical running costs. Actual costs depend on your tariff, insulation and usage.</caption>
-          <thead><tr><th scope="col">Room</th><th scope="col">Cooling</th><th scope="col">Heating</th></tr></thead>
-          <tbody>
-            {runningCosts.map((r) => (
-              <tr><td style="color: var(--ink)">{r.room} ({r.size})</td><td style="color: var(--ink)">{r.cooling}</td><td style="color: var(--ink)">{r.heating}</td></tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section id="showroom">
-    <div class="wrap split">
-      <div class="photo" role="img" aria-label="Photo of the Ringwood showroom">[Photo: Ringwood showroom with display units]</div>
-      <div>
-        <p class="eyebrow">See before you buy</p>
-        <h2 style="font-size: clamp(30px, 3.6vw, 42px); margin: 0 0 16px;">A showroom you can actually visit</h2>
-        <p>Most air conditioning companies only show you brochures. At our Ringwood showroom you can compare {brands.map((b) => b.name).join(', ').replace(/, ([^,]*)$/, ' and $1')} side by side, hear the real noise levels and choose the right style and colour for your home.</p>
-        <p><strong>{business.street}, {business.town}, {business.postcode}</strong></p>
-        <a class="btn" href="#quote">Book a showroom visit</a>
+      <div class="season-grid">
+        <article class="season-card">
+          <span class="icon-tile"><Icon name="snow" size={28} /></span>
+          <h3>Summer cooling</h3>
+          <p>A steady temperature, with moisture taken out of the air so the room feels less heavy. Filters catch pollen and dust.</p>
+        </article>
+        <article class="season-card">
+          <span class="icon-tile"><Icon name="sun" size={28} /></span>
+          <h3>Winter heating</h3>
+          <p>Heat for the rooms that have an indoor unit. Often cheaper to run than gas for that room. It does not replace a whole-house boiler on its own.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="tint">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Brands we install</p>
-        <h2>Which brand is right for you?</h2>
-      </div>
-      <div class="grid">
-        {brands.map((b) => (
-          <div class="card"><h3>{b.name}</h3><p>{b.note}</p></div>
-        ))}
+  <section class="section" id="showroom">
+    <div class="container">
+      <div class="visit-panel">
+        <div>
+          <p class="eyebrow">Ringwood</p>
+          <h2>A local company you can actually visit</h2>
+          <p>The showroom is at {business.street}, {business.town}, {business.postcode}. Hear the noise levels, compare the brands, and talk about the rooms you want done before anyone drills a wall.</p>
+          <p>{business.name} is the trading name of {business.legalName}. We also trade as <a href={business.sister.url} rel="noopener noreferrer">{business.sister.name}</a>.</p>
+          <div class="cluster">
+            <a class="btn" href="/about/#showroom">Visit the showroom</a>
+            <a class="btn btn-navy" href="#quote">Get a free quote</a>
+          </div>
+        </div>
+        <div class="showroom-card">
+          <h3>Showroom</h3>
+          <p>{business.street}<br />{business.town}, {business.county}<br />{business.postcode}</p>
+          <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br /><a href={`mailto:${business.email}`}>{business.email}</a></p>
+          <p><span class="todo">{todo('showroomPhoto')}</span></p>
+          <p>Hours: <span class="todo">{todo('openingHours')}</span></p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="section-head">
+  <section class="section tint">
+    <div class="container">
+      <div class="section-head center">
         <p class="eyebrow">How it works</p>
-        <h2>From first message to a comfortable room in three steps</h2>
+        <h2>From first message to cool rooms in four steps</h2>
       </div>
-      <ol class="steps">
-        <li><h3>Tell us about your property</h3><p>A short enquiry form about your rooms and what you want to achieve. It takes about 2 minutes.</p></li>
-        <li><h3>Free survey and fixed quote</h3><p>We check the rooms and pipe routes, recommend the right system and give you a fixed price. No obligation.</p></li>
-        <li><h3>Install and handover</h3><p>Our Refcom certified team installs cleanly and tidily, then walks you through every feature.</p></li>
+      <ol class="step-grid">
+        {steps.map((step) => (
+          <li class="step">
+            <span class="step-no">{step.n}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))}
       </ol>
     </div>
   </section>
 
-  <section id="areas" class="tint">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">Areas we cover</p>
-        <h2 style="font-size: clamp(30px, 3.6vw, 42px); margin: 0 0 16px;">Air conditioning across Hampshire, Dorset and the New Forest</h2>
-        <p>We install within a {business.radiusMiles} mile radius of our Ringwood showroom.</p>
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow">Reviews</p>
+        <h2>What local customers say</h2>
+        <p>Real reviews will be published here when they are supplied. We do not write stand-in quotes or star ratings.</p>
       </div>
-      <ul class="areas">
-        {areas.map((a) => <li>{a}</li>)}
+      {reviews.length > 0 ? (
+        <div class="card-grid">
+          {reviews.map((review) => (
+            <blockquote class="card" style="padding:24px;">
+              <p>{review.quote}</p>
+              <footer><strong>{review.name}</strong>{review.town ? `, ${review.town}` : ''}{review.detail ? ` — ${review.detail}` : ''}</footer>
+            </blockquote>
+          ))}
+        </div>
+      ) : (
+        <div class="todo-slot">
+          <h3>Reviews placeholder</h3>
+          <p>This is an empty slot, not a testimonial. Nothing on this strip is a customer review.</p>
+          <p><span class="todo">{todo('reviews')}</span></p>
+          <p style="margin-top:12px;"><a href="/reviews/">How reviews will be handled</a></p>
+        </div>
+      )}
+      <ul class="brand-row" aria-label="Brands we install">
+        {brands.map((brand) => <li>{brand.name}</li>)}
       </ul>
     </div>
   </section>
 
-  <section id="faqs">
-    <div class="wrap">
-      <div class="section-head" style="margin-left: auto; margin-right: auto; text-align: center;">
-        <p class="eyebrow">Common questions</p>
-        <h2>Air conditioning FAQs</h2>
+  <section class="section tint" id="areas">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Areas</p>
+        <h2>Air conditioning across Hampshire and Dorset</h2>
+        <p>Eight towns have their own pages, written for the houses and businesses there. We also travel within about {business.radiusMiles} miles of the showroom.</p>
       </div>
-      <div class="faq">
-        {faqs.map((f) => (
-          <details><summary>{f.q}</summary><p>{f.a}</p></details>
+      <div class="area-grid">
+        {towns.map((town) => (
+          <a class="area-link" href={`/areas/${town.slug}/`}>
+            {town.name}
+            <span>{town.county}{town.miles ? ` · about ${town.miles} miles` : ' · showroom'}</span>
+          </a>
         ))}
+      </div>
+      <p style="margin-top:20px;"><a href="/areas/">See all areas we cover</a></p>
+    </div>
+  </section>
+
+  <section class="guide" id="guide">
+    <div class="container guide-grid">
+      <div>
+        <p class="eyebrow eyebrow-on-dark">Guide</p>
+        <h2>The home air conditioning buyer’s guide</h2>
+        <p>A plain-English guide to room size, noise, heating and cooling, and what happens on a survey. The PDF is not ready yet, so this form only records your interest.</p>
+        <p><span class="todo">{todo('buyersGuide')}</span></p>
+      </div>
+      <QuoteForm id="guide-form" variant="guide" />
+    </div>
+  </section>
+
+  <FaqList faqs={faqs} heading="Air conditioning FAQs" />
+
+  <section class="cta-band">
+    <div class="container">
+      <p class="eyebrow">Next step</p>
+      <h2>Ready to get comfortable?</h2>
+      <p>Tell us about the room, or come to the Ringwood showroom and hear a unit running before you decide.</p>
+      <div class="cluster cta-actions">
+        <a class="btn btn-lg" href="#quote">Get a free quote</a>
+        <a class="btn btn-lg btn-navy" href={`tel:${business.phoneIntl}`}>Call {business.phone}</a>
       </div>
     </div>
   </section>
 
-  <section id="quote" style="padding-top: 0;">
-    <div class="wrap">
-      <div class="quote-box">
-        <div>
-          <h2>Get your free quote</h2>
-          <p>Tell us about your space and we'll come back with a fixed, no-obligation price. Prefer to talk? Call <a href={`tel:${business.phoneIntl}`} style="color:#fff;font-weight:700">{business.phone}</a>.</p>
-          <p>0% finance available on qualifying installations, from as little as £25 a week.</p>
-        </div>
-        <div class="form-slot">
-          <!-- GHL quote form embed goes here once Danny sends the embed code. -->
-          <p><strong>Quote form coming soon.</strong></p>
-          <p>Call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a> or email <a href={`mailto:${business.email}`}>{business.email}</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <QuoteSection />
 </Base>

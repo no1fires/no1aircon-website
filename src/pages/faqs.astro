@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import { faqs, business } from '../data/business.js';
+import { services } from '../data/services.js';
+
+const title = 'Air Conditioning FAQs | No1 Air Con';
+const description = `Common questions about air conditioning cost, running cost, heating, planning and warranties, answered by No1 Air Con in Ringwood. Call ${business.phone}.`;
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'FAQs', href: '/faqs/' },
+];
+---
+<Base title={title} description={description} crumbs={crumbs} faqs={faqs}>
+  <PageHero
+    eyebrow="FAQs"
+    title="Air conditioning questions"
+    lead="Straight answers from the details we already publish. Where a price or a registration number is not confirmed, the page says so instead of guessing."
+    crumbs={crumbs}
+  />
+  <FaqList faqs={faqs} heading="Common questions" />
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2>More on each service</h2>
+      <div class="related-grid" style="margin-top:16px;">
+        {services.map((service) => (
+          <a class="area-link" href={`/services/${service.slug}/`}>{service.name}<span>Questions and prices on the service page</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>

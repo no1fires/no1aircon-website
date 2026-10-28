@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import { caseStudies } from '../../data/case-studies.js';
+
+const title = 'Air Conditioning Case Studies | No1 Air Con';
+const description = 'Placeholder case studies for No1 Air Con. Real jobs, towns and photos have not been added yet, and none of these pages invent them.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Case studies', href: '/case-studies/' },
+];
+---
+<Base title={title} description={description} crumbs={crumbs}>
+  <PageHero
+    eyebrow="Case studies"
+    title="Real jobs will replace these pages"
+    lead="Three slots are ready: a single room, a multi-room heating and cooling system, and a commercial space. They are marked as placeholders so they cannot be mistaken for finished work."
+    crumbs={crumbs}
+  />
+  <section class="section">
+    <div class="container area-grid">
+      {caseStudies.map((study) => (
+        <a class="area-link" href={`/case-studies/${study.slug}/`}>
+          {study.name}
+          <span>{study.lead}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <QuoteSection />
+</Base>
