@@ -7,8 +7,7 @@ export const business = {
   url: 'https://no1aircon.co.uk',
   phone: '01425 333760',
   phoneIntl: '+441425333760',
-  // TODO(Danny): confirm the email customers should use for air con enquiries.
-  email: 'info@no1tradeexperts.co.uk',
+  email: 'info@no1aircon.co.uk',
   street: '10 Christchurch Road',
   town: 'Ringwood',
   county: 'Hampshire',
