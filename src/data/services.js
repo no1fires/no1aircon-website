@@ -1,7 +1,16 @@
 import { business, brands, openingHoursText } from './business.js';
 import { todo } from './placeholders.js';
 
-const brandNames = `${brands[0].name}, ${brands[1].name} and ${brands[2].name}`;
+// These sentences were written for Mitsubishi Electric, Daikin and Clivet.
+// Look them up by name so a longer brands list cannot attach the 19dB or
+// Hyper Heat figures to a different manufacturer.
+const brandByName = (name) => {
+  const brand = brands.find((item) => item.name === name);
+  if (!brand) throw new Error(`Missing brand: ${name}`);
+  return brand.name;
+};
+const premiumBrand = brandByName('Mitsubishi Electric');
+const brandNames = `${brandByName('Mitsubishi Electric')}, ${brandByName('Daikin')} and ${brandByName('Clivet')}`;
 
 export const services = [
   {
@@ -20,7 +29,7 @@ export const services = [
       'Most people start with one room that will not stay comfortable. A bedroom that holds the heat at night, a living room with a lot of glass, a home office, or a conservatory that is too hot to use from May onwards. We size the unit for that room, not for a brochure example.',
       'The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window. That is what the survey is for.',
       'If you want more than one room, a multi-room system connects two, three or four indoor units to a single outdoor unit. You can set each room on its own. It avoids a row of outdoor units along the wall.',
-      `We install ${brandNames}. You can see and hear them at the showroom on ${business.street}, ${business.town}, before you decide. ${brands[0].name} publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.`,
+      `We install ${brandNames}. You can see and hear them at the showroom on ${business.street}, ${business.town}, before you decide. ${premiumBrand} publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.`,
     ],
     priceNote: `Single room systems from ${business.priceFrom} including VAT. Multi-room systems: ${todo('multiRoomPrice')}. ${business.financeNote}`,
     provides: [
@@ -49,7 +58,7 @@ export const services = [
       },
       {
         q: 'Will a bedroom unit be noisy?',
-        a: `We choose a size that does not have to run flat out, and we talk through where it will sit. ${brands[0].name} quote from 19dB on some indoor units. That is a manufacturer figure, so we would rather you hear a unit in the Ringwood showroom than take a number on trust.`,
+        a: `We choose a size that does not have to run flat out, and we talk through where it will sit. ${premiumBrand} quote from 19dB on some indoor units. That is a manufacturer figure, so we would rather you hear a unit in the Ringwood showroom than take a number on trust.`,
       },
     ],
     faqs: [
@@ -82,7 +91,7 @@ export const services = [
     paragraphs: [
       'People still think of air conditioning as a summer luxury. Used as a heater, a modern unit moves heat rather than making it. The systems we install deliver up to 4 units of warmth for every 1 unit of electricity used. On many tariffs that is cheaper to run than gas for the room you are heating, though the real cost depends on your tariff, the insulation and how long you leave it on.',
       'A 2.5kW bedroom unit typically costs 8p to 15p an hour to cool and 6p to 12p an hour to heat. A 3.5kW living room is typically 10p to 20p an hour to cool and 8p to 15p an hour to heat. A 5.0kW conservatory is typically 15p to 25p an hour to cool and 10p to 20p an hour to heat. Treat those as bands, not a bill.',
-      `In colder weather the outdoor unit has to work harder. ${brands[0].name} describe Hyper Heat performance down to -15°C on the range we recommend. That is their published figure. We will tell you on the survey if a room needs a larger unit because of glass, height or insulation.`,
+      `In colder weather the outdoor unit has to work harder. ${premiumBrand} describe Hyper Heat performance down to -15°C on the range we recommend. That is their published figure. We will tell you on the survey if a room needs a larger unit because of glass, height or insulation.`,
       'You still need a plan for the rest of the house. An air-to-air system heats the rooms that have an indoor unit. It does not heat a hot-water cylinder, and it does not automatically retire a gas boiler. Many customers use it for the bedroom and living room, and leave the boiler for everything else.',
     ],
     priceNote: `Single room systems from ${business.priceFrom} including VAT, and the same unit heats and cools. ${business.financeNote}`,
@@ -125,7 +134,7 @@ export const services = [
       },
       {
         q: 'How cold can it be outside and still heat?',
-        a: `${brands[0].name} publish Hyper Heat performance down to -15°C for the premium range we recommend. Output still falls as the outdoor temperature drops, so we size the unit at the survey rather than from a headline number.`,
+        a: `${premiumBrand} publish Hyper Heat performance down to -15°C for the premium range we recommend. Output still falls as the outdoor temperature drops, so we size the unit at the survey rather than from a headline number.`,
       },
     ],
   },

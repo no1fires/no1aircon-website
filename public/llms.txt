@@ -12,14 +12,17 @@ Preview note: indexing is switched off until `INDEXABLE` is set to true in `src/
 - Heating and cooling. The systems are air-to-air heat pumps. They cool and they heat the rooms where an indoor unit is fitted. Up to 4 units of warmth for every 1 unit of electricity. They do not, on their own, replace a whole-house boiler or heat a hot-water cylinder.
 - Commercial air conditioning for offices, shops, treatment rooms and server rooms. No single commercial price is published yet.
 - Servicing and care plans. Annual servicing keeps the warranty valid. Care plan tiers and the service price are not published yet.
-- Repairs and fault finding for Mitsubishi Electric, Daikin and Clivet. No call-out price is published yet. There is no published 24-hour call-out.
+- Repairs and fault finding for Daikin, Panasonic, Mitsubishi Electric, Clivet, Samsung and Toshiba. No call-out price is published yet. There is no published 24-hour call-out.
 - Ducted and ceiling systems where the ceiling or loft has room. No ducted price is published yet.
 
 ## Brands
 
+- Daikin. Premium build quality and advanced features, built to last decades.
+- Panasonic.
 - Mitsubishi Electric. Described on the site as the premium recommendation, with a manufacturer noise figure from 19dB and Hyper Heat performance down to -15°C. Those are manufacturer figures, not a promise for every room.
-- Daikin.
-- Clivet.
+- Clivet. Best value: proven reliability at a sensible price.
+- Samsung.
+- Toshiba.
 
 ## Warranty, finance, accreditation
 

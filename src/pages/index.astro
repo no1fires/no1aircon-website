@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import BrandBanner from '../components/BrandBanner.astro';
 import Icon from '../components/Icon.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import QuoteSection from '../components/QuoteSection.astro';
@@ -153,10 +154,8 @@ const steps = [
           <p style="margin-top:12px;"><a href="/reviews/">How reviews will be handled</a></p>
         </div>
       )}
-      <ul class="brand-row" aria-label="Brands we install">
-        {brands.map((brand) => <li>{brand.name}</li>)}
-      </ul>
     </div>
+    <BrandBanner headingId="home-brands" />
   </section>
 
   <section class="section tint" id="areas">

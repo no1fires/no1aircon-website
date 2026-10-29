@@ -69,9 +69,48 @@ export const runningCosts = [
 ];
 
 export const brands = [
-  { name: 'Mitsubishi Electric', note: 'Our premium recommendation: ultra quiet from 19dB, Hyper Heat performance down to -15°C.' },
-  { name: 'Daikin', note: 'Premium build quality and advanced features, built to last decades.' },
-  { name: 'Clivet', note: 'Best value: proven reliability at a sensible price.' },
+  {
+    name: 'Daikin',
+    logo: '/images/brands/daikin.svg',
+    width: 300,
+    height: 65,
+    note: 'Premium build quality and advanced features, built to last decades.',
+  },
+  {
+    name: 'Panasonic',
+    logo: '/images/brands/panasonic.svg',
+    width: 504,
+    height: 80,
+    note: '',
+  },
+  {
+    name: 'Mitsubishi Electric',
+    logo: '/images/brands/mitsubishi-electric.svg',
+    width: 794,
+    height: 242,
+    note: 'Our premium recommendation: ultra quiet from 19dB, Hyper Heat performance down to -15°C.',
+  },
+  {
+    name: 'Clivet',
+    logo: '/images/brands/clivet.svg',
+    width: 37,
+    height: 36,
+    note: 'Best value: proven reliability at a sensible price.',
+  },
+  {
+    name: 'Samsung',
+    logo: '/images/brands/samsung.svg',
+    width: 7051,
+    height: 1080,
+    note: '',
+  },
+  {
+    name: 'Toshiba',
+    logo: '/images/brands/toshiba.svg',
+    width: 800,
+    height: 122,
+    note: '',
+  },
 ];
 
 // Towns we already say we cover, beyond the eight launch pages.
