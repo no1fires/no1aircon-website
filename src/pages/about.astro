@@ -29,7 +29,7 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.
       <p>Company number: <span class="todo">{business.companyNumber || todo('companyNumber')}</span>. VAT number: <span class="todo">{business.vatNumber || todo('vatNumber')}</span>.</p>
       <h2>What we do</h2>
       <p>Home air conditioning, heating and cooling, commercial systems, servicing, repairs, and ducted or ceiling systems where the building can take them. A single room is installed from {business.priceFrom} including VAT. {business.warranty}</p>
-      <p>Brands we install: {brandList(brands)}. {brands.map((brand) => brand.note).join(' ')}</p>
+      <p>Brands we install: {brandList(brands)}. {brands.map((brand) => brand.note).filter(Boolean).join(' ')}</p>
       <p>{business.refcomCertified ? 'The current website describes the installers as Refcom certified.' : ''} <span class="todo">{todo('accreditations')}</span></p>
       <h2>Photos still to add</h2>
       <p><span class="todo">{todo('teamPhoto')}</span></p>

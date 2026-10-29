@@ -1,4 +1,4 @@
-import { business } from '../data/business.js';
+import { brands, business } from '../data/business.js';
 import { towns } from '../data/towns.js';
 
 const businessId = `${business.url}/#business`;
@@ -55,6 +55,11 @@ function businessNode() {
       availableLanguage: 'English',
     },
     sameAs,
+    brand: brands.map((item) => ({
+      '@type': 'Brand',
+      name: item.name,
+      logo: `${business.url}${item.logo}`,
+    })),
   };
 
   if (Array.isArray(business.hours) && business.hours.length) {

@@ -1,0 +1,37 @@
+---
+import { brands } from '../data/business.js';
+
+const { heading = 'Brands we install', headingId } = Astro.props;
+if (!headingId) throw new Error('BrandBanner requires a unique headingId');
+---
+<section class="brand-banner" aria-labelledby={headingId}>
+  <h2 class="brand-banner-title" id={headingId}>{heading}</h2>
+  <div class="brand-viewport">
+    <ul class="brand-track">
+      {brands.map((brand) => (
+        <li class="brand-badge">
+          <img
+            src={brand.logo}
+            alt={`${brand.name} logo`}
+            width={brand.width}
+            height={brand.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </li>
+      ))}
+      {brands.map((brand) => (
+        <li class="brand-badge" data-brand-clone aria-hidden="true">
+          <img
+            src={brand.logo}
+            alt={`${brand.name} logo`}
+            width={brand.width}
+            height={brand.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
