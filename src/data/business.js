@@ -68,10 +68,11 @@ export const runningCosts = [
   { room: 'Conservatory', size: '5.0kW', cooling: '15p to 25p an hour', heating: '10p to 20p an hour' },
 ];
 
+// logo: file in public/images/brands/. Null shows the name as text until a logo is added.
 export const brands = [
-  { name: 'Mitsubishi Electric', note: 'Our premium recommendation: ultra quiet from 19dB, Hyper Heat performance down to -15°C.' },
-  { name: 'Daikin', note: 'Premium build quality and advanced features, built to last decades.' },
-  { name: 'Clivet', note: 'Best value: proven reliability at a sensible price.' },
+  { name: 'Mitsubishi Electric', logo: 'mitsubishi-electric.svg', note: 'Our premium recommendation: ultra quiet from 19dB, Hyper Heat performance down to -15°C.' },
+  { name: 'Daikin', logo: 'daikin.svg', note: 'Premium build quality and advanced features, built to last decades.' },
+  { name: 'Clivet', logo: null, note: 'Best value: proven reliability at a sensible price.' },
 ];
 
 // Towns we already say we cover, beyond the eight launch pages.
