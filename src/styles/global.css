@@ -641,3 +641,4 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
 .hero-photo .hero-accred { background: #fff; border-radius: 10px; padding: 8px 12px; height: 64px; }
 .hero-credit { margin-top: 24px; font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); }
 .hero-photo { padding: 64px 0 72px; }
+.step-emoji { display: block; font-size: 1.75rem; line-height: 1; margin: 6px 0 10px; }
