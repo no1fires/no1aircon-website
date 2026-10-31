@@ -1,7 +1,9 @@
 import { business, brands, openingHoursText } from './business.js';
 import { todo } from './placeholders.js';
+import { brandList } from '../lib/format.js';
 
-const brandNames = `${brands[0].name}, ${brands[1].name} and ${brands[2].name}`;
+// Mitsubishi Electric stays first: it is the preferred option and the claims below refer to brands[0].
+const brandNames = brandList(brands);
 
 export const services = [
   {
