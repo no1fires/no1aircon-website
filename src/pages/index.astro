@@ -153,17 +153,25 @@ const steps = [
           <p style="margin-top:12px;"><a href="/reviews/">How reviews will be handled</a></p>
         </div>
       )}
-      <ul class="brand-row" aria-label="Brands we install">
-        {brands.map((brand) => (
-          <li>
-            {brand.logo ? (
-              <img src={`/images/brands/${brand.logo}`} alt={`${brand.name} logo`} width="160" height="40" loading="lazy" style="height:40px;width:auto;" />
-            ) : (
-              brand.name
-            )}
-          </li>
-        ))}
-      </ul>
+    </div>
+  </section>
+
+  <section class="brand-banner" aria-labelledby="brands-heading">
+    <p class="brand-banner-label" id="brands-heading">Brands we install and supply</p>
+    <ul class="brand-banner-list">
+      {brands.map((brand) => (
+        <li>
+          {brand.logo ? (
+            <img src={`/images/brands/${brand.logo}`} alt={`${brand.name} logo`} width="160" height="48" loading="lazy" />
+          ) : (
+            <span>{brand.name}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+    <div class="brand-banner-accred">
+      <p class="brand-banner-label">Accreditation</p>
+      <img src="/images/refcom-logo.png" alt="REFCOM F-Gas certificated logo" width="907" height="397" loading="lazy" />
     </div>
   </section>
 
