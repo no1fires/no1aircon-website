@@ -45,7 +45,7 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.
         <p><strong>{business.street}, {business.town}, {business.county} {business.postcode}</strong></p>
         <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br /><a href={`mailto:${business.email}`}>{business.email}</a></p>
         <p>Opening hours: {openingHoursText()}.</p>
-        <p><span class="todo">{todo('showroomPhoto')}</span></p>
+        <img src="/images/showroom-shopfront.jpg" alt="The No1 Fires and No1 Air Conditioning showroom at 10 Christchurch Road, Ringwood" width="1200" height="800" loading="lazy" style="width:100%;height:auto;border-radius:8px;margin:8px 0;" />
         <p style="margin-top:16px;"><a class="btn" href="/contact/#quote">Book a visit</a></p>
       </div>
       <div class="map-wrap" data-map-wrap data-map-src={mapSrc}>
