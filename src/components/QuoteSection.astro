@@ -1,6 +1,5 @@
 ---
 import { business } from '../data/business.js';
-import QuoteForm from './QuoteForm.astro';
 
 const { title = 'Tell us about the space', intro = 'A short note is enough. We will arrange a free survey and then send a fixed price. There is no obligation to go ahead.' } = Astro.props;
 ---
@@ -14,7 +13,8 @@ const { title = 'Tell us about the space', intro = 'A short note is enough. We w
       <p class="muted">{business.financeNote}</p>
     </div>
     <div class="quote-card">
-      <QuoteForm id="quote-form" />
+      <iframe src="https://link.apisystem.tech/widget/form/roELVvgk9jhNB8MKlM1k" style="width:100%;height:900px;border:none;border-radius:3px" id="inline-roELVvgk9jhNB8MKlM1k" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-name="AC form" data-height="900" data-layout-iframe-id="inline-roELVvgk9jhNB8MKlM1k" data-form-id="roELVvgk9jhNB8MKlM1k" title="AC form"></iframe>
+      <script src="https://link.apisystem.tech/js/form_embed.js"></script>
     </div>
   </div>
 </section>
