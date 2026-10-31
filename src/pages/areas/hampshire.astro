@@ -1,0 +1,44 @@
+---
+import CountyPage from '../../components/CountyPage.astro';
+import { business } from '../../data/business.js';
+
+const county = {
+  slug: 'hampshire',
+  name: 'Hampshire',
+  title: 'Air Conditioning in Hampshire | No1 Air Con',
+  description: `Air conditioning installation, servicing and repairs across Hampshire from our Ringwood showroom, within about ${business.radiusMiles} miles. Book a free survey.`,
+  eyebrow: 'Hampshire',
+  h1: 'Air conditioning installers across Hampshire',
+  lead: `We are based in Ringwood, on the edge of the New Forest, and install across Hampshire within about ${business.radiusMiles} miles of the showroom at ${business.street}, ${business.postcode}.`,
+  paragraphs: [
+    'Our Hampshire work is surveyed from the Ringwood showroom. Ringwood, Fordingbridge and New Milton each have their own page with local detail. The rest of the county inside our radius gets the same free survey and fixed-price quote.',
+    'Hampshire homes vary a lot. Forest-edge cottages often have thick walls and small rooms, while newer estates usually give a clearer route for pipes and an outdoor unit. Shops, offices and treatment rooms are sized for how the space is used, not by a rule of thumb.',
+    `You can compare Mitsubishi Electric, Daikin and Clivet units at the showroom before you decide, and hear them running. Call ${business.phone} to ask whether we survey a particular address.`,
+  ],
+  answerFaqs: [
+    {
+      q: 'Do you install air conditioning across Hampshire?',
+      a: `Yes, within about ${business.radiusMiles} miles of the Ringwood showroom. Our Hampshire towns are Ringwood, Fordingbridge and New Milton. For other addresses, call ${business.phone} and we will tell you whether we survey there.`,
+    },
+    {
+      q: 'How much does air conditioning cost in Hampshire?',
+      a: `A single room system is installed from ${business.priceFrom} including VAT. We give a fixed price after a free survey. 0% finance is available on qualifying installations.`,
+    },
+    {
+      q: 'Can I see the units before I buy?',
+      a: `Yes. Visit the showroom at ${business.street}, ${business.town}, to compare the brands side by side.`,
+    },
+  ],
+  faqs: [
+    {
+      q: 'What warranty do Hampshire installations come with?',
+      a: 'Installations come with up to a 5 year warranty. Annual servicing keeps the warranty valid.',
+    },
+    {
+      q: 'Do you work on commercial premises in Hampshire?',
+      a: 'Yes. Offices, shops, treatment rooms and server rooms are surveyed and sized for how the space is used. Commercial prices are quoted after a survey.',
+    },
+  ],
+};
+---
+<CountyPage county={county} />

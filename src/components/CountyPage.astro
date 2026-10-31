@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import QuickAnswers from './QuickAnswers.astro';
+import FaqList from './FaqList.astro';
+import QuoteSection from './QuoteSection.astro';
+import Related from './Related.astro';
+import { towns } from '../data/towns.js';
+import { business } from '../data/business.js';
+
+const { county } = Astro.props;
+const localTowns = towns.filter((town) => town.county === county.name);
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Areas', href: '/areas/' },
+  { name: county.name, href: `/areas/${county.slug}/` },
+];
+---
+<Base title={county.title} description={county.description} crumbs={crumbs} faqs={[...county.answerFaqs, ...county.faqs]}>
+  <PageHero eyebrow={county.eyebrow} title={county.h1} lead={county.lead} crumbs={crumbs} />
+  <QuickAnswers faqs={county.answerFaqs} />
+  <section class="section">
+    <div class="container prose">
+      {county.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+  <Related towns={localTowns} heading={`Towns we cover in ${county.name}`} />
+  <FaqList faqs={county.faqs} heading={`Questions about air conditioning in ${county.name}`} />
+  <QuoteSection
+    title={`Quote for a property in ${county.name}`}
+    intro={`Tell us the address or postcode and which rooms you want looked at. We survey within about ${business.radiusMiles} miles of the Ringwood showroom.`}
+  />
+</Base>

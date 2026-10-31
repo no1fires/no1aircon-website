@@ -1,0 +1,44 @@
+---
+import CountyPage from '../../components/CountyPage.astro';
+import { business } from '../../data/business.js';
+
+const county = {
+  slug: 'dorset',
+  name: 'Dorset',
+  title: 'Air Conditioning in Dorset | No1 Air Con',
+  description: `Air conditioning installation, servicing and repairs across East Dorset from our Ringwood showroom, within about ${business.radiusMiles} miles. Book a free survey.`,
+  eyebrow: 'Dorset',
+  h1: 'Air conditioning installers across Dorset',
+  lead: `From the Ringwood showroom we install across East Dorset within about ${business.radiusMiles} miles, including Ferndown, Verwood, St Leonards, Christchurch and Wimborne.`,
+  paragraphs: [
+    'Our Dorset work is surveyed from Ringwood, just across the county line in Hampshire. Each Dorset town below has its own page with local detail. The wider area inside our radius gets the same free survey and fixed-price quote.',
+    'East Dorset homes range from older town-centre houses to newer estates and bungalows. The position of the outdoor unit and the pipe run usually decide what is possible, so we look at both during the survey.',
+    `Christchurch Road is the showroom address in Ringwood, not the town of Christchurch. If you are visiting, use ${business.street}, ${business.town}, ${business.postcode}.`,
+  ],
+  answerFaqs: [
+    {
+      q: 'Do you install air conditioning in Dorset?',
+      a: `Yes, across East Dorset within about ${business.radiusMiles} miles of the Ringwood showroom. Our Dorset towns are Ferndown, Verwood, St Leonards, Christchurch and Wimborne.`,
+    },
+    {
+      q: 'How much does air conditioning cost in Dorset?',
+      a: `A single room system is installed from ${business.priceFrom} including VAT. We give a fixed price after a free survey. 0% finance is available on qualifying installations.`,
+    },
+    {
+      q: 'Can I see the units before I buy?',
+      a: `Yes. Visit the showroom at ${business.street}, ${business.town}, to compare the brands side by side.`,
+    },
+  ],
+  faqs: [
+    {
+      q: 'What warranty do Dorset installations come with?',
+      a: 'Installations come with up to a 5 year warranty. Annual servicing keeps the warranty valid.',
+    },
+    {
+      q: 'Can you heat a home in Dorset as well as cool it?',
+      a: 'Yes. The systems we fit are air-to-air heat pumps, so they heat as well as cool. They are often cheaper to run than gas for the rooms they serve, but they do not replace a whole-house boiler on their own.',
+    },
+  ],
+};
+---
+<CountyPage county={county} />
