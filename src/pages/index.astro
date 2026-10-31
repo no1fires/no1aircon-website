@@ -154,7 +154,15 @@ const steps = [
         </div>
       )}
       <ul class="brand-row" aria-label="Brands we install">
-        {brands.map((brand) => <li>{brand.name}</li>)}
+        {brands.map((brand) => (
+          <li>
+            {brand.logo ? (
+              <img src={`/images/brands/${brand.logo}`} alt={`${brand.name} logo`} width="160" height="40" loading="lazy" style="height:40px;width:auto;" />
+            ) : (
+              brand.name
+            )}
+          </li>
+        ))}
       </ul>
     </div>
   </section>
