@@ -642,3 +642,5 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
 .hero-credit { margin-top: 24px; font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); }
 .hero-photo { padding: 64px 0 72px; }
 .step-emoji { display: block; font-size: 1.75rem; line-height: 1; margin: 6px 0 10px; }
+.google-badge { display: inline-flex; align-items: center; gap: 8px; margin: 20px 0 0; background: #fff; border-radius: 999px; padding: 8px 16px; color: var(--navy); font-size: 0.95rem; }
+.google-badge-stars { color: #f4b400; letter-spacing: 2px; }
