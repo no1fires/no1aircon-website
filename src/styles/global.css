@@ -632,8 +632,8 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
 .hero-accred { display: block; height: 56px; width: auto; margin-top: 20px; }
 
 /* Hero with the Mitsubishi render as a full-bleed background */
-.hero-photo { position: relative; background-color: #1b2a3a; background-size: cover; background-position: center; background-repeat: no-repeat; isolation: isolate; }
-.hero-photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10, 20, 35, 0.92) 0%, rgba(10, 20, 35, 0.78) 50%, rgba(10, 20, 35, 0.55) 100%); }
+.hero-photo { position: relative; background-color: #1b2a3a; background-size: cover; background-position: center top; background-repeat: no-repeat; isolation: isolate; }
+.hero-photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10, 20, 35, 0.82) 0%, rgba(10, 20, 35, 0.45) 40%, rgba(10, 20, 35, 0.08) 75%, rgba(10, 20, 35, 0) 100%); }
 .hero-photo .hero-copy h1, .hero-photo .hero-copy .lead, .hero-photo .hero-copy .eyebrow, .hero-photo .trust-row li { color: #fff; }
 .hero-photo .hero-copy .lead { color: rgba(255, 255, 255, 0.92); }
 .hero-photo .trust-row .icon { color: #fff; }
