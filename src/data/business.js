@@ -72,7 +72,7 @@ export const runningCosts = [
 export const brands = [
   { name: 'Mitsubishi Electric', logo: 'mitsubishi-electric.svg', note: 'Our premium recommendation: ultra quiet from 19dB, Hyper Heat performance down to -15°C.' },
   { name: 'Daikin', logo: 'daikin.svg', note: 'Premium build quality and advanced features, built to last decades.' },
-  { name: 'Clivet', logo: null, note: 'Best value: proven reliability at a sensible price.' },
+  { name: 'Clivet', logo: 'clivet.png', note: 'Best value: proven reliability at a sensible price.' },
   { name: 'Toshiba', logo: 'toshiba.svg', note: 'We supply and install Toshiba systems.' },
   { name: 'Panasonic', logo: 'panasonic.svg', note: 'We supply and install Panasonic systems.' },
   { name: 'Samsung', logo: 'samsung.svg', note: 'We supply and install Samsung systems.' },
