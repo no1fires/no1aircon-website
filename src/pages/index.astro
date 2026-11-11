@@ -10,6 +10,8 @@ import { todo } from '../data/placeholders.js';
 import { services } from '../data/services.js';
 import { towns } from '../data/towns.js';
 
+const showroomQuery = `${business.street}, ${business.town} ${business.postcode}`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(showroomQuery)}`;
 const title = 'Air Conditioning Installers in Ringwood | No1 Air Conditioning';
 const description = `Air conditioning installation, servicing and repairs from our Ringwood showroom. Single rooms from ${business.priceFrom} inc. VAT across Hampshire and Dorset. Call ${business.phone}.`;
 const steps = [
@@ -41,7 +43,15 @@ const steps = [
       <aside class="hero-card">
         <p class="eyebrow">See it working</p>
         <h2>See and hear the units before you buy</h2>
-        <p>Compare {brands.slice(0, -1).map((brand) => brand.name).join(', ')} and {brands.at(-1).name} at {business.street}, {business.town} {business.postcode}. Most companies sell air conditioning from a brochure. At {business.shortName} you can see the units in person before you decide.</p>
+        <address class="hero-address">
+          <span class="hero-address-pin" aria-hidden="true"><Icon name="pin" size={22} /></span>
+          <span class="hero-address-copy">
+            <span class="hero-address-label">Showroom</span>
+            <span class="hero-address-lines">{business.street}<br />{business.town} {business.postcode}</span>
+            <a class="hero-directions" href={directionsUrl}>Get directions</a>
+          </span>
+        </address>
+        <p>Most companies sell air conditioning from a brochure. At {business.shortName} you can see the units in person before you decide.</p>
         <p><strong>Opening hours:</strong> {openingHoursText()}.</p>
         <a class="btn" href="/about/#showroom">Book a showroom visit</a>
       </aside>
@@ -403,6 +413,50 @@ const steps = [
     color: var(--navy);
   }
 
+  .hero-address {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 1.15rem 0 1rem;
+    padding: 14px;
+    background: #fff;
+    border-radius: 12px;
+    font-style: normal;
+    line-height: 1.35;
+  }
+  .hero-address-pin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex: none;
+    border-radius: 10px;
+    background: var(--blue);
+    color: #fff;
+  }
+  .hero-address-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+  .hero-address-label {
+    margin-bottom: 2px;
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hero-address-lines {
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .hero-directions {
+    margin-top: 8px;
+    font-weight: 700;
+  }
   .band-photo {
     position: relative;
     isolation: isolate;
