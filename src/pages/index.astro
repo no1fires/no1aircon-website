@@ -41,7 +41,7 @@ const steps = [
       <aside class="hero-card">
         <p class="eyebrow">See it working</p>
         <h2>See and hear the units before you buy</h2>
-        <p>Compare {brands.map((brand) => brand.name).join(', ')} at {business.street}, {business.town} {business.postcode}. Most companies only send a brochure.</p>
+        <p>Compare {brands.slice(0, -1).map((brand) => brand.name).join(', ')} and {brands.at(-1).name} at {business.street}, {business.town} {business.postcode}. Most companies sell air conditioning from a brochure. At {business.shortName} you can see the units in person before you decide.</p>
         <p><strong>Opening hours:</strong> {openingHoursText()}.</p>
         <a class="btn" href="/about/#showroom">Book a showroom visit</a>
       </aside>
