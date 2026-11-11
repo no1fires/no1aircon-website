@@ -1,0 +1,448 @@
+---
+import { business, openingHoursText } from '../data/business.js';
+import {
+  ayCutout,
+  efShots,
+  featureRoom,
+  lineup,
+  lnColours,
+  mitsubishiImages,
+  roomGallery,
+} from '../data/mitsubishi.js';
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': mitsubishiImages.map((image) => ({
+    '@type': 'ImageObject',
+    '@id': `${business.url}${image.src}#image`,
+    contentUrl: `${business.url}${image.src}`,
+    url: `${business.url}${image.src}`,
+    name: image.name,
+    description: image.alt,
+    caption: image.label ? `${image.label}. ${image.caption}` : image.caption,
+    width: image.width,
+    height: image.height,
+    encodingFormat: 'image/webp',
+    creditText: 'Mitsubishi Electric',
+    about: { '@id': `${business.url}/#business` },
+  })),
+};
+const json = JSON.stringify(graph).replace(/</g, '\\u003c');
+const hours = openingHoursText();
+---
+
+<section class="section me-range" id="mitsubishi" aria-labelledby="mitsubishi-heading">
+  <script type="application/ld+json" set:html={json} />
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow me-eyebrow">
+        <img src="/images/brands/mitsubishi-electric.svg" alt="" width="72" height="22" loading="lazy" decoding="async" />
+        Mitsubishi Electric
+      </p>
+      <h2 id="mitsubishi-heading">See the units in a room, then on the wall</h2>
+      <p>
+        Official room settings and product photographs for the MSZ-LN, MSZ-AY and MSZ-EF.
+        Compare the finishes at {business.street}, {business.town} {business.postcode}. We supply and install these ranges within 25 miles of Ringwood.
+      </p>
+    </div>
+
+    <figure class="me-photo me-feature">
+      <div class="me-frame">
+        <img
+          src={featureRoom.src}
+          srcset={featureRoom.srcset}
+          sizes={featureRoom.sizes}
+          alt={featureRoom.alt}
+          width={featureRoom.width}
+          height={featureRoom.height}
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="me-chip" aria-hidden="true">{featureRoom.chip}</p>
+      </div>
+      <figcaption>{featureRoom.caption}</figcaption>
+    </figure>
+
+    <div class="me-gallery">
+      {roomGallery.map((image) => (
+        <figure class="me-photo">
+          <div class="me-frame">
+            <img
+              src={image.src}
+              srcset={image.srcset}
+              sizes={image.sizes}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="me-chip" aria-hidden="true">{image.chip}</p>
+          </div>
+          <figcaption>{image.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <div class="me-cards">
+      <article class="me-card me-card-ln">
+        <div class="me-card-copy">
+          <p class="eyebrow">Range</p>
+          <h3>MSZ-LN</h3>
+          <p>
+            Four finishes: Onyx Black, Pearl White, Ruby Red and Natural White. Natural White is the matte white finish.
+            The living room above is Onyx Black and the bedroom is Natural White. Pearl White is the other MSZ-LN room photograph, labelled on the image. The photograph labelled MSZ-AY is a different range.
+          </p>
+        </div>
+
+        <div class="ln" data-ln-colours>
+          <div class="ln-swatches" role="radiogroup" aria-label="MSZ-LN colours">
+            {lnColours.map((colour) => (
+              <label class="ln-option">
+                <input type="radio" name="ln-colour" value={colour.id} checked={colour.id === 'onyx'} />
+                <span class="ln-dot" style={`background:${colour.swatch}`} aria-hidden="true"></span>
+                {colour.label}
+              </label>
+            ))}
+          </div>
+          <div class="ln-grid">
+            {lnColours.map((colour) => (
+              <figure class="ln-card" data-colour-card={colour.id}>
+                <div class="me-cutout">
+                  <img
+                    src={colour.src}
+                    srcset={colour.srcset}
+                    sizes={colour.sizes}
+                    alt={colour.alt}
+                    width={colour.width}
+                    height={colour.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="me-label">{colour.label}</span>
+                  {colour.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+
+        <figure class="me-photo me-lineup">
+          <img
+            src={lineup.src}
+            srcset={lineup.srcset}
+            sizes={lineup.sizes}
+            alt={lineup.alt}
+            width={lineup.width}
+            height={lineup.height}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>{lineup.caption}</figcaption>
+        </figure>
+      </article>
+
+      <div class="me-split">
+        <article class="me-card">
+          <div class="me-card-copy">
+            <p class="eyebrow">Range</p>
+            <h3>MSZ-AY</h3>
+            <p>White wall-mounted indoor unit. The photograph labelled MSZ-AY above is this model in a modern interior.</p>
+          </div>
+          <figure class="me-photo">
+            <div class:list={['me-cutout', { 'is-clear': ayCutout.clear }]}>
+              <img
+                src={ayCutout.src}
+                srcset={ayCutout.srcset}
+                sizes={ayCutout.sizes}
+                alt={ayCutout.alt}
+                width={ayCutout.width}
+                height={ayCutout.height}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <figcaption>{ayCutout.caption}</figcaption>
+          </figure>
+        </article>
+
+        <article class="me-card">
+          <div class="me-card-copy">
+            <p class="eyebrow">Range</p>
+            <h3>MSZ-EF</h3>
+            <p>Black and white wall-mounted indoor units. A Kirigamine Zen badge is visible on the front of each unit.</p>
+          </div>
+          <div class="me-ef">
+            {efShots.map((image) => (
+              <figure class="me-photo">
+                <div class:list={['me-cutout', { 'is-clear': image.clear }]}>
+                  <img
+                    src={image.src}
+                    srcset={image.srcset}
+                    sizes={image.sizes}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="me-label">{image.label}</span>
+                  {image.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="me-end">
+      <p>Photographs courtesy of Mitsubishi Electric. Showroom hours: {hours}.</p>
+      <div class="cluster">
+        <a class="btn" href="#quote">Get a free quote</a>
+        <a class="btn btn-navy" href="/about/#showroom">Visit the showroom</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector('[data-ln-colours]');
+  if (root) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    root.querySelectorAll('input[name="ln-colour"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        if (!(input instanceof HTMLInputElement) || !input.checked) return;
+        const card = root.querySelector(`[data-colour-card="${input.value}"]`);
+        if (!card) return;
+        card.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+  }
+</script>
+
+<style>
+  .me-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .me-range {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--line);
+  }
+  .me-eyebrow img {
+    width: 72px;
+    height: 22px;
+  }
+
+  .me-photo {
+    margin: 0;
+  }
+  .me-photo figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .me-frame {
+    position: relative;
+  }
+  .me-frame img,
+  .me-lineup img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+  .me-chip {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    margin: 0;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(15, 30, 61, 0.9);
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .me-feature {
+    margin-bottom: 18px;
+  }
+  .me-gallery {
+    display: grid;
+    gap: 18px;
+  }
+
+  .me-cards {
+    display: grid;
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .me-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .me-card-copy p:last-child {
+    color: var(--muted);
+  }
+  .me-card h3 {
+    margin: 0.2rem 0 0.65rem;
+    font-size: 1.5rem;
+  }
+  .me-label {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .ln-swatches {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .ln-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    min-width: 0;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--off-white);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    line-height: 1.2;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .ln-option input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .ln-option:focus-within:has(input:focus-visible) {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+  .ln-option:has(input:checked) {
+    background: var(--pale);
+    box-shadow: inset 0 0 0 2px var(--navy);
+  }
+  .ln-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex: none;
+    box-shadow: inset 0 0 0 1px rgba(15, 30, 61, 0.28);
+  }
+  .ln-grid {
+    display: grid;
+    gap: 14px;
+  }
+  .ln-card {
+    margin: 0;
+    padding: 10px;
+    border-radius: 12px;
+  }
+  .ln:has(input[value="onyx"]:checked) [data-colour-card="onyx"],
+  .ln:has(input[value="pearl"]:checked) [data-colour-card="pearl"],
+  .ln:has(input[value="ruby"]:checked) [data-colour-card="ruby"],
+  .ln:has(input[value="natural"]:checked) [data-colour-card="natural"] {
+    background: var(--pale);
+    box-shadow: inset 0 0 0 2px var(--navy);
+  }
+
+  .me-cutout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--off-white);
+  }
+  .me-cutout.is-clear {
+    background: #e7eef8;
+  }
+  .me-cutout img {
+    width: 100%;
+    height: auto;
+  }
+  .me-split,
+  .me-ef {
+    display: grid;
+    gap: 18px;
+  }
+  .me-end {
+    margin-top: 28px;
+    text-align: center;
+  }
+  .me-end p {
+    color: var(--muted);
+  }
+  .me-end .cluster {
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .ln-swatches,
+    .ln-grid,
+    .me-ef {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 900px) {
+    .ln-swatches {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (min-width: 900px) {
+    .me-card {
+      padding: 28px;
+    }
+    .me-gallery {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
+    .me-gallery .me-frame {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .me-gallery .me-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 0;
+    }
+    .me-split {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+    .me-chip {
+      left: 16px;
+      bottom: 16px;
+      font-size: 0.875rem;
+    }
+  }
+</style>
