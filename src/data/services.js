@@ -17,7 +17,7 @@ export const services = [
     description: `Home air conditioning installed across Ringwood, Hampshire and Dorset from ${business.priceFrom} inc. VAT. Single rooms and multi-room systems, surveyed from our Ringwood showroom.`,
     h1: 'Home air conditioning installation',
     eyebrow: 'Homes',
-    lead: `Wall-mounted and floor-standing systems for houses and flats within about ${business.radiusMiles} miles of our Ringwood showroom. A single room is installed from ${business.priceFrom} including VAT.`,
+    lead: `Wall-mounted and floor-standing systems for houses and flats within ${business.radiusMiles} miles of our Ringwood showroom. A single room is installed from ${business.priceFrom} including VAT.`,
     paragraphs: [
       'Most people start with one room that will not stay comfortable. A bedroom that holds the heat at night, a living room with a lot of glass, a home office, or a conservatory that is too hot to use from May onwards. We size the unit for that room, not for a brochure example.',
       'The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window. That is what the survey is for.',

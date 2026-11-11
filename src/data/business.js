@@ -28,7 +28,7 @@ export const business = {
   postcode: 'BH24 1DN',
   // Approximate showroom position; refine from the Google Business Profile pin.
   geo: { lat: 50.8459, lng: -1.7889 },
-  radiusMiles: 30,
+  radiusMiles: 25,
   priceFrom: '£1,999',
   facebook: 'https://www.facebook.com/profile.php?id=61587422684398',
   instagram: 'https://www.instagram.com/no1aircon1/',
@@ -127,7 +127,7 @@ export const faqs = [
   },
   {
     q: 'Which areas do you cover?',
-    a: `We are based at the Ringwood showroom and install within about ${business.radiusMiles} miles, including Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.`,
+    a: `We install within ${business.radiusMiles} miles of our Ringwood showroom, including Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.`,
   },
   {
     q: 'How do I get a quote?',

@@ -30,7 +30,7 @@ export const towns = [
       },
       {
         q: 'Do you only work in Ringwood?',
-        a: `No. The showroom is in Ringwood. We also install in Fordingbridge, Verwood, Ferndown, St Leonards, Christchurch, Wimborne and New Milton, within about ${business.radiusMiles} miles.`,
+        a: `No. The showroom is in Ringwood. We also install in Fordingbridge, Verwood, Ferndown, St Leonards, Christchurch, Wimborne and New Milton, within ${business.radiusMiles} miles of our Ringwood showroom.`,
       },
       {
         q: 'Can you install air conditioning in an older Ringwood house?',
@@ -88,7 +88,7 @@ export const towns = [
       },
       {
         q: 'Do you cover the villages around Fordingbridge?',
-        a: `We work within about ${business.radiusMiles} miles of Ringwood. If you are just outside the town, call ${business.phone} and we will say yes or no rather than leave you guessing.`,
+        a: `We work within ${business.radiusMiles} miles of our Ringwood showroom. If you are just outside the town, call ${business.phone} and we will say yes or no rather than leave you guessing.`,
       },
     ],
   },
@@ -352,7 +352,7 @@ export const towns = [
       },
       {
         q: 'Do you cover Barton on Sea and the roads towards the forest?',
-        a: `Barton on Sea is next to New Milton and we treat it as the same local area. Forest-side hamlets: call ${business.phone} with the address. We cover about ${business.radiusMiles} miles from Ringwood.`,
+        a: `Barton on Sea is next to New Milton and we treat it as the same local area. Forest-side hamlets: call ${business.phone} with the address. We cover ${business.radiusMiles} miles from our Ringwood showroom.`,
       },
     ],
   },
