@@ -9,7 +9,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => INDEXABLE && !page.includes('/robots.txt') && !page.includes('/showroom-card-options'),
+      filter: (page) => INDEXABLE && !page.includes('/robots.txt'),
     }),
   ],
 });
