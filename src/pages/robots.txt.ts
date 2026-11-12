@@ -35,7 +35,7 @@ const lines = [
     }
     lines.push('# Sitemap is withheld until INDEXABLE is true.', '');
   } else {
-    lines.push('User-agent: *', 'Allow: /', '');
+    lines.push('User-agent: *', 'Allow: /', 'Disallow: /showroom-card-options/', '');
     for (const bot of aiBots) {
       lines.push(`User-agent: ${bot}`, 'Allow: /', '');
     }

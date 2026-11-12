@@ -312,10 +312,13 @@ const steps = [
     display: block;
   }
   .cta-photo-media img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+    max-width: none;
     object-fit: cover;
-    object-position: center 18%;
+    object-position: 70% 6%;
   }
   .cta-photo::before {
     content: "";
@@ -323,7 +326,7 @@ const steps = [
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(8, 14, 28, 0.38) 0%, rgba(8, 14, 28, 0.5) 48%, rgba(8, 14, 28, 0.42) 100%);
+    background: linear-gradient(180deg, rgba(8, 14, 28, 0.08) 0%, rgba(8, 14, 28, 0.04) 48%, rgba(8, 14, 28, 0.16) 100%);
   }
   .cta-photo .container {
     position: relative;
@@ -331,10 +334,11 @@ const steps = [
   }
   .cta-photo-panel {
     margin-inline: auto;
-    max-width: 42rem;
+    max-width: 40rem;
     padding: 28px 22px 32px;
     border-radius: 18px;
-    background: rgba(8, 14, 28, 0.72);
+    background: #0f1e3d;
+    box-shadow: 0 18px 40px rgba(8, 14, 28, 0.28);
   }
   .cta-photo .eyebrow,
   .cta-photo h2,
@@ -356,8 +360,16 @@ const steps = [
       min-height: 600px;
       padding: 80px 0;
     }
+    .cta-photo .container {
+      display: flex;
+      justify-content: flex-start;
+    }
     .cta-photo-panel {
+      margin-inline: 0;
       padding: 36px 40px 40px;
+    }
+    .cta-photo-media img {
+      object-position: 74% 12%;
     }
   }
 
@@ -367,7 +379,7 @@ const steps = [
   }
   .areas-map-frame {
     position: relative;
-    height: 300px;
+    height: 420px;
     margin: -56px 0 8px;
   }
   .areas-map-media {
@@ -389,7 +401,7 @@ const steps = [
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(244, 246, 249, 0.08) 30%, var(--off-white) 100%);
+    background: linear-gradient(180deg, rgba(244, 246, 249, 0) 0%, rgba(244, 246, 249, 0) 78%, rgba(244, 246, 249, 0.94) 100%);
   }
   .areas-map-credit {
     position: absolute;
@@ -475,7 +487,7 @@ const steps = [
     height: 100%;
     max-width: none;
     object-fit: cover;
-    object-position: 32% top;
+    object-position: 22% 18%;
   }
   .band-photo::before {
     content: "";
@@ -483,24 +495,39 @@ const steps = [
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(15, 30, 61, 0.86) 0%, rgba(15, 30, 61, 0.78) 42%, rgba(15, 30, 61, 0.68) 100%);
+    background: linear-gradient(180deg, rgba(15, 30, 61, 0.12) 0%, rgba(15, 30, 61, 0.05) 46%, rgba(15, 30, 61, 0.16) 100%);
   }
   .band-photo .container {
     position: relative;
     z-index: 2;
   }
+  .band-photo .section-head {
+    max-width: 40rem;
+    margin-bottom: 1.25rem;
+    padding: 22px 22px 8px;
+    border-radius: 18px;
+    background: #0f1e3d;
+    box-shadow: 0 16px 36px rgba(8, 14, 28, 0.22);
+  }
+  .band-photo .section-head p {
+    color: #fff;
+  }
   .band-photo .season-card {
-    background: rgba(15, 30, 61, 0.72);
+    background: #0f1e3d;
+    box-shadow: 0 16px 36px rgba(8, 14, 28, 0.22);
+  }
+  .band-photo .season-card p {
+    color: #fff;
   }
   @media (min-width: 900px) {
     .band-photo-media img {
-      left: 42%;
-      right: auto;
-      width: 68%;
-      object-position: left top;
+      object-position: 16% 8%;
     }
     .band-photo::before {
-      background: linear-gradient(90deg, rgba(15, 30, 61, 0.94) 0%, rgba(15, 30, 61, 0.88) 36%, rgba(15, 30, 61, 0.72) 62%, rgba(15, 30, 61, 0.58) 100%);
+      background: linear-gradient(90deg, rgba(15, 30, 61, 0.18) 0%, rgba(15, 30, 61, 0.06) 46%, rgba(15, 30, 61, 0.02) 100%);
+    }
+    .band-photo .section-head {
+      padding: 26px 28px 10px;
     }
   }
   @media (min-width: 768px) {
@@ -520,12 +547,16 @@ const steps = [
       z-index: 1;
     }
     .areas-map-frame::after {
-      background:
-        linear-gradient(90deg, rgba(244, 246, 249, 0.94) 0%, rgba(244, 246, 249, 0.82) 32%, rgba(244, 246, 249, 0.5) 62%, rgba(244, 246, 249, 0.34) 100%),
-        linear-gradient(180deg, rgba(244, 246, 249, 0.88) 0%, rgba(244, 246, 249, 0.28) 36%, rgba(244, 246, 249, 0.22) 100%);
+      background: linear-gradient(180deg, rgba(244, 246, 249, 0.2) 0%, rgba(244, 246, 249, 0.05) 24%, rgba(244, 246, 249, 0) 100%);
+    }
+    .areas-map .section-head {
+      padding: 18px 20px 6px;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(15, 30, 61, 0.08);
     }
     .areas-map .area-link {
-      background: rgba(255, 255, 255, 0.94);
+      background: #fff;
     }
     .areas-map-credit {
       right: 16px;

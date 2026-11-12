@@ -1,0 +1,333 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { business, openingHoursText } from '../data/business.js';
+
+const showroomQuery = `${business.street}, ${business.town} ${business.postcode}`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(showroomQuery)}`;
+const hours = openingHoursText();
+const hourChips = hours.split('; ').filter(Boolean).map((part) => part.charAt(0).toUpperCase() + part.slice(1));
+const brochure = `Most companies sell air conditioning from a brochure. At ${business.shortName} you can see the units in person before you decide.`;
+const title = 'Showroom card options | No1 Air Conditioning';
+const description = 'Preview-only showroom card designs for the No1 Air Conditioning homepage. This page is not indexed.';
+---
+<Base title={title} description={description} noindex={true}>
+  <section class="pick-page">
+    <div class="container">
+      <p class="eyebrow">Preview only</p>
+      <h1>Showroom card options</h1>
+      <p class="pick-intro">Three ways to show the Ringwood showroom. The homepage card stays as it is until one of these is chosen. This page is set to noindex and is not linked from the menu.</p>
+
+      <article class="pick-block" id="option-a">
+        <header class="pick-label">
+          <span>Option A</span>
+          <p>Dark glass card over the showroom photo, with the address set large.</p>
+        </header>
+        <div class="stage-a">
+          <img
+            src="/images/showroom-shopfront.jpg"
+            alt=""
+            width="1200"
+            height="800"
+          />
+          <div class="glass">
+            <p class="eyebrow">Showroom</p>
+            <p class="addr">{business.street}</p>
+            <p class="addr-sub">{business.town} {business.postcode}</p>
+            <a class="glass-link" href={directionsUrl}>Get directions</a>
+            <p class="glass-copy">{brochure}</p>
+            <p class="glass-copy"><strong>Opening hours:</strong> {hours}.</p>
+            <a class="btn btn-lg" href="/about/#showroom">Book a showroom visit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pick-block" id="option-b">
+        <header class="pick-label">
+          <span>Option B</span>
+          <p>Split card: the showroom on one side, details and opening-hour chips on the other.</p>
+        </header>
+        <div class="split-card">
+          <figure>
+            <img
+              src="/images/showroom-shopfront.jpg"
+              alt="The No1 Fires and No1 Air Conditioning showroom at 10 Christchurch Road, Ringwood"
+              width="1200"
+              height="800"
+            />
+          </figure>
+          <div class="split-copy">
+            <p class="eyebrow">Showroom</p>
+            <h2>{business.street}</h2>
+            <p class="place">{business.town} {business.postcode}</p>
+            <a class="dir" href={directionsUrl}>Get directions</a>
+            <p>{brochure}</p>
+            <p class="hours-label">Opening hours</p>
+            <ul class="chips">
+              {hourChips.map((chip) => <li>{chip}</li>)}
+            </ul>
+            <a class="btn btn-lg" href="/about/#showroom">Book a showroom visit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pick-block" id="option-c">
+        <header class="pick-label">
+          <span>Option C</span>
+          <p>Bold minimal card with an icon row for the address, the hours, and seeing the units in person.</p>
+        </header>
+        <div class="minimal">
+          <p class="eyebrow">Showroom</p>
+          <h2>Come and see the units</h2>
+          <ul class="icon-row">
+            <li>
+              <span class="icon-tile" aria-hidden="true"><Icon name="pin" size={26} /></span>
+              <span>
+                <strong>{business.street}, {business.town} {business.postcode}</strong>
+                <a href={directionsUrl}>Get directions</a>
+              </span>
+            </li>
+            <li>
+              <span class="icon-tile" aria-hidden="true"><Icon name="clock" size={26} /></span>
+              <span>
+                <strong>Opening hours</strong>
+                {hours}.
+              </span>
+            </li>
+            <li>
+              <span class="icon-tile" aria-hidden="true"><Icon name="check" size={26} /></span>
+              <span>{brochure}</span>
+            </li>
+          </ul>
+          <a class="btn btn-lg minimal-btn" href="/about/#showroom">Book a showroom visit</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pick-page {
+    background:
+      radial-gradient(circle at 0 0, rgba(23, 76, 161, 0.08), transparent 32rem),
+      var(--off-white);
+    padding: 36px 0 72px;
+  }
+  .pick-page h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.03em;
+    max-width: 16ch;
+  }
+  .pick-intro {
+    max-width: 62ch;
+    color: var(--muted);
+    margin: 0.75rem 0 2rem;
+  }
+  .pick-block { margin-top: 2.5rem; }
+  .pick-label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px 16px;
+    margin-bottom: 14px;
+  }
+  .pick-label span {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .pick-label p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .stage-a {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 760px;
+    padding: 200px 16px 16px;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .stage-a img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+  .glass {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 34rem);
+    padding: 28px 24px 30px;
+    border-radius: 22px;
+    background: rgba(8, 14, 28, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 24px 50px rgba(8, 14, 28, 0.35);
+    backdrop-filter: blur(16px);
+  }
+  .glass .eyebrow { color: #ffb088; }
+  .addr {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.15rem, 6vw, 3.35rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+  }
+  .addr-sub {
+    margin: 8px 0 0;
+    color: #fff;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+  .glass-link {
+    display: inline-flex;
+    margin-top: 14px;
+    color: #fff;
+    font-weight: 800;
+    text-underline-offset: 3px;
+  }
+  .glass-link:hover { color: #fff; }
+  .glass-copy {
+    margin: 14px 0 0;
+    color: #fff;
+  }
+  .glass .btn { margin-top: 20px; }
+
+  .split-card {
+    display: grid;
+    background: #fff;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(15, 30, 61, 0.1);
+  }
+  .split-card figure {
+    margin: 0;
+    min-height: 240px;
+    background: var(--navy);
+  }
+  .split-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    object-fit: cover;
+    object-position: center 12%;
+  }
+  .split-copy {
+    padding: 28px 22px 30px;
+  }
+  .split-copy h2 {
+    font-size: clamp(1.85rem, 3vw, 2.5rem);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .place {
+    margin: 6px 0 0;
+    color: var(--navy);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .dir {
+    display: inline-flex;
+    margin-top: 10px;
+    font-weight: 800;
+  }
+  .split-copy > p { color: var(--muted); }
+  .split-copy .place,
+  .split-copy .hours-label { color: var(--navy); }
+  .hours-label {
+    margin: 18px 0 8px;
+    color: var(--navy);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+  }
+  .chips li {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--pale);
+    color: var(--navy);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .split-copy .btn { margin-top: 18px; }
+
+  .minimal {
+    padding: 28px 22px 26px;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(15, 30, 61, 0.1);
+    border-top: 6px solid var(--orange);
+  }
+  .minimal h2 {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    letter-spacing: -0.03em;
+    max-width: 16ch;
+  }
+  .icon-row {
+    display: grid;
+    gap: 18px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .icon-row li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    color: var(--muted);
+  }
+  .icon-row strong {
+    display: block;
+    color: var(--navy);
+    font-size: 1.05rem;
+  }
+  .icon-row a {
+    font-weight: 800;
+  }
+  .minimal-btn {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  @media (min-width: 800px) {
+    .pick-page { padding: 56px 0 96px; }
+    .stage-a {
+      align-items: center;
+      min-height: 620px;
+      padding: 48px;
+    }
+    .glass { padding: 36px 36px 38px; }
+    .split-card { grid-template-columns: minmax(280px, 0.9fr) 1.15fr; min-height: 520px; }
+    .split-card figure,
+    .split-card img { min-height: 100%; }
+    .split-copy { padding: 40px 40px 36px; display: flex; flex-direction: column; justify-content: center; }
+    .icon-row { grid-template-columns: 0.9fr 0.9fr 1.2fr; gap: 22px; }
+    .minimal { padding: 40px 40px 36px; }
+    .minimal-btn { width: auto; min-width: 280px; }
+  }
+</style>
