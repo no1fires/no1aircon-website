@@ -40,8 +40,8 @@ export const business = {
   refcomCertified: true,
   sister: { name: 'No1 Fires', url: 'https://no1fires.co.uk' },
   // Null until Danny supplies them. Pages show the matching placeholder.
-  whatsapp: null,
-  whatsappIntl: null,
+  whatsapp: '07457 405634',
+  whatsappIntl: '447457405634',
   companyNumber: '14778718',
   vatNumber: null,
   // Danny confirmed these showroom hours. Closed Sunday and Monday.

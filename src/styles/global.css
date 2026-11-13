@@ -31,7 +31,7 @@
   --white: #fff;
   --danger: #9f1239;
   --ok: #166534;
-  --whatsapp: #0e7a32;
+  --whatsapp: #25D366;
   --font: Manrope, ui-sans-serif, system-ui, sans-serif;
   --max: 1120px;
   --header: 118px;
@@ -531,7 +531,7 @@ tr:nth-child(even) td { background: var(--off-white); }
 .entity-band { background: var(--off-white); padding: 28px 0 36px; font-size: 0.9375rem; }
 .entity-band p { color: var(--muted); max-width: 85ch; }
 
-.footer { background: var(--navy); color: rgba(255, 255, 255, 0.78); padding: 48px 0 28px; }
+.footer { background: var(--navy); color: rgba(255, 255, 255, 0.78); padding: 48px 0 160px; }
 .footer a { color: rgba(255, 255, 255, 0.78); text-decoration: none; font-weight: 600; }
 .footer a:hover { color: var(--orange); }
 .footer-grid { display: grid; gap: 28px; }
@@ -572,8 +572,8 @@ tr:nth-child(even) td { background: var(--off-white); }
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 .float-btn:hover { background: var(--cta-hover); color: #fff; transform: translateY(-1px); }
-.float-btn.wa { background: var(--whatsapp); }
-.float-btn.wa:hover { background: #0b6429; }
+.float-btn.wa { background: #25D366; }
+.float-btn.wa:hover { background: #1ebe5a; }
 
 html.js .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
 html.js .fade-in.is-visible { opacity: 1; transform: none; }
