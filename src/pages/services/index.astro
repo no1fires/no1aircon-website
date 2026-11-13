@@ -5,6 +5,7 @@ import QuoteSection from '../../components/QuoteSection.astro';
 import Icon from '../../components/Icon.astro';
 import { services } from '../../data/services.js';
 import { business } from '../../data/business.js';
+import { pagePhotos } from '../../data/lifestyle.js';
 
 const title = 'Air Conditioning Services | No1 Air Con';
 const description = `Home air conditioning, heating and cooling, commercial systems, servicing and repairs from the No1 Air Con showroom in Ringwood. Single rooms from ${business.priceFrom} inc. VAT.`;
@@ -19,6 +20,7 @@ const crumbs = [
     title="Air conditioning services"
     lead="Six services at launch. Each page explains who it is for, what it costs where we know, and what we still need to confirm."
     crumbs={crumbs}
+    photo={pagePhotos.services}
   />
   <section class="section">
     <div class="container card-grid">

@@ -1,12 +1,14 @@
 ---
 import CountyPage from '../../components/CountyPage.astro';
 import { business } from '../../data/business.js';
+import { pagePhotos } from '../../data/lifestyle.js';
 
 const county = {
   slug: 'dorset',
   name: 'Dorset',
   title: 'Air Conditioning in Dorset | No1 Air Con',
   description: `Air conditioning installation, servicing and repairs across East Dorset, within ${business.radiusMiles} miles of our Ringwood showroom. Book a free survey.`,
+  photo: pagePhotos.dorset,
   eyebrow: 'Dorset',
   h1: 'Air conditioning installers across Dorset',
   lead: `We install across East Dorset within ${business.radiusMiles} miles of our Ringwood showroom, including Ferndown, Verwood, St Leonards, Christchurch and Wimborne.`,

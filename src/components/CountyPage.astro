@@ -17,7 +17,7 @@ const crumbs = [
 ];
 ---
 <Base title={county.title} description={county.description} crumbs={crumbs} faqs={[...county.answerFaqs, ...county.faqs]}>
-  <PageHero eyebrow={county.eyebrow} title={county.h1} lead={county.lead} crumbs={crumbs} />
+  <PageHero eyebrow={county.eyebrow} title={county.h1} lead={county.lead} crumbs={crumbs} photo={county.photo} />
   <QuickAnswers faqs={county.answerFaqs} />
   <section class="section">
     <div class="container prose">

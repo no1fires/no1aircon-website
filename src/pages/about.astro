@@ -5,6 +5,7 @@ import QuoteSection from '../components/QuoteSection.astro';
 import { business, brands, openingHoursText } from '../data/business.js';
 import { todo } from '../data/placeholders.js';
 import { brandList } from '../lib/format.js';
+import { pagePhotos } from '../data/lifestyle.js';
 
 const title = 'About No1 Air Con | Ringwood Showroom';
 const description = `No1 Air Conditioning is the trading name of ${business.legalName}. Visit the showroom at ${business.street}, ${business.town} ${business.postcode}, or call ${business.phone}.`;
@@ -20,6 +21,7 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.
     title="A Ringwood company you can visit"
     lead={`${business.name} installs, services and repairs air conditioning and air-to-air heat pumps for homes and businesses within ${business.radiusMiles} miles of our Ringwood showroom.`}
     crumbs={crumbs}
+    photo={pagePhotos.about}
   />
   <section class="section">
     <div class="container prose">

@@ -9,6 +9,7 @@ import { towns, getTown, getTownsBySlugs } from '../../data/towns.js';
 import { getServicesBySlugs } from '../../data/services.js';
 import { todo } from '../../data/placeholders.js';
 import { business } from '../../data/business.js';
+import { townPhotos } from '../../data/lifestyle.js';
 
 export function getStaticPaths() {
   return towns.map((town) => ({ params: { slug: town.slug } }));
@@ -27,7 +28,7 @@ const distance = town.miles
   : `The showroom is in ${town.name}, at ${business.street}.`;
 ---
 <Base title={town.title} description={town.description} crumbs={crumbs} faqs={[...town.answerFaqs, ...town.faqs]}>
-  <PageHero eyebrow={town.eyebrow} title={town.h1} lead={town.lead} crumbs={crumbs} />
+  <PageHero eyebrow={town.eyebrow} title={town.h1} lead={town.lead} crumbs={crumbs} photo={townPhotos[town.slug]} />
   <QuickAnswers faqs={town.answerFaqs} />
   <section class="section">
     <div class="container prose">

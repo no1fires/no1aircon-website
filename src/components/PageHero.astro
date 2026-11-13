@@ -1,8 +1,9 @@
 ---
 import { business } from '../data/business.js';
 import Breadcrumbs from './Breadcrumbs.astro';
+import LifestyleBand from './LifestyleBand.astro';
 
-const { eyebrow, title, lead, crumbs = [] } = Astro.props;
+const { eyebrow, title, lead, crumbs = [], photo = null } = Astro.props;
 ---
 <section class="page-hero">
   <div class="container">
@@ -16,3 +17,4 @@ const { eyebrow, title, lead, crumbs = [] } = Astro.props;
     </div>
   </div>
 </section>
+{photo && <LifestyleBand photo={photo} />}

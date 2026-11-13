@@ -1,0 +1,57 @@
+---
+import { Picture } from 'astro:assets';
+import meeting1 from '../assets/lifestyle/meeting-room-1.jpg';
+import meeting2 from '../assets/lifestyle/meeting-room-2.jpg';
+import onyxMeet from '../assets/lifestyle/small-meeting-onyx.jpg';
+import rubyMeet from '../assets/lifestyle/small-meeting-ruby.jpg';
+
+const assets = { meeting1, meeting2, onyxMeet, rubyMeet };
+const { photo } = Astro.props;
+---
+<figure class:list={['life-band', photo.portrait && 'is-portrait']} style={`--life-pos: ${photo.position}`}>
+  {photo.asset ? (
+    <Picture
+      src={assets[photo.asset]}
+      formats={['avif', 'webp']}
+      widths={photo.widths}
+      sizes="100vw"
+      alt={photo.alt}
+      loading="eager"
+      decoding="async"
+    />
+  ) : (
+    <picture>
+      <source type="image/webp" srcset={photo.srcset} sizes="100vw" />
+      <img
+        src={photo.src}
+        alt={photo.alt}
+        width={photo.width}
+        height={photo.height}
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  )}
+</figure>
+
+<style>
+  .life-band {
+    margin: 0;
+    height: 280px;
+    overflow: hidden;
+    background: #e7eef8;
+  }
+  .life-band picture,
+  .life-band img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--life-pos, center 30%);
+  }
+  .life-band.is-portrait { height: 380px; }
+  @media (min-width: 800px) {
+    .life-band { height: 440px; }
+    .life-band.is-portrait { height: 520px; }
+  }
+</style>

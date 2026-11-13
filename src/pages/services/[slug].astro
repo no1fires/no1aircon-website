@@ -8,6 +8,7 @@ import Related from '../../components/Related.astro';
 import Icon from '../../components/Icon.astro';
 import { services, getService, getServicesBySlugs } from '../../data/services.js';
 import { getTownsBySlugs } from '../../data/towns.js';
+import { servicePhotos } from '../../data/lifestyle.js';
 
 export function getStaticPaths() {
   return services.map((service) => ({ params: { slug: service.slug } }));
@@ -24,7 +25,7 @@ const crumbs = [
 const faqs = [...service.answerFaqs, ...service.faqs];
 ---
 <Base title={service.title} description={service.description} crumbs={crumbs} faqs={faqs} service={service}>
-  <PageHero eyebrow={service.eyebrow} title={service.h1} lead={service.lead} crumbs={crumbs} />
+  <PageHero eyebrow={service.eyebrow} title={service.h1} lead={service.lead} crumbs={crumbs} photo={servicePhotos[service.slug]} />
   <QuickAnswers faqs={service.answerFaqs} />
   <section class="section">
     <div class="container split">

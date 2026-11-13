@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import { faqs, business } from '../data/business.js';
+import { pagePhotos } from '../data/lifestyle.js';
 import { services } from '../data/services.js';
 
 const title = 'Air Conditioning FAQs | No1 Air Con';
@@ -19,6 +20,7 @@ const crumbs = [
     title="Air conditioning questions"
     lead="Straight answers from the details we already publish. Where a price or a registration number is not confirmed, the page says so instead of guessing."
     crumbs={crumbs}
+    photo={pagePhotos.faqs}
   />
   <FaqList faqs={faqs} heading="Common questions" />
   <section class="section" style="padding-top:0;">

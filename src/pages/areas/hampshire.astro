@@ -1,12 +1,14 @@
 ---
 import CountyPage from '../../components/CountyPage.astro';
 import { business } from '../../data/business.js';
+import { pagePhotos } from '../../data/lifestyle.js';
 
 const county = {
   slug: 'hampshire',
   name: 'Hampshire',
   title: 'Air Conditioning in Hampshire | No1 Air Con',
   description: `Air conditioning installation, servicing and repairs across Hampshire, within ${business.radiusMiles} miles of our Ringwood showroom. Book a free survey.`,
+  photo: pagePhotos.hampshire,
   eyebrow: 'Hampshire',
   h1: 'Air conditioning installers across Hampshire',
   lead: `We are based in Ringwood, on the edge of the New Forest, and install across Hampshire within ${business.radiusMiles} miles of our Ringwood showroom at ${business.street}, ${business.postcode}.`,
