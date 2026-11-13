@@ -42,7 +42,7 @@ export const business = {
   // Null until Danny supplies them. Pages show the matching placeholder.
   whatsapp: null,
   whatsappIntl: null,
-  companyNumber: null,
+  companyNumber: '14778718',
   vatNumber: null,
   // Danny confirmed these showroom hours. Closed Sunday and Monday.
   // Pages print them through openingHoursText().

@@ -18,7 +18,7 @@ const crumbs = [
     <div class="container prose">
       <p><span class="todo">{todo('privacyReview')}</span></p>
       <h2>Who we are</h2>
-      <p>{business.legalName}, trading as {business.name}, of {business.street}, {business.town}, {business.county} {business.postcode}. Email <a href={`mailto:${business.email}`}>{business.email}</a>. Phone <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>. Company number: <span class="todo">{todo('companyNumber')}</span>.</p>
+      <p>{business.legalName}, trading as {business.name}, of {business.street}, {business.town}, {business.county} {business.postcode}. Email <a href={`mailto:${business.email}`}>{business.email}</a>. Phone <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>. Company number: {business.companyNumber}.</p>
       <h2>What we collect</h2>
       <p>If you use the quote form we ask for your name, phone number, email, postcode or town, the service you are asking about, and a message. The buyer’s guide form asks for name, email and phone. If you email or call, we keep what you send us so we can reply.</p>
       <p>We do not ask for payment card details on this website. We do not record calls on this site, and we have not said that we do.</p>

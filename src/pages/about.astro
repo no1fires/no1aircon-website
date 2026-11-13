@@ -25,8 +25,8 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.
     <div class="container prose">
       <h2>Who we are</h2>
       <p>{business.name}, also called {business.shortName}, is the trading name of {business.legalName}. The same company trades as <a href={business.sister.url} rel="noopener noreferrer">{business.sister.name}</a>.</p>
-      <p>The showroom and the phone number are how you reach us. We do not publish staff names or a company number until they are confirmed.</p>
-      <p>Company number: <span class="todo">{business.companyNumber || todo('companyNumber')}</span>. VAT number: <span class="todo">{business.vatNumber || todo('vatNumber')}</span>.</p>
+      <p>The showroom and the phone number are how you reach us. We do not publish staff names until they are confirmed.</p>
+      <p>Company number: {business.companyNumber}. VAT number: <span class="todo">{business.vatNumber || todo('vatNumber')}</span>.</p>
       <h2>What we do</h2>
       <p>Home air conditioning, heating and cooling, commercial systems, servicing, repairs, and ducted or ceiling systems where the building can take them. A single room is installed from {business.priceFrom} including VAT. {business.warranty}</p>
       <p>Brands we install: {brandList(brands)}. {brands.map((brand) => brand.note).join(' ')}</p>

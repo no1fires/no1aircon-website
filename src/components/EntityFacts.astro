@@ -1,6 +1,5 @@
 ---
 import { business, contentUpdated, openingHoursText } from '../data/business.js';
-import { todo } from '../data/placeholders.js';
 import { formatDate } from '../lib/format.js';
 import { towns } from '../data/towns.js';
 
@@ -18,7 +17,7 @@ const townList = towns.map((town) => town.name).join(', ');
     <p>
       We install, service and repair air conditioning and air-to-air heat pumps for homes and businesses in {townList}.
       {business.refcomCertified ? 'The current site describes our installers as Refcom certified.' : ''}
-      Company number: {business.companyNumber || <span class="todo">{todo('companyNumber')}</span>}.
+      Company number: {business.companyNumber}.
     </p>
     <p>
       Showroom hours: {openingHoursText()}.
