@@ -40,6 +40,31 @@ const steps = [
           <li><Icon name="check" /> Fixed-price quotes</li>
         </ul>
       </div>
+      <aside class="hero-card" id="showroom-card">
+        <p class="eyebrow">Showroom</p>
+        <h2>Come and see the units</h2>
+        <ul class="hero-facts">
+          <li>
+            <span class="icon-tile" aria-hidden="true"><Icon name="pin" size={26} /></span>
+            <span>
+              <strong>{business.street}, {business.town} {business.postcode}</strong>
+              <a href={directionsUrl}>Get directions</a>
+            </span>
+          </li>
+          <li>
+            <span class="icon-tile" aria-hidden="true"><Icon name="clock" size={26} /></span>
+            <span>
+              <strong>Opening hours</strong>
+              {openingHoursText()}.
+            </span>
+          </li>
+          <li>
+            <span class="icon-tile" aria-hidden="true"><Icon name="check" size={26} /></span>
+            <span>Most companies sell air conditioning from a brochure. At {business.shortName} you can see the units in person before you decide.</span>
+          </li>
+        </ul>
+        <a class="btn btn-lg hero-card-btn" href="/about/#showroom">Book a showroom visit</a>
+      </aside>
     </div>
   </section>
 
@@ -59,31 +84,27 @@ const steps = [
   </section>
 
   <MitsubishiRange>
-    <aside class="hero-card" id="showroom-card">
-      <p class="eyebrow">Showroom</p>
-      <h2>Come and see the units</h2>
-      <ul class="hero-facts">
-        <li>
-          <span class="icon-tile" aria-hidden="true"><Icon name="pin" size={26} /></span>
-          <span>
-            <strong>{business.street}, {business.town} {business.postcode}</strong>
-            <a href={directionsUrl}>Get directions</a>
-          </span>
-        </li>
-        <li>
-          <span class="icon-tile" aria-hidden="true"><Icon name="clock" size={26} /></span>
-          <span>
-            <strong>Opening hours</strong>
-            {openingHoursText()}.
-          </span>
-        </li>
-        <li>
-          <span class="icon-tile" aria-hidden="true"><Icon name="check" size={26} /></span>
-          <span>Most companies sell air conditioning from a brochure. At {business.shortName} you can see the units in person before you decide.</span>
-        </li>
-      </ul>
-      <a class="btn btn-lg hero-card-btn" href="/about/#showroom">Book a showroom visit</a>
-    </aside>
+    <div class="visit-panel" id="showroom">
+      <div>
+        <p class="eyebrow">Ringwood</p>
+        <h2>A local company you can actually visit</h2>
+        <p>The showroom is at {business.street}, {business.town}, {business.postcode}. Hear the noise levels, compare the brands, and talk about the rooms you want done before anyone drills a wall.</p>
+        <p>{business.name} is the trading name of {business.legalName}. We also trade as <a href={business.sister.url} rel="noopener noreferrer">{business.sister.name}</a>.</p>
+        <div class="cluster">
+          <a class="btn" href="/about/#showroom">Visit the showroom</a>
+          <a class="btn btn-navy" href="#quote">Get a free quote</a>
+        </div>
+        <p class="google-badge" aria-label="Rated 5 out of 5 on Google"><span class="google-badge-stars" aria-hidden="true">★★★★★</span> <strong>5.0</strong> rating on Google</p>
+        <iframe class="showroom-map" title="Map showing the No1 Air Conditioning showroom at 10 Christchurch Road, Ringwood, BH24 1DN" src="https://www.google.com/maps?q=10+Christchurch+Road,+Ringwood,+BH24+1DN&amp;output=embed" width="100%" height="260" style="border:0;border-radius:12px;margin-top:20px;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="showroom-card">
+        <h3>Showroom</h3>
+        <p>{business.street}<br />{business.town}, {business.county}<br />{business.postcode}</p>
+        <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br /><a href={`mailto:${business.email}`}>{business.email}</a></p>
+        <img src="/images/showroom-shopfront.jpg" alt="The No1 Fires and No1 Air Conditioning showroom at 10 Christchurch Road, Ringwood" width="1200" height="800" loading="lazy" style="width:100%;height:auto;border-radius:8px;margin:8px 0;" />
+        <p>Hours: {openingHoursText()}.</p>
+      </div>
+    </div>
   </MitsubishiRange>
 
   <section class="section tint" id="services">
@@ -141,32 +162,6 @@ const steps = [
           <h3>Winter heating</h3>
           <p>Heat for the rooms that have an indoor unit. Often cheaper to run than gas for that room. It does not replace a whole-house boiler on its own.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="showroom">
-    <div class="container">
-      <div class="visit-panel">
-        <div>
-          <p class="eyebrow">Ringwood</p>
-          <h2>A local company you can actually visit</h2>
-          <p>The showroom is at {business.street}, {business.town}, {business.postcode}. Hear the noise levels, compare the brands, and talk about the rooms you want done before anyone drills a wall.</p>
-          <p>{business.name} is the trading name of {business.legalName}. We also trade as <a href={business.sister.url} rel="noopener noreferrer">{business.sister.name}</a>.</p>
-          <div class="cluster">
-            <a class="btn" href="/about/#showroom">Visit the showroom</a>
-            <a class="btn btn-navy" href="#quote">Get a free quote</a>
-          </div>
-          <p class="google-badge" aria-label="Rated 5 out of 5 on Google"><span class="google-badge-stars" aria-hidden="true">★★★★★</span> <strong>5.0</strong> rating on Google</p>
-        <iframe class="showroom-map" title="Map showing the No1 Air Conditioning showroom at 10 Christchurch Road, Ringwood, BH24 1DN" src="https://www.google.com/maps?q=10+Christchurch+Road,+Ringwood,+BH24+1DN&amp;output=embed" width="100%" height="260" style="border:0;border-radius:12px;margin-top:20px;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="showroom-card">
-          <h3>Showroom</h3>
-          <p>{business.street}<br />{business.town}, {business.county}<br />{business.postcode}</p>
-          <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br /><a href={`mailto:${business.email}`}>{business.email}</a></p>
-          <img src="/images/showroom-shopfront.jpg" alt="The No1 Fires and No1 Air Conditioning showroom at 10 Christchurch Road, Ringwood" width="1200" height="800" loading="lazy" style="width:100%;height:auto;border-radius:8px;margin:8px 0;" />
-          <p>Hours: {openingHoursText()}.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -411,7 +406,6 @@ const steps = [
     color: var(--navy);
   }
 
-  .hero-photo .hero-grid { grid-template-columns: 1fr; }
   .hero-card {
     background: #fff;
     padding: 26px 22px 22px;
@@ -450,17 +444,6 @@ const steps = [
   .hero-card-btn {
     width: 100%;
     margin-top: 22px;
-  }
-  @media (min-width: 900px) {
-    .hero-facts {
-      grid-template-columns: 1fr 1fr 1.15fr;
-      gap: 22px;
-      align-items: start;
-    }
-    .hero-card-btn {
-      width: auto;
-      min-width: 280px;
-    }
   }
   .band-photo {
     position: relative;
