@@ -145,24 +145,24 @@ async function postGuide(endpoint, payload) {
   }
 }
 
-function showGuideSuccess(status, pdf, guideTab) {
-  if (pdf) {
-    if (guideTab && !guideTab.closed) guideTab.location = pdf;
-    else window.open(pdf, '_blank', 'noopener');
+function showGuideSuccess(status, pdf) {
+  if (status) {
+    status.className = 'status is-ok';
+    status.replaceChildren();
+    status.append('Thanks. Your guide is ready. ');
+    if (pdf) {
+      const link = document.createElement('a');
+      link.href = pdf;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Download the guide';
+      status.append(link, '. ');
+    }
+    status.append('A copy is also on its way by email.');
   }
-  if (!status) return;
-  status.className = 'status is-ok';
-  status.replaceChildren();
-  status.append('Thanks. Your guide is ready. ');
-  if (pdf) {
-    const link = document.createElement('a');
-    link.href = pdf;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.textContent = 'Download the guide';
-    status.append(link, '. ');
-  }
-  status.append('A copy is also on its way by email.');
+  if (!pdf) return;
+  const opened = window.open(pdf, '_blank', 'noopener,noreferrer');
+  if (opened) opened.opener = null;
 }
 
 function setupForms() {
@@ -246,19 +246,17 @@ function setupForms() {
       }
 
       const guidePdf = form.dataset.guidePdf || '';
-      const guideTab = isGuide && guidePdf ? window.open('', '_blank') : null;
 
       try {
         if (isGuide) await postGuide(endpoint, payload);
         else await postQuote(endpoint, payload);
         form.reset();
-        if (isGuide) showGuideSuccess(status, guidePdf, guideTab);
+        if (isGuide) showGuideSuccess(status, guidePdf);
         else if (status) {
           status.className = 'status is-ok';
           status.textContent = form.dataset.success || 'Thanks. We have received this and will be in touch.';
         }
       } catch {
-        if (guideTab && !guideTab.closed) guideTab.close();
         if (status) {
           status.className = 'status is-bad';
           status.innerHTML = `We could not confirm the form was sent. Please call <a href="${form.dataset.phoneHref}">${form.dataset.phone}</a> or email <a href="mailto:${form.dataset.email}">${form.dataset.email}</a>.`;
