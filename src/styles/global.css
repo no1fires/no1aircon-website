@@ -411,6 +411,17 @@ address { font-style: normal; }
 .guide h2 { color: #fff; font-size: clamp(1.875rem, 3vw, 2.25rem); }
 .guide p { color: rgba(255, 255, 255, 0.82); }
 .guide-grid { display: grid; gap: 28px; align-items: start; }
+.guide-lead { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.guide-book {
+  width: min(210px, 62%);
+  height: auto;
+  margin: 0;
+  filter: drop-shadow(0 16px 22px rgba(0, 0, 0, 0.35));
+}
+@media (min-width: 720px) {
+  .guide-lead { flex-direction: row; align-items: center; gap: 28px; text-align: left; }
+  .guide-book { width: 210px; flex: none; }
+}
 .form-dark input {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.25);

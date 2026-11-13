@@ -1,0 +1,56 @@
+---
+// Shown above the footer on every page except the homepage, which already
+// shows this book beside the guide form.
+const href = '/#guide';
+---
+<aside class="guide-banner" aria-label="Free homeowner's guide">
+  <div class="container guide-banner-inner">
+    <img
+      src="/images/guide-book-onyx.webp"
+      width="662"
+      height="797"
+      alt="The No1 Air Con homeowner's guide, with a Mitsubishi Electric Onyx Black unit on the cover"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="guide-banner-copy">
+      <h2>Free homeowner's guide</h2>
+      <p>Choosing air conditioning that heats and cools your home all year round. Download it free.</p>
+      <a class="btn" href={href}>Get the free guide</a>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .guide-banner {
+    background: linear-gradient(105deg, #f4f6f9 0%, #e7eef8 58%, #fff4ec 100%);
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+  }
+  .guide-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .guide-banner img {
+    width: 108px;
+    height: auto;
+    flex: none;
+    filter: drop-shadow(0 12px 18px rgba(15, 30, 61, 0.18));
+  }
+  .guide-banner h2 {
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    margin-bottom: 0.35rem;
+  }
+  .guide-banner p {
+    color: var(--muted);
+    margin: 0 0 0.85rem;
+    max-width: 48ch;
+  }
+  @media (min-width: 720px) {
+    .guide-banner { padding: 36px 0; }
+    .guide-banner-inner { gap: 36px; }
+    .guide-banner img { width: 156px; }
+  }
+</style>
