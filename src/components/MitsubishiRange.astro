@@ -85,6 +85,9 @@ const hours = openingHoursText();
     </div>
 
     <div class="me-cards">
+      <div class="me-showroom-slot">
+        <slot />
+      </div>
       <article class="me-card me-card-ln">
         <div class="me-card-copy">
           <p class="eyebrow">Range</p>
@@ -286,6 +289,11 @@ const hours = openingHoursText();
     gap: 18px;
     margin-top: 28px;
   }
+  .me-showroom-slot:not(:empty) {
+    margin-top: 8px;
+    margin-bottom: 14px;
+  }
+  .me-showroom-slot:empty { display: none; }
   .me-card {
     display: flex;
     flex-direction: column;

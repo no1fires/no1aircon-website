@@ -40,31 +40,6 @@ const steps = [
           <li><Icon name="check" /> Fixed-price quotes</li>
         </ul>
       </div>
-      <aside class="hero-card" id="showroom-card">
-        <p class="eyebrow">Showroom</p>
-        <h2>Come and see the units</h2>
-        <ul class="hero-facts">
-          <li>
-            <span class="icon-tile" aria-hidden="true"><Icon name="pin" size={26} /></span>
-            <span>
-              <strong>{business.street}, {business.town} {business.postcode}</strong>
-              <a href={directionsUrl}>Get directions</a>
-            </span>
-          </li>
-          <li>
-            <span class="icon-tile" aria-hidden="true"><Icon name="clock" size={26} /></span>
-            <span>
-              <strong>Opening hours</strong>
-              {openingHoursText()}.
-            </span>
-          </li>
-          <li>
-            <span class="icon-tile" aria-hidden="true"><Icon name="check" size={26} /></span>
-            <span>Most companies sell air conditioning from a brochure. At {business.shortName} you can see the units in person before you decide.</span>
-          </li>
-        </ul>
-        <a class="btn btn-lg hero-card-btn" href="/about/#showroom">Book a showroom visit</a>
-      </aside>
     </div>
   </section>
 
@@ -83,7 +58,33 @@ const steps = [
     </ul>
   </section>
 
-  <MitsubishiRange />
+  <MitsubishiRange>
+    <aside class="hero-card" id="showroom-card">
+      <p class="eyebrow">Showroom</p>
+      <h2>Come and see the units</h2>
+      <ul class="hero-facts">
+        <li>
+          <span class="icon-tile" aria-hidden="true"><Icon name="pin" size={26} /></span>
+          <span>
+            <strong>{business.street}, {business.town} {business.postcode}</strong>
+            <a href={directionsUrl}>Get directions</a>
+          </span>
+        </li>
+        <li>
+          <span class="icon-tile" aria-hidden="true"><Icon name="clock" size={26} /></span>
+          <span>
+            <strong>Opening hours</strong>
+            {openingHoursText()}.
+          </span>
+        </li>
+        <li>
+          <span class="icon-tile" aria-hidden="true"><Icon name="check" size={26} /></span>
+          <span>Most companies sell air conditioning from a brochure. At {business.shortName} you can see the units in person before you decide.</span>
+        </li>
+      </ul>
+      <a class="btn btn-lg hero-card-btn" href="/about/#showroom">Book a showroom visit</a>
+    </aside>
+  </MitsubishiRange>
 
   <section class="section tint" id="services">
     <div class="container">
@@ -410,6 +411,7 @@ const steps = [
     color: var(--navy);
   }
 
+  .hero-photo .hero-grid { grid-template-columns: 1fr; }
   .hero-card {
     background: #fff;
     padding: 26px 22px 22px;
@@ -448,6 +450,17 @@ const steps = [
   .hero-card-btn {
     width: 100%;
     margin-top: 22px;
+  }
+  @media (min-width: 900px) {
+    .hero-facts {
+      grid-template-columns: 1fr 1fr 1.15fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .hero-card-btn {
+      width: auto;
+      min-width: 280px;
+    }
   }
   .band-photo {
     position: relative;
