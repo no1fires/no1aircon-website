@@ -7,7 +7,6 @@ import QuoteForm from '../components/QuoteForm.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import FaqList from '../components/FaqList.astro';
 import { business, brands, faqs, openingHoursText } from '../data/business.js';
-import { todo } from '../data/placeholders.js';
 import { services } from '../data/services.js';
 import { towns } from '../data/towns.js';
 
@@ -211,8 +210,7 @@ const steps = [
       <div>
         <p class="eyebrow eyebrow-on-dark">Guide</p>
         <h2>The home air conditioning buyer’s guide</h2>
-        <p>A plain-English guide to room size, noise, heating and cooling, and what happens on a survey. The PDF is not ready yet, so this form only records your interest.</p>
-        <p><span class="todo">{todo('buyersGuide')}</span></p>
+        <p>A plain-English guide to room size, noise, heating and cooling, and what happens on a survey. Send the form and you can download it straight away.</p>
       </div>
       <QuoteForm id="guide-form" variant="guide" />
     </div>

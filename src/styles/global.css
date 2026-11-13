@@ -420,6 +420,7 @@ address { font-style: normal; }
 .form-dark label { color: #fff; }
 .form-dark .error { color: #ffd0c2; }
 .form-dark .status.is-ok, .form-dark .status.is-bad { color: #fff; }
+.form-dark .status a { color: #fff; text-decoration: underline; }
 
 .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
 .field label { font-weight: 700; font-size: 0.9375rem; }

@@ -118,6 +118,53 @@ function fallbackMessage(form) {
   return `The online form is not connected yet, so this has not been sent. Call <a href="${phoneHref}">${phone}</a> or email <a href="mailto:${email}">${email}</a>.`;
 }
 
+function postQuote(endpoint, payload) {
+  return fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+    body: new URLSearchParams(payload),
+  }).then((response) => {
+    if (!response.ok) throw new Error('Request failed');
+  });
+}
+
+// JSON POST. If the browser cannot read the response because of CORS, send the
+// same payload in a no-cors request so it still arrives, and treat that as sent.
+async function postGuide(endpoint, payload) {
+  const body = JSON.stringify(payload);
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+    });
+    if (!response.ok) throw new Error('Request failed');
+  } catch (error) {
+    if (!(error instanceof TypeError)) throw error;
+    await fetch(endpoint, { method: 'POST', mode: 'no-cors', body });
+  }
+}
+
+function showGuideSuccess(status, pdf, guideTab) {
+  if (pdf) {
+    if (guideTab && !guideTab.closed) guideTab.location = pdf;
+    else window.open(pdf, '_blank', 'noopener');
+  }
+  if (!status) return;
+  status.className = 'status is-ok';
+  status.replaceChildren();
+  status.append('Thanks. Your guide is ready. ');
+  if (pdf) {
+    const link = document.createElement('a');
+    link.href = pdf;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Download the guide';
+    status.append(link, '. ');
+  }
+  status.append('A copy is also on its way by email.');
+}
+
 function setupForms() {
   document.querySelectorAll('form[data-form]').forEach((form) => {
     form.addEventListener('submit', async (event) => {
@@ -165,10 +212,23 @@ function setupForms() {
         return;
       }
 
-      const payload = { formType: form.dataset.form, page: form.dataset.page || window.location.pathname };
+      const fields = {};
       new FormData(form).forEach((value, key) => {
-        if (key !== 'company_website') payload[key] = String(value).trim();
+        if (key !== 'company_website') fields[key] = String(value).trim();
       });
+      const page = form.dataset.page || window.location.pathname;
+      const isGuide = form.dataset.form === 'buyers-guide';
+      const payload = isGuide
+        ? {
+          first_name: fields.name || '',
+          name: fields.name || '',
+          email: fields.email || '',
+          phone: fields.phone || '',
+          source: 'New AC website - guide',
+          formType: 'buyers-guide',
+          page,
+        }
+        : { ...fields, formType: form.dataset.form, page };
 
       const endpoint = (form.dataset.endpoint || '').trim();
       if (!endpoint.startsWith('https://')) {
@@ -185,20 +245,20 @@ function setupForms() {
         status.textContent = 'Sending…';
       }
 
+      const guidePdf = form.dataset.guidePdf || '';
+      const guideTab = isGuide && guidePdf ? window.open('', '_blank') : null;
+
       try {
-        const body = new URLSearchParams(payload);
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body,
-        });
-        if (!response.ok) throw new Error('Request failed');
+        if (isGuide) await postGuide(endpoint, payload);
+        else await postQuote(endpoint, payload);
         form.reset();
-        if (status) {
+        if (isGuide) showGuideSuccess(status, guidePdf, guideTab);
+        else if (status) {
           status.className = 'status is-ok';
           status.textContent = form.dataset.success || 'Thanks. We have received this and will be in touch.';
         }
       } catch {
+        if (guideTab && !guideTab.closed) guideTab.close();
         if (status) {
           status.className = 'status is-bad';
           status.innerHTML = `We could not confirm the form was sent. Please call <a href="${form.dataset.phoneHref}">${form.dataset.phone}</a> or email <a href="mailto:${form.dataset.email}">${form.dataset.email}</a>.`;

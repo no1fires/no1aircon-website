@@ -14,6 +14,13 @@ export const contentUpdated = '2026-10-28';
 const envEndpoint = import.meta.env && import.meta.env.PUBLIC_QUOTE_ENDPOINT;
 export const quoteEndpoint = envEndpoint || '';
 
+// Homeowner's guide form only. PUBLIC_GUIDE_ENDPOINT overrides this at build time.
+// The quote form keeps using quoteEndpoint / PUBLIC_QUOTE_ENDPOINT.
+const defaultGuideEndpoint = 'https://services.leadconnectorhq.com/hooks/9HvMM7JwacidUZ9vaQRt/webhook-trigger/68ded49d-1219-4c83-a649-c446f16421d6';
+const envGuideEndpoint = import.meta.env && import.meta.env.PUBLIC_GUIDE_ENDPOINT;
+export const guideEndpoint = envGuideEndpoint || defaultGuideEndpoint;
+export const guidePdf = 'https://files.leadconnectorhq.com/file/6af6fd1d97818be4d4b385fa/no1-air-con-homeowners-guide.pdf';
+
 export const business = {
   name: 'No1 Air Conditioning',
   shortName: 'No1 Air Con',

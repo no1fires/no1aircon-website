@@ -26,7 +26,6 @@ export const placeholders = {
   accreditations: '[TODO: confirm accreditations and approved-brand listings]',
   googleBusinessUrl: '[TODO: add Google Business Profile URL]',
   linkedinUrl: '[TODO: add LinkedIn URL]',
-  buyersGuide: '[TODO: add the home air conditioning buyer\'s guide PDF]',
   retentionPeriod: '[TODO: add how long enquiry records are kept]',
   processors: '[TODO: confirm CRM and any other companies that process enquiry data]',
   privacyReview: '[TODO: check this privacy policy against the current no1aircon.co.uk policy and replace anything that should carry over]',
