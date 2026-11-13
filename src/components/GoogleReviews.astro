@@ -41,32 +41,62 @@ function avatarColor(name) {
         <a class="btn btn-navy" href={writeUrl} target="_blank" rel="noopener noreferrer">Leave us a review</a>
       </div>
     </header>
+  </div>
 
-    <div class="review-nav">
-      <button type="button" data-reviews-prev aria-label="Previous reviews">‹</button>
-      <button type="button" data-reviews-next aria-label="Next reviews">›</button>
-    </div>
-
-    <div class="review-track" tabindex="0" aria-label="Google reviews">
-      {reviews.map((review) => (
-        <article class="review-card">
-          <header>
-            <span class="avatar" style={`background:${avatarColor(review.name)}`} aria-hidden="true">{initial(review.name)}</span>
-            <span>
-              <strong>{review.name}</strong>
-              <span class="stars" aria-label={`${review.stars} out of 5 stars`}>★★★★★</span>
-            </span>
-          </header>
-          <p class="review-text">{review.text}</p>
-          <button type="button" class="review-more" aria-expanded="false">Read more</button>
-        </article>
+  <div class="review-banner">
+    <div class="review-marquee">
+      {[0, 1].map((copy) => (
+        <div class="review-set" aria-hidden={copy === 1 ? 'true' : undefined} inert={copy === 1}>
+          {reviews.map((review) => (
+            <article class="review-card">
+              <header>
+                <span class="avatar" style={`background:${avatarColor(review.name)}`} aria-hidden="true">{initial(review.name)}</span>
+                <span>
+                  <strong>{review.name}</strong>
+                  <span class="stars" aria-label={copy === 0 ? `${review.stars} out of 5 stars` : undefined}>★★★★★</span>
+                </span>
+              </header>
+              <p class="review-text">{review.text}</p>
+              <button type="button" class="review-more">Read more</button>
+            </article>
+          ))}
+        </div>
       ))}
     </div>
   </div>
+
+  <dialog class="review-dialog" aria-labelledby="review-dialog-title">
+    <form method="dialog">
+      <button class="review-close" aria-label="Close">Close</button>
+    </form>
+    <h3 id="review-dialog-title"></h3>
+    <p class="stars" aria-hidden="true">★★★★★</p>
+    <p class="review-dialog-text"></p>
+  </dialog>
 </section>
 
 <script is:inline>
   document.querySelectorAll('[data-google-reviews]').forEach((root) => {
+    const marquee = root.querySelector('.review-marquee');
+    const banner = root.querySelector('.review-banner');
+    const dialog = root.querySelector('.review-dialog');
+    const title = dialog?.querySelector('#review-dialog-title');
+    const body = dialog?.querySelector('.review-dialog-text');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const pause = () => marquee?.classList.add('is-paused');
+    const resume = () => {
+      if (dialog?.open) return;
+      marquee?.classList.remove('is-paused');
+    };
+
+    if (!reduce && banner && marquee) {
+      banner.addEventListener('pointerdown', pause);
+      banner.addEventListener('pointerup', resume);
+      banner.addEventListener('pointercancel', resume);
+      banner.addEventListener('pointerleave', resume);
+    }
+
     root.querySelectorAll('.review-card').forEach((card) => {
       const text = card.querySelector('.review-text');
       const button = card.querySelector('.review-more');
@@ -75,33 +105,29 @@ function avatarColor(name) {
         button.hidden = true;
         return;
       }
+      if (card.closest('[aria-hidden="true"]')) return;
       button.addEventListener('click', () => {
-        const open = text.classList.toggle('is-open');
-        button.textContent = open ? 'Show less' : 'Read more';
-        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (!dialog || !title || !body) return;
+        title.textContent = card.querySelector('strong')?.textContent || 'Review';
+        body.textContent = text.textContent;
+        pause();
+        dialog.showModal();
       });
     });
 
-    const track = root.querySelector('.review-track');
-    const step = () => Math.max((track?.clientWidth || 280) * 0.86, 240);
-    root.querySelector('[data-reviews-prev]')?.addEventListener('click', () => {
-      track?.scrollBy({ left: -step(), behavior: 'smooth' });
-    });
-    root.querySelector('[data-reviews-next]')?.addEventListener('click', () => {
-      track?.scrollBy({ left: step(), behavior: 'smooth' });
-    });
+    dialog?.addEventListener('close', resume);
   });
 </script>
 
 <style>
-  .reviews-band { background: var(--off-white); }
+  .reviews-band { background: var(--off-white); overflow: hidden; }
   .g-head {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    gap: 18px 24px;
-    margin-bottom: 18px;
+    gap: 18px 28px;
+    margin-bottom: 22px;
   }
   .g-brand { display: flex; align-items: center; gap: 14px; }
   .g-logo { flex: none; }
@@ -117,35 +143,30 @@ function avatarColor(name) {
   .stars { color: #f4b400; letter-spacing: 1px; font-size: 1rem; line-height: 1; }
   .g-head .stars { font-size: 1.15rem; }
   .g-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  .review-nav { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 12px; }
-  .review-nav button {
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: #fff;
-    color: var(--navy);
-    font-size: 1.5rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .review-nav button:hover { border-color: var(--navy); }
-  .review-track {
+  .review-banner { overflow: hidden; }
+  .review-marquee {
     display: flex;
+    width: max-content;
+    animation: review-marquee 110s linear infinite;
+  }
+  .review-banner:hover .review-marquee,
+  .review-marquee.is-paused {
+    animation-play-state: paused;
+  }
+  .review-set {
+    display: flex;
+    flex: none;
     gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: 2px;
-    padding-bottom: 6px;
+    padding-right: 16px;
   }
   .review-card {
-    flex: 0 0 min(86%, 22rem);
-    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    min-height: 100%;
-    padding: 22px 20px 18px;
+    width: 300px;
+    height: 228px;
+    flex: none;
+    padding: 20px 18px 16px;
     background: #fff;
     border-radius: 24px;
     border-top: 5px solid var(--orange);
@@ -175,11 +196,6 @@ function avatarColor(name) {
     color: var(--muted);
     white-space: pre-line;
   }
-  .review-text.is-open {
-    display: block;
-    -webkit-line-clamp: unset;
-    overflow: visible;
-  }
   .review-more {
     align-self: flex-start;
     margin-top: auto;
@@ -192,6 +208,27 @@ function avatarColor(name) {
     cursor: pointer;
   }
   .review-more:hover { color: var(--blue-hover); }
+  .review-dialog {
+    width: min(32rem, calc(100vw - 32px));
+    border: 0;
+    border-top: 6px solid var(--orange);
+    border-radius: 24px;
+    padding: 22px 22px 20px;
+    color: var(--navy);
+    box-shadow: 0 24px 50px rgba(15, 30, 61, 0.22);
+  }
+  .review-dialog::backdrop { background: rgba(15, 30, 61, 0.45); }
+  .review-dialog form { display: flex; justify-content: flex-end; margin: 0; }
+  .review-close {
+    border: 0;
+    background: none;
+    color: var(--blue);
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .review-dialog h3 { margin: 4px 0 8px; font-size: 1.35rem; }
+  .review-dialog-text { margin: 12px 0 0; color: var(--muted); white-space: pre-line; }
   .visually-hidden {
     position: absolute;
     width: 1px;
@@ -203,14 +240,18 @@ function avatarColor(name) {
     white-space: nowrap;
     border: 0;
   }
-  @media (min-width: 900px) {
-    .review-nav { display: none; }
-    .review-track {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      overflow: visible;
-      scroll-snap-type: none;
+  @keyframes review-marquee {
+    from { transform: translate3d(-50%, 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .review-banner {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-inline: 20px;
     }
-    .review-card { flex: none; }
+    .review-marquee { animation: none; transform: none; }
+    .review-set[aria-hidden="true"] { display: none; }
+    .review-card { scroll-snap-align: start; }
   }
 </style>
