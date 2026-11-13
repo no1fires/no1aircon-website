@@ -1,11 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
 import MitsubishiRange from '../components/MitsubishiRange.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import FaqList from '../components/FaqList.astro';
-import { business, brands, faqs, reviews, openingHoursText } from '../data/business.js';
+import { business, brands, faqs, openingHoursText } from '../data/business.js';
 import { todo } from '../data/placeholders.js';
 import { services } from '../data/services.js';
 import { towns } from '../data/towns.js';
@@ -188,32 +189,7 @@ const steps = [
     </div>
   </section>
 
-  <section class="section" id="reviews">
-    <div class="container">
-      <div class="section-head center">
-        <p class="eyebrow">Reviews</p>
-        <h2>What local customers say</h2>
-        <p>Real reviews will be published here when they are supplied. We do not write stand-in quotes or star ratings.</p>
-      </div>
-      {reviews.length > 0 ? (
-        <div class="card-grid">
-          {reviews.map((review) => (
-            <blockquote class="card" style="padding:24px;">
-              <p>{review.quote}</p>
-              <footer><strong>{review.name}</strong>{review.town ? `, ${review.town}` : ''}{review.detail ? ` — ${review.detail}` : ''}</footer>
-            </blockquote>
-          ))}
-        </div>
-      ) : (
-        <div class="todo-slot">
-          <h3>Reviews placeholder</h3>
-          <p>This is an empty slot, not a testimonial. Nothing on this strip is a customer review.</p>
-          <p><span class="todo">{todo('reviews')}</span></p>
-          <p style="margin-top:12px;"><a href="/reviews/">How reviews will be handled</a></p>
-        </div>
-      )}
-    </div>
-  </section>
+  <GoogleReviews />
 
   <section class="section tint areas-map" id="areas">
     <div class="areas-map-frame">

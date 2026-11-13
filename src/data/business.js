@@ -53,9 +53,9 @@ export const business = {
       closes: '16:00',
     },
   ],
-  // Only set when the numbers are real. Schema will not emit a rating otherwise.
-  // { value: 4.8, count: 36 }
-  rating: null,
+  // Google Maps listing: 5.0 from 13 reviews. Schema emits AggregateRating from this.
+  // { value: '5.0', count: 13 }
+  rating: { value: '5.0', count: 13 },
   googleBusiness: null,
   linkedin: null,
 };
