@@ -30,7 +30,7 @@ Put real values on the matching fields in `src/data/business.js` (or the reviews
 | GHL form or webhook URL | `quoteEndpoint` in `business.js`, or the `PUBLIC_QUOTE_ENDPOINT` build variable if the URL contains a token. Until it is an `https://` URL, the form does not send and tells people to call or email |
 | Typical quote turnaround | Service and town copy |
 | Typical install times | Home and commercial service pages |
-| Multi-room price | Home, heating, several town pages |
+| Multi-room price | Confirmed: from £3,499. Do not leave the old placeholder in copy. |
 | Commercial price | Commercial page and Ferndown |
 | Ducted system price | Ducted page and Wimborne |
 | Servicing price | Servicing page |

@@ -40,7 +40,7 @@ export const towns = [
     faqs: [
       {
         q: 'What does a Ringwood home installation cost?',
-        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price follows a free survey. Multi-room and commercial prices are not published yet: ${todo('multiRoomPrice')} ${todo('commercialPrice')}`,
+        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price follows a free survey. Multi-room systems from ${business.multiRoomFrom}. Commercial prices are not published yet: ${todo('commercialPrice')}`,
       },
       {
         q: 'When is the showroom open?',
@@ -118,7 +118,7 @@ export const towns = [
       },
       {
         q: 'Can one system cover several rooms in a Ferndown house?',
-        a: `Yes. A multi-room system connects two, three or four indoor units to one outdoor unit. ${todo('multiRoomPrice')}`,
+        a: `Yes. A multi-room system connects two, three or four indoor units to one outdoor unit. Multi-room systems from ${business.multiRoomFrom}.`,
       },
       {
         q: 'Do you work on the Ferndown industrial estates?',
@@ -348,7 +348,7 @@ export const towns = [
     faqs: [
       {
         q: 'How much is a New Milton bedroom system?',
-        a: `Single room installation starts from ${business.priceFrom} including VAT. A second room is a multi-room system: ${todo('multiRoomPrice')}`,
+        a: `Single room installation starts from ${business.priceFrom} including VAT. A second room is a multi-room system: from ${business.multiRoomFrom}`,
       },
       {
         q: 'Do you cover Barton on Sea and the roads towards the forest?',

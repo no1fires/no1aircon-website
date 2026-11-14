@@ -14,7 +14,6 @@ export const placeholders = {
   quoteTurnaround: '[TODO: add typical quote turnaround]',
   installTimeSingle: '[TODO: add typical single-room install time]',
   installTimeCommercial: '[TODO: add typical commercial install time]',
-  multiRoomPrice: '[TODO: add multi-room price]',
   commercialPrice: '[TODO: add commercial price]',
   ductedPrice: '[TODO: add ducted system price]',
   servicingPrice: '[TODO: add servicing price]',

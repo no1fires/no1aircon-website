@@ -35,7 +35,7 @@ export const caseStudies = [
     lead: 'This page is waiting for a real multi-room job. We have not described a customer, a house or a result, because we do not have one we are allowed to publish.',
     explainer: [
       'A multi-room system connects two, three or four indoor units to one outdoor unit. Each room has its own setting. The units heat and cool, because they are air-to-air heat pumps.',
-      'The published single-room price does not apply automatically. The multi-room price is still to be confirmed. A finished case study should show why more than one room was done, and what the outdoor unit position looked like when there was only one of them.',
+      'The published single-room price does not apply automatically. Multi-room systems from £3,499. A finished case study should show why more than one room was done, and what the outdoor unit position looked like when there was only one of them.',
     ],
     fields: [
       { label: 'Town', value: '[TODO: add town]' },

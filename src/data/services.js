@@ -24,7 +24,7 @@ export const services = [
       'If you want more than one room, a multi-room system connects two, three or four indoor units to a single outdoor unit. You can set each room on its own. It avoids a row of outdoor units along the wall.',
       `We install ${brandNames}. You can see and hear them at the showroom on ${business.street}, ${business.town}, before you decide. ${brands[0].name} publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.`,
     ],
-    priceNote: `Single room systems from ${business.priceFrom} including VAT. Multi-room systems: ${todo('multiRoomPrice')}.`,
+    priceNote: `Single room systems from ${business.priceFrom} including VAT. Multi-room systems from ${business.multiRoomFrom}.`,
     provides: [
       { title: 'Single-room systems', text: 'One indoor unit and one outdoor unit, sized for the room you actually use.' },
       { title: 'Floor consoles', text: 'A better fit for conservatories and rooms where the walls are mostly glass.' },
@@ -43,7 +43,7 @@ export const services = [
     answerFaqs: [
       {
         q: 'How much does home air conditioning cost to install?',
-        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price for your home comes after a free survey, because the pipe run and the outdoor unit position change the job. Multi-room price: ${todo('multiRoomPrice')}.`,
+        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price for your home comes after a free survey, because the pipe run and the outdoor unit position change the job. Multi-room price: from ${business.multiRoomFrom}.`,
       },
       {
         q: 'Can one outdoor unit serve several rooms?',

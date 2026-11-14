@@ -31,6 +31,13 @@ function businessNode() {
     telephone: business.phoneIntl,
     email: business.email,
     priceRange: `From ${business.priceFrom}`,
+    makesOffer: {
+      '@type': 'Offer',
+      name: 'Multi-room air conditioning',
+      price: '3499',
+      priceCurrency: 'GBP',
+      description: `Multi-room systems from ${business.multiRoomFrom}`,
+    },
     currenciesAccepted: 'GBP',
     address: {
       '@type': 'PostalAddress',

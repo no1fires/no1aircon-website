@@ -37,6 +37,7 @@ export const business = {
   geo: { lat: 50.8459, lng: -1.7889 },
   radiusMiles: 25,
   priceFrom: '£1,999',
+  multiRoomFrom: '£3,499',
   facebook: 'https://www.facebook.com/profile.php?id=61587422684398',
   instagram: 'https://www.instagram.com/no1aircon1/',
   // Danny: finance is not offered at the moment. Leave this empty so the
@@ -102,7 +103,7 @@ export const reviews = [];
 export const faqs = [
   {
     q: 'How much does air conditioning cost to install?',
-    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room and commercial systems cost more. We give you a fixed price after a free survey.`,
+    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room systems from ${business.multiRoomFrom}. Commercial systems cost more. We give you a fixed price after a free survey.`,
   },
   {
     q: 'How much does air conditioning cost to run?',
