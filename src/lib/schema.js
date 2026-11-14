@@ -158,7 +158,10 @@ function faqNode(faqs) {
       name: faq.q,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.a,
+        text: [
+          ...(faq.paragraphs || [faq.a]),
+          ...(faq.sources || []).map((source) => `${source.name}: ${source.url}`),
+        ].filter(Boolean).join(' '),
       },
     });
   }

@@ -64,6 +64,14 @@ export const services = [
         q: 'Do you offer finance?',
         a: 'No. Finance is not offered at the moment.',
       },
+      {
+        q: 'How long does a home install take?',
+        a: 'Most jobs are done in a day. The current lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but we do not promise an earlier date.',
+      },
+      {
+        q: 'Are the engineers F-Gas certified?',
+        a: 'Yes. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number.',
+      },
     ],
     faqs: [
       {
@@ -73,10 +81,6 @@ export const services = [
       {
         q: 'Does home air conditioning help with hay fever?',
         a: 'The systems we fit filter pollen, dust and allergens, and they take moisture out of the air as they cool. They are not a medical device, but most people notice the room feels fresher.',
-      },
-      {
-        q: 'How long does a home install take?',
-        a: 'We confirm the day once we have surveyed the pipe run and the electrical supply.',
       },
     ],
   },
@@ -225,7 +229,7 @@ export const services = [
     priceNote: `Air con servicing from ${business.servicingFrom}.`,
     provides: [
       { title: 'Annual service', text: 'Filters, coils, condensate, temperatures, electrics and a leak check.' },
-      { title: '5 year warranty', text: 'Installations come with a 5 year warranty.' },
+      { title: '5 year warranty', text: 'Installations come with a 5 year warranty that covers parts and labour.' },
       { title: 'Filter and hygiene check', text: 'A dirty filter costs more to run and moves less air.' },
     ],
     suitable: [
@@ -243,7 +247,7 @@ export const services = [
       },
       {
         q: 'How much does air con servicing cost?',
-        a: `Air con servicing is from ${business.servicingFrom}.`,
+        a: `Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks.`,
       },
       {
         q: 'What warranty do I get?',
@@ -261,7 +265,7 @@ export const services = [
       },
       {
         q: 'How often should a system be serviced?',
-        a: 'Once a year is the usual interval, and it is what keeps the warranty valid. A dusty shop or a house with pets may need the filters looked at sooner. We will say so if we see it.',
+        a: `Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks.`,
       },
     ],
   },

@@ -16,7 +16,20 @@ const { faqs = [], heading = 'Questions we get asked' } = Astro.props;
               {faq.q}
               <span class="faq-toggle"><Icon name="chevron" size={16} /></span>
             </summary>
-            <div class="faq-answer"><p>{faq.a}</p></div>
+            <div class="faq-answer">
+              {faq.paragraphs ? faq.paragraphs.map((paragraph) => <p>{paragraph}</p>) : <p>{faq.a}</p>}
+              {faq.sources?.length > 0 && (
+                <p class="faq-sources">
+                  Sources:{' '}
+                  {faq.sources.map((source, index) => (
+                    <span>
+                      {index > 0 && '; '}
+                      <a href={source.url} rel="noopener noreferrer">{source.name}</a>
+                    </span>
+                  ))}
+                </p>
+              )}
+            </div>
           </details>
         ))}
       </div>

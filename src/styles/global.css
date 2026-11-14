@@ -508,6 +508,7 @@ address { font-style: normal; }
 .answer p { color: var(--muted); }
 
 .faq-grid { align-items: start; }
+.faq-sources { margin-top: 0.75rem; font-size: 0.9rem; }
 .faq-item {
   border: 1px solid rgba(15, 30, 61, 0.1);
   border-radius: 8px;

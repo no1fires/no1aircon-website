@@ -44,7 +44,7 @@ export const business = {
   // Danny: finance is not offered at the moment. Leave this empty so the
   // old "0% finance ... £25 a week" line is not shown.
   financeNote: '',
-  warranty: 'Installations come with a 5 year warranty.',
+  warranty: 'Installations come with a 5 year warranty that covers parts and labour.',
   // Stated on the current site. Do not publish an F-Gas or REFCOM number.
   refcomCertified: true,
   sister: { name: 'No1 Fires', url: 'https://no1fires.co.uk' },
@@ -104,7 +104,7 @@ export const reviews = [];
 export const faqs = [
   {
     q: 'How much does air conditioning cost to install?',
-    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room systems from ${business.multiRoomFrom}. Commercial systems cost more. We give you a fixed price after a free survey.`,
+    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. We give you a fixed price after a free survey.`,
   },
   {
     q: 'How much does air conditioning cost to run?',
@@ -128,11 +128,11 @@ export const faqs = [
   },
   {
     q: 'What warranty do I get?',
-    a: 'Installations come with a 5 year warranty.',
+    a: 'Installations come with a 5 year warranty that covers parts and labour.',
   },
   {
     q: 'How much does air con servicing cost?',
-    a: `Air con servicing is from ${business.servicingFrom}.`,
+    a: `Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks.`,
   },
   {
     q: 'How is an installation paid for?',

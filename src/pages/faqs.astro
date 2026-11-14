@@ -3,7 +3,8 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import FaqList from '../components/FaqList.astro';
 import QuoteSection from '../components/QuoteSection.astro';
-import { faqs, business } from '../data/business.js';
+import { business } from '../data/business.js';
+import { pageFaqs } from '../data/buyer-faqs.js';
 import { pagePhotos } from '../data/lifestyle.js';
 import { services } from '../data/services.js';
 
@@ -14,15 +15,15 @@ const crumbs = [
   { name: 'FAQs', href: '/faqs/' },
 ];
 ---
-<Base title={title} description={description} crumbs={crumbs} faqs={faqs}>
+<Base title={title} description={description} crumbs={crumbs} faqs={pageFaqs}>
   <PageHero
     eyebrow="FAQs"
     title="Air conditioning questions"
-    lead="Straight answers from the details we already publish. Where a price or a registration number is not confirmed, the page says so instead of guessing."
+    lead="Straight answers on cost, VAT, planning, running cost, servicing and warranties. Where we do not have a figure, the answer says so."
     crumbs={crumbs}
     photo={pagePhotos.faqs}
   />
-  <FaqList faqs={faqs} heading="Common questions" />
+  <FaqList faqs={pageFaqs} heading="Common questions" />
   <section class="section" style="padding-top:0;">
     <div class="container">
       <h2>More on each service</h2>
