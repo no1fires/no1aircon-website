@@ -709,7 +709,8 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
   .area-grid:has(> :nth-child(8):last-child),
   .card-grid:has(> :nth-child(8):last-child),
   .related-grid:has(> :nth-child(8):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .step-grid, .footer-grid { grid-template-columns: repeat(4, 1fr); }
+  .step-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .card-grid:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(9):last-child)) > :last-child:nth-child(odd):not(:only-child),
   .area-grid:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(4):last-child)):not(:has(> :nth-child(8):last-child)) > :last-child:nth-child(odd):not(:only-child),
   .related-grid:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(8):last-child)) > :last-child:nth-child(odd):not(:only-child),
@@ -720,8 +721,6 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
     justify-self: center;
   }
   .season-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
-  .step-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (prefers-reduced-motion: reduce) {

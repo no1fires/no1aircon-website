@@ -81,15 +81,15 @@ const socials = [
         <li><a href={`mailto:${business.email}`}>{business.email}</a></li>
       </ul>
     </div>
-  </div>
-  <div class="container footer-group">
-    <h2>NO1 Energy Solutions Group</h2>
-    <ul>
-      <li>No1 Trade Experts</li>
-      <li><a href="https://www.gasandelectricfireplaces.co.uk" target="_blank" rel="noopener noreferrer">No1 Fires</a></li>
-      <li>No1 Logs</li>
-      <li><a href="https://no1sweeps.co.uk" target="_blank" rel="noopener noreferrer">No1 Sweeps</a></li>
-    </ul>
+    <div>
+      <h2>NO1 Energy Solutions Group</h2>
+      <ul>
+        <li>No1 Trade Experts</li>
+        <li><a href="https://www.gasandelectricfireplaces.co.uk" target="_blank" rel="noopener noreferrer">No1 Fires</a></li>
+        <li>No1 Logs</li>
+        <li><a href="https://no1sweeps.co.uk" target="_blank" rel="noopener noreferrer">No1 Sweeps</a></li>
+      </ul>
+    </div>
   </div>
   <div class="container footer-base">
     <p>© {year} {business.legalName}, trading as {business.name}.</p>
@@ -108,18 +108,5 @@ const socials = [
     font-size: 0.8125rem;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.72);
-  }
-  .footer-group {
-    margin-top: 28px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-  }
-  .footer-group ul {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 18px;
-  }
-  .footer-group li { font-weight: 600; }
-  @media (min-width: 1024px) {
-    .footer-group ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
 </style>
