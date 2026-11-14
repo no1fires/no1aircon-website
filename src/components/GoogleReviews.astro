@@ -2,6 +2,65 @@
 import reviews from '../data/google-reviews.json';
 import { business } from '../data/business.js';
 
+const installs = [
+  {
+    src: '/images/installs/indoor-living-skylight.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner above a television in a living room with a skylight',
+  },
+  {
+    src: '/images/installs/outdoor-brick-wall.webp',
+    width: 1200,
+    height: 900,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner mounted on brackets on a red-brick house wall above patio doors',
+  },
+  {
+    src: '/images/installs/indoor-wall-light.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a pale wall beside a lit wall light',
+  },
+  {
+    src: '/images/installs/outdoor-cottage.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'White outdoor air conditioner on feet beside a white rendered cottage wall',
+  },
+  {
+    src: '/images/installs/indoor-living-corner.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner high on a beige living-room wall beside curtains',
+  },
+  {
+    src: '/images/installs/outdoor-bungalow.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner on feet on a gravel border beside a brick bungalow',
+  },
+  {
+    src: '/images/installs/indoor-slatted-wall.webp',
+    width: 739,
+    height: 556,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a grey slatted wall',
+  },
+  {
+    src: '/images/installs/outdoor-brick-patio.webp',
+    width: 1008,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner against a red-brick wall beside a white window',
+  },
+];
+
 const { showGrid = false } = Astro.props;
 const mapsUrl = 'https://maps.google.com/?cid=4600408711547603359';
 const writeUrl = 'https://search.google.com/local/writereview?placeid=ChIJky9kwfeXc0gRn0loYVnv1z8';
@@ -68,20 +127,36 @@ function avatarColor(name) {
 
   {showGrid && (
     <div class="container">
-      <div class="review-grid">
-        {reviews.map((review) => (
-          <article class="review-card">
-            <header>
-              <span class="avatar" style={`background:${avatarColor(review.name)}`} aria-hidden="true">{initial(review.name)}</span>
-              <span>
-                <strong>{review.name}</strong>
-                <span class="stars" aria-label={`${review.stars} out of 5 stars`}>★★★★★</span>
-              </span>
-            </header>
-            <p class="review-text">{review.text}</p>
-            <button type="button" class="review-more">Read more</button>
-          </article>
-        ))}
+      <div class="review-pairs">
+        {reviews.map((review, index) => {
+          const photo = installs[index % installs.length];
+          return (
+            <div class:list={['review-pair', index % 2 === 1 && 'is-swapped']}>
+              <figure class="review-photo">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>{photo.caption}</figcaption>
+              </figure>
+              <article class="review-card">
+                <header>
+                  <span class="avatar" style={`background:${avatarColor(review.name)}`} aria-hidden="true">{initial(review.name)}</span>
+                  <span>
+                    <strong>{review.name}</strong>
+                    <span class="stars" aria-label={`${review.stars} out of 5 stars`}>★★★★★</span>
+                  </span>
+                </header>
+                <p class="review-text">{review.text}</p>
+                <button type="button" class="review-more">Read more</button>
+              </article>
+            </div>
+          );
+        })}
       </div>
     </div>
   )}
@@ -229,16 +304,39 @@ function avatarColor(name) {
     cursor: pointer;
   }
   .review-more:hover { color: var(--blue-hover); }
-  .review-grid {
+  .review-pairs {
     display: grid;
-    gap: 18px;
+    gap: 28px;
     margin-top: 28px;
   }
-  .review-grid .review-card { width: auto; height: auto; min-height: 228px; }
+  .review-pair {
+    display: grid;
+    gap: 14px;
+    align-items: center;
+    min-width: 0;
+  }
+  .review-pair .review-card {
+    width: auto;
+    height: auto;
+    min-height: 228px;
+  }
+  .review-photo { margin: 0; min-width: 0; }
+  .review-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: #fff;
+  }
+  .review-photo figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
   @media (min-width: 900px) {
-    .review-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .review-grid .review-card { grid-column: span 4; }
-    .review-grid:has(> :nth-child(13):last-child) > :nth-child(n + 10) { grid-column: span 3; }
+    .review-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+    .review-pair.is-swapped .review-photo { order: 2; }
+    .review-pair.is-swapped .review-card { order: 1; }
   }
   .review-dialog {
     width: min(32rem, calc(100vw - 32px));
