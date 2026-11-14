@@ -6,7 +6,7 @@ export const buyerFaqs = [
   {
     q: 'How much does it cost to install air conditioning in a UK home?',
     paragraphs: [
-      `A single room at No1 Air Con is from ${business.priceFrom} including VAT. A multi-room system, with two to four indoor units on one outdoor unit, is from ${business.multiRoomFrom} including VAT. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027.`,
+      `Our cheapest system is a Clivet single room from ${business.priceFrom} (0% VAT). A multi-room system, with two to four indoor units on one outdoor unit, is from ${business.multiRoomFrom} including VAT. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027.`,
       'Those are starting prices, not a quote for every house. The final figure depends on the room, the model, the pipe run, the drain, the electrical supply and how easy the outdoor position is to reach. The Energy Saving Trust puts a typical air-to-air heat pump at around £1,900 for one room and around £3,700 for a three-bedroom semi-detached house. Your home may sit above or below that.',
       'We start with a free, no-obligation survey of the room, the pipe run, the power supply and the outdoor unit position, then give a fixed quote. Payment is 50% deposit and 50% on completion. We do not offer finance at the moment. Most jobs are done in a day. The current lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but we do not promise an earlier date.',
       `You can see Mitsubishi Electric units working in the showroom at ${showroom}, Tuesday to Saturday, 10am to 4pm, closed Sunday and Monday. We cover ${business.radiusMiles} miles around Ringwood, including Ferndown, Christchurch, Wimborne, Fordingbridge, Verwood, St Leonards and New Milton.`,
@@ -87,7 +87,7 @@ export const buyerFaqs = [
     paragraphs: [
       'The right size depends on the room, not just its floor area. Ceiling height, glazing, insulation, sun, how many people use the room, and whether you want winter heating as well as summer cooling all change the answer.',
       'A unit that is too small may never get the room comfortable. A unit that is too large costs more to buy. We do not sell a system from a floor-area chart alone. The free survey looks at the room, the pipe run, the power supply and the outdoor unit position, and the quote is then fixed.',
-      `A single room starts from ${business.priceFrom} including VAT. If you want more than one room, a multi-room system is from ${business.multiRoomFrom} including VAT.`,
+      `A Clivet single room starts from ${business.priceFrom} (0% VAT). If you want more than one room, a multi-room system is from ${business.multiRoomFrom} including VAT.`,
     ],
     sources: [
       { name: 'Energy Saving Trust, air-to-air heat pumps', url: 'https://energysavingtrust.org.uk/advice/air-to-air-heat-pumps/' },
@@ -121,7 +121,7 @@ export const buyerFaqs = [
     paragraphs: [
       'Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. HMRC zero-rates the supply and installation of a permanently fixed air source heat pump, including a unit that heats and cools, in residential accommodation from 1 May 2023 to 31 March 2027. Portable units do not qualify. From 1 April 2027 the relief is due to change.',
       'The Boiler Upgrade Scheme includes a £2,500 grant for an eligible air-to-air heat pump in England and Wales, but the installer has to be MCS certified and the system has to meet the scheme rules, including being set up for the property’s heating. MCS says air-to-air installer certification is not yet in place, so that grant cannot be claimed on a standard install today. We have not said that we will offer it.',
-      `Our published starting prices are ${business.priceFrom} for a single room and ${business.multiRoomFrom} for a multi-room system, including VAT. On a qualifying home install, that VAT rate is 0% until 31 March 2027.`,
+      `Our cheapest system is a Clivet single room from ${business.priceFrom} (0% VAT). A multi-room system is from ${business.multiRoomFrom} including VAT. On a qualifying home install, that VAT rate is 0% until 31 March 2027.`,
     ],
     sources: [
       { name: 'HMRC VAT Notice 708/6', url: 'https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086' },

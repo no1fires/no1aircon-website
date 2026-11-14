@@ -36,7 +36,7 @@ export const business = {
   // Approximate showroom position; refine from the Google Business Profile pin.
   geo: { lat: 50.8459, lng: -1.7889 },
   radiusMiles: 25,
-  priceFrom: '£1,999',
+  priceFrom: '£1,395',
   multiRoomFrom: '£3,499',
   servicingFrom: '£125',
   facebook: 'https://www.facebook.com/profile.php?id=61587422684398',
@@ -104,7 +104,7 @@ export const reviews = [];
 export const faqs = [
   {
     q: 'How much does air conditioning cost to install?',
-    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. We give you a fixed price after a free survey.`,
+    a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. We give you a fixed price after a free survey.`,
   },
   {
     q: 'How much does air conditioning cost to run?',

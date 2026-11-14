@@ -13,17 +13,17 @@ export const services = [
     icon: 'home',
     blurb: 'Quiet wall-mounted and floor units for bedrooms, living rooms, home offices, garden rooms and conservatories.',
     title: 'Home Air Conditioning Installation | No1 Air Con',
-    description: `Home air conditioning installed across Ringwood, Hampshire and Dorset from ${business.priceFrom} inc. VAT. Single rooms and multi-room systems, surveyed from our Ringwood showroom.`,
+    description: `Home air conditioning across Ringwood, Hampshire and Dorset. Clivet single rooms from ${business.priceFrom} (0% VAT). Surveyed from our Ringwood showroom.`,
     h1: 'Home air conditioning installation',
     eyebrow: 'Homes',
-    lead: `Wall-mounted and floor-standing systems for houses and flats within ${business.radiusMiles} miles of our Ringwood showroom. A single room is installed from ${business.priceFrom} including VAT.`,
+    lead: `Wall-mounted and floor-standing systems for houses and flats within ${business.radiusMiles} miles of our Ringwood showroom. A Clivet single room is installed from ${business.priceFrom} (0% VAT).`,
     paragraphs: [
       'Most people start with one room that will not stay comfortable. A bedroom that holds the heat at night, a living room with a lot of glass, a home office, or a conservatory that is too hot to use from May onwards. We size the unit for that room, not for a brochure example.',
       'The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window. That is what the survey is for.',
       'If you want more than one room, a multi-room system connects two, three or four indoor units to a single outdoor unit. You can set each room on its own. It avoids a row of outdoor units along the wall.',
       `We install ${brandNames}. You can see and hear them at the showroom on ${business.street}, ${business.town}, before you decide. ${brands[0].name} publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.`,
     ],
-    priceNote: `Single room systems from ${business.priceFrom} including VAT. Multi-room systems from ${business.multiRoomFrom}.`,
+    priceNote: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). Multi-room systems from ${business.multiRoomFrom}.`,
     provides: [
       { title: 'Single-room systems', text: 'One indoor unit and one outdoor unit, sized for the room you actually use.' },
       { title: 'Floor consoles', text: 'A better fit for conservatories and rooms where the walls are mostly glass.' },
@@ -42,7 +42,7 @@ export const services = [
     answerFaqs: [
       {
         q: 'How much does home air conditioning cost to install?',
-        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price for your home comes after a free survey, because the pipe run and the outdoor unit position change the job. Multi-room price: from ${business.multiRoomFrom}.`,
+        a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). The fixed price for your home comes after a free survey, because the pipe run and the outdoor unit position change the job. Multi-room price: from ${business.multiRoomFrom}.`,
       },
       {
         q: 'Can one outdoor unit serve several rooms?',
@@ -102,7 +102,7 @@ export const services = [
       `In colder weather the outdoor unit has to work harder. ${brands[0].name} describe Hyper Heat performance down to -15°C on the range we recommend. That is their published figure. We will tell you on the survey if a room needs a larger unit because of glass, height or insulation.`,
       'You still need a plan for the rest of the house. An air-to-air system heats the rooms that have an indoor unit. It does not heat a hot-water cylinder, and it does not automatically retire a gas boiler. Many customers use it for the bedroom and living room, and leave the boiler for everything else.',
     ],
-    priceNote: `Single room systems from ${business.priceFrom} including VAT, and the same unit heats and cools.`,
+    priceNote: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT), and the same unit heats and cools.`,
     provides: [
       { title: 'Cooling in summer', text: 'Steady temperature, with moisture taken out of the air so the room feels less heavy.' },
       { title: 'Heating in winter', text: 'Heat for the rooms with an indoor unit, often at a lower running cost than gas for that room.' },
@@ -349,7 +349,7 @@ export const services = [
       'Ducted and ceiling systems are still air-to-air heat pumps. They cool and they heat. They are not automatically quieter, and they are not automatically more expensive in running cost. The difference is where the equipment sits and how the air is delivered.',
       'We do not have a published price for this work yet. The survey has to come first, because two ceilings that look the same can be completely different jobs.',
     ],
-    priceNote: `There is no published ducted price yet. Single room wall units, for comparison, start from ${business.priceFrom} including VAT.`,
+    priceNote: `There is no published ducted price yet. A Clivet single-room wall unit, for comparison, starts from ${business.priceFrom} (0% VAT).`,
     provides: [
       { title: 'Ceiling cassettes', text: 'One unit in the ceiling, blowing in more than one direction. Common in offices and open rooms.' },
       { title: 'Ducted systems', text: 'The indoor unit is hidden. Air comes through grilles. Only where the void and the filter access allow it.' },
@@ -375,7 +375,7 @@ export const services = [
       },
       {
         q: 'How much does a ducted system cost?',
-        a: `We price it after we have seen the ceiling, the joists and the pipe run. A single-room wall unit starts from ${business.priceFrom} including VAT if that turns out to be the better answer.`,
+        a: `We price it after we have seen the ceiling, the joists and the pipe run. A Clivet single-room wall unit starts from ${business.priceFrom} (0% VAT) if that turns out to be the better answer.`,
       },
     ],
     faqs: [

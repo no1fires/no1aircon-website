@@ -34,6 +34,13 @@ function businessNode() {
     makesOffer: [
       {
         '@type': 'Offer',
+        name: 'Clivet single-room system',
+        price: '1395',
+        priceCurrency: 'GBP',
+        description: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). This is the cheapest system, not the starting price for every brand.`,
+      },
+      {
+        '@type': 'Offer',
         name: 'Multi-room air conditioning',
         price: '3499',
         priceCurrency: 'GBP',
@@ -135,6 +142,15 @@ function serviceNode(service, canonical) {
     provider: { '@id': businessId },
     areaServed: areaServed(),
   };
+  if (service.slug === 'home-air-conditioning') {
+    node.offers = {
+      '@type': 'Offer',
+      name: 'Clivet single-room system',
+      price: '1395',
+      priceCurrency: 'GBP',
+      description: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). This is the cheapest system, not the starting price for every brand.`,
+    };
+  }
   if (service.slug === 'servicing') {
     node.offers = {
       '@type': 'Offer',

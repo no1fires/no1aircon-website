@@ -1,3 +1,5 @@
+import { business } from './business.js';
+
 // Placeholder case studies only. Nothing here is a real job.
 // Replace the fields when Danny supplies town, equipment, reason and a photo.
 export const caseStudies = [
@@ -11,7 +13,7 @@ export const caseStudies = [
     eyebrow: 'Placeholder',
     lead: 'This page is waiting for a real single-room installation. It is not a completed project, and the details below are blanks, not a customer story.',
     explainer: [
-      'A single-room system is one indoor unit and one outdoor unit, sized for a bedroom, living room, home office or garden room. It is the job we are asked for most, and it is installed from £1,999 including VAT once the survey confirms the room.',
+      `A single-room system is one indoor unit and one outdoor unit, sized for a bedroom, living room, home office or garden room. It is the job we are asked for most, and a Clivet single room is installed from ${business.priceFrom} (0% VAT) once the survey confirms the room.`,
       'When a real job replaces this page, it should say which town it was in, what was fitted, why that size was chosen, and show a photograph of the finished indoor and outdoor units. Until then we will not invent a street, a name or a result.',
     ],
     fields: [],

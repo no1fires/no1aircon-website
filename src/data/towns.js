@@ -39,7 +39,7 @@ export const towns = [
     faqs: [
       {
         q: 'What does a Ringwood home installation cost?',
-        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price follows a free survey. Multi-room systems from ${business.multiRoomFrom}. Commercial prices are quoted after a survey.`,
+        a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). The fixed price follows a free survey. Multi-room systems from ${business.multiRoomFrom}. Commercial prices are quoted after a survey.`,
       },
       {
         q: 'When is the showroom open?',
@@ -171,7 +171,7 @@ export const towns = [
     faqs: [
       {
         q: 'How much does a Verwood living-room system cost?',
-        a: `Single room systems are installed from ${business.priceFrom} including VAT. Your price is fixed after the survey.`,
+        a: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). Your price is fixed after the survey.`,
       },
       {
         q: 'Which Verwood neighbours do you also cover?',
@@ -303,7 +303,7 @@ export const towns = [
     faqs: [
       {
         q: 'How much does installation cost in Wimborne?',
-        a: `A single room starts from ${business.priceFrom} including VAT. The fixed price follows the survey. Ducted work is priced after we have seen the ceiling.`,
+        a: `A Clivet single room starts from ${business.priceFrom} (0% VAT). The fixed price follows the survey. Ducted work is priced after we have seen the ceiling.`,
       },
       {
         q: 'Do you cover Colehill and Merley?',
@@ -347,7 +347,7 @@ export const towns = [
     faqs: [
       {
         q: 'How much is a New Milton bedroom system?',
-        a: `Single room installation starts from ${business.priceFrom} including VAT. A second room is a multi-room system: from ${business.multiRoomFrom}`,
+        a: `A Clivet single room starts from ${business.priceFrom} (0% VAT). A second room is a multi-room system: from ${business.multiRoomFrom}`,
       },
       {
         q: 'Do you cover Barton on Sea and the roads towards the forest?',
