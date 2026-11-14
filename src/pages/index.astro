@@ -14,10 +14,10 @@ import { towns } from '../data/towns.js';
 const title = 'Air Conditioning Installers in Ringwood | No1 Air Conditioning';
 const description = `Air conditioning installation, servicing and repairs from our Ringwood showroom. Clivet single rooms from ${business.priceFrom} (0% VAT) across Hampshire and Dorset. Call ${business.phone}.`;
 const steps = [
-  { n: 'Step 1', title: 'Tell us about the room', text: 'A short form or a phone call. Say which rooms, and whether you want cooling, heating, or both.' },
-  { n: 'Step 2', title: 'We visit and survey', text: 'We check the room, the pipe run, the power supply and where the outdoor unit can go. The survey is free.' },
-  { n: 'Step 3', title: 'You get a fixed quote', text: 'The price is fixed after the survey, with no obligation to go ahead. Finance terms are only confirmed once we know the job qualifies.' },
-  { n: 'Step 4', title: 'Install and handover', text: 'We fit the system and walk you through the controls, including heating mode, before we leave.' },
+  { n: 'Step 1', title: 'Send photos and a floor plan', text: 'Send us photos, measurements and a floor plan of the rooms and the outside wall, including where the outdoor unit could go.' },
+  { n: 'Step 2', title: 'We quote remotely', text: 'We quote from what you send, so there is no need for a home visit to get a price.' },
+  { n: 'Step 3', title: 'A survey only if needed', text: 'Happy with the price? We schedule a survey only if it is needed, and a lot of the time it is not.' },
+  { n: 'Step 4', title: 'We install', text: 'We install, with most jobs done in a day.' },
 ];
 ---
 <Base title={title} description={description} faqs={faqs} hideGuideBanner hideReviews>
@@ -155,7 +155,7 @@ const steps = [
         {steps.map((step, i) => (
           <li class="step">
             <span class="step-no">{step.n}</span>
-            <span class="step-emoji" aria-hidden="true">{['📝', '🔍', '💷', '🛠️'][i]}</span>
+            <span class="step-emoji" aria-hidden="true">{['📝', '💷', '🔍', '🛠️'][i]}</span>
             <h3>{step.title}</h3>
             <p>{step.text}</p>
           </li>

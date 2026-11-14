@@ -8,7 +8,7 @@ export const buyerFaqs = [
     paragraphs: [
       `Our cheapest system is a Clivet single room from ${business.priceFrom} (0% VAT). A multi-room system, with two to four indoor units on one outdoor unit, is from ${business.multiRoomFrom} including VAT. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027.`,
       'Those are starting prices, not a quote for every house. The final figure depends on the room, the model, the pipe run, the drain, the electrical supply and how easy the outdoor position is to reach. The Energy Saving Trust puts a typical air-to-air heat pump at around £1,900 for one room and around £3,700 for a three-bedroom semi-detached house. Your home may sit above or below that.',
-      'We start with a free, no-obligation survey of the room, the pipe run, the power supply and the outdoor unit position, then give a fixed quote. Payment is 50% deposit and 50% on completion. We do not offer finance at the moment. Most jobs are done in a day. The current lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but we do not promise an earlier date.',
+      'Send photos, measurements and a floor plan of the rooms and the outside wall, including where the outdoor unit could go. We quote remotely from those, so there is no need for a home visit to get a price. If you are happy with the price, we schedule a survey only if it is needed, and a lot of the time it is not. Payment is 50% deposit and 50% on completion. We do not offer finance at the moment. Most jobs are done in a day. The current lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but we do not promise an earlier date.',
       `You can see Mitsubishi Electric units working in the showroom at ${showroom}, Tuesday to Saturday, 10am to 4pm, closed Sunday and Monday. We cover ${business.radiusMiles} miles around Ringwood, including Ferndown, Christchurch, Wimborne, Fordingbridge, Verwood, St Leonards and New Milton.`,
     ],
     sources: [
@@ -34,7 +34,7 @@ export const buyerFaqs = [
     paragraphs: [
       'Often you do not need to apply in England, but only if the system can heat as well as cool and the installation meets the permitted-development limits. A cooling-only unit does not get those rights. Listed buildings and some siting choices still need a closer look.',
       'In England, an air source heat pump on a house can be permitted development under Class G when it is not used only for cooling and it meets the size, number, siting and noise rules. Since 29 May 2025, air-to-air heat pumps that also cool can use these rights, and the old rule that the unit could not stand within 1 metre of the boundary has been removed. A house can have an outdoor unit of up to 1.5 cubic metres. A detached house can have up to two units, and other houses can have one. A unit still cannot go on a pitched roof. On a flat roof it must stay at least 1 metre from the roof edge.',
-      'The installation must also meet the MCS 020(a) sound calculation. The permitted-development noise limit is 37 dB at one metre outside a neighbour’s door or window. If the calculated level is higher, it is not permitted development. Our free survey checks where the outdoor unit would go. That is a practical look at the job, not a planning decision.',
+      'The installation must also meet the MCS 020(a) sound calculation. The permitted-development noise limit is 37 dB at one metre outside a neighbour’s door or window. If the calculated level is higher, it is not permitted development. If a visit is needed, that look checks where the outdoor unit would go. It is a practical look at the job, not a planning decision.',
     ],
     sources: [
       { name: 'Planning Portal, air conditioning', url: 'https://interactive.planningportal.co.uk/faqs/do-i-need-planning-permission-to-add-air-conditioning-to-my-home' },
@@ -62,7 +62,7 @@ export const buyerFaqs = [
     paragraphs: [
       'For a room you want comfortable year after year, a professionally fitted split system is usually the better choice. A portable unit can help for a few hot days, but it is generally less efficient and more awkward to live with.',
       'A portable conditioner sits in the room and pushes hot air out through a hose. The Energy Saving Trust notes that portable units use much more energy than a fan. They also do not qualify for the VAT relief that can apply to a permanently fixed air source heat pump.',
-      `A fitted system has an indoor unit and a separate outdoor unit, so the same system can heat in winter. A multi-room system can serve two to four rooms from one outdoor unit, from ${business.multiRoomFrom} including VAT. Some MSZ-LN indoor units are quoted by Mitsubishi Electric from 19 dB. You can hear them in the Ringwood showroom, and a free survey will confirm what will work in your home.`,
+      `A fitted system has an indoor unit and a separate outdoor unit, so the same system can heat in winter. A multi-room system can serve two to four rooms from one outdoor unit, from ${business.multiRoomFrom} including VAT. Some MSZ-LN indoor units are quoted by Mitsubishi Electric from 19 dB. You can hear them in the Ringwood showroom. Photos, measurements and a floor plan are enough for a remote quote, and we survey only if we need to.`,
     ],
     sources: [
       { name: 'Energy Saving Trust, keeping a home cool', url: 'https://energysavingtrust.org.uk/tips-to-keep-home-cool-this-summer/' },
@@ -75,7 +75,7 @@ export const buyerFaqs = [
     paragraphs: [
       'Used sensibly, home air conditioning is not inherently bad for you. A dry throat or a chilly room usually comes from a temperature set too low, poor ventilation, or a unit that has not been cleaned.',
       'A split system cools and dehumidifies the air already in the room. It does not blow in fresh outdoor air, so you still need to ventilate the house as you would with ordinary heating. Filters need to stay clean. A neglected filter moves less air and can recirculate dust. Servicing is recommended yearly.',
-      'Some Mitsubishi Electric units include filtration. That is not a medical claim, and air conditioning is not a treatment for asthma or hay fever. If someone in the house is sensitive to temperature or air quality, mention it at the survey.',
+      'Some Mitsubishi Electric units include filtration. That is not a medical claim, and air conditioning is not a treatment for asthma or hay fever. If someone in the house is sensitive to temperature or air quality, mention it with the photos, or at a visit if we need one.',
     ],
     sources: [
       { name: 'Energy Saving Trust, air-to-air heat pumps', url: 'https://energysavingtrust.org.uk/advice/air-to-air-heat-pumps/' },
@@ -86,7 +86,7 @@ export const buyerFaqs = [
     q: 'What size air conditioning do I need?',
     paragraphs: [
       'The right size depends on the room, not just its floor area. Ceiling height, glazing, insulation, sun, how many people use the room, and whether you want winter heating as well as summer cooling all change the answer.',
-      'A unit that is too small may never get the room comfortable. A unit that is too large costs more to buy. We do not sell a system from a floor-area chart alone. The free survey looks at the room, the pipe run, the power supply and the outdoor unit position, and the quote is then fixed.',
+      'A unit that is too small may never get the room comfortable. A unit that is too large costs more to buy. We do not sell a system from a floor-area chart alone. Photos, measurements and a floor plan of the room, the pipe run and the outdoor unit position are what the remote quote is based on. A survey is only if it is needed.',
       `A Clivet single room starts from ${business.priceFrom} (0% VAT). If you want more than one room, a multi-room system is from ${business.multiRoomFrom} including VAT.`,
     ],
     sources: [
@@ -109,7 +109,7 @@ export const buyerFaqs = [
     q: 'Can I install air conditioning myself?',
     paragraphs: [
       'No. A fixed split system that contains F-gas refrigerant has to be installed by a qualified person working for a certified company. Doing that work without the right certification is against the law.',
-      'GOV.UK requires company certification from an approved body, and a personal F-gas qualification for the engineer. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number. A portable plug-in unit is a different product. For a wall-mounted or multi-room system, start with a free survey and a fixed quote.',
+      'GOV.UK requires company certification from an approved body, and a personal F-gas qualification for the engineer. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number. A portable plug-in unit is a different product. For a wall-mounted or multi-room system, send photos, measurements and a floor plan for a remote quote.',
     ],
     sources: [
       { name: 'GOV.UK, F-gas company certification', url: 'https://www.gov.uk/guidance/certification-for-companies-working-on-equipment-containing-f-gas' },
@@ -171,7 +171,7 @@ const otherFaqs = [
   },
   {
     q: 'How do I get a quote?',
-    a: `Call ${business.phone}, email ${business.email}, or use the quote form. We survey the property and then give you a fixed, no-obligation price.`,
+    a: `Call ${business.phone}, email ${business.email}, or use the quote form, and send photos, measurements and a floor plan. We quote remotely. There is no need for a home visit to get a price, and no obligation to go ahead.`,
   },
 ];
 

@@ -2,12 +2,12 @@
 import { business } from '../data/business.js';
 import Icon from './Icon.astro';
 
-const { title = 'Tell us about the space', intro = 'A short note is enough. We will arrange a free survey and then send a fixed price. There is no obligation to go ahead.' } = Astro.props;
+const { title = 'Tell us about the space', intro = 'Send photos, measurements and a floor plan. We quote remotely, so there is no need for a home visit to get a price. There is no obligation to go ahead.' } = Astro.props;
 const points = [
   { icon: 'pin', text: `Showroom in ${business.town} you can visit` },
   { icon: 'check', text: 'We install Mitsubishi Electric' },
   { icon: 'star', text: business.rating ? `${business.rating.value} from ${business.rating.count} Google reviews` : '' },
-  { icon: 'clipboard', text: 'Free survey, then a fixed quote. No obligation.' },
+  { icon: 'clipboard', text: 'A remote quote from your photos and floor plan. A survey only if needed.' },
 ].filter((point) => point.text);
 ---
 <section class="section tint quote-band" id="quote" aria-labelledby="quote-heading">

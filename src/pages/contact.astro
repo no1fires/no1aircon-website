@@ -7,7 +7,7 @@ import { business, openingHoursText } from '../data/business.js';
 import { pagePhotos } from '../data/lifestyle.js';
 
 const title = 'Contact No1 Air Con | Ringwood Showroom';
-const description = `Contact No1 Air Conditioning at ${business.street}, ${business.town} ${business.postcode}. Call ${business.phone} or email ${business.email} for a survey and a fixed quote.`;
+const description = `Contact No1 Air Conditioning at ${business.street}, ${business.town} ${business.postcode}. Call ${business.phone} or email ${business.email} for a remote quote.`;
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Contact', href: '/contact/' },
@@ -21,7 +21,7 @@ const whatsappHref = business.whatsappIntl
   <PageHero
     eyebrow="Contact"
     title="Talk to us about the room"
-    lead="Call, email, or send the form. We survey the property and then give a fixed price. The form is only delivered once the enquiry address is connected."
+    lead="Call, email, or send the form with photos, measurements and a floor plan. We quote remotely. A survey is only if it is needed. The form is only delivered once the enquiry address is connected."
     crumbs={crumbs}
     photo={pagePhotos.contact}
   />
@@ -33,7 +33,7 @@ const whatsappHref = business.whatsappIntl
         <p>{business.street}<br />{business.town}<br />{business.county}<br />{business.postcode}</p>
         <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br />{whatsappHref && <><a href={whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp us</a><br /></>}<a href={`mailto:${business.email}`}>{business.email}</a></p>
         <p>Opening hours: {openingHoursText()}.</p>
-        <p>Tell us the town or postcode, which rooms, and whether you want cooling, heating, or both. A photo of the wall and the outside of the house helps, but it does not replace the survey.</p>
+        <p>Send photos, measurements and a floor plan of the rooms and the outside wall, including where the outdoor unit could go. That is enough for a remote quote. A survey is only if it is needed, and a lot of the time it is not.</p>
       </div>
       <ShowroomMap />
     </div>

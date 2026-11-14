@@ -104,7 +104,7 @@ export const reviews = [];
 export const faqs = [
   {
     q: 'How much does air conditioning cost to install?',
-    a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. We give you a fixed price after a free survey.`,
+    a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. Send photos, measurements and a floor plan and we quote remotely. A survey is only if it is needed.`,
   },
   {
     q: 'How much does air conditioning cost to run?',
@@ -156,7 +156,7 @@ export const faqs = [
   },
   {
     q: 'How do I get a quote?',
-    a: `Call ${business.phone}, email ${business.email}, or use the quote form. We survey the property and then give you a fixed, no-obligation price.`,
+    a: `Call ${business.phone}, email ${business.email}, or use the quote form, and send photos, measurements and a floor plan. We quote remotely. There is no need for a home visit to get a price, and no obligation to go ahead.`,
   },
 ];
 
