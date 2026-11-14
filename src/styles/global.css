@@ -552,8 +552,14 @@ address { font-style: normal; }
 .crumbs [aria-current="page"] { color: #fff; }
 
 .page-hero { background: var(--navy); color: #fff; padding: 36px 0 48px; }
+.page-hero-grid { display: grid; gap: 32px; align-items: center; }
+.page-hero-copy { min-width: 0; }
 .page-hero h1 { color: #fff; font-size: clamp(1.875rem, 4vw, 2.75rem); max-width: 20ch; }
 .page-hero .lead { color: rgba(255, 255, 255, 0.85); }
+#guide,
+#guide-form {
+  scroll-margin-top: calc(var(--header) + 16px);
+}
 .prose { max-width: 72ch; }
 .prose h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; }
 .prose h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; }
@@ -670,7 +676,8 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
   .menu-btn { display: none; }
   .header-nav { display: block; }
   .mobile-menu { display: none; }
-  .hero-grid, .guide-grid, .quote-grid, .visit-panel, .split { grid-template-columns: 1.1fr 0.9fr; gap: 48px; }
+  .hero-grid, .guide-grid, .quote-grid, .visit-panel, .split, .page-hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 48px; }
+  .page-hero { padding: 56px 0 64px; }
   .card-grid, .area-grid, .related-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .step-grid, .faq-grid, .answer-list, .footer-grid { grid-template-columns: repeat(4, 1fr); }
   .season-grid { grid-template-columns: 1fr 1fr; }

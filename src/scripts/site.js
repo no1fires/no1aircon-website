@@ -284,8 +284,24 @@ function setupMaps() {
   });
 }
 
+function setupGuideFocus() {
+  const focusField = () => {
+    const hash = window.location.hash;
+    if (hash !== '#guide' && hash !== '#guide-form') return;
+    const form = document.getElementById('guide-form');
+    const field = form && form.querySelector('input[name="name"]');
+    if (!field) return;
+    window.requestAnimationFrame(() => {
+      field.focus({ preventScroll: true });
+    });
+  };
+  focusField();
+  window.addEventListener('hashchange', focusField);
+}
+
 setupNav();
 setupFaq();
 setupReveal();
 setupForms();
 setupMaps();
+setupGuideFocus();

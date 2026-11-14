@@ -7,21 +7,24 @@ import rubyMeet from '../assets/lifestyle/small-meeting-ruby.jpg';
 
 const assets = { meeting1, meeting2, onyxMeet, rubyMeet };
 const { photo } = Astro.props;
+const sizes = photo.portrait
+  ? '(min-width: 1024px) 420px, calc(100vw - 40px)'
+  : '(min-width: 1024px) 520px, calc(100vw - 40px)';
 ---
-<figure class:list={['life-band', photo.portrait && 'is-portrait']} style={`--life-pos: ${photo.position}`}>
+<figure class:list={['life-frame', photo.portrait && 'is-portrait']}>
   {photo.asset ? (
     <Picture
       src={assets[photo.asset]}
       formats={['avif', 'webp']}
       widths={photo.widths}
-      sizes="100vw"
+      sizes={sizes}
       alt={photo.alt}
       loading="eager"
       decoding="async"
     />
   ) : (
     <picture>
-      <source type="image/webp" srcset={photo.srcset} sizes="100vw" />
+      <source type="image/webp" srcset={photo.srcset} sizes={sizes} />
       <img
         src={photo.src}
         alt={photo.alt}
@@ -35,23 +38,23 @@ const { photo } = Astro.props;
 </figure>
 
 <style>
-  .life-band {
+  .life-frame {
     margin: 0;
-    height: 280px;
+    width: 100%;
+    justify-self: center;
+    border-radius: 16px;
     overflow: hidden;
-    background: #e7eef8;
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
   }
-  .life-band picture,
-  .life-band img {
+  .life-frame picture,
+  .life-frame img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: var(--life-pos, center 30%);
+    height: auto;
+    object-fit: contain;
   }
-  .life-band.is-portrait { height: 380px; }
-  @media (min-width: 800px) {
-    .life-band { height: 440px; }
-    .life-band.is-portrait { height: 520px; }
+  @media (min-width: 1024px) {
+    .life-frame.is-portrait { width: min(100%, 420px); }
   }
 </style>
