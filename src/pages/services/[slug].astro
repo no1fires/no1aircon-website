@@ -18,6 +18,51 @@ export function getStaticPaths() {
 const service = getService(Astro.params.slug);
 const related = getServicesBySlugs(service.related);
 const towns = getTownsBySlugs(service.towns);
+const installShots = {
+  'home-air-conditioning': {
+    src: '/images/installs/indoor-living-corner.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner high on a beige living-room wall beside curtains',
+  },
+  'heating-and-cooling': {
+    src: '/images/installs/indoor-wall-light.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a pale wall beside a lit wall light',
+  },
+  'commercial-air-conditioning': {
+    src: '/images/installs/indoor-slatted-wall.webp',
+    width: 739,
+    height: 556,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a grey slatted wall',
+  },
+  servicing: {
+    src: '/images/installs/outdoor-brick-wall.webp',
+    width: 1200,
+    height: 900,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner mounted on brackets on a red-brick house wall above patio doors',
+  },
+  repairs: {
+    src: '/images/installs/outdoor-cottage.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'White outdoor air conditioner on feet beside a white rendered cottage wall',
+  },
+  'ducted-and-ceiling-systems': {
+    src: '/images/installs/outdoor-bungalow.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner on feet on a gravel border beside a brick bungalow',
+  },
+};
+const installShot = installShots[service.slug];
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services/' },
@@ -27,23 +72,34 @@ const faqs = [...service.answerFaqs, ...service.faqs];
 ---
 <Base title={service.title} description={service.description} crumbs={crumbs} faqs={faqs} service={service}>
   <PageHero eyebrow={service.eyebrow} title={service.h1} lead={service.lead} crumbs={crumbs} photo={servicePhotos[service.slug]} />
-  <QuickAnswers faqs={service.answerFaqs} />
-  <section class="section">
+  <section class="section service-intro">
     <div class="container split">
       <div class="prose">
         {service.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         <p><strong>{service.priceNote}</strong></p>
       </div>
-      <div>
+      <div class="fit-col">
         <h2>Where it fits</h2>
-        <ul class="check-list" style="margin-top:16px;">
+        <ul class="check-list">
           {service.suitable.map((item) => (
             <li><Icon name="check" size={18} /><span>{item}</span></li>
           ))}
         </ul>
+        <figure class="fit-photo">
+          <img
+            src={installShot.src}
+            alt={installShot.alt}
+            width={installShot.width}
+            height={installShot.height}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>{installShot.caption}</figcaption>
+        </figure>
       </div>
     </div>
   </section>
+  <QuickAnswers faqs={service.answerFaqs} />
   <section class="section tint">
     <div class="container">
       <div class="section-head">

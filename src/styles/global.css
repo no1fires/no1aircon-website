@@ -566,9 +566,19 @@ address { font-style: normal; }
 .prose h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; }
 .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; color: var(--muted); }
 .prose li + li { margin-top: 0.35rem; }
-.check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.check-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); }
+.check-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+.check-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); min-width: 0; }
+.check-list li > span { min-width: 0; overflow-wrap: break-word; }
 .check-list .icon { color: var(--blue); flex: none; margin-top: 4px; }
+.service-intro .split > * { min-width: 0; }
+.fit-photo { margin: 22px 0 0; }
+.fit-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: var(--off-white);
+}
+.fit-photo figcaption { margin-top: 8px; color: var(--muted); font-size: 0.875rem; }
 .provide { background: #fff; border-radius: 16px; padding: 22px 20px; box-shadow: inset 0 0 0 1px var(--line); }
 .provide h3 { margin: 12px 0 8px; font-size: 1.125rem; }
 .provide p { color: var(--muted); }
@@ -678,6 +688,7 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
   .header-nav { display: block; }
   .mobile-menu { display: none; }
   .hero-grid, .guide-grid, .quote-grid, .visit-panel, .split, .page-hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 48px; }
+  .service-intro .split { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
   .page-hero { padding: 56px 0 64px; }
   .card-grid, .area-grid, .related-grid, .answer-list, .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
   .card-grid:has(> :nth-child(3):last-child),
