@@ -1,15 +1,17 @@
 ---
 import Icon from './Icon.astro';
 import RichText from './RichText.astro';
-const { faqs = [], heading = 'Questions we get asked' } = Astro.props;
+const { faqs = [], heading = 'Questions we get asked', headingId = 'faq-heading', showHead = true } = Astro.props;
 ---
 {faqs.length > 0 && (
-  <section class="section" aria-labelledby="faq-heading">
+  <section class="section" aria-labelledby={showHead ? headingId : undefined} aria-label={showHead ? undefined : heading}>
     <div class="container">
-      <div class="section-head center">
-        <p class="eyebrow">FAQs</p>
-        <h2 id="faq-heading">{heading}</h2>
-      </div>
+      {showHead && (
+        <div class="section-head center">
+          <p class="eyebrow">FAQs</p>
+          <h2 id={headingId}>{heading}</h2>
+        </div>
+      )}
       <div class="faq-grid">
         {faqs.map((faq) => (
           <details class="faq-item">

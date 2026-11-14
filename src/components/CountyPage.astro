@@ -4,6 +4,7 @@ import PageHero from './PageHero.astro';
 import QuickAnswers from './QuickAnswers.astro';
 import FaqList from './FaqList.astro';
 import QuoteSection from './QuoteSection.astro';
+import GuideSection from './GuideSection.astro';
 import Related from './Related.astro';
 import { towns } from '../data/towns.js';
 import { business, whatsappSend } from '../data/business.js';
@@ -25,6 +26,7 @@ const crumbs = [
       {county.paragraphs.map((paragraph) => <p><RichText text={paragraph} /></p>)}
     </div>
   </section>
+  <GuideSection />
   <Related towns={localTowns} heading={`Towns we cover in ${county.name}`} />
   <FaqList faqs={county.faqs} heading={`Questions about air conditioning in ${county.name}`} />
   <QuoteSection

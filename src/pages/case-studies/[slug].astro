@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
 import { caseStudies, getCaseStudy } from '../../data/case-studies.js';
 import { getService } from '../../data/services.js';
 import { casePhotos } from '../../data/lifestyle.js';
@@ -27,6 +28,11 @@ const crumbs = [
         <h2>Placeholder, not a real job</h2>
         <p>This is not a finished project. We have not published a town, a customer or a result.</p>
       </div>
+    </div>
+  </section>
+  <GuideSection />
+  <section class="section">
+    <div class="container prose">
       {study.explainer.map((paragraph) => <p><RichText text={paragraph} /></p>)}
       {service && <p>The service this will illustrate is <a href={`/services/${service.slug}/`}>{service.name}</a>.</p>}
     </div>

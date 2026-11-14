@@ -76,6 +76,11 @@ function avatarColor(name) {
   const code = name.trim().charCodeAt(0) || 0;
   return palette[code % palette.length];
 }
+
+const splitReviews = Astro.slots.has('mid');
+const splitAt = splitReviews ? Math.ceil(reviews.length / 2) : reviews.length;
+const firstPairs = reviews.slice(0, splitAt);
+const restPairs = reviews.slice(splitAt);
 ---
 <section class="section reviews-band" id="reviews" data-google-reviews>
   <div class="container">
@@ -128,7 +133,7 @@ function avatarColor(name) {
   {showGrid && (
     <div class="container">
       <div class="review-pairs">
-        {reviews.map((review, index) => {
+        {firstPairs.map((review, index) => {
           const photo = installs[index % installs.length];
           return (
             <div class:list={['review-pair', index % 2 === 1 && 'is-swapped']}>
@@ -171,12 +176,61 @@ function avatarColor(name) {
   </dialog>
 </section>
 
+{restPairs.length > 0 && <slot name="mid" />}
+
+{restPairs.length > 0 && (
+  <section class="section reviews-band" data-google-reviews>
+    <div class="container">
+      <div class="review-pairs">
+        {restPairs.map((review, index) => {
+          const pairIndex = splitAt + index;
+          const photo = installs[pairIndex % installs.length];
+          return (
+            <div class:list={['review-pair', pairIndex % 2 === 1 && 'is-swapped']}>
+              <figure class="review-photo">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>{photo.caption}</figcaption>
+              </figure>
+              <article class="review-card">
+                <header>
+                  <span class="avatar" style={`background:${avatarColor(review.name)}`} aria-hidden="true">{initial(review.name)}</span>
+                  <span>
+                    <strong>{review.name}</strong>
+                    <span class="stars" aria-label={`${review.stars} out of 5 stars`}>★★★★★</span>
+                  </span>
+                </header>
+                <p class="review-text">{review.text}</p>
+                <button type="button" class="review-more">Read more</button>
+              </article>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+    <dialog class="review-dialog" aria-labelledby="review-dialog-title-more">
+      <form method="dialog">
+        <button class="review-close" aria-label="Close">Close</button>
+      </form>
+      <h3 id="review-dialog-title-more"></h3>
+      <p class="stars" aria-hidden="true">★★★★★</p>
+      <p class="review-dialog-text"></p>
+    </dialog>
+  </section>
+)}
+
 <script is:inline>
   document.querySelectorAll('[data-google-reviews]').forEach((root) => {
     const marquee = root.querySelector('.review-marquee');
     const banner = root.querySelector('.review-banner');
     const dialog = root.querySelector('.review-dialog');
-    const title = dialog?.querySelector('#review-dialog-title');
+    const title = dialog?.querySelector('h3');
     const body = dialog?.querySelector('.review-dialog-text');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
+import GuideSection from '../components/GuideSection.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
 import { business } from '../data/business.js';
 import { pagePhotos } from '../data/lifestyle.js';
@@ -21,7 +22,9 @@ const crumbs = [
     crumbs={crumbs}
     photo={pagePhotos.reviews}
   />
-  <GoogleReviews showGrid />
+  <GoogleReviews showGrid>
+    <GuideSection slot="mid" />
+  </GoogleReviews>
   <section class="section">
     <div class="container">
       <p>To talk to us directly, call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>.</p>

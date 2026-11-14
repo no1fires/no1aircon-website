@@ -4,6 +4,7 @@ import PageHero from '../../components/PageHero.astro';
 import QuickAnswers from '../../components/QuickAnswers.astro';
 import FaqList from '../../components/FaqList.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
 import Related from '../../components/Related.astro';
 import { towns, getTown, getTownsBySlugs } from '../../data/towns.js';
 import { getServicesBySlugs } from '../../data/services.js';
@@ -53,6 +54,7 @@ const distance = town.miles
       </div>
     </div>
   </section>
+  <GuideSection />
   <section class="section">
     <div class="container">
       <div class="todo-slot">

@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
 import { towns } from '../../data/towns.js';
 import { business, alsoCovered } from '../../data/business.js';
 import { pagePhotos } from '../../data/lifestyle.js';
@@ -31,7 +32,12 @@ const crumbs = [
           </a>
         ))}
       </div>
-      <div class="prose" style="margin-top:36px;">
+    </div>
+  </section>
+  <GuideSection />
+  <section class="section">
+    <div class="container">
+      <div class="prose">
         <h2>By county</h2>
         <p>
           <a href="/areas/hampshire/">Air conditioning across Hampshire</a> and

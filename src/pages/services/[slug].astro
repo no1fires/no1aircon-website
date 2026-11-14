@@ -5,6 +5,7 @@ import QuickAnswers from '../../components/QuickAnswers.astro';
 import FaqList from '../../components/FaqList.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
 import InstallCarousel from '../../components/InstallCarousel.astro';
+import GuideSection from '../../components/GuideSection.astro';
 import Related from '../../components/Related.astro';
 import Icon from '../../components/Icon.astro';
 import { services, getService, getServicesBySlugs } from '../../data/services.js';
@@ -118,6 +119,7 @@ const faqs = [...service.answerFaqs, ...service.faqs];
       </div>
     </div>
   </section>
+  <GuideSection />
   <Related services={related} towns={towns} />
   <FaqList faqs={service.faqs} />
   <InstallCarousel instanceId={service.slug} />
