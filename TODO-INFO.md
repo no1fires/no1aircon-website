@@ -2,7 +2,7 @@
 
 The site is built to avoid invented facts. Anything unknown is a placeholder in `src/data/placeholders.js` and, where a customer would otherwise be misled, it is shown on the page in the form `[TODO: …]`.
 
-Confirmed facts already in `src/data/business.js` (do not change these unless the Google Business Profile changes): name, legal name, phone `01425 333760`, email `info@no1aircon.co.uk`, showroom address, showroom opening hours Tuesday to Saturday 10am to 4pm (closed Sunday and Monday), from-price `£1,999` including VAT, 0% finance “from as little as £25 a week” on qualifying installations, warranty up to 5 years with annual servicing, brands Mitsubishi Electric, Daikin and Clivet, and the Refcom-certified wording already on the current site.
+Confirmed facts already in `src/data/business.js` (do not change these unless the Google Business Profile changes): name, legal name, phone `01425 333760`, email `info@no1aircon.co.uk`, showroom address, showroom opening hours Tuesday to Saturday 10am to 4pm (closed Sunday and Monday), cheapest system is a Clivet single room from `£1,395` (0% VAT on qualifying installs), 0% finance “from as little as £25 a week” on qualifying installations, warranty up to 5 years with annual servicing, brands Mitsubishi Electric, Daikin and Clivet, and the Refcom-certified wording already on the current site.
 
 ## Turn indexing on
 
@@ -30,7 +30,7 @@ Put real values on the matching fields in `src/data/business.js` (or the reviews
 | GHL form or webhook URL | `quoteEndpoint` in `business.js`, or the `PUBLIC_QUOTE_ENDPOINT` build variable if the URL contains a token. Until it is an `https://` URL, the form does not send and tells people to call or email |
 | Typical quote turnaround | Service and town copy |
 | Typical install times | Home and commercial service pages |
-| Multi-room price | Home, heating, several town pages |
+| Multi-room price | Confirmed: from £3,499. Do not leave the old placeholder in copy. |
 | Commercial price | Commercial page and Ferndown |
 | Ducted system price | Ducted page and Wimborne |
 | Servicing price | Servicing page |

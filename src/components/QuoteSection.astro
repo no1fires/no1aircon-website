@@ -1,19 +1,40 @@
 ---
-import { business } from '../data/business.js';
+import { business, whatsappSend } from '../data/business.js';
+import Icon from './Icon.astro';
+import RichText from './RichText.astro';
 
-const { title = 'Tell us about the space', intro = 'A short note is enough. We will arrange a free survey and then send a fixed price. There is no obligation to go ahead.' } = Astro.props;
+const { title = 'Tell us about the space', intro = `Send photos, measurements and a floor plan. ${whatsappSend}. We quote remotely, so there is no need for a home visit to get a price. There is no obligation to go ahead.` } = Astro.props;
+const points = [
+  { icon: 'pin', text: `Showroom in ${business.town} you can visit` },
+  { icon: 'check', text: 'We install Mitsubishi Electric' },
+  { icon: 'star', text: business.rating ? `${business.rating.value} from ${business.rating.count} Google reviews` : '' },
+  { icon: 'clipboard', text: 'A remote quote from your photos and floor plan. A survey only if needed.' },
+].filter((point) => point.text);
 ---
-<section class="section tint" id="quote" aria-labelledby="quote-heading">
+<section class="section tint quote-band" id="quote" aria-labelledby="quote-heading">
   <div class="container quote-grid">
-    <div>
+    <div class="quote-copy">
       <p class="eyebrow">Free quote</p>
       <h2 id="quote-heading">{title}</h2>
-      <p class="lead">{intro}</p>
+      <p class="lead"><RichText text={intro} /></p>
+      <ul class="quote-points">
+        {points.map((point) => (
+          <li><Icon name={point.icon} size={20} /><span><RichText text={point.text} /></span></li>
+        ))}
+      </ul>
       <p>Prefer to talk now? Call <a href={`tel:${business.phoneIntl}`}><strong>{business.phone}</strong></a> or email <a href={`mailto:${business.email}`}>{business.email}</a>.</p>
-      <p class="muted">{business.financeNote}</p>
+      <img
+        class="quote-photo"
+        src="/images/mitsubishi/mitsubishi-electric-msz-ln-natural-white-bedroom-ringwood-1200.webp"
+        alt="Mitsubishi Electric MSZ-LN Natural White wall-mounted air conditioner above a bed, supplied by No1 Air Con in Ringwood and within 25 miles."
+        width="1200"
+        height="895"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
     <div class="quote-card">
-      <iframe src="https://link.apisystem.tech/widget/form/roELVvgk9jhNB8MKlM1k" style="width:100%;height:900px;border:none;border-radius:3px" id="inline-roELVvgk9jhNB8MKlM1k" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-name="AC form" data-height="900" data-layout-iframe-id="inline-roELVvgk9jhNB8MKlM1k" data-form-id="roELVvgk9jhNB8MKlM1k" title="AC form"></iframe>
+      <iframe src="https://link.apisystem.tech/widget/form/roELVvgk9jhNB8MKlM1k" id="inline-roELVvgk9jhNB8MKlM1k" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-name="AC form" data-height="780" data-layout-iframe-id="inline-roELVvgk9jhNB8MKlM1k" data-form-id="roELVvgk9jhNB8MKlM1k" title="AC form"></iframe>
       <script src="https://link.apisystem.tech/js/form_embed.js"></script>
     </div>
   </div>

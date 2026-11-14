@@ -4,9 +4,10 @@ import PageHero from '../../components/PageHero.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
 import { towns } from '../../data/towns.js';
 import { business, alsoCovered } from '../../data/business.js';
+import { pagePhotos } from '../../data/lifestyle.js';
 
 const title = 'Air Conditioning Areas | Hampshire and Dorset | No1 Air Con';
-const description = `Towns we cover from the Ringwood showroom: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton. About ${business.radiusMiles} miles.`;
+const description = `Towns we cover from the Ringwood showroom: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton. Within ${business.radiusMiles} miles of our Ringwood showroom.`;
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Areas', href: '/areas/' },
@@ -16,8 +17,9 @@ const crumbs = [
   <PageHero
     eyebrow="Areas"
     title="Air conditioning across Hampshire and Dorset"
-    lead={`We install within about ${business.radiusMiles} miles of the showroom at ${business.street}, ${business.town}. These eight towns each have their own page, because a cottage in Fordingbridge is not the same job as a bungalow in New Milton.`}
+    lead={`We install within ${business.radiusMiles} miles of our Ringwood showroom at ${business.street}, ${business.town}. These eight towns each have their own page, because a cottage in Fordingbridge is not the same job as a bungalow in New Milton.`}
     crumbs={crumbs}
+    photo={pagePhotos.areas}
   />
   <section class="section">
     <div class="container">

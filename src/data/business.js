@@ -14,6 +14,13 @@ export const contentUpdated = '2026-10-28';
 const envEndpoint = import.meta.env && import.meta.env.PUBLIC_QUOTE_ENDPOINT;
 export const quoteEndpoint = envEndpoint || '';
 
+// Homeowner's guide form only. PUBLIC_GUIDE_ENDPOINT overrides this at build time.
+// The quote form keeps using quoteEndpoint / PUBLIC_QUOTE_ENDPOINT.
+const defaultGuideEndpoint = 'https://services.leadconnectorhq.com/hooks/9HvMM7JwacidUZ9vaQRt/webhook-trigger/68ded49d-1219-4c83-a649-c446f16421d6';
+const envGuideEndpoint = import.meta.env && import.meta.env.PUBLIC_GUIDE_ENDPOINT;
+export const guideEndpoint = envGuideEndpoint || defaultGuideEndpoint;
+export const guidePdf = 'https://files.leadconnectorhq.com/file/6af6fd1d97818be4d4b385fa/no1-air-con-homeowners-guide.pdf';
+
 export const business = {
   name: 'No1 Air Conditioning',
   shortName: 'No1 Air Con',
@@ -28,21 +35,23 @@ export const business = {
   postcode: 'BH24 1DN',
   // Approximate showroom position; refine from the Google Business Profile pin.
   geo: { lat: 50.8459, lng: -1.7889 },
-  radiusMiles: 30,
-  priceFrom: '£1,999',
+  radiusMiles: 25,
+  priceFrom: '£1,395',
+  multiRoomFrom: '£3,499',
+  servicingFrom: '£125',
   facebook: 'https://www.facebook.com/profile.php?id=61587422684398',
   instagram: 'https://www.instagram.com/no1aircon1/',
-  // Confirmed on the existing site. The weekly figure is the published
-  // "from as little as £25 a week" line. Lender and eligibility are not.
-  financeNote: '0% finance is available on qualifying installations, from as little as £25 a week.',
-  warranty: 'Up to 5 years. Annual servicing keeps the warranty valid.',
+  // Danny: finance is not offered at the moment. Leave this empty so the
+  // old "0% finance ... £25 a week" line is not shown.
+  financeNote: '',
+  warranty: 'Installations come with a 5 year warranty that covers parts and labour.',
   // Stated on the current site. Do not publish an F-Gas or REFCOM number.
   refcomCertified: true,
   sister: { name: 'No1 Fires', url: 'https://no1fires.co.uk' },
   // Null until Danny supplies them. Pages show the matching placeholder.
-  whatsapp: null,
-  whatsappIntl: null,
-  companyNumber: null,
+  whatsapp: '07457 405634',
+  whatsappIntl: '447457405634',
+  companyNumber: '14778718',
   vatNumber: null,
   // Danny confirmed these showroom hours. Closed Sunday and Monday.
   // Pages print them through openingHoursText().
@@ -53,12 +62,14 @@ export const business = {
       closes: '16:00',
     },
   ],
-  // Only set when the numbers are real. Schema will not emit a rating otherwise.
-  // { value: 4.8, count: 36 }
-  rating: null,
+  // Google Maps listing: 5.0 from 13 reviews. Schema emits AggregateRating from this.
+  // { value: '5.0', count: 13 }
+  rating: { value: '5.0', count: 13 },
   googleBusiness: null,
   linkedin: null,
 };
+
+export const whatsappSend = `WhatsApp is the easiest way to send the photos, measurements and floor plan (${business.whatsapp}). Send on WhatsApp`;
 
 // Published from-prices and running-cost bands already on the site.
 // Anything not listed here is a placeholder, not a guess.
@@ -95,7 +106,7 @@ export const reviews = [];
 export const faqs = [
   {
     q: 'How much does air conditioning cost to install?',
-    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room and commercial systems cost more. We give you a fixed price after a free survey, and 0% finance is available on qualifying installations.`,
+    a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}. A survey is only if it is needed.`,
   },
   {
     q: 'How much does air conditioning cost to run?',
@@ -119,7 +130,23 @@ export const faqs = [
   },
   {
     q: 'What warranty do I get?',
-    a: 'Installations come with up to a 5 year warranty. Annual servicing keeps the warranty valid.',
+    a: 'Installations come with a 5 year warranty that covers parts and labour.',
+  },
+  {
+    q: 'How much does air con servicing cost?',
+    a: `Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks.`,
+  },
+  {
+    q: 'How is an installation paid for?',
+    a: 'Air conditioning is paid 50/50: a 50% deposit, and 50% on completion.',
+  },
+  {
+    q: 'Do you offer finance?',
+    a: 'No. Finance is not offered at the moment.',
+  },
+  {
+    q: 'When is the showroom open?',
+    a: `Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday. The showroom is at ${business.street}, ${business.town}, ${business.county} ${business.postcode}.`,
   },
   {
     q: 'Can I see the units before I buy?',
@@ -127,11 +154,11 @@ export const faqs = [
   },
   {
     q: 'Which areas do you cover?',
-    a: `We are based at the Ringwood showroom and install within about ${business.radiusMiles} miles, including Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.`,
+    a: `We install within ${business.radiusMiles} miles of our Ringwood showroom, including Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.`,
   },
   {
     q: 'How do I get a quote?',
-    a: `Call ${business.phone}, email ${business.email}, or use the quote form. We survey the property and then give you a fixed, no-obligation price.`,
+    a: `Call ${business.phone}, email ${business.email}, or use the quote form, and send photos, measurements and a floor plan. ${whatsappSend}. We quote remotely. There is no need for a home visit to get a price, and no obligation to go ahead.`,
   },
 ];
 

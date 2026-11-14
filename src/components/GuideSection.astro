@@ -1,0 +1,28 @@
+---
+import QuoteForm from './QuoteForm.astro';
+
+const { anchor = false } = Astro.props;
+const slug = Astro.url.pathname.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'home';
+const formId = anchor ? 'guide-form' : `guide-form-${slug}`;
+---
+<section class="guide" id={anchor ? 'guide' : undefined}>
+  <div class="container guide-grid">
+    <div class="guide-lead">
+      <img
+        class="guide-book"
+        src="/images/guide-book-onyx.webp"
+        width="662"
+        height="797"
+        alt="The No1 Air Con homeowner's guide, with a Mitsubishi Electric Onyx Black unit on the cover"
+        loading="lazy"
+        decoding="async"
+      />
+      <div>
+        <p class="eyebrow eyebrow-on-dark">Guide</p>
+        <h2>The home air conditioning buyer’s guide</h2>
+        <p>A plain-English guide to room size, noise, heating and cooling, and how a remote quote works. Send the form and you can download it straight away.</p>
+      </div>
+    </div>
+    <QuoteForm id={formId} variant="guide" />
+  </div>
+</section>

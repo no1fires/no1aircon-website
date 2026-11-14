@@ -31,6 +31,29 @@ function businessNode() {
     telephone: business.phoneIntl,
     email: business.email,
     priceRange: `From ${business.priceFrom}`,
+    makesOffer: [
+      {
+        '@type': 'Offer',
+        name: 'Clivet single-room system',
+        price: '1395',
+        priceCurrency: 'GBP',
+        description: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). This is the cheapest system, not the starting price for every brand.`,
+      },
+      {
+        '@type': 'Offer',
+        name: 'Multi-room air conditioning',
+        price: '3499',
+        priceCurrency: 'GBP',
+        description: `Multi-room systems from ${business.multiRoomFrom}`,
+      },
+      {
+        '@type': 'Offer',
+        name: 'Air con servicing',
+        price: '125',
+        priceCurrency: 'GBP',
+        description: `Air con servicing from ${business.servicingFrom}`,
+      },
+    ],
     currenciesAccepted: 'GBP',
     address: {
       '@type': 'PostalAddress',
@@ -109,7 +132,7 @@ function breadcrumbNode(crumbs) {
 }
 
 function serviceNode(service, canonical) {
-  return {
+  const node = {
     '@type': 'Service',
     name: service.name,
     serviceType: service.serviceType,
@@ -119,6 +142,25 @@ function serviceNode(service, canonical) {
     provider: { '@id': businessId },
     areaServed: areaServed(),
   };
+  if (service.slug === 'home-air-conditioning') {
+    node.offers = {
+      '@type': 'Offer',
+      name: 'Clivet single-room system',
+      price: '1395',
+      priceCurrency: 'GBP',
+      description: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). This is the cheapest system, not the starting price for every brand.`,
+    };
+  }
+  if (service.slug === 'servicing') {
+    node.offers = {
+      '@type': 'Offer',
+      name: 'Air con servicing',
+      price: '125',
+      priceCurrency: 'GBP',
+      description: `Air con servicing from ${business.servicingFrom}`,
+    };
+  }
+  return node;
 }
 
 function faqNode(faqs) {
@@ -132,7 +174,10 @@ function faqNode(faqs) {
       name: faq.q,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.a,
+        text: [
+          ...(faq.paragraphs || [faq.a]),
+          ...(faq.sources || []).map((source) => `${source.name}: ${source.url}`),
+        ].filter(Boolean).join(' ').split('Send on WhatsApp').join(`Send on WhatsApp (https://wa.me/${business.whatsappIntl})`),
       },
     });
   }

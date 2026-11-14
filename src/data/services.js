@@ -1,5 +1,4 @@
-import { business, brands, openingHoursText } from './business.js';
-import { todo } from './placeholders.js';
+import { business, brands, openingHoursText, whatsappSend } from './business.js';
 import { brandList } from '../lib/format.js';
 
 // Mitsubishi Electric stays first: it is the preferred option and the claims below refer to brands[0].
@@ -14,22 +13,22 @@ export const services = [
     icon: 'home',
     blurb: 'Quiet wall-mounted and floor units for bedrooms, living rooms, home offices, garden rooms and conservatories.',
     title: 'Home Air Conditioning Installation | No1 Air Con',
-    description: `Home air conditioning installed across Ringwood, Hampshire and Dorset from ${business.priceFrom} inc. VAT. Single rooms and multi-room systems, surveyed from our Ringwood showroom.`,
+    description: `Home air conditioning across Ringwood, Hampshire and Dorset. Clivet single rooms from ${business.priceFrom} (0% VAT). Surveyed from our Ringwood showroom.`,
     h1: 'Home air conditioning installation',
     eyebrow: 'Homes',
-    lead: `Wall-mounted and floor-standing systems for houses and flats within about ${business.radiusMiles} miles of our Ringwood showroom. A single room is installed from ${business.priceFrom} including VAT.`,
+    lead: `Wall-mounted and floor-standing systems for houses and flats within ${business.radiusMiles} miles of our Ringwood showroom. A Clivet single room is installed from ${business.priceFrom} (0% VAT).`,
     paragraphs: [
       'Most people start with one room that will not stay comfortable. A bedroom that holds the heat at night, a living room with a lot of glass, a home office, or a conservatory that is too hot to use from May onwards. We size the unit for that room, not for a brochure example.',
-      'The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window. That is what the survey is for.',
+      `The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window. Send photos, measurements and a floor plan of the rooms and that outside wall. ${whatsappSend}. We quote remotely from those. A survey is only if it is needed.`,
       'If you want more than one room, a multi-room system connects two, three or four indoor units to a single outdoor unit. You can set each room on its own. It avoids a row of outdoor units along the wall.',
       `We install ${brandNames}. You can see and hear them at the showroom on ${business.street}, ${business.town}, before you decide. ${brands[0].name} publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.`,
     ],
-    priceNote: `Single room systems from ${business.priceFrom} including VAT. Multi-room systems: ${todo('multiRoomPrice')}. ${business.financeNote}`,
+    priceNote: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). Multi-room systems from ${business.multiRoomFrom}.`,
     provides: [
       { title: 'Single-room systems', text: 'One indoor unit and one outdoor unit, sized for the room you actually use.' },
       { title: 'Floor consoles', text: 'A better fit for conservatories and rooms where the walls are mostly glass.' },
       { title: 'Multi-room systems', text: 'Two, three or four indoor units on one outdoor unit, each room controlled on its own.' },
-      { title: 'A fixed quote after survey', text: 'We check the room, the pipe run, the power supply and where the outdoor unit can go, then price the job.' },
+      { title: 'A remote quote', text: `Send photos, measurements and a floor plan. ${whatsappSend}. We price the job from those. A survey is only if it is needed.` },
     ],
     suitable: [
       'Bedrooms that stay hot overnight',
@@ -43,7 +42,7 @@ export const services = [
     answerFaqs: [
       {
         q: 'How much does home air conditioning cost to install?',
-        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price for your home comes after a free survey, because the pipe run and the outdoor unit position change the job. Multi-room price: ${todo('multiRoomPrice')}.`,
+        a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). The remote quote uses your photos, measurements and floor plan, because the pipe run and the outdoor unit position change the job. ${whatsappSend}. A survey is only if it is needed. Multi-room price: from ${business.multiRoomFrom}.`,
       },
       {
         q: 'Can one outdoor unit serve several rooms?',
@@ -52,6 +51,26 @@ export const services = [
       {
         q: 'Will a bedroom unit be noisy?',
         a: `We choose a size that does not have to run flat out, and we talk through where it will sit. ${brands[0].name} quote from 19dB on some indoor units. That is a manufacturer figure, so we would rather you hear a unit in the Ringwood showroom than take a number on trust.`,
+      },
+      {
+        q: 'What warranty do I get?',
+        a: business.warranty,
+      },
+      {
+        q: 'How is an installation paid for?',
+        a: 'Air conditioning is paid 50/50: a 50% deposit, and 50% on completion.',
+      },
+      {
+        q: 'Do you offer finance?',
+        a: 'No. Finance is not offered at the moment.',
+      },
+      {
+        q: 'How long does a home install take?',
+        a: 'Most jobs are done in a day. The current lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but we do not promise an earlier date.',
+      },
+      {
+        q: 'Are the engineers F-Gas certified?',
+        a: 'Yes. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number.',
       },
     ],
     faqs: [
@@ -62,10 +81,6 @@ export const services = [
       {
         q: 'Does home air conditioning help with hay fever?',
         a: 'The systems we fit filter pollen, dust and allergens, and they take moisture out of the air as they cool. They are not a medical device, but most people notice the room feels fresher.',
-      },
-      {
-        q: 'How long does a home install take?',
-        a: `${todo('installTimeSingle')} We confirm the day once we have surveyed the pipe run and the electrical supply.`,
       },
     ],
   },
@@ -84,10 +99,10 @@ export const services = [
     paragraphs: [
       'People still think of air conditioning as a summer luxury. Used as a heater, a modern unit moves heat rather than making it. The systems we install deliver up to 4 units of warmth for every 1 unit of electricity used. On many tariffs that is cheaper to run than gas for the room you are heating, though the real cost depends on your tariff, the insulation and how long you leave it on.',
       'A 2.5kW bedroom unit typically costs 8p to 15p an hour to cool and 6p to 12p an hour to heat. A 3.5kW living room is typically 10p to 20p an hour to cool and 8p to 15p an hour to heat. A 5.0kW conservatory is typically 15p to 25p an hour to cool and 10p to 20p an hour to heat. Treat those as bands, not a bill.',
-      `In colder weather the outdoor unit has to work harder. ${brands[0].name} describe Hyper Heat performance down to -15°C on the range we recommend. That is their published figure. We will tell you on the survey if a room needs a larger unit because of glass, height or insulation.`,
+      `In colder weather the outdoor unit has to work harder. ${brands[0].name} describe Hyper Heat performance down to -15°C on the range we recommend. That is their published figure. We will say from the photos, measurements and floor plan if a room needs a larger unit because of glass, height or insulation. We visit only if we need to.`,
       'You still need a plan for the rest of the house. An air-to-air system heats the rooms that have an indoor unit. It does not heat a hot-water cylinder, and it does not automatically retire a gas boiler. Many customers use it for the bedroom and living room, and leave the boiler for everything else.',
     ],
-    priceNote: `Single room systems from ${business.priceFrom} including VAT, and the same unit heats and cools. ${business.financeNote}`,
+    priceNote: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT), and the same unit heats and cools.`,
     provides: [
       { title: 'Cooling in summer', text: 'Steady temperature, with moisture taken out of the air so the room feels less heavy.' },
       { title: 'Heating in winter', text: 'Heat for the rooms with an indoor unit, often at a lower running cost than gas for that room.' },
@@ -127,7 +142,7 @@ export const services = [
       },
       {
         q: 'How cold can it be outside and still heat?',
-        a: `${brands[0].name} publish Hyper Heat performance down to -15°C for the premium range we recommend. Output still falls as the outdoor temperature drops, so we size the unit at the survey rather than from a headline number.`,
+        a: `${brands[0].name} publish Hyper Heat performance down to -15°C for the premium range we recommend. Output still falls as the outdoor temperature drops, so we size the unit from the photos, measurements and floor plan, not from a headline number. We visit only if we need to.`,
       },
     ],
   },
@@ -145,11 +160,11 @@ export const services = [
     lead: 'Offices, shops, treatment rooms and server rooms, sized for occupancy, heat from equipment, and the hours you are open. We work from the Ringwood showroom across Hampshire and Dorset.',
     paragraphs: [
       'A commercial room is rarely just a big version of a living room. A treatment room needs to be quiet. A shop needs the door to open all day without the unit giving up. A server cupboard needs the heat taken away even when nobody is in the building. We ask how the room is used before we suggest a system.',
-      'Ceiling cassettes suit open offices and retail floors because they throw air in more than one direction. A wall unit is often enough for a small office or a treatment room. Ducted systems hide the equipment where the ceiling void allows it. The survey checks the heat load, the structure, the condensate route and when we can work without closing you for longer than we have to.',
-      'We do not publish a single commercial price, because a server room and a high-street shop are different jobs. You get a fixed price after the survey.',
+      `Ceiling cassettes suit open offices and retail floors because they throw air in more than one direction. A wall unit is often enough for a small office or a treatment room. Ducted systems hide the equipment where the ceiling void allows it. Photos, measurements and a floor plan let us check the heat load, the structure, the condensate route and when we can work. ${whatsappSend}. We visit only if we need to.`,
+      'We do not publish a single commercial price, because a server room and a high-street shop are different jobs. You get a remote quote from those details. A survey is only if it is needed.',
       'We will not invent a client list. If you want to see the standard of finish, visit the showroom or ask us for a recent job once the case studies are filled in with real projects.',
     ],
-    priceNote: `${todo('commercialPrice')} ${todo('installTimeCommercial')}`,
+    priceNote: `You get a remote quote from photos, measurements and a floor plan. ${whatsappSend}. We do not publish one commercial price. A survey is only if it is needed.`,
     provides: [
       { title: 'Offices and meeting rooms', text: 'Sized for the number of people and the equipment, not just the floor area.' },
       { title: 'Shops and salons', text: 'Systems that cope with doors opening and customers walking in.' },
@@ -167,29 +182,29 @@ export const services = [
     answerFaqs: [
       {
         q: 'How much does commercial air conditioning cost?',
-        a: `${todo('commercialPrice')} The price depends on the heat load, the type of indoor unit and when we can get access. We survey first and then give a fixed price.`,
+        a: `The price depends on the heat load, the type of indoor unit and when we can get access. We quote remotely from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed.`,
       },
       {
         q: 'Can you work around opening hours?',
-        a: 'We agree the working day on the survey so the install does not close the business for longer than it needs to. We do not advertise out-of-hours cover as a standard.',
+        a: 'We agree the working day when the install is booked so it does not close the business for longer than it needs to. We do not advertise out-of-hours cover as a standard.',
       },
       {
-        q: 'What do you need to know before a survey?',
-        a: 'What the room is used for, roughly how many people are in it, any equipment that throws off heat, and whether there is a ceiling void. Photographs help, but we still need to see the space.',
+        q: 'What do you need for a remote quote?',
+        a: `Photos, measurements and a floor plan of the rooms and the outside wall. ${whatsappSend}. Tell us what the room is used for, roughly how many people are in it, any equipment that throws off heat, and whether there is a ceiling void. We visit only if we need to.`,
       },
     ],
     faqs: [
       {
         q: 'Do shops and offices use the same equipment as homes?',
-        a: 'Sometimes a wall unit is right. Open floors more often suit a ceiling cassette or a ducted system. We will say which, and why, after we have seen the room.',
+        a: 'Sometimes a wall unit is right. Open floors more often suit a ceiling cassette or a ducted system. We will say which, and why, from the photos and floor plan. We visit only if we need to.',
       },
       {
         q: 'Will you service a system you did not install?',
-        a: `We service and repair ${brandNames}, which are the brands we install. ${todo('otherBrandRepairs')}`,
+        a: `We service and repair ${brandNames}, which are the brands we install.`,
       },
       {
         q: 'How long does a commercial install take?',
-        a: `${todo('installTimeCommercial')} We will not guess a day-rate before we have seen access, the ceiling and the electrical supply.`,
+        a: `We will not guess a day-rate. Photos of the access, the ceiling and the electrical supply are enough for a remote quote. ${whatsappSend}. We visit only if we need to.`,
       },
     ],
   },
@@ -201,7 +216,7 @@ export const services = [
     icon: 'clipboard',
     blurb: 'Annual servicing keeps the warranty valid, the filters clean and the system running properly.',
     title: 'Air Conditioning Servicing and Care Plans | No1 Air Con',
-    description: 'Annual air conditioning servicing across Ringwood, Hampshire and Dorset. Keeps the warranty valid. Care plan tiers are listed once confirmed.',
+    description: `Air con servicing from ${business.servicingFrom} across Ringwood, Hampshire and Dorset. An annual service keeps the warranty valid. Care plan tiers are not published.`,
     h1: 'Servicing and care plans',
     eyebrow: 'Looking after it',
     lead: 'An annual service keeps the warranty valid, the filters clean and the system efficient. We service the brands we install, from the Ringwood showroom.',
@@ -211,12 +226,11 @@ export const services = [
       'Care plans are a way to put that visit on a schedule, sometimes with priority if the system stops. We are not publishing tiers, prices or inclusions until they are confirmed. If a page elsewhere on the internet lists a Gold or Silver plan for No1 Air Con, it did not come from us.',
       'If the system is already leaking, showing an error code or not cooling, that is a repair rather than a service. Tell us the symptoms when you book and we will bring the right kit.',
     ],
-    priceNote: `${todo('servicingPrice')} ${todo('carePlanTiers')} ${todo('carePlanPrice')}`,
+    priceNote: `Air con servicing from ${business.servicingFrom}.`,
     provides: [
       { title: 'Annual service', text: 'Filters, coils, condensate, temperatures, electrics and a leak check.' },
-      { title: 'Warranty kept valid', text: 'Up to 5 years on installations, provided the system is serviced.' },
+      { title: '5 year warranty', text: 'Installations come with a 5 year warranty that covers parts and labour.' },
       { title: 'Filter and hygiene check', text: 'A dirty filter costs more to run and moves less air.' },
-      { title: 'Care plans, once confirmed', text: 'Tiers and prices will be published here when they are agreed. They are not invented in the meantime.' },
     ],
     suitable: [
       'Systems we installed and still warrant',
@@ -232,26 +246,26 @@ export const services = [
         a: 'Filters block, drains clog and coils coat with dust. A yearly service keeps the warranty valid and catches a small fault before it becomes a leak or a failed part.',
       },
       {
-        q: 'How much is a service?',
-        a: `${todo('servicingPrice')} Call ${business.phone} and we will tell you once the price is confirmed. We will not put a guessed figure on the page.`,
+        q: 'How much does air con servicing cost?',
+        a: `Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks.`,
       },
       {
-        q: 'What is included in a care plan?',
-        a: `${todo('carePlanTiers')} ${todo('carePlanPrice')}`,
+        q: 'What warranty do I get?',
+        a: business.warranty,
       },
     ],
     faqs: [
       {
         q: 'Do you service other brands?',
-        a: `We service ${brandNames}. ${todo('otherBrandRepairs')}`,
+        a: `We service ${brandNames}.`,
       },
       {
         q: 'What warranty do I get on a new install?',
-        a: `${business.warranty} ${todo('warrantyDetail')}`,
+        a: business.warranty,
       },
       {
         q: 'How often should a system be serviced?',
-        a: 'Once a year is the usual interval, and it is what keeps the warranty valid. A dusty shop or a house with pets may need the filters looked at sooner. We will say so if we see it.',
+        a: `Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks.`,
       },
     ],
   },
@@ -273,7 +287,7 @@ export const services = [
       'Water indoors is often a blocked condensate drain, but it can also be a frozen coil or a poor pipe fall. We do not ask you to take the unit apart. Switch it off at the isolator if water is coming into the room, and call us.',
       'If the system is under the installation warranty and it has been serviced, say so when you book. If it has never been serviced, we can still look at it, but a warranty claim may not stand.',
     ],
-    priceNote: `${todo('repairCallout')} We quote the repair once we know the fault. We do not invent a call-out fee here.`,
+    priceNote: 'We quote the repair once we know the fault. We do not publish a call-out fee.',
     provides: [
       { title: 'Fault finding', text: 'Error codes, poor cooling, poor heating, strange noises and systems that will not start.' },
       { title: 'Leak repairs', text: 'Water leaks traced properly, rather than a tray emptied and left.' },
@@ -295,11 +309,11 @@ export const services = [
       },
       {
         q: 'How much is a repair call-out?',
-        a: `${todo('repairCallout')} The repair price depends on the fault and the part. We will tell you before we start the paid work.`,
+        a: 'The repair price depends on the fault and the part. We will tell you before we start the paid work.',
       },
       {
         q: 'Which brands do you repair?',
-        a: `We repair ${brandNames}, the brands we install. ${todo('otherBrandRepairs')}`,
+        a: `We repair ${brandNames}, the brands we install.`,
       },
     ],
     faqs: [
@@ -313,7 +327,7 @@ export const services = [
       },
       {
         q: 'Will a repair affect the warranty?',
-        a: `${business.warranty} If the system is still inside that period and has been serviced, tell us. ${todo('warrantyDetail')}`,
+        a: `${business.warranty} If the system is still inside that period and has been serviced, tell us.`,
       },
     ],
   },
@@ -325,7 +339,7 @@ export const services = [
     icon: 'fan',
     blurb: 'Ceiling cassettes and ducted systems for open-plan homes and commercial rooms where a wall unit is the wrong look.',
     title: 'Ducted and Ceiling Air Conditioning | No1 Air Con',
-    description: 'Ducted air conditioning and ceiling cassettes for open-plan homes and commercial rooms across Ringwood, Hampshire and Dorset. Surveyed for ceiling space before anyone quotes.',
+    description: 'Ducted air conditioning and ceiling cassettes for open-plan homes and commercial rooms across Ringwood, Hampshire and Dorset. Quoted remotely from photos of the ceiling and a floor plan.',
     h1: 'Ducted and ceiling air conditioning',
     eyebrow: 'When a wall unit is wrong',
     lead: 'Ceiling cassettes and ducted systems for open-plan rooms and commercial spaces where a wall unit would be in the way, or where you do not want to see the equipment.',
@@ -333,9 +347,9 @@ export const services = [
       'A wall unit is the right answer for most bedrooms. It is the wrong answer for some rooms. A long open-plan living space may need air thrown further than a wall unit can manage. A shop floor often wants a cassette in the ceiling. A house with a clear loft can sometimes hide a ducted unit and just show grilles.',
       'Both options need space. A cassette needs a ceiling void deep enough for the unit and a route for the pipes and the condensate pump. A ducted system needs a loft or a void that we can still reach to change filters in a year’s time. If the joists, the downlights or the insulation leave no room, we will say so and suggest a wall or floor unit instead.',
       'Ducted and ceiling systems are still air-to-air heat pumps. They cool and they heat. They are not automatically quieter, and they are not automatically more expensive in running cost. The difference is where the equipment sits and how the air is delivered.',
-      'We do not have a published price for this work yet. The survey has to come first, because two ceilings that look the same can be completely different jobs.',
+      `We do not have a published price for this work yet. Photos of the ceiling, measurements and a floor plan are enough for a remote quote, because two ceilings that look the same can be completely different jobs. ${whatsappSend}. We visit only if we need to.`,
     ],
-    priceNote: `${todo('ductedPrice')} Single room wall units, for comparison, start from ${business.priceFrom} including VAT.`,
+    priceNote: `There is no published ducted price yet. A Clivet single-room wall unit, for comparison, starts from ${business.priceFrom} (0% VAT).`,
     provides: [
       { title: 'Ceiling cassettes', text: 'One unit in the ceiling, blowing in more than one direction. Common in offices and open rooms.' },
       { title: 'Ducted systems', text: 'The indoor unit is hidden. Air comes through grilles. Only where the void and the filter access allow it.' },
@@ -357,17 +371,17 @@ export const services = [
       },
       {
         q: 'Can you install ducted air conditioning in an older house?',
-        a: 'Sometimes, if there is a loft or a ceiling void and a route for the ducts that does not wreck the structure. Cottages with shallow lofts often suit a wall or floor unit better. We will tell you on the survey.',
+        a: 'Sometimes, if there is a loft or a ceiling void and a route for the ducts that does not wreck the structure. Cottages with shallow lofts often suit a wall or floor unit better. We will tell you from the photos and floor plan, and visit only if we need to.',
       },
       {
         q: 'How much does a ducted system cost?',
-        a: `${todo('ductedPrice')} We price it after we have seen the ceiling, the joists and the pipe run. A single-room wall unit starts from ${business.priceFrom} including VAT if that turns out to be the better answer.`,
+        a: `We price it from photos of the ceiling, the joists and the pipe run, plus measurements and a floor plan. ${whatsappSend}. We visit only if we need to. A Clivet single-room wall unit starts from ${business.priceFrom} (0% VAT) if that turns out to be the better answer.`,
       },
     ],
     faqs: [
       {
         q: 'Are ceiling systems quieter?',
-        a: 'Not by default. Noise depends on the model, the size and how hard it has to work. Hiding the unit does not remove the fan. We will talk through noise at the showroom and again on the survey.',
+        a: 'Not by default. Noise depends on the model, the size and how hard it has to work. Hiding the unit does not remove the fan. We will talk through noise at the showroom, and on a visit if we need one.',
       },
       {
         q: 'Do ducted systems heat as well as cool?',

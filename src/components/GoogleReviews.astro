@@ -1,0 +1,387 @@
+---
+import reviews from '../data/google-reviews.json';
+import { business } from '../data/business.js';
+
+const installs = [
+  {
+    src: '/images/installs/indoor-living-skylight.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner above a television in a living room with a skylight',
+  },
+  {
+    src: '/images/installs/outdoor-brick-wall.webp',
+    width: 1200,
+    height: 900,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner mounted on brackets on a red-brick house wall above patio doors',
+  },
+  {
+    src: '/images/installs/indoor-wall-light.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a pale wall beside a lit wall light',
+  },
+  {
+    src: '/images/installs/outdoor-cottage.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'White outdoor air conditioner on feet beside a white rendered cottage wall',
+  },
+  {
+    src: '/images/installs/indoor-living-corner.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner high on a beige living-room wall beside curtains',
+  },
+  {
+    src: '/images/installs/outdoor-bungalow.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner on feet on a gravel border beside a brick bungalow',
+  },
+  {
+    src: '/images/installs/indoor-slatted-wall.webp',
+    width: 739,
+    height: 556,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a grey slatted wall',
+  },
+  {
+    src: '/images/installs/outdoor-brick-patio.webp',
+    width: 1008,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner against a red-brick wall beside a white window',
+  },
+];
+
+const { showGrid = false } = Astro.props;
+const mapsUrl = 'https://maps.google.com/?cid=4600408711547603359';
+const writeUrl = 'https://search.google.com/local/writereview?placeid=ChIJky9kwfeXc0gRn0loYVnv1z8';
+const ratingValue = business.rating?.value || '5.0';
+const reviewCount = reviews.length;
+const palette = ['#0f1e3d', '#174ca1', '#c24e12', '#1a3058'];
+
+function initial(name) {
+  return name.trim().charAt(0).toUpperCase();
+}
+
+function avatarColor(name) {
+  const code = name.trim().charCodeAt(0) || 0;
+  return palette[code % palette.length];
+}
+---
+<section class="section reviews-band" id="reviews" data-google-reviews>
+  <div class="container">
+    <header class="g-head">
+      <div class="g-brand">
+        <svg class="g-logo" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+          <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5c-.3 1.5-1.1 2.8-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/>
+          <path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1C3.4 21.3 7.4 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.4 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.7.4-2.4V6.5H1.4C.5 8.3 0 10.1 0 12s.5 3.7 1.4 5.5l4-3.1z"/>
+          <path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.2 15.2 0 12 0 7.4 0 3.4 2.7 1.4 6.5l4 3.1C6.3 6.8 8.9 4.8 12 4.8z"/>
+        </svg>
+        <div>
+          <h2>
+            <span class="g-score">{ratingValue}</span>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span class="visually-hidden"> out of 5</span>
+          </h2>
+          <p>from {reviewCount} Google reviews</p>
+        </div>
+      </div>
+      <div class="g-actions">
+        <a class="btn" href={mapsUrl} target="_blank" rel="noopener noreferrer">Read all reviews on Google</a>
+        <a class="btn btn-navy" href={writeUrl} target="_blank" rel="noopener noreferrer">Leave us a review</a>
+      </div>
+    </header>
+  </div>
+
+  <div class="review-banner">
+    <div class="review-marquee">
+      {[0, 1].map((copy) => (
+        <div class="review-set" aria-hidden={copy === 1 ? 'true' : undefined} inert={copy === 1}>
+          {reviews.map((review) => (
+            <article class="review-card">
+              <header>
+                <span class="avatar" style={`background:${avatarColor(review.name)}`} aria-hidden="true">{initial(review.name)}</span>
+                <span>
+                  <strong>{review.name}</strong>
+                  <span class="stars" aria-label={copy === 0 ? `${review.stars} out of 5 stars` : undefined}>★★★★★</span>
+                </span>
+              </header>
+              <p class="review-text">{review.text}</p>
+              <button type="button" class="review-more">Read more</button>
+            </article>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {showGrid && (
+    <div class="container">
+      <div class="review-pairs">
+        {reviews.map((review, index) => {
+          const photo = installs[index % installs.length];
+          return (
+            <div class:list={['review-pair', index % 2 === 1 && 'is-swapped']}>
+              <figure class="review-photo">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>{photo.caption}</figcaption>
+              </figure>
+              <article class="review-card">
+                <header>
+                  <span class="avatar" style={`background:${avatarColor(review.name)}`} aria-hidden="true">{initial(review.name)}</span>
+                  <span>
+                    <strong>{review.name}</strong>
+                    <span class="stars" aria-label={`${review.stars} out of 5 stars`}>★★★★★</span>
+                  </span>
+                </header>
+                <p class="review-text">{review.text}</p>
+                <button type="button" class="review-more">Read more</button>
+              </article>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  )}
+
+  <dialog class="review-dialog" aria-labelledby="review-dialog-title">
+    <form method="dialog">
+      <button class="review-close" aria-label="Close">Close</button>
+    </form>
+    <h3 id="review-dialog-title"></h3>
+    <p class="stars" aria-hidden="true">★★★★★</p>
+    <p class="review-dialog-text"></p>
+  </dialog>
+</section>
+
+<script is:inline>
+  document.querySelectorAll('[data-google-reviews]').forEach((root) => {
+    const marquee = root.querySelector('.review-marquee');
+    const banner = root.querySelector('.review-banner');
+    const dialog = root.querySelector('.review-dialog');
+    const title = dialog?.querySelector('#review-dialog-title');
+    const body = dialog?.querySelector('.review-dialog-text');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const pause = () => marquee?.classList.add('is-paused');
+    const resume = () => {
+      if (dialog?.open) return;
+      marquee?.classList.remove('is-paused');
+    };
+
+    if (!reduce && banner && marquee) {
+      banner.addEventListener('pointerdown', pause);
+      banner.addEventListener('pointerup', resume);
+      banner.addEventListener('pointercancel', resume);
+      banner.addEventListener('pointerleave', resume);
+    }
+
+    root.querySelectorAll('.review-card').forEach((card) => {
+      const text = card.querySelector('.review-text');
+      const button = card.querySelector('.review-more');
+      if (!text || !button) return;
+      if (text.scrollHeight <= text.clientHeight + 1) {
+        button.hidden = true;
+        return;
+      }
+      if (card.closest('[aria-hidden="true"]')) return;
+      button.addEventListener('click', () => {
+        if (!dialog || !title || !body) return;
+        title.textContent = card.querySelector('strong')?.textContent || 'Review';
+        body.textContent = text.textContent;
+        pause();
+        dialog.showModal();
+      });
+    });
+
+    dialog?.addEventListener('close', resume);
+  });
+</script>
+
+<style>
+  .reviews-band { background: var(--off-white); overflow: hidden; }
+  .g-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px 28px;
+    margin-bottom: 22px;
+  }
+  .g-brand { display: flex; align-items: center; gap: 14px; }
+  .g-logo { flex: none; }
+  .g-head h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    letter-spacing: -0.03em;
+  }
+  .g-score { font-weight: 800; }
+  .g-head p { margin: 0; color: var(--muted); font-weight: 700; }
+  .stars { color: #f4b400; letter-spacing: 1px; font-size: 1rem; line-height: 1; }
+  .g-head .stars { font-size: 1.15rem; }
+  .g-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .review-banner { overflow: hidden; }
+  .review-marquee {
+    display: flex;
+    width: max-content;
+    animation: review-marquee 110s linear infinite;
+  }
+  .review-banner:hover .review-marquee,
+  .review-marquee.is-paused {
+    animation-play-state: paused;
+  }
+  .review-set {
+    display: flex;
+    flex: none;
+    gap: 16px;
+    padding-right: 16px;
+  }
+  .review-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 300px;
+    height: 228px;
+    flex: none;
+    padding: 20px 18px 16px;
+    background: #fff;
+    border-radius: 24px;
+    border-top: 5px solid var(--orange);
+    box-shadow: 0 14px 32px rgba(15, 30, 61, 0.08);
+  }
+  .review-card header { display: flex; align-items: center; gap: 12px; }
+  .review-card strong { display: block; color: var(--navy); line-height: 1.2; }
+  .review-card header .stars { display: block; margin-top: 4px; }
+  .avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+  .review-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    color: var(--muted);
+    white-space: pre-line;
+  }
+  .review-more {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--blue);
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .review-more:hover { color: var(--blue-hover); }
+  .review-pairs {
+    display: grid;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .review-pair {
+    display: grid;
+    gap: 14px;
+    align-items: center;
+    min-width: 0;
+  }
+  .review-pair .review-card {
+    width: auto;
+    height: auto;
+    min-height: 228px;
+  }
+  .review-photo { margin: 0; min-width: 0; }
+  .review-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: #fff;
+  }
+  .review-photo figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+  @media (min-width: 900px) {
+    .review-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+    .review-pair.is-swapped .review-photo { order: 2; }
+    .review-pair.is-swapped .review-card { order: 1; }
+  }
+  .review-dialog {
+    width: min(32rem, calc(100vw - 32px));
+    border: 0;
+    border-top: 6px solid var(--orange);
+    border-radius: 24px;
+    padding: 22px 22px 20px;
+    color: var(--navy);
+    box-shadow: 0 24px 50px rgba(15, 30, 61, 0.22);
+  }
+  .review-dialog::backdrop { background: rgba(15, 30, 61, 0.45); }
+  .review-dialog form { display: flex; justify-content: flex-end; margin: 0; }
+  .review-close {
+    border: 0;
+    background: none;
+    color: var(--blue);
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .review-dialog h3 { margin: 4px 0 8px; font-size: 1.35rem; }
+  .review-dialog-text { margin: 12px 0 0; color: var(--muted); white-space: pre-line; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  @keyframes review-marquee {
+    from { transform: translate3d(-50%, 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .review-banner {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-inline: 20px;
+    }
+    .review-marquee { animation: none; transform: none; }
+    .review-set[aria-hidden="true"] { display: none; }
+    .review-card { scroll-snap-align: start; }
+  }
+</style>

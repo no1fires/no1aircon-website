@@ -1,13 +1,13 @@
 ---
-import { business, quoteEndpoint } from '../data/business.js';
+import { business, guideEndpoint, guidePdf, quoteEndpoint } from '../data/business.js';
 import { services } from '../data/services.js';
 
 const { id = 'quote', variant = 'quote' } = Astro.props;
 const isGuide = variant === 'guide';
-const endpoint = quoteEndpoint || '';
+const endpoint = isGuide ? (guideEndpoint || '') : (quoteEndpoint || '');
 const page = Astro.url.pathname;
 const success = isGuide
-  ? 'Thanks. We have your details. The buyer’s guide is not published yet, so this is a request to be told when it is. Call us if you need advice now.'
+  ? 'Thanks. Your guide is ready. A copy is also on its way by email.'
   : 'Thanks. We have received your enquiry and will be in touch. If it is urgent, please call.';
 ---
 <form
@@ -16,6 +16,7 @@ const success = isGuide
   data-form={isGuide ? 'buyers-guide' : 'quote'}
   data-endpoint={endpoint}
   data-page={page}
+  data-guide-pdf={isGuide ? guidePdf : undefined}
   data-phone={business.phone}
   data-phone-href={`tel:${business.phoneIntl}`}
   data-email={business.email}
@@ -88,8 +89,4 @@ const success = isGuide
 
   <button class="btn" type="submit">{isGuide ? 'Send me the guide' : 'Request a quote'}</button>
   <p class="status" data-status role="status" aria-live="polite"></p>
-  <p class={isGuide ? undefined : 'muted'} style={isGuide ? 'margin-top:12px' : 'margin-top:12px'}>
-    Or call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>
-    {business.whatsappIntl ? <> or <a href={`https://wa.me/${business.whatsappIntl.replace('+', '')}`}>WhatsApp</a></> : null}.
-  </p>
 </form>

@@ -1,0 +1,60 @@
+---
+import { Picture } from 'astro:assets';
+import meeting1 from '../assets/lifestyle/meeting-room-1.jpg';
+import meeting2 from '../assets/lifestyle/meeting-room-2.jpg';
+import onyxMeet from '../assets/lifestyle/small-meeting-onyx.jpg';
+import rubyMeet from '../assets/lifestyle/small-meeting-ruby.jpg';
+
+const assets = { meeting1, meeting2, onyxMeet, rubyMeet };
+const { photo } = Astro.props;
+const sizes = photo.portrait
+  ? '(min-width: 1024px) 420px, calc(100vw - 40px)'
+  : '(min-width: 1024px) 520px, calc(100vw - 40px)';
+---
+<figure class:list={['life-frame', photo.portrait && 'is-portrait']}>
+  {photo.asset ? (
+    <Picture
+      src={assets[photo.asset]}
+      formats={['avif', 'webp']}
+      widths={photo.widths}
+      sizes={sizes}
+      alt={photo.alt}
+      loading="eager"
+      decoding="async"
+    />
+  ) : (
+    <picture>
+      <source type="image/webp" srcset={photo.srcset} sizes={sizes} />
+      <img
+        src={photo.src}
+        alt={photo.alt}
+        width={photo.width}
+        height={photo.height}
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+  )}
+</figure>
+
+<style>
+  .life-frame {
+    margin: 0;
+    width: 100%;
+    justify-self: center;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
+  .life-frame picture,
+  .life-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  @media (min-width: 1024px) {
+    .life-frame.is-portrait { width: min(100%, 420px); }
+  }
+</style>
