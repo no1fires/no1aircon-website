@@ -4,6 +4,7 @@ import Icon from '../components/Icon.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
 import MitsubishiRange from '../components/MitsubishiRange.astro';
 import GuideSection from '../components/GuideSection.astro';
+import InstallCarousel from '../components/InstallCarousel.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import FaqList from '../components/FaqList.astro';
 import { business, brands, faqs, openingHoursText } from '../data/business.js';
@@ -207,6 +208,8 @@ const steps = [
   </section>
 
   <GuideSection anchor />
+
+  <InstallCarousel />
 
   <FaqList faqs={faqs} heading="Air conditioning FAQs" />
 

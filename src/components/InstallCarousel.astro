@@ -1,0 +1,231 @@
+---
+const installs = [
+  {
+    src: '/images/installs/indoor-living-skylight.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner above a television in a living room with a skylight',
+  },
+  {
+    src: '/images/installs/outdoor-brick-wall.webp',
+    width: 1200,
+    height: 900,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner mounted on brackets on a red-brick house wall above patio doors',
+  },
+  {
+    src: '/images/installs/indoor-wall-light.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a pale wall beside a lit wall light',
+  },
+  {
+    src: '/images/installs/outdoor-cottage.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'White outdoor air conditioner on feet beside a white rendered cottage wall',
+  },
+  {
+    src: '/images/installs/indoor-living-corner.webp',
+    width: 1050,
+    height: 1400,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner high on a beige living-room wall beside curtains',
+  },
+  {
+    src: '/images/installs/outdoor-bungalow.webp',
+    width: 900,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner on feet on a gravel border beside a brick bungalow',
+  },
+  {
+    src: '/images/installs/indoor-slatted-wall.webp',
+    width: 739,
+    height: 556,
+    caption: 'Wall-mounted indoor unit',
+    alt: 'White wall-mounted indoor air conditioner on a grey slatted wall',
+  },
+  {
+    src: '/images/installs/outdoor-brick-patio.webp',
+    width: 1008,
+    height: 1200,
+    caption: 'Outdoor unit installation',
+    alt: 'Cream outdoor air conditioner against a red-brick wall beside a white window',
+  },
+];
+---
+<section class="installs" aria-labelledby="installs-heading">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Recent work</p>
+      <h2 id="installs-heading">Our recent installations</h2>
+    </div>
+    <div class="install-carousel" data-install-carousel>
+      <button class="install-arrow" type="button" data-install-prev aria-label="Previous installation">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="install-viewport">
+        <ul class="install-track">
+          {installs.map((item) => (
+            <li>
+              <button
+                class="install-card"
+                type="button"
+                data-install-open
+                data-src={item.src}
+                data-alt={item.alt}
+                data-caption={item.caption}
+              >
+                <span class="install-frame">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="install-caption">{item.caption}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <button class="install-arrow" type="button" data-install-next aria-label="Next installation">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="install-dots" data-install-dots></div>
+    </div>
+  </div>
+</section>
+<dialog class="install-lightbox" data-install-lightbox>
+  <button class="install-close" type="button" data-install-close aria-label="Close photo">Close</button>
+  <img alt="" data-install-full />
+  <p data-install-caption></p>
+</dialog>
+
+<style>
+  .installs { padding: 56px 0 24px; }
+  .install-carousel { position: relative; }
+  .install-viewport { overflow: hidden; }
+  .install-track {
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: transform 0.35s ease;
+  }
+  .install-track > li { flex: 0 0 100%; min-width: 0; }
+  .install-card {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: zoom-in;
+    color: inherit;
+    font: inherit;
+  }
+  .install-frame {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 5;
+    background: var(--off-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(15, 30, 61, 0.1);
+  }
+  .install-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .install-caption {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .install-arrow {
+    position: absolute;
+    top: 38%;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--navy);
+    box-shadow: 0 8px 18px rgba(15, 30, 61, 0.16);
+    cursor: pointer;
+  }
+  .install-arrow[data-install-prev] { left: -8px; }
+  .install-arrow[data-install-next] { right: -8px; }
+  .install-arrow:disabled { opacity: 0.35; cursor: default; }
+  .install-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .install-dots button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: #c5cedd;
+    cursor: pointer;
+  }
+  .install-dots button[aria-current="true"] { background: var(--cta); }
+  .install-lightbox {
+    width: min(960px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    padding: 48px 16px 16px;
+    border: 0;
+    border-radius: 16px;
+    background: #fff;
+  }
+  .install-lightbox::backdrop { background: rgba(15, 30, 61, 0.72); }
+  .install-lightbox img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(100vh - 140px);
+    margin: 0 auto;
+    object-fit: contain;
+  }
+  .install-lightbox p {
+    margin: 12px 0 0;
+    text-align: center;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .install-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: 0;
+    background: transparent;
+    color: var(--navy);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  @media (min-width: 900px) {
+    .install-track > li { flex-basis: calc((100% - 36px) / 3); }
+    .install-arrow[data-install-prev] { left: -18px; }
+    .install-arrow[data-install-next] { right: -18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .install-track { transition: none; }
+  }
+</style>

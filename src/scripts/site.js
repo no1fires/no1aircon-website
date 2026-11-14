@@ -299,9 +299,103 @@ function setupGuideFocus() {
   window.addEventListener('hashchange', focusField);
 }
 
+function setupInstalls() {
+  const root = document.querySelector('[data-install-carousel]');
+  const dialog = document.querySelector('[data-install-lightbox]');
+  if (!root || !dialog) return;
+
+  const viewport = root.querySelector('.install-viewport');
+  const track = root.querySelector('.install-track');
+  const cards = [...track.children];
+  const prev = root.querySelector('[data-install-prev]');
+  const next = root.querySelector('[data-install-next]');
+  const dotsWrap = root.querySelector('[data-install-dots]');
+  const full = dialog.querySelector('[data-install-full]');
+  const caption = dialog.querySelector('[data-install-caption]');
+  let index = 0;
+  let moved = false;
+
+  const perView = () => (window.matchMedia('(min-width: 900px)').matches ? 3 : 1);
+  const maxIndex = () => Math.max(0, cards.length - perView());
+
+  const go = (nextIndex) => {
+    index = Math.max(0, Math.min(maxIndex(), nextIndex));
+    const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+    const step = cards[0].getBoundingClientRect().width + gap;
+    track.style.transform = `translateX(${-index * step}px)`;
+    prev.disabled = index === 0;
+    next.disabled = index === maxIndex();
+    dotsWrap.querySelectorAll('button').forEach((dot, dotIndex) => {
+      dot.setAttribute('aria-current', dotIndex === index ? 'true' : 'false');
+    });
+  };
+
+  const buildDots = () => {
+    dotsWrap.replaceChildren();
+    const count = maxIndex() + 1;
+    for (let i = 0; i < count; i += 1) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show installation group ${i + 1}`);
+      dot.addEventListener('click', () => go(i));
+      dotsWrap.append(dot);
+    }
+    go(Math.min(index, maxIndex()));
+  };
+
+  prev.addEventListener('click', () => go(index - 1));
+  next.addEventListener('click', () => go(index + 1));
+
+  let startX = 0;
+  let dragging = false;
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    dragging = true;
+    moved = false;
+    startX = event.clientX;
+  });
+  viewport.addEventListener('pointermove', (event) => {
+    if (!dragging) return;
+    if (Math.abs(event.clientX - startX) > 10) moved = true;
+  });
+  const endDrag = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    const delta = event.clientX - startX;
+    if (delta <= -40) go(index + 1);
+    else if (delta >= 40) go(index - 1);
+  };
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', () => { dragging = false; });
+  viewport.addEventListener('click', (event) => {
+    if (!moved) return;
+    event.preventDefault();
+    event.stopPropagation();
+    moved = false;
+  }, true);
+
+  root.querySelectorAll('[data-install-open]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (moved) return;
+      full.src = button.dataset.src;
+      full.alt = button.dataset.alt;
+      caption.textContent = button.dataset.caption;
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+    });
+  });
+  dialog.querySelector('[data-install-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  buildDots();
+  window.addEventListener('resize', buildDots);
+}
+
 setupNav();
 setupFaq();
 setupReveal();
 setupForms();
 setupMaps();
 setupGuideFocus();
+setupInstalls();
