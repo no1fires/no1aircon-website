@@ -2,42 +2,29 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
-import { business, reviews } from '../data/business.js';
+import GoogleReviews from '../components/GoogleReviews.astro';
+import { business } from '../data/business.js';
 import { pagePhotos } from '../data/lifestyle.js';
 
 const title = 'Reviews | No1 Air Con Ringwood';
-const description = 'Customer reviews for No1 Air Conditioning in Ringwood. None are published yet. We do not invent quotes or star ratings.';
+const description = `Google reviews for No1 Air Conditioning in Ringwood. ${business.rating.value} from ${business.rating.count} reviews.`;
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Reviews', href: '/reviews/' },
 ];
 ---
-<Base title={title} description={description} crumbs={crumbs}>
+<Base title={title} description={description} crumbs={crumbs} hideReviews>
   <PageHero
     eyebrow="Reviews"
     title="What customers say"
-    lead="This page will show real reviews once they are supplied. It does not show a star rating, a review count, or a quote we wrote ourselves."
+    lead={`${business.rating.value} from ${business.rating.count} Google reviews.`}
     crumbs={crumbs}
     photo={pagePhotos.reviews}
   />
+  <GoogleReviews showGrid />
   <section class="section">
     <div class="container">
-      {reviews.length > 0 ? (
-        <div class="card-grid">
-          {reviews.map((review) => (
-            <blockquote class="card" style="padding:24px;">
-              <p>{review.quote}</p>
-              <footer><strong>{review.name}</strong>{review.town ? `, ${review.town}` : ''}</footer>
-            </blockquote>
-          ))}
-        </div>
-      ) : (
-        <div class="todo-slot">
-          <h2>No written reviews on this page yet</h2>
-          <p>We have not published individual customer quotes here. We do not write them ourselves, and we do not buy them.</p>
-        </div>
-      )}
-      <p style="margin-top:24px;">To talk to us directly, call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>.</p>
+      <p>To talk to us directly, call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>.</p>
     </div>
   </section>
   <QuoteSection />
