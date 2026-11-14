@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
+import ShowroomMap from '../components/ShowroomMap.astro';
 import { business, openingHoursText } from '../data/business.js';
 import { pagePhotos } from '../data/lifestyle.js';
 
@@ -11,7 +12,6 @@ const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Contact', href: '/contact/' },
 ];
-const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${business.street}, ${business.town} ${business.postcode}`)}&z=16&output=embed`;
 const whatsappText = "Hi No1 Air Con, I'd like to ask about air conditioning.";
 const whatsappHref = business.whatsappIntl
   ? `https://wa.me/${String(business.whatsappIntl).replace('+', '')}?text=${encodeURIComponent(whatsappText)}`
@@ -35,9 +35,7 @@ const whatsappHref = business.whatsappIntl
         <p>Opening hours: {openingHoursText()}.</p>
         <p>Tell us the town or postcode, which rooms, and whether you want cooling, heating, or both. A photo of the wall and the outside of the house helps, but it does not replace the survey.</p>
       </div>
-      <div class="map-wrap" data-map-wrap data-map-src={mapSrc}>
-        <button class="btn" type="button" data-map-button>Show the showroom on a map</button>
-      </div>
+      <ShowroomMap />
     </div>
   </section>
   <QuoteSection title="Send an enquiry" />
