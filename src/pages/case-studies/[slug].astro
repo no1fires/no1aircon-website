@@ -24,15 +24,7 @@ const crumbs = [
     <div class="container prose">
       <div class="todo-slot">
         <h2>Placeholder, not a real job</h2>
-        <p>Do not treat the fields below as something that happened. They are blanks for Danny to replace.</p>
-        <dl>
-          {study.fields.map((field) => (
-            <div style="margin-top:12px;">
-              <dt><strong>{field.label}</strong></dt>
-              <dd class="todo">{field.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <p>This is not a finished project. We have not published a town, a customer or a result.</p>
       </div>
       {study.explainer.map((paragraph) => <p>{paragraph}</p>)}
       {service && <p>The service this will illustrate is <a href={`/services/${service.slug}/`}>{service.name}</a>.</p>}

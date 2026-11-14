@@ -3,8 +3,6 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import { business } from '../data/business.js';
-import { todo } from '../data/placeholders.js';
-
 const title = 'Privacy Policy | No1 Air Conditioning';
 const description = `How ${business.legalName}, trading as ${business.name}, uses personal information sent by the quote form, email or phone.`;
 const crumbs = [
@@ -12,11 +10,10 @@ const crumbs = [
   { name: 'Privacy', href: '/privacy/' },
 ];
 ---
-<Base title={title} description={description} crumbs={crumbs} hideReviews>
+<Base title={title} description={description} crumbs={crumbs} hideReviews hideGuideBanner>
   <PageHero eyebrow="Legal" title="Privacy policy" lead="This explains what this website does with your details. It is written for the new site. It still needs checking against the current no1aircon.co.uk policy." crumbs={crumbs} />
   <section class="section">
     <div class="container prose">
-      <p><span class="todo">{todo('privacyReview')}</span></p>
       <h2>Who we are</h2>
       <p>{business.legalName}, trading as {business.name}, of {business.street}, {business.town}, {business.county} {business.postcode}. Email <a href={`mailto:${business.email}`}>{business.email}</a>. Phone <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>. Company number: {business.companyNumber}.</p>
       <h2>What we collect</h2>
@@ -25,9 +22,7 @@ const crumbs = [
       <h2>Why we use it</h2>
       <p>To answer your enquiry, arrange a survey, prepare a quote, and book a showroom visit. The legal basis is steps towards a contract, and our legitimate interest in replying to people who contact us.</p>
       <h2>Who else sees it</h2>
-      <p>When the quote form is connected, the details are sent to our enquiry system. <span class="todo">{todo('processors')}</span> The planned tools named in the launch notes are GoHighLevel and Leadzilla. Until the form address is connected, the form does not send your details anywhere. We do not sell personal information.</p>
-      <h2>How long we keep it</h2>
-      <p><span class="todo">{todo('retentionPeriod')}</span></p>
+      <p>Enquiry details are sent to our enquiry system so we can reply. We do not sell personal information.</p>
       <h2>Your rights</h2>
       <p>You can ask for a copy of the information we hold, ask us to correct it, or ask us to delete it where we have no reason to keep it. Email {business.email}. You can also complain to the Information Commissioner’s Office at ico.org.uk.</p>
       <h2>Cookies</h2>

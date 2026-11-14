@@ -38,12 +38,13 @@ export const business = {
   radiusMiles: 25,
   priceFrom: '£1,999',
   multiRoomFrom: '£3,499',
+  servicingFrom: '£125',
   facebook: 'https://www.facebook.com/profile.php?id=61587422684398',
   instagram: 'https://www.instagram.com/no1aircon1/',
   // Danny: finance is not offered at the moment. Leave this empty so the
   // old "0% finance ... £25 a week" line is not shown.
   financeNote: '',
-  warranty: 'Up to 5 years. Annual servicing keeps the warranty valid.',
+  warranty: 'Installations come with a 5 year warranty.',
   // Stated on the current site. Do not publish an F-Gas or REFCOM number.
   refcomCertified: true,
   sister: { name: 'No1 Fires', url: 'https://no1fires.co.uk' },
@@ -127,7 +128,23 @@ export const faqs = [
   },
   {
     q: 'What warranty do I get?',
-    a: 'Installations come with up to a 5 year warranty. Annual servicing keeps the warranty valid.',
+    a: 'Installations come with a 5 year warranty.',
+  },
+  {
+    q: 'How much does air con servicing cost?',
+    a: `Air con servicing is from ${business.servicingFrom}.`,
+  },
+  {
+    q: 'How is an installation paid for?',
+    a: 'Air conditioning is paid 50/50: a 50% deposit, and 50% on completion.',
+  },
+  {
+    q: 'Do you offer finance?',
+    a: 'No. Finance is not offered at the moment.',
+  },
+  {
+    q: 'When is the showroom open?',
+    a: `Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday. The showroom is at ${business.street}, ${business.town}, ${business.county} ${business.postcode}.`,
   },
   {
     q: 'Can I see the units before I buy?',

@@ -3,8 +3,6 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import { business } from '../data/business.js';
-import { todo } from '../data/placeholders.js';
-
 const title = 'Terms and Conditions | No1 Air Conditioning';
 const description = `Terms for quotes and installation enquiries with ${business.name} at the Ringwood showroom. Published from-prices are not a quote for your property.`;
 const crumbs = [
@@ -12,20 +10,20 @@ const crumbs = [
   { name: 'Terms', href: '/terms/' },
 ];
 ---
-<Base title={title} description={description} crumbs={crumbs}>
+<Base title={title} description={description} crumbs={crumbs} hideGuideBanner>
   <PageHero eyebrow="Legal" title="Terms and conditions" lead="Short terms for using this website and asking for a quote. They are not a substitute for the terms of a signed installation." crumbs={crumbs} />
   <section class="section">
     <div class="container prose">
-      <p><span class="todo">{todo('termsReview')}</span></p>
       <h2>Quotes</h2>
       <p>A single room system is published from {business.priceFrom} including VAT. That is a starting price, not a quote for your property. The price we will work to is the fixed price after a survey. You do not have to accept it.</p>
-      <p>A multi-room system is published from {business.multiRoomFrom}. Prices we have not published are not agreed by filling in the form. Commercial, ducted, servicing and repair prices are confirmed separately.</p>
+      <p>A multi-room system is published from {business.multiRoomFrom}. Air con servicing is from {business.servicingFrom}. Prices we have not published are not agreed by filling in the form. Commercial, ducted and repair prices are confirmed separately.</p>
+      <p>Air conditioning installations are paid 50/50: a 50% deposit, and 50% on completion. Finance is not offered at the moment.</p>
       <h2>Surveys</h2>
-      <p>The survey is described as free. We look at the rooms, the pipe run and the outdoor unit position. {todo('quoteTurnaround')}</p>
+      <p>The survey is free. We look at the rooms, the pipe run and the outdoor unit position.</p>
       <h2>Warranty</h2>
-      <p>{business.warranty} <span class="todo">{todo('warrantyDetail')}</span></p>
+      <p>{business.warranty}</p>
       <h2>The website</h2>
-      <p>We take care with the facts on this site. Where a figure is not confirmed it is marked as a to-do, and it is not an offer. Photos and case studies that are marked as placeholders are not descriptions of completed work.</p>
+      <p>Photos and case studies that are marked as placeholders are not descriptions of completed work.</p>
       <h2>Who the contract is with</h2>
       <p>Installation work, once you accept a quote, is with {business.legalName}, trading as {business.name}, of {business.street}, {business.town}, {business.county} {business.postcode}. Company number: {business.companyNumber}.</p>
     </div>

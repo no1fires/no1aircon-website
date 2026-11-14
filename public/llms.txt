@@ -11,7 +11,7 @@ Preview note: indexing is switched off until `INDEXABLE` is set to true in `src/
 - Home air conditioning. Wall and floor units for bedrooms, living rooms, home offices, garden rooms and conservatories. Single rooms from £1,999 including VAT. Multi-room systems (two, three or four indoor units on one outdoor unit) are offered from £3,499.
 - Heating and cooling. The systems are air-to-air heat pumps. They cool and they heat the rooms where an indoor unit is fitted. Up to 4 units of warmth for every 1 unit of electricity. They do not, on their own, replace a whole-house boiler or heat a hot-water cylinder.
 - Commercial air conditioning for offices, shops, treatment rooms and server rooms. No single commercial price is published yet.
-- Servicing and care plans. Annual servicing keeps the warranty valid. Care plan tiers and the service price are not published yet.
+- Servicing and care plans. Air con servicing from £125. Annual servicing keeps the warranty valid. Care plan tiers are not published.
 - Repairs and fault finding for Mitsubishi Electric, Daikin and Clivet. No call-out price is published yet. There is no published 24-hour call-out.
 - Ducted and ceiling systems where the ceiling or loft has room. No ducted price is published yet.
 
@@ -23,7 +23,7 @@ Preview note: indexing is switched off until `INDEXABLE` is set to true in `src/
 
 ## Warranty, finance, accreditation
 
-- Warranty published on the site: up to 5 years, kept valid by annual servicing. Fuller warranty terms are not confirmed.
+- Warranty: installations come with a 5 year warranty. Fuller warranty terms are not confirmed.
 - The existing site describes the installers as Refcom certified. No F-Gas or REFCOM registration number is published.
 - Company number, VAT number and WhatsApp number are not published yet.
 - Showroom opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
@@ -88,7 +88,7 @@ Q: When is the Ringwood showroom open?
 A: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 
 Q: How much does installation cost?
-A: A single room is from £1,999 including VAT. Multi-room systems from £3,499. The fixed price is given after a free survey. Other prices are not published yet.
+A: A single room is from £1,999 including VAT. Multi-room systems from £3,499. Air con servicing is from £125. Installations come with a 5 year warranty. The fixed price is given after a free survey. Other prices are not published yet.
 
 Q: Does air conditioning heat as well as cool?
 A: The systems they fit are air-to-air heat pumps, so yes, for the rooms that have an indoor unit.

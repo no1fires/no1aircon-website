@@ -7,7 +7,6 @@ import QuoteSection from '../../components/QuoteSection.astro';
 import Related from '../../components/Related.astro';
 import { towns, getTown, getTownsBySlugs } from '../../data/towns.js';
 import { getServicesBySlugs } from '../../data/services.js';
-import { todo } from '../../data/placeholders.js';
 import { business } from '../../data/business.js';
 import { townPhotos } from '../../data/lifestyle.js';
 
@@ -59,10 +58,7 @@ const distance = town.miles
         <p class="eyebrow">Local job</p>
         <h2>A real {town.name} job will go here</h2>
         <p>This is a placeholder. It is not a finished project and it is not a review. We will not invent a street, a customer or a result.</p>
-        <ul>
-          <li>Town: {town.name}, {town.county}</li>
-          <li>{todo('localJob')}</li>
-        </ul>
+        <p>Town: {town.name}, {town.county}.</p>
       </div>
     </div>
   </section>

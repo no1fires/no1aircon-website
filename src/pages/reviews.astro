@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import { business, reviews } from '../data/business.js';
-import { todo } from '../data/placeholders.js';
 import { pagePhotos } from '../data/lifestyle.js';
 
 const title = 'Reviews | No1 Air Con Ringwood';
@@ -34,12 +33,8 @@ const crumbs = [
         </div>
       ) : (
         <div class="todo-slot">
-          <h2>No reviews published yet</h2>
-          <p>Add reviews to <code>reviews</code> in <code>src/data/business.js</code>. Each one needs the customer’s words, their name, the town, and what was fitted. A Google rating and review count can be added at the same time. Until those fields are real, the site will not show stars and will not add rating data for search engines.</p>
-          <p><span class="todo">{todo('reviews')}</span></p>
-          <p><span class="todo">{todo('googleRating')}</span> <span class="todo">{todo('reviewCount')}</span></p>
-          <p><span class="todo">{todo('googleBusinessUrl')}</span></p>
-          <p style="margin-top:12px;">If you have already used us, the most useful review mentions the town and what was fitted. We reply to reviews ourselves. We do not buy them.</p>
+          <h2>No written reviews on this page yet</h2>
+          <p>We have not published individual customer quotes here. We do not write them ourselves, and we do not buy them.</p>
         </div>
       )}
       <p style="margin-top:24px;">To talk to us directly, call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>.</p>

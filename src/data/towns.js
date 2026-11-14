@@ -1,5 +1,4 @@
 import { business, openingHoursText } from './business.js';
-import { todo } from './placeholders.js';
 
 const showroom = `${business.street}, ${business.town} ${business.postcode}`;
 
@@ -40,7 +39,7 @@ export const towns = [
     faqs: [
       {
         q: 'What does a Ringwood home installation cost?',
-        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price follows a free survey. Multi-room systems from ${business.multiRoomFrom}. Commercial prices are not published yet: ${todo('commercialPrice')}`,
+        a: `A single room system is installed from ${business.priceFrom} including VAT. The fixed price follows a free survey. Multi-room systems from ${business.multiRoomFrom}. Commercial prices are quoted after a survey.`,
       },
       {
         q: 'When is the showroom open?',
@@ -122,13 +121,13 @@ export const towns = [
       },
       {
         q: 'Do you work on the Ferndown industrial estates?',
-        a: `Yes. Offices, workshops and server cupboards are surveyed for heat load and access, then given a fixed price. ${todo('commercialPrice')}`,
+        a: 'Yes. Offices, workshops and server cupboards are surveyed for heat load and access, then given a fixed price.',
       },
     ],
     faqs: [
       {
         q: 'How quickly can you survey a Ferndown property?',
-        a: `${todo('quoteTurnaround')} The survey is free. Call ${business.phone} or use the form and we will arrange a time.`,
+        a: `The survey is free. Call ${business.phone} or use the form and we will arrange a time.`,
       },
       {
         q: 'Is Ferndown in the same area as the Ringwood showroom?',
@@ -304,7 +303,7 @@ export const towns = [
     faqs: [
       {
         q: 'How much does installation cost in Wimborne?',
-        a: `A single room starts from ${business.priceFrom} including VAT. The fixed price follows the survey. Ducted work is priced separately: ${todo('ductedPrice')}`,
+        a: `A single room starts from ${business.priceFrom} including VAT. The fixed price follows the survey. Ducted work is priced after we have seen the ceiling.`,
       },
       {
         q: 'Do you cover Colehill and Merley?',

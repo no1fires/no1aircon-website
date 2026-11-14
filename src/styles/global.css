@@ -660,8 +660,7 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
 @media (min-width: 640px) {
   .trust-row { grid-template-columns: repeat(3, 1fr); }
   .form-row { grid-template-columns: 1fr 1fr; }
-  .card-grid, .season-grid, .step-grid { grid-template-columns: 1fr 1fr; }
-  .area-grid { grid-template-columns: 1fr 1fr; }
+  .season-grid, .step-grid { grid-template-columns: 1fr 1fr; }
   .footer-base { flex-direction: row; justify-content: space-between; }
 }
 @media (min-width: 768px) {
@@ -678,11 +677,36 @@ html.js .fade-in.service-card.is-visible:hover { transform: translateY(-4px); }
   .mobile-menu { display: none; }
   .hero-grid, .guide-grid, .quote-grid, .visit-panel, .split, .page-hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 48px; }
   .page-hero { padding: 56px 0 64px; }
-  .card-grid, .area-grid, .related-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .step-grid, .faq-grid, .answer-list, .footer-grid { grid-template-columns: repeat(4, 1fr); }
+  .card-grid, .area-grid, .related-grid, .answer-list, .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .card-grid:has(> :nth-child(3):last-child),
+  .area-grid:has(> :nth-child(3):last-child),
+  .related-grid:has(> :nth-child(3):last-child),
+  .answer-list:has(> :nth-child(3):last-child),
+  .faq-grid:has(> :nth-child(3):last-child),
+  .card-grid:has(> :nth-child(6):last-child),
+  .area-grid:has(> :nth-child(6):last-child),
+  .related-grid:has(> :nth-child(6):last-child),
+  .answer-list:has(> :nth-child(6):last-child),
+  .faq-grid:has(> :nth-child(6):last-child),
+  .card-grid:has(> :nth-child(9):last-child),
+  .related-grid:has(> :nth-child(9):last-child),
+  .answer-list:has(> :nth-child(9):last-child),
+  .faq-grid:has(> :nth-child(9):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .area-grid:has(> :nth-child(4):last-child),
+  .area-grid:has(> :nth-child(8):last-child),
+  .card-grid:has(> :nth-child(8):last-child),
+  .related-grid:has(> :nth-child(8):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .step-grid, .footer-grid { grid-template-columns: repeat(4, 1fr); }
+  .card-grid:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(9):last-child)) > :last-child:nth-child(odd):not(:only-child),
+  .area-grid:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(4):last-child)):not(:has(> :nth-child(8):last-child)) > :last-child:nth-child(odd):not(:only-child),
+  .related-grid:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(8):last-child)) > :last-child:nth-child(odd):not(:only-child),
+  .answer-list:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(9):last-child)) > :last-child:nth-child(odd):not(:only-child),
+  .faq-grid:not(:has(> :nth-child(3):last-child)):not(:has(> :nth-child(6):last-child)):not(:has(> :nth-child(9):last-child)) > :last-child:nth-child(odd):not(:only-child) {
+    grid-column: 1 / -1;
+    width: min(100%, 520px);
+    justify-self: center;
+  }
   .season-grid { grid-template-columns: 1fr 1fr; }
-  .faq-grid { grid-template-columns: 1fr 1fr; }
-  .answer-list { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
   .step-grid { grid-template-columns: repeat(4, 1fr); }
 }

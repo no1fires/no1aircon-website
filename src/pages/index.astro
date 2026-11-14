@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
 import MitsubishiRange from '../components/MitsubishiRange.astro';
-import QuoteForm from '../components/QuoteForm.astro';
+import GuideSection from '../components/GuideSection.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import FaqList from '../components/FaqList.astro';
 import { business, brands, faqs, openingHoursText } from '../data/business.js';
@@ -205,27 +205,7 @@ const steps = [
     </div>
   </section>
 
-  <section class="guide" id="guide">
-    <div class="container guide-grid">
-      <div class="guide-lead">
-        <img
-          class="guide-book"
-          src="/images/guide-book-onyx.webp"
-          width="662"
-          height="797"
-          alt="The No1 Air Con homeowner's guide, with a Mitsubishi Electric Onyx Black unit on the cover"
-          loading="lazy"
-          decoding="async"
-        />
-        <div>
-          <p class="eyebrow eyebrow-on-dark">Guide</p>
-          <h2>The home air conditioning buyer’s guide</h2>
-          <p>A plain-English guide to room size, noise, heating and cooling, and what happens on a survey. Send the form and you can download it straight away.</p>
-        </div>
-      </div>
-      <QuoteForm id="guide-form" variant="guide" />
-    </div>
-  </section>
+  <GuideSection anchor />
 
   <FaqList faqs={faqs} heading="Air conditioning FAQs" />
 

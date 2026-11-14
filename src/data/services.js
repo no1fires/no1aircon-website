@@ -1,5 +1,4 @@
 import { business, brands, openingHoursText } from './business.js';
-import { todo } from './placeholders.js';
 import { brandList } from '../lib/format.js';
 
 // Mitsubishi Electric stays first: it is the preferred option and the claims below refer to brands[0].
@@ -53,6 +52,18 @@ export const services = [
         q: 'Will a bedroom unit be noisy?',
         a: `We choose a size that does not have to run flat out, and we talk through where it will sit. ${brands[0].name} quote from 19dB on some indoor units. That is a manufacturer figure, so we would rather you hear a unit in the Ringwood showroom than take a number on trust.`,
       },
+      {
+        q: 'What warranty do I get?',
+        a: business.warranty,
+      },
+      {
+        q: 'How is an installation paid for?',
+        a: 'Air conditioning is paid 50/50: a 50% deposit, and 50% on completion.',
+      },
+      {
+        q: 'Do you offer finance?',
+        a: 'No. Finance is not offered at the moment.',
+      },
     ],
     faqs: [
       {
@@ -65,7 +76,7 @@ export const services = [
       },
       {
         q: 'How long does a home install take?',
-        a: `${todo('installTimeSingle')} We confirm the day once we have surveyed the pipe run and the electrical supply.`,
+        a: 'We confirm the day once we have surveyed the pipe run and the electrical supply.',
       },
     ],
   },
@@ -149,7 +160,7 @@ export const services = [
       'We do not publish a single commercial price, because a server room and a high-street shop are different jobs. You get a fixed price after the survey.',
       'We will not invent a client list. If you want to see the standard of finish, visit the showroom or ask us for a recent job once the case studies are filled in with real projects.',
     ],
-    priceNote: `${todo('commercialPrice')} ${todo('installTimeCommercial')}`,
+    priceNote: 'You get a fixed price after the survey. We do not publish one commercial price.',
     provides: [
       { title: 'Offices and meeting rooms', text: 'Sized for the number of people and the equipment, not just the floor area.' },
       { title: 'Shops and salons', text: 'Systems that cope with doors opening and customers walking in.' },
@@ -167,7 +178,7 @@ export const services = [
     answerFaqs: [
       {
         q: 'How much does commercial air conditioning cost?',
-        a: `${todo('commercialPrice')} The price depends on the heat load, the type of indoor unit and when we can get access. We survey first and then give a fixed price.`,
+        a: 'The price depends on the heat load, the type of indoor unit and when we can get access. We survey first and then give a fixed price.',
       },
       {
         q: 'Can you work around opening hours?',
@@ -185,11 +196,11 @@ export const services = [
       },
       {
         q: 'Will you service a system you did not install?',
-        a: `We service and repair ${brandNames}, which are the brands we install. ${todo('otherBrandRepairs')}`,
+        a: `We service and repair ${brandNames}, which are the brands we install.`,
       },
       {
         q: 'How long does a commercial install take?',
-        a: `${todo('installTimeCommercial')} We will not guess a day-rate before we have seen access, the ceiling and the electrical supply.`,
+        a: 'We will not guess a day-rate before we have seen access, the ceiling and the electrical supply.',
       },
     ],
   },
@@ -201,7 +212,7 @@ export const services = [
     icon: 'clipboard',
     blurb: 'Annual servicing keeps the warranty valid, the filters clean and the system running properly.',
     title: 'Air Conditioning Servicing and Care Plans | No1 Air Con',
-    description: 'Annual air conditioning servicing across Ringwood, Hampshire and Dorset. Keeps the warranty valid. Care plan tiers are listed once confirmed.',
+    description: `Air con servicing from ${business.servicingFrom} across Ringwood, Hampshire and Dorset. An annual service keeps the warranty valid. Care plan tiers are not published.`,
     h1: 'Servicing and care plans',
     eyebrow: 'Looking after it',
     lead: 'An annual service keeps the warranty valid, the filters clean and the system efficient. We service the brands we install, from the Ringwood showroom.',
@@ -211,12 +222,11 @@ export const services = [
       'Care plans are a way to put that visit on a schedule, sometimes with priority if the system stops. We are not publishing tiers, prices or inclusions until they are confirmed. If a page elsewhere on the internet lists a Gold or Silver plan for No1 Air Con, it did not come from us.',
       'If the system is already leaking, showing an error code or not cooling, that is a repair rather than a service. Tell us the symptoms when you book and we will bring the right kit.',
     ],
-    priceNote: `${todo('servicingPrice')} ${todo('carePlanTiers')} ${todo('carePlanPrice')}`,
+    priceNote: `Air con servicing from ${business.servicingFrom}.`,
     provides: [
       { title: 'Annual service', text: 'Filters, coils, condensate, temperatures, electrics and a leak check.' },
-      { title: 'Warranty kept valid', text: 'Up to 5 years on installations, provided the system is serviced.' },
+      { title: '5 year warranty', text: 'Installations come with a 5 year warranty.' },
       { title: 'Filter and hygiene check', text: 'A dirty filter costs more to run and moves less air.' },
-      { title: 'Care plans, once confirmed', text: 'Tiers and prices will be published here when they are agreed. They are not invented in the meantime.' },
     ],
     suitable: [
       'Systems we installed and still warrant',
@@ -232,22 +242,22 @@ export const services = [
         a: 'Filters block, drains clog and coils coat with dust. A yearly service keeps the warranty valid and catches a small fault before it becomes a leak or a failed part.',
       },
       {
-        q: 'How much is a service?',
-        a: `${todo('servicingPrice')} Call ${business.phone} and we will tell you once the price is confirmed. We will not put a guessed figure on the page.`,
+        q: 'How much does air con servicing cost?',
+        a: `Air con servicing is from ${business.servicingFrom}.`,
       },
       {
-        q: 'What is included in a care plan?',
-        a: `${todo('carePlanTiers')} ${todo('carePlanPrice')}`,
+        q: 'What warranty do I get?',
+        a: business.warranty,
       },
     ],
     faqs: [
       {
         q: 'Do you service other brands?',
-        a: `We service ${brandNames}. ${todo('otherBrandRepairs')}`,
+        a: `We service ${brandNames}.`,
       },
       {
         q: 'What warranty do I get on a new install?',
-        a: `${business.warranty} ${todo('warrantyDetail')}`,
+        a: business.warranty,
       },
       {
         q: 'How often should a system be serviced?',
@@ -273,7 +283,7 @@ export const services = [
       'Water indoors is often a blocked condensate drain, but it can also be a frozen coil or a poor pipe fall. We do not ask you to take the unit apart. Switch it off at the isolator if water is coming into the room, and call us.',
       'If the system is under the installation warranty and it has been serviced, say so when you book. If it has never been serviced, we can still look at it, but a warranty claim may not stand.',
     ],
-    priceNote: `${todo('repairCallout')} We quote the repair once we know the fault. We do not invent a call-out fee here.`,
+    priceNote: 'We quote the repair once we know the fault. We do not publish a call-out fee.',
     provides: [
       { title: 'Fault finding', text: 'Error codes, poor cooling, poor heating, strange noises and systems that will not start.' },
       { title: 'Leak repairs', text: 'Water leaks traced properly, rather than a tray emptied and left.' },
@@ -295,11 +305,11 @@ export const services = [
       },
       {
         q: 'How much is a repair call-out?',
-        a: `${todo('repairCallout')} The repair price depends on the fault and the part. We will tell you before we start the paid work.`,
+        a: 'The repair price depends on the fault and the part. We will tell you before we start the paid work.',
       },
       {
         q: 'Which brands do you repair?',
-        a: `We repair ${brandNames}, the brands we install. ${todo('otherBrandRepairs')}`,
+        a: `We repair ${brandNames}, the brands we install.`,
       },
     ],
     faqs: [
@@ -313,7 +323,7 @@ export const services = [
       },
       {
         q: 'Will a repair affect the warranty?',
-        a: `${business.warranty} If the system is still inside that period and has been serviced, tell us. ${todo('warrantyDetail')}`,
+        a: `${business.warranty} If the system is still inside that period and has been serviced, tell us.`,
       },
     ],
   },
@@ -335,7 +345,7 @@ export const services = [
       'Ducted and ceiling systems are still air-to-air heat pumps. They cool and they heat. They are not automatically quieter, and they are not automatically more expensive in running cost. The difference is where the equipment sits and how the air is delivered.',
       'We do not have a published price for this work yet. The survey has to come first, because two ceilings that look the same can be completely different jobs.',
     ],
-    priceNote: `${todo('ductedPrice')} Single room wall units, for comparison, start from ${business.priceFrom} including VAT.`,
+    priceNote: `There is no published ducted price yet. Single room wall units, for comparison, start from ${business.priceFrom} including VAT.`,
     provides: [
       { title: 'Ceiling cassettes', text: 'One unit in the ceiling, blowing in more than one direction. Common in offices and open rooms.' },
       { title: 'Ducted systems', text: 'The indoor unit is hidden. Air comes through grilles. Only where the void and the filter access allow it.' },
@@ -361,7 +371,7 @@ export const services = [
       },
       {
         q: 'How much does a ducted system cost?',
-        a: `${todo('ductedPrice')} We price it after we have seen the ceiling, the joists and the pipe run. A single-room wall unit starts from ${business.priceFrom} including VAT if that turns out to be the better answer.`,
+        a: `We price it after we have seen the ceiling, the joists and the pipe run. A single-room wall unit starts from ${business.priceFrom} including VAT if that turns out to be the better answer.`,
       },
     ],
     faqs: [
