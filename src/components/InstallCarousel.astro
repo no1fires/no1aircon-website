@@ -57,12 +57,16 @@ const installs = [
     alt: 'Cream outdoor air conditioner against a red-brick wall beside a white window',
   },
 ];
+const { instanceId = 'home' } = Astro.props;
+const headingId = `installs-${instanceId}`;
+const lightboxId = `installs-lightbox-${instanceId}`;
 ---
-<section class="installs" aria-labelledby="installs-heading">
+<div class="installs-root" data-install-root>
+<section class="installs" aria-labelledby={headingId}>
   <div class="container">
     <div class="section-head center">
       <p class="eyebrow">Recent work</p>
-      <h2 id="installs-heading">Our recent installations</h2>
+      <h2 id={headingId}>Our recent installations</h2>
     </div>
     <div class="install-carousel" data-install-carousel>
       <button class="install-arrow" type="button" data-install-prev aria-label="Previous installation">
@@ -103,11 +107,12 @@ const installs = [
     </div>
   </div>
 </section>
-<dialog class="install-lightbox" data-install-lightbox>
+<dialog class="install-lightbox" id={lightboxId} data-install-lightbox>
   <button class="install-close" type="button" data-install-close aria-label="Close photo">Close</button>
   <img alt="" data-install-full />
   <p data-install-caption></p>
 </dialog>
+</div>
 
 <style>
   .installs { padding: 56px 0 24px; }

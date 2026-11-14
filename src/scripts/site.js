@@ -300,10 +300,15 @@ function setupGuideFocus() {
 }
 
 function setupInstalls() {
-  const root = document.querySelector('[data-install-carousel]');
-  const dialog = document.querySelector('[data-install-lightbox]');
-  if (!root || !dialog) return;
+  document.querySelectorAll('[data-install-root]').forEach((group) => {
+    const root = group.querySelector('[data-install-carousel]');
+    const dialog = group.querySelector('[data-install-lightbox]');
+    if (!root || !dialog) return;
+    setupInstall(root, dialog);
+  });
+}
 
+function setupInstall(root, dialog) {
   const viewport = root.querySelector('.install-viewport');
   const track = root.querySelector('.install-track');
   const cards = [...track.children];
