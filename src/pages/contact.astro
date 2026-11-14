@@ -3,7 +3,8 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import ShowroomMap from '../components/ShowroomMap.astro';
-import { business, openingHoursText } from '../data/business.js';
+import { business, openingHoursText, whatsappSend } from '../data/business.js';
+import RichText from '../components/RichText.astro';
 import { pagePhotos } from '../data/lifestyle.js';
 
 const title = 'Contact No1 Air Con | Ringwood Showroom';
@@ -21,7 +22,7 @@ const whatsappHref = business.whatsappIntl
   <PageHero
     eyebrow="Contact"
     title="Talk to us about the room"
-    lead="Call, email, or send the form with photos, measurements and a floor plan. We quote remotely. A survey is only if it is needed. The form is only delivered once the enquiry address is connected."
+    lead={`Call, email, or send photos, measurements and a floor plan. ${whatsappSend}. We quote remotely. A survey is only if it is needed. The form is only delivered once the enquiry address is connected.`}
     crumbs={crumbs}
     photo={pagePhotos.contact}
   />
@@ -33,7 +34,7 @@ const whatsappHref = business.whatsappIntl
         <p>{business.street}<br />{business.town}<br />{business.county}<br />{business.postcode}</p>
         <p><a href={`tel:${business.phoneIntl}`}>{business.phone}</a><br />{whatsappHref && <><a href={whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp us</a><br /></>}<a href={`mailto:${business.email}`}>{business.email}</a></p>
         <p>Opening hours: {openingHoursText()}.</p>
-        <p>Send photos, measurements and a floor plan of the rooms and the outside wall, including where the outdoor unit could go. That is enough for a remote quote. A survey is only if it is needed, and a lot of the time it is not.</p>
+        <p><RichText text={`Send photos, measurements and a floor plan of the rooms and the outside wall, including where the outdoor unit could go. ${whatsappSend}. That is enough for a remote quote. A survey is only if it is needed, and a lot of the time it is not.`} /></p>
       </div>
       <ShowroomMap />
     </div>

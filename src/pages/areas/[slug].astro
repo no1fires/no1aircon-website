@@ -7,8 +7,9 @@ import QuoteSection from '../../components/QuoteSection.astro';
 import Related from '../../components/Related.astro';
 import { towns, getTown, getTownsBySlugs } from '../../data/towns.js';
 import { getServicesBySlugs } from '../../data/services.js';
-import { business } from '../../data/business.js';
+import { business, whatsappSend } from '../../data/business.js';
 import { townPhotos } from '../../data/lifestyle.js';
+import RichText from '../../components/RichText.astro';
 
 export function getStaticPaths() {
   return towns.map((town) => ({ params: { slug: town.slug } }));
@@ -32,7 +33,7 @@ const distance = town.miles
   <section class="section">
     <div class="container prose">
       <p><strong>{distance}</strong> {town.county}.</p>
-      {town.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {town.paragraphs.map((paragraph) => <p><RichText text={paragraph} /></p>)}
     </div>
   </section>
   <section class="section tint">
@@ -64,5 +65,5 @@ const distance = town.miles
   </section>
   <Related towns={nearby} heading={`Towns near ${town.name}`} />
   <FaqList faqs={town.faqs} heading={`Questions about ${town.name}`} />
-  <QuoteSection title={`Quote for a property in ${town.name}`} intro={`Tell us the ${town.name} address, or just the postcode, and which rooms you want looked at. Send photos, measurements and a floor plan and we quote remotely, within ${business.radiusMiles} miles of our Ringwood showroom.`} />
+  <QuoteSection title={`Quote for a property in ${town.name}`} intro={`Tell us the ${town.name} address, or just the postcode, and which rooms you want looked at. Send photos, measurements and a floor plan and we quote remotely, within ${business.radiusMiles} miles of our Ringwood showroom. ${whatsappSend}.`} />
 </Base>

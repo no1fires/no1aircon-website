@@ -5,6 +5,7 @@ import QuoteSection from '../../components/QuoteSection.astro';
 import { caseStudies, getCaseStudy } from '../../data/case-studies.js';
 import { getService } from '../../data/services.js';
 import { casePhotos } from '../../data/lifestyle.js';
+import RichText from '../../components/RichText.astro';
 
 export function getStaticPaths() {
   return caseStudies.map((study) => ({ params: { slug: study.slug } }));
@@ -26,7 +27,7 @@ const crumbs = [
         <h2>Placeholder, not a real job</h2>
         <p>This is not a finished project. We have not published a town, a customer or a result.</p>
       </div>
-      {study.explainer.map((paragraph) => <p>{paragraph}</p>)}
+      {study.explainer.map((paragraph) => <p><RichText text={paragraph} /></p>)}
       {service && <p>The service this will illustrate is <a href={`/services/${service.slug}/`}>{service.name}</a>.</p>}
     </div>
   </section>

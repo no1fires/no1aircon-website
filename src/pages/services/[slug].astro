@@ -10,6 +10,7 @@ import Icon from '../../components/Icon.astro';
 import { services, getService, getServicesBySlugs } from '../../data/services.js';
 import { getTownsBySlugs } from '../../data/towns.js';
 import { servicePhotos } from '../../data/lifestyle.js';
+import RichText from '../../components/RichText.astro';
 
 export function getStaticPaths() {
   return services.map((service) => ({ params: { slug: service.slug } }));
@@ -75,8 +76,8 @@ const faqs = [...service.answerFaqs, ...service.faqs];
   <section class="section service-intro">
     <div class="container split">
       <div class="prose">
-        {service.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-        <p><strong>{service.priceNote}</strong></p>
+        {service.paragraphs.map((paragraph) => <p><RichText text={paragraph} /></p>)}
+        <p><strong><RichText text={service.priceNote} /></strong></p>
       </div>
       <div class="fit-col">
         <h2>Where it fits</h2>
@@ -111,7 +112,7 @@ const faqs = [...service.answerFaqs, ...service.faqs];
           <article class="provide">
             <span class="icon-tile"><Icon name={service.icon} size={26} /></span>
             <h3>{item.title}</h3>
-            <p>{item.text}</p>
+            <p><RichText text={item.text} /></p>
           </article>
         ))}
       </div>

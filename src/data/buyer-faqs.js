@@ -1,4 +1,4 @@
-import { business } from './business.js';
+import { business, whatsappSend } from './business.js';
 
 const showroom = `${business.street}, ${business.town} ${business.postcode}`;
 
@@ -8,7 +8,7 @@ export const buyerFaqs = [
     paragraphs: [
       `Our cheapest system is a Clivet single room from ${business.priceFrom} (0% VAT). A multi-room system, with two to four indoor units on one outdoor unit, is from ${business.multiRoomFrom} including VAT. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027.`,
       'Those are starting prices, not a quote for every house. The final figure depends on the room, the model, the pipe run, the drain, the electrical supply and how easy the outdoor position is to reach. The Energy Saving Trust puts a typical air-to-air heat pump at around £1,900 for one room and around £3,700 for a three-bedroom semi-detached house. Your home may sit above or below that.',
-      'Send photos, measurements and a floor plan of the rooms and the outside wall, including where the outdoor unit could go. We quote remotely from those, so there is no need for a home visit to get a price. If you are happy with the price, we schedule a survey only if it is needed, and a lot of the time it is not. Payment is 50% deposit and 50% on completion. We do not offer finance at the moment. Most jobs are done in a day. The current lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but we do not promise an earlier date.',
+      `Send photos, measurements and a floor plan of the rooms and the outside wall, including where the outdoor unit could go. ${whatsappSend}. We quote remotely from those, so there is no need for a home visit to get a price. If you are happy with the price, we schedule a survey only if it is needed, and a lot of the time it is not. Payment is 50% deposit and 50% on completion. We do not offer finance at the moment. Most jobs are done in a day. The current lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but we do not promise an earlier date.`,
       `You can see Mitsubishi Electric units working in the showroom at ${showroom}, Tuesday to Saturday, 10am to 4pm, closed Sunday and Monday. We cover ${business.radiusMiles} miles around Ringwood, including Ferndown, Christchurch, Wimborne, Fordingbridge, Verwood, St Leonards and New Milton.`,
     ],
     sources: [
@@ -62,7 +62,7 @@ export const buyerFaqs = [
     paragraphs: [
       'For a room you want comfortable year after year, a professionally fitted split system is usually the better choice. A portable unit can help for a few hot days, but it is generally less efficient and more awkward to live with.',
       'A portable conditioner sits in the room and pushes hot air out through a hose. The Energy Saving Trust notes that portable units use much more energy than a fan. They also do not qualify for the VAT relief that can apply to a permanently fixed air source heat pump.',
-      `A fitted system has an indoor unit and a separate outdoor unit, so the same system can heat in winter. A multi-room system can serve two to four rooms from one outdoor unit, from ${business.multiRoomFrom} including VAT. Some MSZ-LN indoor units are quoted by Mitsubishi Electric from 19 dB. You can hear them in the Ringwood showroom. Photos, measurements and a floor plan are enough for a remote quote, and we survey only if we need to.`,
+      `A fitted system has an indoor unit and a separate outdoor unit, so the same system can heat in winter. A multi-room system can serve two to four rooms from one outdoor unit, from ${business.multiRoomFrom} including VAT. Some MSZ-LN indoor units are quoted by Mitsubishi Electric from 19 dB. You can hear them in the Ringwood showroom. Photos, measurements and a floor plan are enough for a remote quote. ${whatsappSend}. We survey only if we need to.`,
     ],
     sources: [
       { name: 'Energy Saving Trust, keeping a home cool', url: 'https://energysavingtrust.org.uk/tips-to-keep-home-cool-this-summer/' },
@@ -86,7 +86,7 @@ export const buyerFaqs = [
     q: 'What size air conditioning do I need?',
     paragraphs: [
       'The right size depends on the room, not just its floor area. Ceiling height, glazing, insulation, sun, how many people use the room, and whether you want winter heating as well as summer cooling all change the answer.',
-      'A unit that is too small may never get the room comfortable. A unit that is too large costs more to buy. We do not sell a system from a floor-area chart alone. Photos, measurements and a floor plan of the room, the pipe run and the outdoor unit position are what the remote quote is based on. A survey is only if it is needed.',
+      `A unit that is too small may never get the room comfortable. A unit that is too large costs more to buy. We do not sell a system from a floor-area chart alone. Photos, measurements and a floor plan of the room, the pipe run and the outdoor unit position are what the remote quote is based on. ${whatsappSend}. A survey is only if it is needed.`,
       `A Clivet single room starts from ${business.priceFrom} (0% VAT). If you want more than one room, a multi-room system is from ${business.multiRoomFrom} including VAT.`,
     ],
     sources: [
@@ -109,7 +109,7 @@ export const buyerFaqs = [
     q: 'Can I install air conditioning myself?',
     paragraphs: [
       'No. A fixed split system that contains F-gas refrigerant has to be installed by a qualified person working for a certified company. Doing that work without the right certification is against the law.',
-      'GOV.UK requires company certification from an approved body, and a personal F-gas qualification for the engineer. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number. A portable plug-in unit is a different product. For a wall-mounted or multi-room system, send photos, measurements and a floor plan for a remote quote.',
+      `GOV.UK requires company certification from an approved body, and a personal F-gas qualification for the engineer. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number. A portable plug-in unit is a different product. For a wall-mounted or multi-room system, send photos, measurements and a floor plan for a remote quote. ${whatsappSend}.`,
     ],
     sources: [
       { name: 'GOV.UK, F-gas company certification', url: 'https://www.gov.uk/guidance/certification-for-companies-working-on-equipment-containing-f-gas' },
@@ -171,7 +171,7 @@ const otherFaqs = [
   },
   {
     q: 'How do I get a quote?',
-    a: `Call ${business.phone}, email ${business.email}, or use the quote form, and send photos, measurements and a floor plan. We quote remotely. There is no need for a home visit to get a price, and no obligation to go ahead.`,
+    a: `Call ${business.phone}, email ${business.email}, or use the quote form, and send photos, measurements and a floor plan. ${whatsappSend}. We quote remotely. There is no need for a home visit to get a price, and no obligation to go ahead.`,
   },
 ];
 

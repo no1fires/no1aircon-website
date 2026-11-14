@@ -69,6 +69,8 @@ export const business = {
   linkedin: null,
 };
 
+export const whatsappSend = `WhatsApp is the easiest way to send the photos, measurements and floor plan (${business.whatsapp}). Send on WhatsApp`;
+
 // Published from-prices and running-cost bands already on the site.
 // Anything not listed here is a placeholder, not a guess.
 export const runningCosts = [
@@ -104,7 +106,7 @@ export const reviews = [];
 export const faqs = [
   {
     q: 'How much does air conditioning cost to install?',
-    a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. Send photos, measurements and a floor plan and we quote remotely. A survey is only if it is needed.`,
+    a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Multi-room systems from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. Commercial systems cost more. Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}. A survey is only if it is needed.`,
   },
   {
     q: 'How much does air conditioning cost to run?',
@@ -156,7 +158,7 @@ export const faqs = [
   },
   {
     q: 'How do I get a quote?',
-    a: `Call ${business.phone}, email ${business.email}, or use the quote form, and send photos, measurements and a floor plan. We quote remotely. There is no need for a home visit to get a price, and no obligation to go ahead.`,
+    a: `Call ${business.phone}, email ${business.email}, or use the quote form, and send photos, measurements and a floor plan. ${whatsappSend}. We quote remotely. There is no need for a home visit to get a price, and no obligation to go ahead.`,
   },
 ];
 

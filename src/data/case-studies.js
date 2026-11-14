@@ -1,4 +1,4 @@
-import { business } from './business.js';
+import { business, whatsappSend } from './business.js';
 
 // Placeholder case studies only. Nothing here is a real job.
 // Replace the fields when Danny supplies town, equipment, reason and a photo.
@@ -13,7 +13,7 @@ export const caseStudies = [
     eyebrow: 'Placeholder',
     lead: 'This page is waiting for a real single-room installation. It is not a completed project, and the details below are blanks, not a customer story.',
     explainer: [
-      `A single-room system is one indoor unit and one outdoor unit, sized for a bedroom, living room, home office or garden room. It is the job we are asked for most, and a Clivet single room is installed from ${business.priceFrom} (0% VAT). The price comes from photos, measurements and a floor plan. A survey is only if it is needed.`,
+      `A single-room system is one indoor unit and one outdoor unit, sized for a bedroom, living room, home office or garden room. It is the job we are asked for most, and a Clivet single room is installed from ${business.priceFrom} (0% VAT). The price comes from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed.`,
       'When a real job replaces this page, it should say which town it was in, what was fitted, why that size was chosen, and show a photograph of the finished indoor and outdoor units. Until then we will not invent a street, a name or a result.',
     ],
     fields: [],
@@ -43,7 +43,7 @@ export const caseStudies = [
     eyebrow: 'Placeholder',
     lead: 'This page is a slot for a real office, shop, treatment room or server room. No business is named, because naming one would be an invention.',
     explainer: [
-      'Commercial jobs are sized for how the room is used: how many people, how often the door opens, and whether equipment is throwing off heat. A wall unit, a ceiling cassette or a ducted system can all be right. Photos, measurements and a floor plan are enough to say which. We visit only if we need to.',
+      `Commercial jobs are sized for how the room is used: how many people, how often the door opens, and whether equipment is throwing off heat. A wall unit, a ceiling cassette or a ducted system can all be right. Photos, measurements and a floor plan are enough to say which. ${whatsappSend}. We visit only if we need to.`,
       'When this page is replaced, it needs the town, the type of business in general terms if they are happy to be mentioned, what was fitted, and a photo. Until then the page stays a placeholder and does not pretend to be a testimonial.',
     ],
     fields: [],

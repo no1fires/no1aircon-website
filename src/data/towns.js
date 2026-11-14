@@ -1,4 +1,4 @@
-import { business, openingHoursText } from './business.js';
+import { business, openingHoursText, whatsappSend } from './business.js';
 
 const showroom = `${business.street}, ${business.town} ${business.postcode}`;
 
@@ -39,7 +39,7 @@ export const towns = [
     faqs: [
       {
         q: 'What does a Ringwood home installation cost?',
-        a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Send photos, measurements and a floor plan and we quote remotely. A survey is only if it is needed. Multi-room systems from ${business.multiRoomFrom}. Commercial prices are quoted the same way.`,
+        a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}. A survey is only if it is needed. Multi-room systems from ${business.multiRoomFrom}. Commercial prices are quoted the same way.`,
       },
       {
         q: 'When is the showroom open?',
@@ -60,7 +60,7 @@ export const towns = [
     paragraphs: [
       'Fordingbridge is a small Hampshire town: a high street of independent shops, cottages near the centre, and family houses on the edges. Rooms are often modest, and a lot of the older walls are solid. That changes the install. A compact wall unit or a floor console usually suits better than a ceiling cassette, because there is often no void to put one in.',
       'Heating matters here as much as cooling. Older cottages can be cold in the rooms you actually sit in, and expensive to heat all day with radiators. An air-to-air unit heats the room it is fitted in. It is not a whole-house boiler replacement, and we will not sell it as one.',
-      'Outdoor units need a careful spot. Lanes are narrow, gardens are overlooked, and a unit under a neighbour’s window is a bad install. Send photos of that outside wall, measurements and a floor plan, and we quote remotely. We visit only if we need to.',
+      `Outdoor units need a careful spot. Lanes are narrow, gardens are overlooked, and a unit under a neighbour’s window is a bad install. Send photos of that outside wall, measurements and a floor plan, and we quote remotely. ${whatsappSend}. We visit only if we need to.`,
       'The drive from the showroom is short, so a Fordingbridge visit, when one is needed, is a normal appointment rather than a special trip. You can still come to Ringwood first if you want to hear the units.',
     ],
     servicesIntro: 'The work we do most in Fordingbridge is home systems, heating and cooling, servicing and repairs. Ducted systems are the exception, and only where a loft will actually take one.',
@@ -69,11 +69,11 @@ export const towns = [
     answerFaqs: [
       {
         q: 'Do you install air conditioning in Fordingbridge?',
-        a: `Yes. Fordingbridge is about 6 miles from the showroom at ${showroom}. Send photos, measurements and a floor plan and we quote remotely. A survey is only if it is needed.`,
+        a: `Yes. Fordingbridge is about 6 miles from the showroom at ${showroom}. Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}. A survey is only if it is needed.`,
       },
       {
         q: 'Will a unit suit a Fordingbridge cottage?',
-        a: 'Often. Smaller rooms and solid walls usually point to a quiet wall unit or a floor console, not a ceiling cassette. We check the wall, the pipe run and the outdoor unit position from the photos, measurements and floor plan. We visit only if we need to.',
+        a: `Often. Smaller rooms and solid walls usually point to a quiet wall unit or a floor console, not a ceiling cassette. We check the wall, the pipe run and the outdoor unit position from the photos, measurements and floor plan. ${whatsappSend}. We visit only if we need to.`,
       },
       {
         q: 'Can it heat as well as cool?',
@@ -103,7 +103,7 @@ export const towns = [
     lead: 'Ferndown is about 7 miles south of Ringwood, just off the A31. We install in the houses and bungalows, and in the business units on the industrial estates.',
     paragraphs: [
       'Ferndown is a larger Dorset town than its neighbours, with a lot of detached houses and bungalows built from the 1960s onwards, plus newer estates. Lofts are usually reachable, power is usually straightforward, and many of the houses are big enough that one room is not the whole job. Multi-room systems, with two or three indoor units on one outdoor unit, come up here more often than they do in a cottage town.',
-      'The industrial estates are a different kind of work. Offices, workshops and storage that get hot under a roof need photos, measurements and a floor plan so we can judge the heat load, not a guess from the floor area. We agree access so the install does not shut a unit for longer than it has to. We quote remotely. A survey is only if it is needed.',
+      `The industrial estates are a different kind of work. Offices, workshops and storage that get hot under a roof need photos, measurements and a floor plan so we can judge the heat load, not a guess from the floor area. ${whatsappSend}. We agree access so the install does not shut a unit for longer than it has to. We quote remotely. A survey is only if it is needed.`,
       'Servicing is a steady part of the Ferndown work. Systems fitted a few years ago, including ones we did not install, still need a yearly check if the warranty is to stay valid. We service Mitsubishi Electric, Daikin and Clivet. Other brands are not confirmed.',
       'St Leonards and West Moors sit between Ferndown and the showroom, so the drive is a normal local call. West Moors does not have its own page yet.',
     ],
@@ -121,13 +121,13 @@ export const towns = [
       },
       {
         q: 'Do you work on the Ferndown industrial estates?',
-        a: 'Yes. Offices, workshops and server cupboards are quoted remotely from photos, measurements and a floor plan of the heat load and the access. A survey is only if it is needed.',
+        a: `Yes. Offices, workshops and server cupboards are quoted remotely from photos, measurements and a floor plan of the heat load and the access. ${whatsappSend}. A survey is only if it is needed.`,
       },
     ],
     faqs: [
       {
         q: 'How do I get a price for a Ferndown property?',
-        a: `Send photos, measurements and a floor plan. Call ${business.phone} or use the form. We quote remotely. A survey is only if it is needed, and if we visit that survey is free.`,
+        a: `Send photos, measurements and a floor plan. ${whatsappSend}. Call ${business.phone} or use the form. We quote remotely. A survey is only if it is needed, and if we visit that survey is free.`,
       },
       {
         q: 'Is Ferndown in the same area as the Ringwood showroom?',
@@ -147,9 +147,9 @@ export const towns = [
     lead: 'Verwood is about 5 miles from the Ringwood showroom, on the Dorset heath north of Ferndown. We install home systems here, with heating and cooling as the usual brief.',
     paragraphs: [
       'Verwood grew up around the potteries and then as a town of bungalows and family houses, with newer estates added around them. The job we see most is not a whole-house rebuild. It is the main living room, which is where the day is spent, or a bedroom that will not cool down. Bungalows often have a straightforward loft and a clear outside wall, which makes the pipe run simpler than in a terraced cottage.',
-      'Heath and open gardens mean the outdoor unit can usually go somewhere that is not boxed in. That helps efficiency. It also means we should not stick it where it faces straight at a patio you actually use. Send a photo of the garden and the outside wall with the floor plan. We visit only if we need to.',
+      `Heath and open gardens mean the outdoor unit can usually go somewhere that is not boxed in. That helps efficiency. It also means we should not stick it where it faces straight at a patio you actually use. Send a photo of the garden and the outside wall with the floor plan. ${whatsappSend}. We visit only if we need to.`,
       'Heating mode earns its keep in these houses. A living-room unit that cools in August and takes the chill off in January is the system most Verwood customers compare at the showroom. It still only heats the room it is fitted in.',
-      'Verwood is close enough that many people visit the showroom first. You do not have to. The form or a phone call, with photos, measurements and a floor plan, is enough for a remote quote.',
+      `Verwood is close enough that many people visit the showroom first. You do not have to. The form or a phone call, with photos, measurements and a floor plan, is enough for a remote quote. ${whatsappSend}.`,
     ],
     servicesIntro: 'Home air conditioning and heating and cooling are the Verwood work. Servicing follows once the system has been in for a year.',
     services: ['home-air-conditioning', 'heating-and-cooling', 'servicing', 'repairs'],
@@ -161,7 +161,7 @@ export const towns = [
       },
       {
         q: 'Is a bungalow a good candidate?',
-        a: 'Usually. A single living-room system is the common request, and loft access for the pipes is often easier than in a two-storey terrace. Easy access does not set the size of the unit. Send photos, measurements and a floor plan for a remote quote. A survey is only if it is needed.',
+        a: `Usually. A single living-room system is the common request, and loft access for the pipes is often easier than in a two-storey terrace. Easy access does not set the size of the unit. Send photos, measurements and a floor plan for a remote quote. ${whatsappSend}. A survey is only if it is needed.`,
       },
       {
         q: 'Can the same unit heat the living room in winter?',
@@ -171,7 +171,7 @@ export const towns = [
     faqs: [
       {
         q: 'How much does a Verwood living-room system cost?',
-        a: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). Send photos, measurements and a floor plan and we quote remotely. A survey is only if it is needed.`,
+        a: `Single room systems from ${business.priceFrom} (Clivet, 0% VAT). Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}. A survey is only if it is needed.`,
       },
       {
         q: 'Which Verwood neighbours do you also cover?',
@@ -263,7 +263,7 @@ export const towns = [
       },
       {
         q: 'What about planning near the older part of town?',
-        a: 'Many home installs fall under permitted development, but the conservation-area streets and any listed building need a proper check. Tell us about that with the photos and floor plan, so the remote quote does not assume a position that will not be allowed. We visit only if we need to.',
+        a: `Many home installs fall under permitted development, but the conservation-area streets and any listed building need a proper check. Tell us about that with the photos and floor plan, so the remote quote does not assume a position that will not be allowed. ${whatsappSend}. We visit only if we need to.`,
       },
     ],
   },
@@ -281,7 +281,7 @@ export const towns = [
       'The centre of Wimborne is Georgian streets around the Minster. Houses are close together, frontages matter, and an outdoor unit on show from the pavement is usually the wrong answer. We look for a side or rear wall, a flat roof that can take the weight, or a discreet bracket, and we check planning before the quote assumes a position.',
       'Further out, Colehill, Merley and the newer family homes are more ordinary installs: a bedroom, a living room, sometimes both on one outdoor unit. Lofts vary. Where there is a proper void and a reason to hide the equipment, a ducted or ceiling system is worth a conversation. Where there is not, a wall unit is the better piece of engineering.',
       'Heating and cooling is the brief we hear most. The unit that takes the heat out of a south-facing living room in July is the same unit that warms it in January. It does that room, not the whole house.',
-      'Wimborne is the further end of a normal day from the showroom, not a different business. The price is still a remote quote from photos, measurements and a floor plan. A survey is only if it is needed. We do not add a travel premium in the copy because we have not published one.',
+      `Wimborne is the further end of a normal day from the showroom, not a different business. The price is still a remote quote from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed. We do not add a travel premium in the copy because we have not published one.`,
     ],
     servicesIntro: 'Home systems and heating and cooling lead in Wimborne. Ducted and ceiling systems come up where the loft allows. Repairs if a system we cover stops working.',
     services: ['home-air-conditioning', 'heating-and-cooling', 'ducted-and-ceiling-systems', 'repairs'],
@@ -297,13 +297,13 @@ export const towns = [
       },
       {
         q: 'Is ducted air conditioning realistic in Wimborne?',
-        a: 'Only where the ceiling or loft has room for the unit, the ducts and future filter access. Many town-centre houses are better with a wall or floor unit. Photos of the ceiling and a floor plan are enough to say which. We visit only if we need to.',
+        a: `Only where the ceiling or loft has room for the unit, the ducts and future filter access. Many town-centre houses are better with a wall or floor unit. Photos of the ceiling and a floor plan are enough to say which. ${whatsappSend}. We visit only if we need to.`,
       },
     ],
     faqs: [
       {
         q: 'How much does installation cost in Wimborne?',
-        a: `A Clivet single room starts from ${business.priceFrom} (0% VAT). Send photos, measurements and a floor plan and we quote remotely. A survey is only if it is needed. Ducted work is priced from photos of the ceiling.`,
+        a: `A Clivet single room starts from ${business.priceFrom} (0% VAT). Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}. A survey is only if it is needed. Ducted work is priced from photos of the ceiling.`,
       },
       {
         q: 'Do you cover Colehill and Merley?',

@@ -1,4 +1,4 @@
-import { business, brands, openingHoursText } from './business.js';
+import { business, brands, openingHoursText, whatsappSend } from './business.js';
 import { brandList } from '../lib/format.js';
 
 // Mitsubishi Electric stays first: it is the preferred option and the claims below refer to brands[0].
@@ -19,7 +19,7 @@ export const services = [
     lead: `Wall-mounted and floor-standing systems for houses and flats within ${business.radiusMiles} miles of our Ringwood showroom. A Clivet single room is installed from ${business.priceFrom} (0% VAT).`,
     paragraphs: [
       'Most people start with one room that will not stay comfortable. A bedroom that holds the heat at night, a living room with a lot of glass, a home office, or a conservatory that is too hot to use from May onwards. We size the unit for that room, not for a brochure example.',
-      'The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window. Send photos, measurements and a floor plan of the rooms and that outside wall. We quote remotely from those. A survey is only if it is needed.',
+      `The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window. Send photos, measurements and a floor plan of the rooms and that outside wall. ${whatsappSend}. We quote remotely from those. A survey is only if it is needed.`,
       'If you want more than one room, a multi-room system connects two, three or four indoor units to a single outdoor unit. You can set each room on its own. It avoids a row of outdoor units along the wall.',
       `We install ${brandNames}. You can see and hear them at the showroom on ${business.street}, ${business.town}, before you decide. ${brands[0].name} publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.`,
     ],
@@ -28,7 +28,7 @@ export const services = [
       { title: 'Single-room systems', text: 'One indoor unit and one outdoor unit, sized for the room you actually use.' },
       { title: 'Floor consoles', text: 'A better fit for conservatories and rooms where the walls are mostly glass.' },
       { title: 'Multi-room systems', text: 'Two, three or four indoor units on one outdoor unit, each room controlled on its own.' },
-      { title: 'A remote quote', text: 'Send photos, measurements and a floor plan. We price the job from those. A survey is only if it is needed.' },
+      { title: 'A remote quote', text: `Send photos, measurements and a floor plan. ${whatsappSend}. We price the job from those. A survey is only if it is needed.` },
     ],
     suitable: [
       'Bedrooms that stay hot overnight',
@@ -42,7 +42,7 @@ export const services = [
     answerFaqs: [
       {
         q: 'How much does home air conditioning cost to install?',
-        a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). The remote quote uses your photos, measurements and floor plan, because the pipe run and the outdoor unit position change the job. A survey is only if it is needed. Multi-room price: from ${business.multiRoomFrom}.`,
+        a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). The remote quote uses your photos, measurements and floor plan, because the pipe run and the outdoor unit position change the job. ${whatsappSend}. A survey is only if it is needed. Multi-room price: from ${business.multiRoomFrom}.`,
       },
       {
         q: 'Can one outdoor unit serve several rooms?',
@@ -160,11 +160,11 @@ export const services = [
     lead: 'Offices, shops, treatment rooms and server rooms, sized for occupancy, heat from equipment, and the hours you are open. We work from the Ringwood showroom across Hampshire and Dorset.',
     paragraphs: [
       'A commercial room is rarely just a big version of a living room. A treatment room needs to be quiet. A shop needs the door to open all day without the unit giving up. A server cupboard needs the heat taken away even when nobody is in the building. We ask how the room is used before we suggest a system.',
-      'Ceiling cassettes suit open offices and retail floors because they throw air in more than one direction. A wall unit is often enough for a small office or a treatment room. Ducted systems hide the equipment where the ceiling void allows it. Photos, measurements and a floor plan let us check the heat load, the structure, the condensate route and when we can work. We visit only if we need to.',
+      `Ceiling cassettes suit open offices and retail floors because they throw air in more than one direction. A wall unit is often enough for a small office or a treatment room. Ducted systems hide the equipment where the ceiling void allows it. Photos, measurements and a floor plan let us check the heat load, the structure, the condensate route and when we can work. ${whatsappSend}. We visit only if we need to.`,
       'We do not publish a single commercial price, because a server room and a high-street shop are different jobs. You get a remote quote from those details. A survey is only if it is needed.',
       'We will not invent a client list. If you want to see the standard of finish, visit the showroom or ask us for a recent job once the case studies are filled in with real projects.',
     ],
-    priceNote: 'You get a remote quote from photos, measurements and a floor plan. We do not publish one commercial price. A survey is only if it is needed.',
+    priceNote: `You get a remote quote from photos, measurements and a floor plan. ${whatsappSend}. We do not publish one commercial price. A survey is only if it is needed.`,
     provides: [
       { title: 'Offices and meeting rooms', text: 'Sized for the number of people and the equipment, not just the floor area.' },
       { title: 'Shops and salons', text: 'Systems that cope with doors opening and customers walking in.' },
@@ -182,7 +182,7 @@ export const services = [
     answerFaqs: [
       {
         q: 'How much does commercial air conditioning cost?',
-        a: 'The price depends on the heat load, the type of indoor unit and when we can get access. We quote remotely from photos, measurements and a floor plan. A survey is only if it is needed.',
+        a: `The price depends on the heat load, the type of indoor unit and when we can get access. We quote remotely from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed.`,
       },
       {
         q: 'Can you work around opening hours?',
@@ -190,7 +190,7 @@ export const services = [
       },
       {
         q: 'What do you need for a remote quote?',
-        a: 'Photos, measurements and a floor plan of the rooms and the outside wall. Tell us what the room is used for, roughly how many people are in it, any equipment that throws off heat, and whether there is a ceiling void. We visit only if we need to.',
+        a: `Photos, measurements and a floor plan of the rooms and the outside wall. ${whatsappSend}. Tell us what the room is used for, roughly how many people are in it, any equipment that throws off heat, and whether there is a ceiling void. We visit only if we need to.`,
       },
     ],
     faqs: [
@@ -204,7 +204,7 @@ export const services = [
       },
       {
         q: 'How long does a commercial install take?',
-        a: 'We will not guess a day-rate. Photos of the access, the ceiling and the electrical supply are enough for a remote quote. We visit only if we need to.',
+        a: `We will not guess a day-rate. Photos of the access, the ceiling and the electrical supply are enough for a remote quote. ${whatsappSend}. We visit only if we need to.`,
       },
     ],
   },
@@ -347,7 +347,7 @@ export const services = [
       'A wall unit is the right answer for most bedrooms. It is the wrong answer for some rooms. A long open-plan living space may need air thrown further than a wall unit can manage. A shop floor often wants a cassette in the ceiling. A house with a clear loft can sometimes hide a ducted unit and just show grilles.',
       'Both options need space. A cassette needs a ceiling void deep enough for the unit and a route for the pipes and the condensate pump. A ducted system needs a loft or a void that we can still reach to change filters in a year’s time. If the joists, the downlights or the insulation leave no room, we will say so and suggest a wall or floor unit instead.',
       'Ducted and ceiling systems are still air-to-air heat pumps. They cool and they heat. They are not automatically quieter, and they are not automatically more expensive in running cost. The difference is where the equipment sits and how the air is delivered.',
-      'We do not have a published price for this work yet. Photos of the ceiling, measurements and a floor plan are enough for a remote quote, because two ceilings that look the same can be completely different jobs. We visit only if we need to.',
+      `We do not have a published price for this work yet. Photos of the ceiling, measurements and a floor plan are enough for a remote quote, because two ceilings that look the same can be completely different jobs. ${whatsappSend}. We visit only if we need to.`,
     ],
     priceNote: `There is no published ducted price yet. A Clivet single-room wall unit, for comparison, starts from ${business.priceFrom} (0% VAT).`,
     provides: [
@@ -375,7 +375,7 @@ export const services = [
       },
       {
         q: 'How much does a ducted system cost?',
-        a: `We price it from photos of the ceiling, the joists and the pipe run, plus measurements and a floor plan. We visit only if we need to. A Clivet single-room wall unit starts from ${business.priceFrom} (0% VAT) if that turns out to be the better answer.`,
+        a: `We price it from photos of the ceiling, the joists and the pipe run, plus measurements and a floor plan. ${whatsappSend}. We visit only if we need to. A Clivet single-room wall unit starts from ${business.priceFrom} (0% VAT) if that turns out to be the better answer.`,
       },
     ],
     faqs: [

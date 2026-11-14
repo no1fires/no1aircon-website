@@ -1,6 +1,6 @@
 ---
 import CountyPage from '../../components/CountyPage.astro';
-import { business } from '../../data/business.js';
+import { business, whatsappSend } from '../../data/business.js';
 import { pagePhotos } from '../../data/lifestyle.js';
 
 const county = {
@@ -13,7 +13,7 @@ const county = {
   h1: 'Air conditioning installers across Hampshire',
   lead: `We are based in Ringwood, on the edge of the New Forest, and install across Hampshire within ${business.radiusMiles} miles of our Ringwood showroom at ${business.street}, ${business.postcode}.`,
   paragraphs: [
-    'Our Hampshire work is quoted from the Ringwood showroom. Ringwood, Fordingbridge and New Milton each have their own page with local detail. The rest of the county inside our radius gets the same remote quote from photos, measurements and a floor plan. A survey is only if it is needed.',
+    `Our Hampshire work is quoted from the Ringwood showroom. Ringwood, Fordingbridge and New Milton each have their own page with local detail. The rest of the county inside our radius gets the same remote quote from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed.`,
     'Hampshire homes vary a lot. Forest-edge cottages often have thick walls and small rooms, while newer estates usually give a clearer route for pipes and an outdoor unit. Shops, offices and treatment rooms are sized for how the space is used, not by a rule of thumb.',
     `You can compare Mitsubishi Electric, Daikin and Clivet units at the showroom before you decide, and hear them running. Call ${business.phone} to ask whether we survey a particular address.`,
   ],
@@ -24,7 +24,7 @@ const county = {
     },
     {
       q: 'How much does air conditioning cost in Hampshire?',
-      a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Send photos, measurements and a floor plan and we quote remotely. A survey is only if it is needed.`,
+      a: `A Clivet single room system is installed from ${business.priceFrom} (0% VAT). Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}. A survey is only if it is needed.`,
     },
     {
       q: 'Can I see the units before I buy?',
@@ -38,7 +38,7 @@ const county = {
     },
     {
       q: 'Do you work on commercial premises in Hampshire?',
-      a: 'Yes. Offices, shops, treatment rooms and server rooms are sized for how the space is used. Commercial prices are a remote quote from photos, measurements and a floor plan. A survey is only if it is needed.',
+      a: `Yes. Offices, shops, treatment rooms and server rooms are sized for how the space is used. Commercial prices are a remote quote from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed.`,
     },
   ],
 };

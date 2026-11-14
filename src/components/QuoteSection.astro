@@ -1,8 +1,9 @@
 ---
-import { business } from '../data/business.js';
+import { business, whatsappSend } from '../data/business.js';
 import Icon from './Icon.astro';
+import RichText from './RichText.astro';
 
-const { title = 'Tell us about the space', intro = 'Send photos, measurements and a floor plan. We quote remotely, so there is no need for a home visit to get a price. There is no obligation to go ahead.' } = Astro.props;
+const { title = 'Tell us about the space', intro = `Send photos, measurements and a floor plan. ${whatsappSend}. We quote remotely, so there is no need for a home visit to get a price. There is no obligation to go ahead.` } = Astro.props;
 const points = [
   { icon: 'pin', text: `Showroom in ${business.town} you can visit` },
   { icon: 'check', text: 'We install Mitsubishi Electric' },
@@ -15,10 +16,10 @@ const points = [
     <div class="quote-copy">
       <p class="eyebrow">Free quote</p>
       <h2 id="quote-heading">{title}</h2>
-      <p class="lead">{intro}</p>
+      <p class="lead"><RichText text={intro} /></p>
       <ul class="quote-points">
         {points.map((point) => (
-          <li><Icon name={point.icon} size={20} /><span>{point.text}</span></li>
+          <li><Icon name={point.icon} size={20} /><span><RichText text={point.text} /></span></li>
         ))}
       </ul>
       <p>Prefer to talk now? Call <a href={`tel:${business.phoneIntl}`}><strong>{business.phone}</strong></a> or email <a href={`mailto:${business.email}`}>{business.email}</a>.</p>

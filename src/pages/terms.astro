@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteSection from '../components/QuoteSection.astro';
-import { business } from '../data/business.js';
+import { business, whatsappSend } from '../data/business.js';
+import RichText from '../components/RichText.astro';
 const title = 'Terms and Conditions | No1 Air Conditioning';
 const description = `Terms for quotes and installation enquiries with ${business.name} at the Ringwood showroom. Published from-prices are not a quote for your property.`;
 const crumbs = [
@@ -15,7 +16,7 @@ const crumbs = [
   <section class="section">
     <div class="container prose">
       <h2>Quotes</h2>
-      <p>A Clivet single room system is published from {business.priceFrom} (0% VAT). That is a starting price, not a quote for your property. The price we will work to is the remote quote from your photos, measurements and floor plan. A survey is only if it is needed. You do not have to accept the quote.</p>
+      <p><RichText text={`A Clivet single room system is published from ${business.priceFrom} (0% VAT). That is a starting price, not a quote for your property. The price we will work to is the remote quote from your photos, measurements and floor plan. ${whatsappSend}. A survey is only if it is needed. You do not have to accept the quote.`} /></p>
       <p>A multi-room system is published from {business.multiRoomFrom}. Air con servicing is from {business.servicingFrom}. Prices we have not published are not agreed by filling in the form. Commercial, ducted and repair prices are confirmed separately.</p>
       <p>Air conditioning installations are paid 50/50: a 50% deposit, and 50% on completion. Finance is not offered at the moment.</p>
       <h2>Surveys</h2>

@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import RichText from './RichText.astro';
 const { faqs = [], heading = 'Questions we get asked' } = Astro.props;
 ---
 {faqs.length > 0 && (
@@ -17,7 +18,7 @@ const { faqs = [], heading = 'Questions we get asked' } = Astro.props;
               <span class="faq-toggle"><Icon name="chevron" size={16} /></span>
             </summary>
             <div class="faq-answer">
-              {faq.paragraphs ? faq.paragraphs.map((paragraph) => <p>{paragraph}</p>) : <p>{faq.a}</p>}
+              {faq.paragraphs ? faq.paragraphs.map((paragraph) => <p><RichText text={paragraph} /></p>) : <p><RichText text={faq.a} /></p>}
               {faq.sources?.length > 0 && (
                 <p class="faq-sources">
                   Sources:{' '}

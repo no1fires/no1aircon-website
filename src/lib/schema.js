@@ -177,7 +177,7 @@ function faqNode(faqs) {
         text: [
           ...(faq.paragraphs || [faq.a]),
           ...(faq.sources || []).map((source) => `${source.name}: ${source.url}`),
-        ].filter(Boolean).join(' '),
+        ].filter(Boolean).join(' ').split('Send on WhatsApp').join(`Send on WhatsApp (https://wa.me/${business.whatsappIntl})`),
       },
     });
   }
