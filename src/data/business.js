@@ -39,9 +39,9 @@ export const business = {
   priceFrom: '£1,999',
   facebook: 'https://www.facebook.com/profile.php?id=61587422684398',
   instagram: 'https://www.instagram.com/no1aircon1/',
-  // Confirmed on the existing site. The weekly figure is the published
-  // "from as little as £25 a week" line. Lender and eligibility are not.
-  financeNote: '0% finance is available on qualifying installations, from as little as £25 a week.',
+  // Danny: finance is not offered at the moment. Leave this empty so the
+  // old "0% finance ... £25 a week" line is not shown.
+  financeNote: '',
   warranty: 'Up to 5 years. Annual servicing keeps the warranty valid.',
   // Stated on the current site. Do not publish an F-Gas or REFCOM number.
   refcomCertified: true,
@@ -102,7 +102,7 @@ export const reviews = [];
 export const faqs = [
   {
     q: 'How much does air conditioning cost to install?',
-    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room and commercial systems cost more. We give you a fixed price after a free survey, and 0% finance is available on qualifying installations.`,
+    a: `A single room system is installed from ${business.priceFrom} including VAT. Multi-room and commercial systems cost more. We give you a fixed price after a free survey.`,
   },
   {
     q: 'How much does air conditioning cost to run?',

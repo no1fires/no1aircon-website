@@ -89,8 +89,4 @@ const success = isGuide
 
   <button class="btn" type="submit">{isGuide ? 'Send me the guide' : 'Request a quote'}</button>
   <p class="status" data-status role="status" aria-live="polite"></p>
-  <p class={isGuide ? undefined : 'muted'} style={isGuide ? 'margin-top:12px' : 'margin-top:12px'}>
-    Or call <a href={`tel:${business.phoneIntl}`}>{business.phone}</a>
-    {business.whatsappIntl ? <> or <a href={`https://wa.me/${business.whatsappIntl.replace('+', '')}`}>WhatsApp</a></> : null}.
-  </p>
 </form>

@@ -24,7 +24,7 @@ export const services = [
       'If you want more than one room, a multi-room system connects two, three or four indoor units to a single outdoor unit. You can set each room on its own. It avoids a row of outdoor units along the wall.',
       `We install ${brandNames}. You can see and hear them at the showroom on ${business.street}, ${business.town}, before you decide. ${brands[0].name} publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.`,
     ],
-    priceNote: `Single room systems from ${business.priceFrom} including VAT. Multi-room systems: ${todo('multiRoomPrice')}. ${business.financeNote}`,
+    priceNote: `Single room systems from ${business.priceFrom} including VAT. Multi-room systems: ${todo('multiRoomPrice')}.`,
     provides: [
       { title: 'Single-room systems', text: 'One indoor unit and one outdoor unit, sized for the room you actually use.' },
       { title: 'Floor consoles', text: 'A better fit for conservatories and rooms where the walls are mostly glass.' },
@@ -87,7 +87,7 @@ export const services = [
       `In colder weather the outdoor unit has to work harder. ${brands[0].name} describe Hyper Heat performance down to -15°C on the range we recommend. That is their published figure. We will tell you on the survey if a room needs a larger unit because of glass, height or insulation.`,
       'You still need a plan for the rest of the house. An air-to-air system heats the rooms that have an indoor unit. It does not heat a hot-water cylinder, and it does not automatically retire a gas boiler. Many customers use it for the bedroom and living room, and leave the boiler for everything else.',
     ],
-    priceNote: `Single room systems from ${business.priceFrom} including VAT, and the same unit heats and cools. ${business.financeNote}`,
+    priceNote: `Single room systems from ${business.priceFrom} including VAT, and the same unit heats and cools.`,
     provides: [
       { title: 'Cooling in summer', text: 'Steady temperature, with moisture taken out of the air so the room feels less heavy.' },
       { title: 'Heating in winter', text: 'Heat for the rooms with an indoor unit, often at a lower running cost than gas for that room.' },
