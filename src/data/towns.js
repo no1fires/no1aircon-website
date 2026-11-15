@@ -9,7 +9,7 @@ export const towns = [
     county: 'Hampshire',
     miles: 0,
     title: 'Air Conditioning Installers in Ringwood | No1 Air Con',
-    description: 'Air conditioning installation, servicing and repairs in Ringwood, Hampshire. Visit the showroom at 10 Christchurch Road, BH24 1DN, or ask for a remote quote.',
+    description: 'Air conditioning in Ringwood, from the showroom at 10 Christchurch Road, BH24 1DN. Ask for a remote quote.',
     h1: 'Air conditioning installers in Ringwood',
     eyebrow: 'Our home town',
     lead: `The showroom is here, at ${showroom}. You can see and hear the units before you buy, then have the system installed in a Ringwood home or business.`,
@@ -25,7 +25,7 @@ export const towns = [
     answerFaqs: [
       {
         q: 'Where is the No1 Air Con showroom?',
-        a: `At ${showroom}. It is on Christchurch Road in Ringwood, Hampshire. You can compare Mitsubishi Electric, Daikin and Clivet there and hear them running.`,
+        a: `At ${showroom}. It is on Christchurch Road in Ringwood, Hampshire. You can compare Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung there and hear them running.`,
       },
       {
         q: 'Do you only work in Ringwood?',
@@ -104,7 +104,7 @@ export const towns = [
     paragraphs: [
       'Ferndown is a larger Dorset town than its neighbours, with a lot of detached houses and bungalows built from the 1960s onwards, plus newer estates. Lofts are usually reachable, power is usually straightforward, and many of the houses are big enough that one room is not the whole job. Multi-room systems, with two or three indoor units on one outdoor unit, come up here more often than they do in a cottage town.',
       `The industrial estates are a different kind of work. Offices, workshops and storage that get hot under a roof need photos, measurements and a floor plan so we can judge the heat load, not a guess from the floor area. ${whatsappSend}. We agree access so the install does not shut a unit for longer than it has to. We quote remotely. A survey is only if it is needed.`,
-      'Servicing is a steady part of the Ferndown work. Systems fitted a few years ago, including ones we did not install, still need a yearly check if the warranty is to stay valid. We service Mitsubishi Electric, Daikin and Clivet. Other brands are not confirmed.',
+      'Servicing is a steady part of the Ferndown work. Systems fitted a few years ago, including ones we did not install, still need a yearly check if the warranty is to stay valid. We service Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung.',
       'St Leonards and West Moors sit between Ferndown and the showroom, so the drive is a normal local call. West Moors does not have its own page yet.',
     ],
     servicesIntro: 'In Ferndown the useful set is home air conditioning for the larger houses, commercial work on the estates, and servicing once the system is in.',
@@ -185,7 +185,7 @@ export const towns = [
     county: 'Dorset',
     miles: 4,
     title: 'Air Conditioning in St Leonards, Dorset | No1 Air Con',
-    description: 'Air conditioning in St Leonards and St Ives, Dorset, a few miles from our Ringwood showroom. Home systems for detached houses, garden rooms and home offices.',
+    description: 'Air conditioning in St Leonards and St Ives, Dorset, a few miles from our Ringwood showroom.',
     h1: 'Air conditioning in St Leonards',
     eyebrow: 'Dorset',
     lead: 'This is St Leonards and St Ives in Dorset, between Ringwood and Ferndown. It is not St Leonards-on-Sea. We are about 4 miles away, at the Ringwood showroom.',
@@ -229,14 +229,14 @@ export const towns = [
     county: 'Dorset',
     miles: 11,
     title: 'Air Conditioning in Christchurch, Dorset | No1 Air Con',
-    description: 'Air conditioning installation and servicing in Christchurch, Dorset, from our Ringwood showroom. Home and small commercial systems, with coastal humidity in mind.',
+    description: 'Air conditioning in Christchurch, Dorset, from our Ringwood showroom. Home systems and small commercial jobs.',
     h1: 'Air conditioning in Christchurch',
     eyebrow: 'Dorset',
     lead: 'Christchurch is the harbour town about 11 miles south of Ringwood. The showroom’s Christchurch Road address is in Ringwood, not here. We install in the town itself, and we are clear about which is which.',
     paragraphs: [
       'Christchurch has two kinds of building we work in. Near the Priory and the older streets, houses are tighter, pipe runs are fiddlier, and the outdoor unit has to be planned so it is not on a prominent front. Towards Mudeford, Highcliffe and the family-house roads, there is usually more choice of wall and a more ordinary loft.',
       'The coast changes the brief. People call because a room is humid, not only because it is hot. Cooling that also dries the air is often the point. Salt air is the other half of that conversation: an outdoor unit in a very exposed spot needs a service every year, not a fit-and-forget. We will say if a position is too exposed.',
-      'Cafés, clinics and small offices in the town are commercial jobs. We size them for the door opening and the number of people, and we agree a day that does not close the business for longer than the work needs. There is no published commercial price yet.',
+      'Cafés, clinics and small offices in the town are commercial jobs. We size them for the door opening and the number of people, and we agree a day that does not close the business for longer than the work needs. Ask us for a quote, or call 01425 333760.',
       'New Milton is the next town east, along the coast, and has its own page. Ferndown and St Leonards are inland, back towards the showroom.',
     ],
     servicesIntro: 'In Christchurch we mostly fit home systems, look after them with servicing, and quote commercial work for small businesses. Heating and cooling still matters away from the sea breeze.',
@@ -259,7 +259,7 @@ export const towns = [
     faqs: [
       {
         q: 'Can you service a system that is already in a Christchurch property?',
-        a: 'Yes, if it is Mitsubishi Electric, Daikin or Clivet. Annual servicing keeps the warranty valid. Other brands are not confirmed.',
+        a: 'Yes. We service Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung. Annual servicing keeps the warranty valid.',
       },
       {
         q: 'What about planning near the older part of town?',
@@ -281,7 +281,7 @@ export const towns = [
       'The centre of Wimborne is Georgian streets around the Minster. Houses are close together, frontages matter, and an outdoor unit on show from the pavement is usually the wrong answer. We look for a side or rear wall, a flat roof that can take the weight, or a discreet bracket, and we check planning before the quote assumes a position.',
       'Further out, Colehill, Merley and the newer family homes are more ordinary installs: a bedroom, a living room, sometimes both on one outdoor unit. Lofts vary. Where there is a proper void and a reason to hide the equipment, a ducted or ceiling system is worth a conversation. Where there is not, a wall unit is the better piece of engineering.',
       'Heating and cooling is the brief we hear most. The unit that takes the heat out of a south-facing living room in July is the same unit that warms it in January. It does that room, not the whole house.',
-      `Wimborne is the further end of a normal day from the showroom, not a different business. The price is still a remote quote from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed. We do not add a travel premium in the copy because we have not published one.`,
+      `Wimborne is the further end of a normal day from the showroom, not a different business. The price is a remote quote from photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed.`,
     ],
     servicesIntro: 'Home systems and heating and cooling lead in Wimborne. Ducted and ceiling systems come up where the loft allows. Repairs if a system we cover stops working.',
     services: ['home-air-conditioning', 'heating-and-cooling', 'ducted-and-ceiling-systems', 'repairs'],
@@ -317,7 +317,7 @@ export const towns = [
     county: 'Hampshire',
     miles: 10,
     title: 'Air Conditioning in New Milton | No1 Air Con',
-    description: 'Air conditioning and air-to-air heating in New Milton, Hampshire, from our Ringwood showroom. A common brief for bungalows and family homes between the forest and the coast.',
+    description: 'Air conditioning in New Milton, Hampshire, from our Ringwood showroom. A good fit for bungalows and family homes.',
     h1: 'Air conditioning in New Milton',
     eyebrow: 'Hampshire',
     lead: 'New Milton is about 10 miles south-east of Ringwood, between the New Forest and the coast, with its own station and high street. We install home systems and look after them.',

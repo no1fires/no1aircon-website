@@ -7,17 +7,17 @@ import { caseStudies } from '../../data/case-studies.js';
 import { pagePhotos } from '../../data/lifestyle.js';
 
 const title = 'Air Conditioning Case Studies | No1 Air Con';
-const description = 'Placeholder case studies for No1 Air Con. Real jobs, towns and photos have not been added yet, and none of these pages invent them.';
+const description = 'How a single-room, multi-room or commercial air conditioning job is planned. Ask us to see a recent install.';
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Case studies', href: '/case-studies/' },
 ];
 ---
-<Base title={title} description={description} crumbs={crumbs}>
+<Base title={title} description={description} crumbs={crumbs} forceNoindex>
   <PageHero
     eyebrow="Case studies"
-    title="Real jobs will replace these pages"
-    lead="Three slots are ready: a single room, a multi-room heating and cooling system, and a commercial space. They are marked as placeholders so they cannot be mistaken for finished work."
+    title="How a job is planned"
+    lead="Single-room, multi-room and commercial work, explained without naming a customer. Ask us if you want to see a recent install."
     crumbs={crumbs}
     photo={pagePhotos.caseStudies}
   />

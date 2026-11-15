@@ -55,16 +55,6 @@ const distance = town.miles
     </div>
   </section>
   <GuideSection />
-  <section class="section">
-    <div class="container">
-      <div class="todo-slot">
-        <p class="eyebrow">Local job</p>
-        <h2>A real {town.name} job will go here</h2>
-        <p>This is a placeholder. It is not a finished project and it is not a review. We will not invent a street, a customer or a result.</p>
-        <p>Town: {town.name}, {town.county}.</p>
-      </div>
-    </div>
-  </section>
   <Related towns={nearby} heading={`Towns near ${town.name}`} />
   <FaqList faqs={town.faqs} heading={`Questions about ${town.name}`} />
   <QuoteSection title={`Quote for a property in ${town.name}`} intro={`Tell us the ${town.name} address, or just the postcode, and which rooms you want looked at. Send photos, measurements and a floor plan and we quote remotely, within ${business.radiusMiles} miles of our Ringwood showroom. ${whatsappSend}.`} />

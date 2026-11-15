@@ -14,54 +14,54 @@ function room({ file, width, height, alt, position, widths = [480, 800, 1200] })
 }
 
 const living = (position) => room({
-  file: 'mitsubishi-electric-msz-ln-onyx-black-living-room-ringwood.webp',
+  file: 'mitsubishi-electric-msz-ln-onyx-black-living-room.webp',
   width: 2000,
   height: 1331,
   position,
-  alt: 'Mitsubishi Electric MSZ-LN Onyx Black wall-mounted air conditioner in a living room, supplied by No1 Air Con in Ringwood and within 25 miles.',
+  alt: 'Mitsubishi Electric MSZ-LN Onyx Black wall-mounted air conditioner in a living room, Mitsubishi Electric wall unit.',
 });
 
 const bedroom = (position) => room({
-  file: 'mitsubishi-electric-msz-ln-natural-white-bedroom-ringwood.webp',
+  file: 'mitsubishi-electric-msz-ln-natural-white-bedroom.webp',
   width: 2000,
   height: 1491,
   position,
-  alt: 'Mitsubishi Electric MSZ-LN Natural White wall-mounted air conditioner above a bed, supplied by No1 Air Con in Ringwood and within 25 miles.',
+  alt: 'Mitsubishi Electric MSZ-LN Natural White wall-mounted air conditioner above a bed, Mitsubishi Electric wall unit.',
 });
 
 const pearl = (position) => room({
-  file: 'mitsubishi-electric-msz-ln-pearl-white-room-setting-ringwood.webp',
+  file: 'mitsubishi-electric-msz-ln-pearl-white-room-setting.webp',
   width: 1397,
   height: 835,
   widths: [480, 800],
   position,
-  alt: 'Mitsubishi Electric MSZ-LN Pearl White wall-mounted air conditioner in a modern interior, supplied by No1 Air Con in Ringwood and within 25 miles.',
+  alt: 'Mitsubishi Electric MSZ-LN Pearl White wall-mounted air conditioner in a modern interior, Mitsubishi Electric wall unit.',
 });
 
 const ay = (position) => room({
-  file: 'mitsubishi-electric-msz-ay-white-room-setting-ringwood.webp',
+  file: 'mitsubishi-electric-msz-ay-white-room-setting.webp',
   width: 2000,
   height: 1236,
   position,
-  alt: 'Mitsubishi Electric MSZ-AY white wall-mounted air conditioner in a modern interior, supplied by No1 Air Con in Ringwood and within 25 miles.',
+  alt: 'Mitsubishi Electric MSZ-AY white wall-mounted air conditioner in a modern interior, Mitsubishi Electric wall unit.',
 });
 
 const lobby = (position) => room({
-  file: 'mitsubishi-electric-msz-ln-pearl-white-wall-air-conditioner-lobby-ringwood.webp',
+  file: 'mitsubishi-electric-msz-ln-pearl-white-wall-air-conditioner-lobby.webp',
   width: 2000,
   height: 1414,
   widths: [800, 1200, 1600],
   position,
-  alt: 'Mitsubishi Electric MSZ-LN Pearl White wall-mounted air conditioner in a bright lobby, supplied by No1 Air Con in Ringwood and within 25 miles.',
+  alt: 'Mitsubishi Electric MSZ-LN Pearl White wall-mounted air conditioner in a bright lobby, Mitsubishi Electric wall unit.',
 });
 
 const office = (position) => room({
-  file: 'mitsubishi-electric-msz-ln-onyx-black-home-office-ringwood.webp',
+  file: 'mitsubishi-electric-msz-ln-onyx-black-home-office.webp',
   width: 2000,
   height: 1491,
   widths: [800, 1200, 1600],
   position,
-  alt: 'Mitsubishi Electric MSZ-LN Onyx Black wall-mounted air conditioner in a home office, supplied by No1 Air Con in Ringwood and within 25 miles.',
+  alt: 'Mitsubishi Electric MSZ-LN Onyx Black wall-mounted air conditioner in a home office, Mitsubishi Electric wall unit.',
 });
 
 const meeting1 = (position) => ({

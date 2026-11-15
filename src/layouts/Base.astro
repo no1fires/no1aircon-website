@@ -13,6 +13,8 @@ const {
   faqs = [],
   service = null,
   hideReviews = false,
+  forceNoindex = false,
+  hideCanonical = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -31,8 +33,8 @@ const whatsapp = business.whatsappIntl
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonical} />
-  {!INDEXABLE && <meta name="robots" content="noindex" />}
+  {!hideCanonical && <link rel="canonical" href={canonical} />}
+  {(!INDEXABLE || forceNoindex) && <meta name="robots" content="noindex" />}
   <meta name="theme-color" content="#0f1e3d" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_GB" />

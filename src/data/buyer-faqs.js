@@ -97,8 +97,8 @@ export const buyerFaqs = [
     q: 'How often does air conditioning need servicing, and how long do the units last?',
     paragraphs: [
       `Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks. Installations come with a 5 year warranty that covers parts and labour.`,
-      'Work on the refrigerant circuit has to be done by an F-Gas certified engineer. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number. Between services, clean indoor filters help the unit run properly.',
-      'How long a system lasts depends on the equipment, how hard it is used and whether it is looked after. We have not published a typical lifespan, because we do not have a figure we are prepared to state.',
+      'Work on the refrigerant circuit has to be done by an F-Gas certified engineer. Our engineers are F-Gas certified through REFCOM. Between services, clean indoor filters help the unit run properly.',
+      'How long a system lasts depends on the equipment, how hard it is used and whether it is looked after.',
     ],
     sources: [
       { name: 'GOV.UK, F-gas qualifications', url: 'https://www.gov.uk/guidance/qualifications-required-to-work-on-equipment-containing-f-gas' },
@@ -109,7 +109,7 @@ export const buyerFaqs = [
     q: 'Can I install air conditioning myself?',
     paragraphs: [
       'No. A fixed split system that contains F-gas refrigerant has to be installed by a qualified person working for a certified company. Doing that work without the right certification is against the law.',
-      `GOV.UK requires company certification from an approved body, and a personal F-gas qualification for the engineer. Our engineers are F-Gas certified through REFCOM. We do not publish a certificate number. A portable plug-in unit is a different product. For a wall-mounted or multi-room system, send photos, measurements and a floor plan for a remote quote. ${whatsappSend}.`,
+      `GOV.UK requires company certification from an approved body, and a personal F-gas qualification for the engineer. Our engineers are F-Gas certified through REFCOM. A portable plug-in unit is a different product. For a wall-mounted or multi-room system, send photos, measurements and a floor plan for a remote quote. ${whatsappSend}.`,
     ],
     sources: [
       { name: 'GOV.UK, F-gas company certification', url: 'https://www.gov.uk/guidance/certification-for-companies-working-on-equipment-containing-f-gas' },
@@ -120,7 +120,7 @@ export const buyerFaqs = [
     q: 'Are there grants or VAT relief for home air conditioning?',
     paragraphs: [
       'Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. HMRC zero-rates the supply and installation of a permanently fixed air source heat pump, including a unit that heats and cools, in residential accommodation from 1 May 2023 to 31 March 2027. Portable units do not qualify. From 1 April 2027 the relief is due to change.',
-      'The Boiler Upgrade Scheme grant needs an MCS-certified installer. No1 is not MCS certified, so a No1 install is not eligible for the grant.',
+      'Since 2026, an air-to-air heat pump can be eligible for a £2,500 Boiler Upgrade Scheme grant. Ofgem says the installer must be MCS certified, and the system has to meet the scheme rules. Ask us whether your install qualifies.',
       `Our cheapest system is a Clivet single room from ${business.priceFrom} (0% VAT). A multi-room system is from ${business.multiRoomFrom} including VAT. On a qualifying home install, that VAT rate is 0% until 31 March 2027.`,
     ],
     sources: [

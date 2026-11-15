@@ -24,7 +24,7 @@ function businessNode() {
     name: business.name,
     alternateName: business.shortName,
     legalName: business.legalName,
-    description: 'Air conditioning installation, servicing and repairs for homes and businesses, from a showroom in Ringwood, Hampshire. Covers Ringwood and surrounding towns in Hampshire and Dorset.',
+    description: 'Air conditioning installation, servicing and repairs for homes and businesses, from a showroom in Ringwood, Hampshire and Dorset.',
     url: `${business.url}/`,
     logo: `${business.url}/images/no1-aircon-logo.svg`,
     image: ogImage,

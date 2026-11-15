@@ -63,7 +63,7 @@ export const business = {
   // Google Maps listing: 5.0 from 13 reviews. Schema emits AggregateRating from this.
   // { value: '5.0', count: 13 }
   rating: { value: '5.0', count: 13 },
-  googleBusiness: null,
+  googleBusiness: 'https://www.google.com/maps/place/?q=place_id:ChIJky9kwfeXc0gRn0loYVnv1z8',
   linkedin: null,
 };
 
@@ -148,7 +148,7 @@ export const faqs = [
   },
   {
     q: 'Can I see the units before I buy?',
-    a: `Yes. Visit our showroom at ${business.street}, ${business.town}, to compare Mitsubishi Electric, Daikin and Clivet side by side and hear how quiet they are.`,
+    a: `Yes. Visit our showroom at ${business.street}, ${business.town}, to compare Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung side by side and hear how quiet they are.`,
   },
   {
     q: 'Which areas do you cover?',

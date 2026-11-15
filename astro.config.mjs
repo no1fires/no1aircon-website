@@ -9,7 +9,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => INDEXABLE && !page.includes('/robots.txt'),
+      filter: (page) => INDEXABLE && !page.includes('/case-studies/') && !page.includes('/404'),
     }),
   ],
 });

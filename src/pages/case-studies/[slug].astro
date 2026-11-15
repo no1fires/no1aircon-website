@@ -20,21 +20,13 @@ const crumbs = [
   { name: study.name, href: `/case-studies/${study.slug}/` },
 ];
 ---
-<Base title={study.title} description={study.description} crumbs={crumbs}>
+<Base title={study.title} description={study.description} crumbs={crumbs} forceNoindex>
   <PageHero eyebrow={study.eyebrow} title={study.h1} lead={study.lead} crumbs={crumbs} photo={casePhotos[study.slug]} />
-  <section class="section">
-    <div class="container prose">
-      <div class="todo-slot">
-        <h2>Placeholder, not a real job</h2>
-        <p>This is not a finished project. We have not published a town, a customer or a result.</p>
-      </div>
-    </div>
-  </section>
   <GuideSection />
   <section class="section">
     <div class="container prose">
       {study.explainer.map((paragraph) => <p><RichText text={paragraph} /></p>)}
-      {service && <p>The service this will illustrate is <a href={`/services/${service.slug}/`}>{service.name}</a>.</p>}
+      {service && <p>Read more about <a href={`/services/${service.slug}/`}>{service.name}</a>.</p>}
     </div>
   </section>
   <QuoteSection />

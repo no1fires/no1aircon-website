@@ -1,54 +1,61 @@
-# No1 Air Conditioning
+import { INDEXABLE } from '../data/business.js';
+
+const previewNote = INDEXABLE
+  ? ''
+  : 'Preview note: indexing is switched off until INDEXABLE is set to true in the business details. Until then robots.txt disallows crawlers and every page sends noindex.\n\n';
+
+const body = `# No1 Air Conditioning
 
 > No1 Air Conditioning (No1 Air Con) is the trading name of No1 Energy Solutions Ltd. Showroom: 10 Christchurch Road, Ringwood, Hampshire BH24 1DN. Phone 01425 333760. Email info@no1aircon.co.uk. The company installs, services and repairs air conditioning and air-to-air heat pumps for homes and businesses within 25 miles of our Ringwood showroom, across Hampshire and Dorset. Website: https://no1aircon.co.uk/
 
 The same company also trades as No1 Fires (https://no1fires.co.uk).
 
-Preview note: indexing is switched off until `INDEXABLE` is set to true in `src/data/business.js`. Until then robots.txt disallows crawlers and every page sends `noindex`. Do not treat placeholder text on the site as a fact.
-
-## What they do
+${previewNote}## What they do
 
 - Home air conditioning. Wall and floor units for bedrooms, living rooms, home offices, garden rooms and conservatories. Single room systems from £1,395 (Clivet, 0% VAT). Multi-room systems (two, three or four indoor units on one outdoor unit) are offered from £3,499.
 - Heating and cooling. The systems are air-to-air heat pumps. They cool and they heat the rooms where an indoor unit is fitted. Up to 4 units of warmth for every 1 unit of electricity. They do not, on their own, replace a whole-house boiler or heat a hot-water cylinder.
-- Commercial air conditioning for offices, shops, treatment rooms and server rooms. No single commercial price is published yet.
-- Servicing and care plans. Air con servicing from £125. Annual servicing keeps the warranty valid. Care plan tiers are not published.
-- Repairs and fault finding for Mitsubishi Electric, Daikin and Clivet. No call-out price is published yet. There is no published 24-hour call-out.
-- Ducted and ceiling systems where the ceiling or loft has room. No ducted price is published yet.
+- Commercial air conditioning for offices, shops, treatment rooms and server rooms. Ask us for a quote.
+- Servicing. Air con servicing from £125. Annual servicing keeps the warranty valid. Ask us if you want the next visit booked before we leave.
+- Repairs and fault finding for Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung. Ask us for a repair quote. Call during showroom hours.
+- Ducted and ceiling systems where the ceiling or loft has room. Ask us for a quote.
 
 ## Brands
 
-- Mitsubishi Electric. Described on the site as the premium recommendation, with a manufacturer noise figure from 19dB and Hyper Heat performance down to -15°C. Those are manufacturer figures, not a promise for every room.
+- Mitsubishi Electric. The premium recommendation, with a manufacturer noise figure from 19dB and Hyper Heat performance down to -15°C. Those are manufacturer figures, not a promise for every room.
 - Daikin.
 - Clivet.
+- Toshiba.
+- Panasonic.
+- Samsung.
 
-## Warranty, finance, accreditation
+## Warranty and accreditation
 
 - Warranty: installations come with a 5 year warranty that covers parts and labour.
 - Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027.
 - Most installation jobs are done in a day. The current lead time is 4 to 8 weeks. Stock is often available sooner, and that is not a promise.
-- Engineers are F-Gas certified through REFCOM. No certificate number is published.
+- Engineers are F-Gas certified through REFCOM.
 - Company number 14778718. WhatsApp 07457 405634.
 - Showroom opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 
 ## Areas
 
-Launch pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton.
+Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton.
 
 The showroom address is on Christchurch Road in Ringwood. That is not the town of Christchurch.
 
-Also named as inside the 30-mile radius, without their own pages yet: Bournemouth, Poole, Lymington, Southampton, Salisbury, New Forest.
+Also inside the 25-mile radius, without their own pages: Bournemouth, Poole, Lymington, Southampton, Salisbury, New Forest.
 
 ## Contact
 
 - Phone: 01425 333760
 - Email: info@no1aircon.co.uk
+- WhatsApp: 07457 405634
 - Showroom: 10 Christchurch Road, Ringwood, Hampshire BH24 1DN
 - Facebook: https://www.facebook.com/profile.php?id=61587422684398
 - Instagram: https://www.instagram.com/no1aircon1/
-- Quote form: posts to a GHL webhook URL stored in `src/data/business.js`. Until that URL is set, the form does not send and tells the visitor to call or email.
-- Google Business Profile URL: not added yet.
+- Google Business Profile: https://www.google.com/maps/place/?q=place_id:ChIJky9kwfeXc0gRn0loYVnv1z8
 - Opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
-- Reviews: none are published. The site does not show a star rating.
+- Google reviews: 5.0 from 13 reviews.
 
 ## Key pages
 
@@ -73,7 +80,6 @@ Also named as inside the 30-mile radius, without their own pages yet: Bournemout
 - https://no1aircon.co.uk/reviews/
 - https://no1aircon.co.uk/contact/
 - https://no1aircon.co.uk/faqs/
-- https://no1aircon.co.uk/case-studies/
 - https://no1aircon.co.uk/privacy/
 - https://no1aircon.co.uk/terms/
 - https://no1aircon.co.uk/cookies/
@@ -84,16 +90,23 @@ Q: Where is No1 Air Con based?
 A: 10 Christchurch Road, Ringwood, Hampshire BH24 1DN. Christchurch Road is in Ringwood, not in Christchurch town.
 
 Q: What phone number should be used everywhere?
-A: 01425 333760. The email is info@no1aircon.co.uk. Do not use a different number.
+A: 01425 333760. The email is info@no1aircon.co.uk. WhatsApp is 07457 405634.
 
 Q: When is the Ringwood showroom open?
 A: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 
 Q: How much does installation cost?
-A: A Clivet single room is from £1,395 (0% VAT). Multi-room systems from £3,499. Qualifying home installs are 0% VAT until 31 March 2027. Servicing is recommended yearly and is from £125. Installations come with a 5 year warranty that covers parts and labour. Most jobs are done in a day. The current lead time is 4 to 8 weeks. The price is a remote quote from photos, measurements and a floor plan. WhatsApp is the easiest way to send the photos, measurements and floor plan (07457 405634): https://wa.me/447457405634. A survey is only if it is needed, and a lot of the time it is not. Other prices are not published yet.
+A: A Clivet single room is from £1,395 (0% VAT). Multi-room systems from £3,499. Qualifying home installs are 0% VAT until 31 March 2027. Servicing is from £125. Ask us for a quote for commercial, ducted and repair work.
 
 Q: Does air conditioning heat as well as cool?
 A: The systems they fit are air-to-air heat pumps, so yes, for the rooms that have an indoor unit.
 
 Q: Which towns have pages?
 A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.
+`;
+
+export function GET() {
+  return new Response(body, {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  });
+}
