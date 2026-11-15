@@ -61,11 +61,17 @@ const faqs = [
   },
 ];
 
+const bedroomPhoto = {
+  name: 'warsash-chalet-bungalow-childs-bedroom-daikin',
+  alt: "Daikin wall-mounted air conditioning unit fitted high on the sloped wall of a child's bedroom in a Warsash chalet bungalow",
+  caption: "The wall unit fitted high on the sloped wall of the child's bedroom.",
+};
+
 const article = {
   headline: study.h1,
   description: study.description,
   datePublished: '2026-06-15',
-  image: photos.map((photo) => `${business.url}/images/case-studies/${photo.name}.webp`),
+  image: [...photos, bedroomPhoto].map((photo) => `${business.url}/images/case-studies/${photo.name}.webp`),
   about: {
     '@type': 'Service',
     name: 'Home air conditioning',
@@ -160,6 +166,22 @@ const article = {
         </p>
 
         <h2>Is it safe in a child’s bedroom?</h2>
+        <figure class="fit-photo">
+          <picture>
+            <source
+              type="image/avif"
+              srcset={`/images/case-studies/${bedroomPhoto.name}-800.avif 800w, /images/case-studies/${bedroomPhoto.name}-1600.avif 1600w`}
+              sizes="(min-width: 900px) 640px, 100vw"
+            />
+            <source
+              type="image/webp"
+              srcset={`/images/case-studies/${bedroomPhoto.name}-800.webp 800w, /images/case-studies/${bedroomPhoto.name}-1600.webp 1600w`}
+              sizes="(min-width: 900px) 640px, 100vw"
+            />
+            <img src={`/images/case-studies/${bedroomPhoto.name}.webp`} alt={bedroomPhoto.alt} width="800" height="1067" loading="lazy" />
+          </picture>
+          <figcaption>{bedroomPhoto.caption}</figcaption>
+        </figure>
         <p>
           The indoor unit in the bedroom is a wall unit, mounted high on the wall above the chest of drawers. It is not a floor-standing unit. The bedroom is the child’s space-themed room. The outdoor units are outside, one on the gable and one above the roof slope.
         </p>
