@@ -9,7 +9,7 @@ import { casePhotos } from '../../data/lifestyle.js';
 import RichText from '../../components/RichText.astro';
 
 export function getStaticPaths() {
-  return caseStudies.map((study) => ({ params: { slug: study.slug } }));
+  return caseStudies.filter((study) => !study.published).map((study) => ({ params: { slug: study.slug } }));
 }
 
 const study = getCaseStudy(Astro.params.slug);

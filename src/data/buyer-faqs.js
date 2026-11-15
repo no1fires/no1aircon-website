@@ -120,7 +120,7 @@ export const buyerFaqs = [
     q: 'Are there grants or VAT relief for home air conditioning?',
     paragraphs: [
       'Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. HMRC zero-rates the supply and installation of a permanently fixed air source heat pump, including a unit that heats and cools, in residential accommodation from 1 May 2023 to 31 March 2027. Portable units do not qualify. From 1 April 2027 the relief is due to change.',
-      'Since 2026, an air-to-air heat pump can be eligible for a £2,500 Boiler Upgrade Scheme grant. Ofgem says the installer must be MCS certified, and the system has to meet the scheme rules. Ask us whether your install qualifies.',
+      'The Boiler Upgrade Scheme grant needs an MCS-certified installer. No1 Air Con is not MCS certified, so an install by No1 does not qualify for the grant. Ofgem publishes the scheme rules for property owners.',
       `Our cheapest system is a Clivet single room from ${business.priceFrom} (0% VAT). A multi-room system is from ${business.multiRoomFrom} including VAT. On a qualifying home install, that VAT rate is 0% until 31 March 2027.`,
     ],
     sources: [

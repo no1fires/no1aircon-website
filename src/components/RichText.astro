@@ -2,15 +2,22 @@
 import { business } from '../data/business.js';
 
 const { text = '' } = Astro.props;
-const label = 'Send on WhatsApp';
-const href = `https://wa.me/${String(business.whatsappIntl).replace('+', '')}`;
-const parts = String(text).split(label);
+const waLabel = 'Send on WhatsApp';
+const waHref = `https://wa.me/${String(business.whatsappIntl).replace('+', '')}`;
+const pattern = /\[([^\]]+)\]\((\/[^)\s]*|https:\/\/[^)\s]+)\)|Send on WhatsApp/g;
+const tokens = [];
+let last = 0;
+for (const match of String(text).matchAll(pattern)) {
+  if (match.index > last) tokens.push({ type: 'text', value: String(text).slice(last, match.index) });
+  if (match[0] === waLabel) tokens.push({ type: 'wa' });
+  else tokens.push({ type: 'link', label: match[1], href: match[2], external: match[2].startsWith('http') });
+  last = match.index + match[0].length;
+}
+if (last < String(text).length) tokens.push({ type: 'text', value: String(text).slice(last) });
 ---
-{parts.map((part, index) => (
-  <>
-    {part}
-    {index < parts.length - 1 && (
-      <a href={href} target="_blank" rel="noopener noreferrer">{label}</a>
-    )}
-  </>
+{tokens.map((token) => (
+  token.type === 'text' ? token.value
+  : token.type === 'wa' ? <a href={waHref} target="_blank" rel="noopener noreferrer">{waLabel}</a>
+  : token.external ? <a href={token.href} target="_blank" rel="noopener noreferrer">{token.label}</a>
+  : <a href={token.href}>{token.label}</a>
 ))}

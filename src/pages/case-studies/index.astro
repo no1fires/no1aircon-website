@@ -6,25 +6,26 @@ import GuideSection from '../../components/GuideSection.astro';
 import { caseStudies } from '../../data/case-studies.js';
 import { pagePhotos } from '../../data/lifestyle.js';
 
+const published = caseStudies.filter((study) => study.published);
 const title = 'Air Conditioning Case Studies | No1 Air Con';
-const description = 'How a single-room, multi-room or commercial air conditioning job is planned. Ask us to see a recent install.';
+const description = 'A Warsash chalet bungalow fitted with two Daikin Sensira wall units in one day, after the house overheated.';
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Case studies', href: '/case-studies/' },
 ];
 ---
-<Base title={title} description={description} crumbs={crumbs} forceNoindex>
+<Base title={title} description={description} crumbs={crumbs}>
   <PageHero
     eyebrow="Case studies"
-    title="How a job is planned"
-    lead="Single-room, multi-room and commercial work, explained without naming a customer. Ask us if you want to see a recent install."
+    title="Air conditioning we have fitted"
+    lead="Real jobs, with the town and the equipment named. The first is a chalet bungalow in Warsash."
     crumbs={crumbs}
     photo={pagePhotos.caseStudies}
   />
   <GuideSection />
   <section class="section">
     <div class="container area-grid">
-      {caseStudies.map((study) => (
+      {published.map((study) => (
         <a class="area-link" href={`/case-studies/${study.slug}/`}>
           {study.name}
           <span>{study.lead}</span>

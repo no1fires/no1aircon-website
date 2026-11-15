@@ -187,9 +187,24 @@ function faqNode(faqs) {
   };
 }
 
-export function buildGraph({ canonical, crumbs = [], faqs = [], service = null }) {
+function articleNode(article, canonical) {
+  return {
+    '@type': 'Article',
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.datePublished,
+    image: article.image,
+    author: { '@type': 'Organization', name: business.name, url: business.url },
+    publisher: { '@id': businessId },
+    about: article.about,
+    mainEntityOfPage: canonical,
+  };
+}
+
+export function buildGraph({ canonical, crumbs = [], faqs = [], service = null, article = null }) {
   const graph = [businessNode(), websiteNode()];
   if (crumbs.length) graph.push(breadcrumbNode(crumbs));
+  if (article) graph.push(articleNode(article, canonical));
   if (service) graph.push(serviceNode(service, canonical));
   if (faqs.length) graph.push(faqNode(faqs));
   return {

@@ -15,10 +15,11 @@ const {
   hideReviews = false,
   forceNoindex = false,
   hideCanonical = false,
+  article = null,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const graph = buildGraph({ canonical, crumbs, faqs, service });
+const graph = buildGraph({ canonical, crumbs, faqs, service, article });
 const json = JSON.stringify(graph).replace(/</g, '\\u003c');
 const image = `${business.url}/images/og-default.png`;
 const whatsappText = "Hi No1 Air Con, I'd like to ask about air conditioning.";

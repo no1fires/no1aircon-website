@@ -37,6 +37,11 @@ ${previewNote}## What they do
 - Company number 14778718. WhatsApp 07457 405634.
 - Showroom opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 
+## Case study
+
+- Warsash, Hampshire. A chalet bungalow conversion near Southampton. After insulation the house got very hot in summer, especially a child's bedroom. Two Daikin Sensira 3.5kW single-split wall units, two outdoor units, installed in one day on 15 June 2026. https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
+- Unpublished case-study URLs are not real jobs and stay out of the sitemap.
+
 ## Areas
 
 Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton.
@@ -76,6 +81,8 @@ Also inside the 25-mile radius, without their own pages: Bournemouth, Poole, Lym
 - https://no1aircon.co.uk/areas/christchurch/
 - https://no1aircon.co.uk/areas/wimborne/
 - https://no1aircon.co.uk/areas/new-milton/
+- https://no1aircon.co.uk/case-studies/
+- https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
 - https://no1aircon.co.uk/about/
 - https://no1aircon.co.uk/reviews/
 - https://no1aircon.co.uk/contact/
@@ -100,6 +107,9 @@ A: A Clivet single room is from £1,395 (0% VAT). Multi-room systems from £3,49
 
 Q: Does air conditioning heat as well as cool?
 A: The systems they fit are air-to-air heat pumps, so yes, for the rooms that have an indoor unit.
+
+Q: Does a No1 install qualify for the £2,500 Boiler Upgrade Scheme grant?
+A: No. The grant needs an MCS-certified installer. No1 Air Con is not MCS certified, so installs by No1 do not qualify. Ofgem publishes the rules at https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners
 
 Q: Which towns have pages?
 A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.

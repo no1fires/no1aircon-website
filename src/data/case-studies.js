@@ -1,10 +1,22 @@
 import { business, whatsappSend } from './business.js';
 
-// Placeholder case studies only. Nothing here is a real job.
-// Replace the fields when Danny supplies town, equipment, reason and a photo.
+// published: true is a real job and can be indexed when INDEXABLE is on.
+// The other entries stay unpublished and noindex.
 export const caseStudies = [
   {
+    slug: 'warsash-chalet-bungalow',
+    published: true,
+    name: 'Chalet bungalow in Warsash',
+    service: 'home-air-conditioning',
+    title: 'Air Conditioning a Chalet Bungalow in Warsash',
+    description: "Martin's chalet bungalow in Warsash overheated after insulation. No1 fitted two Daikin Sensira 3.5kW wall units in one day.",
+    h1: 'Air conditioning a chalet bungalow in Warsash',
+    eyebrow: 'Case study',
+    lead: 'Two Daikin Sensira 3.5kW wall units, fitted in one day on 15 June 2026.',
+  },
+  {
     slug: 'single-room-home',
+    published: false,
     name: 'Single-room home system',
     service: 'home-air-conditioning',
     title: 'Single-Room Air Conditioning | No1 Air Con',
@@ -19,6 +31,7 @@ export const caseStudies = [
   },
   {
     slug: 'multi-room-heating-and-cooling',
+    published: false,
     name: 'Multi-room heating and cooling',
     service: 'heating-and-cooling',
     title: 'Multi-Room Heating and Cooling | No1 Air Con',
@@ -34,6 +47,7 @@ export const caseStudies = [
   },
   {
     slug: 'commercial-space',
+    published: false,
     name: 'Commercial space',
     service: 'commercial-air-conditioning',
     title: 'Commercial Air Conditioning | No1 Air Con',
