@@ -12,6 +12,8 @@ import { services, getService, getServicesBySlugs } from '../../data/services.js
 import { getTownsBySlugs } from '../../data/towns.js';
 import { servicePhotos } from '../../data/lifestyle.js';
 import RichText from '../../components/RichText.astro';
+import { business, brands, whatsappSend } from '../../data/business.js';
+import { brandList } from '../../lib/format.js';
 
 export function getStaticPaths() {
   return services.map((service) => ({ params: { slug: service.slug } }));
@@ -71,36 +73,96 @@ const crumbs = [
   { name: service.name, href: `/services/${service.slug}/` },
 ];
 const faqs = [...service.answerFaqs, ...service.faqs];
+const quoteSteps = [
+  { n: '1', title: 'Send the photos', text: 'Photos, measurements and a floor plan of the rooms and the outside wall.' },
+  { n: '2', title: 'We quote remotely', text: 'The price comes from those. There is no need for a visit to get a price.' },
+  { n: '3', title: 'Survey only if needed', text: 'A lot of the time it is not. We say so before anyone comes out.' },
+  { n: '4', title: 'Most jobs, one day', text: 'Lead time is 4 to 8 weeks. Stock is often sooner. That is not a promise.' },
+];
 ---
 <Base title={service.title} description={service.description} crumbs={crumbs} faqs={faqs} service={service}>
   <PageHero eyebrow={service.eyebrow} title={service.h1} lead={service.lead} crumbs={crumbs} photo={servicePhotos[service.slug]} />
-  <section class="section service-intro">
-    <div class="container split">
-      <div class="prose">
-        {service.paragraphs.map((paragraph) => <p><RichText text={paragraph} /></p>)}
-        <p><strong><RichText text={service.priceNote} /></strong></p>
-      </div>
-      <div class="fit-col">
-        <h2>Where it fits</h2>
-        <ul class="check-list">
-          {service.suitable.map((item) => (
-            <li><Icon name="check" size={18} /><span>{item}</span></li>
-          ))}
-        </ul>
-        <figure class="fit-photo">
+  {service.slug === 'home-air-conditioning' ? (
+    <section class="section home-intro" aria-labelledby="home-intro-heading">
+      <div class="container">
+        <figure>
           <img
             src={installShot.src}
             alt={installShot.alt}
             width={installShot.width}
             height={installShot.height}
-            loading="lazy"
-            decoding="async"
           />
-          <figcaption>{installShot.caption}</figcaption>
         </figure>
+        <div class="intro-copy">
+          <h2 id="home-intro-heading">Start with the room that will not stay comfortable</h2>
+          <p>A bedroom, a living room with a lot of glass, a home office, or a conservatory. The unit is sized for that room.</p>
+        </div>
+        <div class="cards">
+          <article>
+            <p class="kicker">Single room</p>
+            <h3>From {business.priceFrom}</h3>
+            <p>Clivet, 0% VAT. One indoor unit and one outdoor unit.</p>
+          </article>
+          <article>
+            <p class="kicker">Multi-room</p>
+            <h3>From {business.multiRoomFrom}</h3>
+            <p>Two, three or four indoor units on one outdoor unit. Each room has its own setting.</p>
+          </article>
+          <article>
+            <p class="kicker">Where it fits</p>
+            <h3>The rooms you use</h3>
+            <p>Hot bedrooms, glazed living rooms, home offices, garden rooms and conservatories.</p>
+          </article>
+        </div>
+        <ol class="steps">
+          {quoteSteps.map((step) => (
+            <li>
+              <span>{step.n}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+        <details class="intro-notes">
+          <summary>Placement, brands and how the quote works</summary>
+          <div>
+            <p>The indoor unit can sit high on a wall, or on the floor if a wall is taken up by windows. The outdoor unit needs a sensible spot: somewhere it can be fixed securely, where the pipes can run neatly, and where the noise will not sit under a neighbour’s bedroom window.</p>
+            <p>If you want more than one room, a multi-room system connects two, three or four indoor units to a single outdoor unit. You can set each room on its own. It avoids a row of outdoor units along the wall.</p>
+            <p>We install {brandList(brands)}. You can see and hear them at the showroom on {business.street}, {business.town}, before you decide. Mitsubishi Electric publish a low noise figure from 19dB for some of their indoor units. That is their figure for those models, not a promise that every room will measure 19dB once the unit is fitted.</p>
+            <p><RichText text={`Send photos, measurements and a floor plan of the rooms and the outside wall. ${whatsappSend}. We quote remotely from those. A survey is only if it is needed.`} /></p>
+          </div>
+        </details>
       </div>
-    </div>
-  </section>
+    </section>
+  ) : (
+    <section class="section service-intro">
+      <div class="container split">
+        <div class="prose">
+          {service.paragraphs.map((paragraph) => <p><RichText text={paragraph} /></p>)}
+          <p><strong><RichText text={service.priceNote} /></strong></p>
+        </div>
+        <div class="fit-col">
+          <h2>Where it fits</h2>
+          <ul class="check-list">
+            {service.suitable.map((item) => (
+              <li><Icon name="check" size={18} /><span>{item}</span></li>
+            ))}
+          </ul>
+          <figure class="fit-photo">
+            <img
+              src={installShot.src}
+              alt={installShot.alt}
+              width={installShot.width}
+              height={installShot.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>{installShot.caption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  )}
   {service.slug === 'home-air-conditioning' && (
     <section class="section" aria-labelledby="warsash-case-heading">
       <div class="container">
@@ -169,5 +231,65 @@ const faqs = [...service.answerFaqs, ...service.faqs];
     .case-strip { grid-template-columns: 280px minmax(0, 1fr); align-items: stretch; }
     .case-strip img { width: 280px; height: 240px; }
     .case-strip div { display: flex; flex-direction: column; justify-content: center; }
+  }
+  .home-intro figure { margin: 0; }
+  .home-intro img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center 48%;
+    border-radius: 20px;
+  }
+  .intro-copy { max-width: 68ch; margin: 28px 0 22px; }
+  .intro-copy h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 10px; }
+  .intro-copy p { color: var(--muted); margin: 0; font-size: 1.05rem; }
+  .cards { display: grid; gap: 14px; }
+  .cards article {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .kicker { margin: 0 0 6px; color: var(--blue); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cards h3 { margin-bottom: 6px; }
+  .cards p { margin: 0; color: var(--muted); }
+  .steps { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 12px; }
+  .steps li { background: var(--pale); border-radius: 16px; padding: 16px; }
+  .steps span {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+  .steps h3 { font-size: 1rem; margin-bottom: 4px; }
+  .steps p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .intro-notes {
+    margin-top: 28px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .intro-notes summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--navy);
+    padding: 16px 20px;
+    list-style: none;
+  }
+  .intro-notes summary::-webkit-details-marker { display: none; }
+  .intro-notes summary::after { content: '+'; float: right; color: var(--blue); }
+  .intro-notes[open] summary::after { content: '–'; }
+  .intro-notes div { padding: 0 20px 18px; }
+  .intro-notes p { color: var(--muted); margin: 0 0 12px; }
+  @media (min-width: 900px) {
+    .home-intro img { height: 360px; object-position: center 46%; }
+    .cards { grid-template-columns: repeat(3, 1fr); }
+    .steps { grid-template-columns: repeat(4, 1fr); }
   }
 </style>
