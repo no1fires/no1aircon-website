@@ -37,9 +37,11 @@ ${previewNote}## What they do
 - Company number 14778718. WhatsApp 07457 405634.
 - Showroom opening hours: Tuesday to Saturday, 10am to 4pm. Closed Sunday and Monday.
 
-## Case study
+## Case studies
 
 - Warsash, Hampshire. A chalet bungalow conversion near Southampton. After insulation the house got very hot in summer, especially a child's bedroom. Two Daikin Sensira 3.5kW single-split wall units, two outdoor units, installed in one day on 15 June 2026. https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
+- Westbury, Wiltshire. A 3.5kW Haier single split in a lounge, with black trunking, fitted on Saturday 1 August 2026 by Dan and Tom. The job is complete. https://no1aircon.co.uk/case-studies/westbury-lounge-air-conditioning/
+- Bournemouth. A Daikin 3.5kW wall unit in a dining room, fitted on Sunday 19 July 2026 by Dan in one morning, for Juliet's mother-in-law. Juliet had already had a Daikin 3.5kW back-to-back system fitted at her own home in St Ives, near Ringwood, in June 2026. https://no1aircon.co.uk/case-studies/bournemouth-daikin-air-conditioning/
 - Unpublished case-study URLs are not real jobs and stay out of the sitemap.
 
 ## Areas
@@ -83,6 +85,8 @@ Also inside the 25-mile radius, without their own pages: Bournemouth, Poole, Lym
 - https://no1aircon.co.uk/areas/new-milton/
 - https://no1aircon.co.uk/case-studies/
 - https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
+- https://no1aircon.co.uk/case-studies/westbury-lounge-air-conditioning/
+- https://no1aircon.co.uk/case-studies/bournemouth-daikin-air-conditioning/
 - https://no1aircon.co.uk/about/
 - https://no1aircon.co.uk/reviews/
 - https://no1aircon.co.uk/contact/

@@ -1,0 +1,237 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
+import FaqList from '../../components/FaqList.astro';
+import RichText from '../../components/RichText.astro';
+import { business } from '../../data/business.js';
+import { getCaseStudy } from '../../data/case-studies.js';
+
+const study = getCaseStudy('bournemouth-daikin-air-conditioning');
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Case studies', href: '/case-studies/' },
+  { name: study.name, href: `/case-studies/${study.slug}/` },
+];
+
+const hero = {
+  name: 'bournemouth-dining-room-daikin-indoor-unit',
+  alt: 'Daikin wall-mounted air conditioner high on a dining-room wall beneath a chandelier in Bournemouth',
+  caption: 'The Daikin wall unit, high on the dining-room wall.',
+  width: 1600,
+  height: 1200,
+};
+const outdoor = {
+  name: 'bournemouth-dining-room-daikin-outdoor-unit',
+  alt: 'Daikin outdoor unit on a red-brick side wall with white trunking in Bournemouth',
+  caption: 'The outdoor unit on a side wall, with white trunking.',
+  width: 1200,
+  height: 1600,
+};
+
+const facts = [
+  ['Location', 'Bournemouth'],
+  ['Room', 'Dining room'],
+  ['System', 'Daikin 3.5kW wall-hung unit'],
+  ['Outdoor unit', 'Wall-mounted on a side wall, with white trunking'],
+  ['Electrical', 'A fused spur'],
+  ['Fitted', 'Sunday 19 July 2026, about 8am to 1pm, by Dan'],
+  ['Job', 'Completed'],
+  ['Arranged by', 'Juliet, for her mother-in-law'],
+];
+
+const review = 'Excellent service from the initial consultation about air conditioning to the fitting and aftersales. So good my mother has now had a unit fitted and a lot of interest from friends and family.';
+
+const faqs = [
+  {
+    q: 'What was fitted in the Bournemouth dining room?',
+    a: 'A Daikin 3.5kW wall-hung unit, high on the dining-room wall. The outdoor unit is wall-mounted on a side wall, with white trunking. The job included a fused spur. Dan fitted it on Sunday 19 July 2026, from about 8am to 1pm. The job is complete.',
+  },
+  {
+    q: 'Who is the Bournemouth install for?',
+    a: 'Juliet arranged it for her mother-in-law, who is in her 80s. The case study does not name her. Juliet had already had a Daikin 3.5kW back-to-back system fitted at her own home in St Ives, near Ringwood, in June 2026.',
+  },
+  {
+    q: 'What did Juliet say?',
+    a: `Juliet left a 5-star Google review. She is a Local Guide. Her review says “mother”. She is writing about her mother-in-law. The review, in her words: “${review}”`,
+  },
+  {
+    q: 'Is there a Bournemouth town page?',
+    a: 'No. Bournemouth is named here as the town only. The county pages are Dorset and Hampshire. The showroom is in Ringwood.',
+  },
+];
+
+const images = [hero, outdoor].map((photo) => ({
+  '@type': 'ImageObject',
+  contentUrl: `${business.url}/images/case-studies/${photo.name}.webp`,
+  url: `${business.url}/images/case-studies/${photo.name}.webp`,
+  caption: photo.caption,
+  description: photo.alt,
+  width: photo.width,
+  height: photo.height,
+  encodingFormat: 'image/webp',
+}));
+
+const article = {
+  headline: study.h1,
+  description: study.description,
+  datePublished: '2026-07-19',
+  image: images,
+  about: {
+    '@type': 'Service',
+    name: 'Home air conditioning',
+    url: `${business.url}/services/home-air-conditioning/`,
+    provider: { '@id': `${business.url}/#business` },
+  },
+  contentLocation: {
+    '@type': 'Place',
+    name: 'Bournemouth',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Bournemouth',
+    },
+  },
+};
+---
+<Base
+  title={study.title}
+  description={study.description}
+  crumbs={crumbs}
+  faqs={faqs}
+  article={article}
+  ogImage={{
+    src: `${business.url}/images/case-studies/${hero.name}.webp`,
+    width: hero.width,
+    height: hero.height,
+    type: 'image/webp',
+    alt: hero.alt,
+  }}
+>
+  <PageHero
+    eyebrow="Case study · Bournemouth"
+    title={study.h1}
+    lead="A Daikin 3.5kW wall unit in a dining room, fitted in one morning for Juliet’s mother-in-law."
+    crumbs={crumbs}
+    photo={{
+      src: `/images/case-studies/${hero.name}.webp`,
+      srcset: `/images/case-studies/${hero.name}-800.webp 800w, /images/case-studies/${hero.name}.webp 1600w`,
+      width: hero.width,
+      height: hero.height,
+      alt: hero.alt,
+    }}
+  />
+  <section class="section">
+    <div class="container study-layout">
+      <div class="prose">
+        <p class="quick-answer">
+          <strong>Quick answer.</strong> Juliet first had a Daikin 3.5kW back-to-back system fitted at her own home in St Ives, near Ringwood, in June 2026. She then asked No1 to fit air conditioning for her mother-in-law, who is in her 80s, in Bournemouth. On Sunday 19 July 2026 Dan fitted a Daikin 3.5kW wall unit in the dining room. He was there from about 8am to 1pm. The job is complete.
+        </p>
+        <h2>The job in brief</h2>
+        <dl class="facts">
+          {facts.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>
+          Bournemouth does not have its own town page. The county pages are <a href="/areas/dorset/">Dorset</a> and <a href="/areas/hampshire/">Hampshire</a>. The showroom is in <a href="/areas/ringwood/">Ringwood</a>. This system is a <a href="/services/home-air-conditioning/">home air conditioning</a> install for one room.
+        </p>
+      </div>
+      <div class="study-photos">
+        <figure class="fit-photo">
+          <picture>
+            <source
+              type="image/avif"
+              srcset={`/images/case-studies/${outdoor.name}-800.avif 600w, /images/case-studies/${outdoor.name}-1600.avif 1200w`}
+              sizes="(min-width: 900px) 360px, 100vw"
+            />
+            <source
+              type="image/webp"
+              srcset={`/images/case-studies/${outdoor.name}-800.webp 600w, /images/case-studies/${outdoor.name}-1600.webp 1200w`}
+              sizes="(min-width: 900px) 360px, 100vw"
+            />
+            <img src={`/images/case-studies/${outdoor.name}.webp`} alt={outdoor.alt} width={outdoor.width} height={outdoor.height} loading="lazy" />
+          </picture>
+          <figcaption>{outdoor.caption}</figcaption>
+        </figure>
+      </div>
+      <div class="prose study-body">
+        <h2>A repeat customer, for her mother-in-law</h2>
+        <p>
+          The Bournemouth job started with Juliet’s own install. In June 2026 No1 fitted a Daikin 3.5kW back-to-back system at her home in St Ives, near Ringwood. That area is on the <a href="/areas/st-leonards/">St Leonards and St Ives</a> page, a few miles from the <a href="/areas/ringwood/">Ringwood</a> showroom. Back-to-back means the indoor unit and the outdoor unit are on either side of the same wall. She was happy with that job, and she asked No1 to fit air conditioning for her mother-in-law.
+        </p>
+        <p>
+          Her mother-in-law is in her 80s and lives in Bournemouth. This page does not name her. The aim of the Bournemouth install was to keep an older relative comfortable in summer heat. Juliet’s Google review, quoted below, is the word-of-mouth part: she writes that friends and family have taken an interest.
+        </p>
+
+        <h2>The dining-room install</h2>
+        <p>
+          The indoor unit is a Daikin 3.5kW wall-hung unit, mounted high on the dining-room wall. The outdoor unit is wall-mounted on a side wall, with white trunking. The electrical work included a fused spur.
+        </p>
+        <p>
+          Dan fitted it on Sunday 19 July 2026. He was there for one morning, from about 8am to 1pm. The job is complete. Daikin is one of the <a href="/#brands-heading">brands we install</a>. This page does not add a noise figure or an efficiency figure for this unit.
+        </p>
+
+        <h2>What Juliet wrote</h2>
+        <p>
+          Juliet left a 5-star Google review. She is a Local Guide. The review says “mother”. In this job, that person is her mother-in-law. The review is quoted here as she wrote it:
+        </p>
+        <blockquote>
+          <p>{review}</p>
+        </blockquote>
+        <p>
+          The review covers the consultation, the fitting and the aftersales. It also says her mother has now had a unit fitted, which is this Bournemouth dining-room job, and that friends and family have shown an interest.
+        </p>
+      </div>
+    </div>
+  </section>
+  <FaqList faqs={faqs} heading="Questions about this install" />
+  <GuideSection />
+  <section class="section">
+    <div class="container prose">
+      <h2>Ask about a dining room</h2>
+      <p>
+        <RichText text="Tell us the town and the room. Photos, measurements and a floor plan are enough for a remote quote. WhatsApp is the easiest way to send them (07457 405634). Send on WhatsApp." />
+      </p>
+      <p><a class="btn" href="#quote">Get a free quote</a></p>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>
+
+<style>
+  .study-layout { display: grid; gap: 32px; }
+  .quick-answer {
+    background: var(--pale);
+    border-radius: 16px;
+    padding: 18px 20px;
+    color: var(--navy);
+  }
+  .facts { display: grid; gap: 12px; margin: 0 0 1.25rem; }
+  .facts div { display: grid; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .facts dt {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .facts dd { margin: 0; color: var(--navy); font-weight: 700; }
+  blockquote {
+    margin: 0 0 1rem;
+    padding: 16px 18px;
+    border-left: 4px solid var(--blue);
+    background: var(--off-white);
+    border-radius: 0 12px 12px 0;
+  }
+  blockquote p { margin: 0; color: var(--navy); }
+  .study-photos { display: grid; gap: 18px; }
+  @media (min-width: 900px) {
+    .study-layout { grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.7fr); align-items: start; }
+    .study-body { grid-column: 1; }
+    .study-photos { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: calc(var(--header) + 16px); }
+  }
+</style>

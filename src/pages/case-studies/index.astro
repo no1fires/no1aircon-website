@@ -8,7 +8,7 @@ import { pagePhotos } from '../../data/lifestyle.js';
 
 const published = caseStudies.filter((study) => study.published);
 const title = 'Air Conditioning Case Studies | No1 Air Con';
-const description = 'A chalet bungalow in Warsash, Southampton, fitted with two Daikin Sensira wall units in one day.';
+const description = 'Real air conditioning installs in Warsash, Westbury and Bournemouth, with the town and the equipment named.';
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Case studies', href: '/case-studies/' },
@@ -18,7 +18,7 @@ const crumbs = [
   <PageHero
     eyebrow="Case studies"
     title="Air conditioning we have fitted"
-    lead="Real jobs, with the town and the equipment named. The first is a chalet bungalow in Warsash, Southampton."
+    lead="Real jobs, with the town and the equipment named."
     crumbs={crumbs}
     photo={pagePhotos.caseStudies}
   />
@@ -36,6 +36,7 @@ const crumbs = [
                 width={study.card.width}
                 height={study.card.height}
                 sizes="(min-width: 860px) 520px, 100vw"
+                style={study.card.position ? `object-position: ${study.card.position}` : undefined}
               />
             )}
             <div>
@@ -115,6 +116,11 @@ const crumbs = [
     .feature-grid:has(> :nth-child(2)) { grid-template-columns: 1fr 1fr; }
     .feature-grid:has(> :nth-child(2)) .feature-card { grid-template-columns: 1fr; }
     .feature-grid:has(> :nth-child(2)) .feature-card img { height: 240px; }
+    .feature-grid:has(> :nth-child(2)) .feature-card h2 { font-size: 1.45rem; }
+    .feature-grid:has(> :nth-child(2)) .feature-card div { padding: 22px 20px 24px; }
+  }
+  @media (min-width: 1040px) {
+    .feature-grid:has(> :nth-child(3)) { grid-template-columns: 1fr 1fr 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     .feature-card { transition: none; }
