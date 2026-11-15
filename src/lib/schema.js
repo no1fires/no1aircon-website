@@ -197,6 +197,7 @@ function articleNode(article, canonical) {
     author: { '@type': 'Organization', name: business.name, url: business.url },
     publisher: { '@id': businessId },
     about: article.about,
+    contentLocation: article.contentLocation,
     mainEntityOfPage: canonical,
   };
 }

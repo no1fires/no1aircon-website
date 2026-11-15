@@ -34,7 +34,7 @@ const photos = [
 ];
 
 const facts = [
-  ['Location', 'Warsash, near Southampton, Hampshire'],
+  ['Location', 'Warsash, Southampton'],
   ['Property', 'Chalet bungalow conversion'],
   ['Problem', 'Very hot in summer after the house was insulated, especially a child’s bedroom'],
   ['System', 'Two single-split systems'],
@@ -72,11 +72,20 @@ const article = {
   description: study.description,
   datePublished: '2026-06-15',
   image: [bedroomPhoto, ...photos].map((photo) => `${business.url}/images/case-studies/${photo.name}.webp`),
-  about: {
+    about: {
     '@type': 'Service',
     name: 'Home air conditioning',
     url: `${business.url}/services/home-air-conditioning/`,
     provider: { '@id': `${business.url}/#business` },
+  },
+  contentLocation: {
+    '@type': 'Place',
+    name: 'Warsash, Southampton',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Warsash',
+      addressRegion: 'Southampton',
+    },
   },
 };
 ---
@@ -95,7 +104,7 @@ const article = {
   }}
 >
   <PageHero
-    eyebrow="Case study · Warsash"
+    eyebrow="Case study · Warsash, Southampton"
     title={study.h1}
     lead="Two Daikin Sensira wall units for a chalet bungalow that got too hot after it was insulated."
     crumbs={crumbs}
