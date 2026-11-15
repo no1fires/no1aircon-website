@@ -104,7 +104,7 @@ const faqs = [...service.answerFaqs, ...service.faqs];
   {service.slug === 'home-air-conditioning' && (
     <section class="section" aria-labelledby="warsash-case-heading">
       <div class="container">
-        <a class="case-strip" href="/case-studies/warsash-chalet-bungalow/">
+        <div class="case-strip">
           <img
             src="/images/case-studies/warsash-chalet-bungalow-childs-bedroom-daikin-800.webp"
             alt="Daikin wall-mounted air conditioning unit fitted high on the sloped wall of a child's bedroom in a Warsash, Southampton chalet bungalow"
@@ -116,9 +116,9 @@ const faqs = [...service.answerFaqs, ...service.faqs];
           <div>
             <h2 id="warsash-case-heading">Case study: cooling a chalet bungalow in Warsash, Southampton</h2>
             <p>The house got very hot in summer after it was insulated. Two Daikin single splits were fitted in one day.</p>
-            <span class="more">Read the case study <Icon name="chevron" size={16} /></span>
+            <a class="btn" href="/case-studies/warsash-chalet-bungalow/">Read the case study</a>
           </div>
-        </a>
+        </div>
       </div>
     </section>
   )}
@@ -150,12 +150,10 @@ const faqs = [...service.answerFaqs, ...service.faqs];
 <style>
   .case-strip {
     display: grid;
-    background: #fff;
+    background: var(--blue);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: inset 0 0 0 1px var(--line);
-    text-decoration: none;
-    color: inherit;
+    color: #fff;
   }
   .case-strip img {
     width: 100%;
@@ -164,11 +162,12 @@ const faqs = [...service.answerFaqs, ...service.faqs];
     object-position: center 30%;
   }
   .case-strip div { padding: 22px 24px; }
-  .case-strip h2 { font-size: 1.35rem; margin-bottom: 8px; }
-  .case-strip p { color: var(--muted); margin: 0 0 14px; }
-  .case-strip:hover .more { color: var(--navy); }
+  .case-strip h2 { color: #fff; font-size: 1.35rem; margin-bottom: 8px; }
+  .case-strip p { color: #fff; margin: 0 0 16px; }
+  .case-strip .btn { align-self: flex-start; }
   @media (min-width: 800px) {
     .case-strip { grid-template-columns: 280px minmax(0, 1fr); align-items: stretch; }
     .case-strip img { width: 280px; height: 240px; }
+    .case-strip div { display: flex; flex-direction: column; justify-content: center; }
   }
 </style>
