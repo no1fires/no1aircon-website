@@ -3,13 +3,15 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
 import GuideSection from '../../components/GuideSection.astro';
-import { caseStudies, getCaseStudy } from '../../data/case-studies.js';
+import { getCaseStudy } from '../../data/case-studies.js';
 import { getService } from '../../data/services.js';
 import { casePhotos } from '../../data/lifestyle.js';
 import RichText from '../../components/RichText.astro';
 
 export function getStaticPaths() {
-  return caseStudies.filter((study) => !study.published).map((study) => ({ params: { slug: study.slug } }));
+  // Unpublished entries are not real jobs. They are not routed, so the
+  // placeholder URLs 404 instead of being reachable.
+  return [];
 }
 
 const study = getCaseStudy(Astro.params.slug);

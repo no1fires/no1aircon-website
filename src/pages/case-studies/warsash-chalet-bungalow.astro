@@ -71,7 +71,16 @@ const article = {
   headline: study.h1,
   description: study.description,
   datePublished: '2026-06-15',
-  image: [bedroomPhoto, ...photos].map((photo) => `${business.url}/images/case-studies/${photo.name}.webp`),
+  image: [bedroomPhoto, ...photos].map((photo) => ({
+    '@type': 'ImageObject',
+    contentUrl: `${business.url}/images/case-studies/${photo.name}.webp`,
+    url: `${business.url}/images/case-studies/${photo.name}.webp`,
+    caption: photo.caption,
+    description: photo.alt,
+    width: 1600,
+    height: 2133,
+    encodingFormat: 'image/webp',
+  })),
     about: {
     '@type': 'Service',
     name: 'Home air conditioning',

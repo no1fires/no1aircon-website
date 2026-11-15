@@ -348,7 +348,7 @@ export const services = [
       'Ducted and ceiling systems are still air-to-air heat pumps. They cool and they heat. They are not automatically quieter, and they are not automatically more expensive in running cost. The difference is where the equipment sits and how the air is delivered.',
       `Ask us for a quote. Photos of the ceiling, measurements and a floor plan are enough, because two ceilings that look the same can be different jobs. ${whatsappSend}. We visit only if we need to.`,
     ],
-    priceNote: `Ask us for a quote. A Clivet single-room wall unit, for comparison, starts from ${business.priceFrom} (0% VAT).`,
+    priceNote: 'Ask us for a quote. Photos of the ceiling, measurements and a floor plan are enough.',
     provides: [
       { title: 'Ceiling cassettes', text: 'One unit in the ceiling, blowing in more than one direction. Common in offices and open rooms.' },
       { title: 'Ducted systems', text: 'The indoor unit is hidden. Air comes through grilles. Only where the void and the filter access allow it.' },
@@ -374,7 +374,7 @@ export const services = [
       },
       {
         q: 'How much does a ducted system cost?',
-        a: `We price it from photos of the ceiling, the joists and the pipe run, plus measurements and a floor plan. ${whatsappSend}. We visit only if we need to. A Clivet single-room wall unit starts from ${business.priceFrom} (0% VAT) if that turns out to be the better answer.`,
+        a: `We price it from photos of the ceiling, the joists and the pipe run, plus measurements and a floor plan. ${whatsappSend}. We visit only if we need to.`,
       },
     ],
     faqs: [

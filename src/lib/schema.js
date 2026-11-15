@@ -24,6 +24,12 @@ function businessNode() {
     name: business.name,
     alternateName: business.shortName,
     legalName: business.legalName,
+    identifier: {
+      '@type': 'PropertyValue',
+      name: 'Company number',
+      propertyID: 'UK Companies House',
+      value: business.companyNumber,
+    },
     description: 'Air conditioning installation, servicing and repairs for homes and businesses, from a showroom in Ringwood, Hampshire and Dorset.',
     url: `${business.url}/`,
     logo: `${business.url}/images/no1-aircon-logo.svg`,
