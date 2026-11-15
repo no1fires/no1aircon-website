@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import GuideSection from '../components/GuideSection.astro';
+import { business, whatsappSend } from '../data/business.js';
+import { pagePhotos } from '../data/lifestyle.js';
+import RichText from '../components/RichText.astro';
+
+const title = 'Air Conditioning Installation Cost | No1 Air Con';
+const description = 'A Clivet single room from £1,395 at 0% VAT is our cheapest published system. Multi-room from £3,499. Servicing from £125. Not a price for every brand.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Air conditioning cost', href: '/air-conditioning-cost/' },
+];
+const faqs = [
+  {
+    q: 'How much does it cost to install air conditioning in the UK?',
+    a: `The cheapest system we publish is a Clivet single room from ${business.priceFrom} at 0% VAT. That is the cheapest Clivet option, not a price for Mitsubishi Electric, Daikin or any other brand. A multi-room system is from ${business.multiRoomFrom}.`,
+  },
+  {
+    q: 'How much does air conditioning servicing cost?',
+    a: `Air con servicing is from ${business.servicingFrom} a year. A service is recommended yearly.`,
+  },
+  {
+    q: 'Is there VAT on a home air conditioning install?',
+    a: 'Qualifying home installs are 0% VAT until March 2027. That is the rate on the prices we publish for those qualifying installs.',
+  },
+  {
+    q: 'Can I get the £2,500 Boiler Upgrade Scheme grant?',
+    a: 'No, not through No1. The grant needs an MCS-certified installer. No1 Air Con is not MCS certified, so an install by No1 does not qualify.',
+  },
+  {
+    q: 'How long does an install take?',
+    a: 'Most installs take a day. The lead time before a date is 4 to 8 weeks. A lot of stock is held, so it is often sooner. That is not a promise for the next job.',
+  },
+  {
+    q: 'What do you need for a price?',
+    a: `Photos, measurements and a floor plan. ${whatsappSend}. We quote remotely from those. A survey is only if it is required. Then we install.`,
+  },
+];
+---
+<Base title={title} description={description} crumbs={crumbs} faqs={faqs}>
+  <PageHero
+    eyebrow="Cost"
+    title="How much does air conditioning cost to install?"
+    lead={`The cheapest system we publish is a Clivet single room from ${business.priceFrom} at 0% VAT. That figure is the cheapest Clivet option. It is not a price for every brand.`}
+    crumbs={crumbs}
+    photo={pagePhotos.faqs}
+  />
+  <section class="section">
+    <div class="container prose">
+      <h2>The prices we publish</h2>
+      <ul>
+        <li>Clivet single room, from {business.priceFrom} at 0% VAT. This is the cheapest system we publish, and only for that Clivet option.</li>
+        <li>Multi-room systems, from {business.multiRoomFrom}.</li>
+        <li>Servicing, from {business.servicingFrom} a year.</li>
+      </ul>
+      <p>Qualifying home installs are 0% VAT until March 2027. Installations come with a 5 year warranty that covers parts and labour. Commercial, ducted and repair work is quoted from the job. We do not publish a single figure for those.</p>
+      <p>No1 Air Con is not MCS certified. The £2,500 Boiler Upgrade Scheme grant needs an MCS-certified installer, so an install by No1 does not qualify. <a href="https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners">Ofgem publishes the scheme rules</a>.</p>
+      <h2>What changes the price</h2>
+      <p>These are the things that move a quote. We are not putting a number on any of them here.</p>
+      <ul>
+        <li>How many rooms, and whether each room has its own outdoor unit or they share one.</li>
+        <li>The size of the room, the glass, and how the room is used.</li>
+        <li>Where the outdoor unit can go, and how far the pipes have to run.</li>
+        <li>Whether the ceiling or loft has room for a cassette or a ducted system.</li>
+        <li>Access for the install, including a shop or an office that has to stay open.</li>
+        <li>The brand. A Clivet price is not a Mitsubishi Electric price or a Daikin price.</li>
+      </ul>
+      <h2>How a quote works</h2>
+      <ol>
+        <li>Send photos, measurements and a floor plan. <RichText text={`${whatsappSend}.`} /></li>
+        <li>We quote remotely from those.</li>
+        <li>A survey only if it is required.</li>
+        <li>Then we install. Most installs take a day. Lead time is 4 to 8 weeks, and a lot of stock is held, so it is often sooner.</li>
+      </ol>
+      <h2>Jobs we have written up</h2>
+      <p>These are examples of finished work, not a price list. None of them is priced on this page.</p>
+      <ul>
+        <li><a href="/case-studies/bournemouth-daikin-air-conditioning/">A Daikin 3.5kW dining-room unit in Bournemouth</a>, fitted in one morning on 19 July 2026. The town page is <a href="/areas/bournemouth/">air conditioning in Bournemouth</a>.</li>
+        <li><a href="/case-studies/warsash-chalet-bungalow/">Two Daikin Sensira 3.5kW units in a Warsash chalet bungalow</a>, just outside Southampton, fitted in one day on 15 June 2026. See <a href="/areas/southampton/">air conditioning in Southampton</a>.</li>
+        <li><a href="/case-studies/westbury-lounge-air-conditioning/">A 3.5kW Haier single split in a Westbury lounge</a>, fitted on 1 August 2026.</li>
+      </ul>
+      <p>Local pages: <a href="/areas/hampshire/">Hampshire</a>, <a href="/areas/dorset/">Dorset</a>, <a href="/areas/poole/">Poole</a>, <a href="/areas/portsmouth/">Portsmouth</a> and <a href="/areas/ringwood/">the Ringwood showroom</a>. The install itself is on the <a href="/services/home-air-conditioning/">home air conditioning</a> page. Servicing is on the <a href="/services/servicing/">servicing</a> page.</p>
+    </div>
+  </section>
+  <GuideSection />
+  <FaqList faqs={faqs} heading="Cost questions" />
+  <QuoteSection title="Ask for a price for your rooms" />
+</Base>

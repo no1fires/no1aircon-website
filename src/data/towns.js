@@ -355,6 +355,194 @@ export const towns = [
       },
     ],
   },
+  {
+    slug: 'bournemouth',
+    name: 'Bournemouth',
+    county: 'Dorset',
+    title: 'Air Conditioning in Bournemouth | No1 Air Con',
+    description: 'Air conditioning installation in Bournemouth from our Ringwood showroom. A real Daikin dining-room job is written up, with photos.',
+    h1: 'Air conditioning in Bournemouth',
+    eyebrow: 'Dorset',
+    lead: 'Bournemouth is on the Dorset coast. The showroom is in Ringwood, and Bournemouth is one of the places already named as inside our 25 mile radius. The page is built around a dining-room install we finished there in July 2026.',
+    paragraphs: [
+      'Bournemouth is a large coastal town: flats and guest houses nearer the seafront, and family houses further back. A wall unit in a dining room is a different conversation from cooling a whole guest house. We size the room we are asked to do, from photos, measurements and a floor plan.',
+      'The job we can show you is a dining room. Juliet asked us to fit air conditioning for her mother-in-law, who is in her 80s, so the room would be more comfortable in summer heat. We do not name her. On Sunday 19 July 2026 Dan fitted a Daikin 3.5kW wall unit, high on the dining-room wall. The outdoor unit is on a side wall, with white trunking, and the job included a fused spur. He was there from about 8am to 1pm. The job is complete.',
+      'That was not Juliet’s first system with us. In June 2026 we had already fitted a Daikin 3.5kW back-to-back system at her own home in St Ives, near Ringwood. Back-to-back means the indoor and outdoor units sit on either side of the same wall. She then asked us to do the Bournemouth dining room.',
+      `Published prices, and what they do not cover, are on the [air conditioning cost](/air-conditioning-cost/) page. A Clivet single room is the cheapest option we publish, from ${business.priceFrom} at 0% VAT. It is not a price for every brand. ${whatsappSend}. A survey is only if it is needed.`,
+    ],
+    servicesIntro: 'In Bournemouth the work we can describe from a finished job is a single wall unit in a dining room. The same visit can also cover heating and cooling, servicing and repairs for the brands we install.',
+    services: ['home-air-conditioning', 'heating-and-cooling', 'servicing', 'repairs'],
+    nearby: ['poole', 'christchurch', 'ferndown'],
+    feature: {
+      href: '/case-studies/bournemouth-daikin-air-conditioning/',
+      src: '/images/case-studies/bournemouth-dining-room-daikin-indoor-unit-800.webp',
+      width: 800,
+      height: 600,
+      alt: 'Daikin wall-mounted air conditioner high on a dining-room wall beneath a chandelier in Bournemouth',
+      title: 'Dining room in Bournemouth',
+      text: 'A Daikin 3.5kW wall unit, fitted by Dan in one morning on 19 July 2026. The outdoor unit is on a side wall, with white trunking.',
+    },
+    answerFaqs: [
+      {
+        q: 'Do you install air conditioning in Bournemouth?',
+        a: `Yes. Bournemouth is already named as inside the ${business.radiusMiles} mile radius of the Ringwood showroom at ${showroom}. Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}.`,
+      },
+      {
+        q: 'What was fitted in the Bournemouth case study?',
+        a: 'A Daikin 3.5kW wall unit, high on a dining-room wall, for Juliet’s mother-in-law. Dan fitted it on Sunday 19 July 2026, from about 8am to 1pm. The outdoor unit is on a side wall with white trunking, and the job included a fused spur.',
+      },
+      {
+        q: 'How much does air conditioning cost in Bournemouth?',
+        a: `The cheapest system we publish is a Clivet single room from ${business.priceFrom} at 0% VAT. That is the cheapest Clivet option, not a price for every brand. Multi-room systems from ${business.multiRoomFrom}. The [cost guide](/air-conditioning-cost/) sets out what those prices do and do not include.`,
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is the Bournemouth install a multi-room system?',
+        a: 'No. It is one Daikin 3.5kW wall unit in one dining room, with its own outdoor unit.',
+      },
+      {
+        q: 'Can I read the full write-up?',
+        a: 'Yes. The Bournemouth case study has the photos, the facts and Juliet’s review.',
+      },
+    ],
+  },
+  {
+    slug: 'poole',
+    name: 'Poole',
+    county: 'Dorset',
+    title: 'Air Conditioning in Poole | No1 Air Con',
+    description: 'Air conditioning installation in Poole, Dorset, from our Ringwood showroom. Poole is inside the area we already name. Ask for a remote quote.',
+    h1: 'Air conditioning in Poole',
+    eyebrow: 'Dorset',
+    lead: 'Poole is the harbour town next to Bournemouth. The showroom is in Ringwood, and Poole is already named as inside our 25 mile radius. We quote from photos, measurements and a floor plan.',
+    paragraphs: [
+      'Poole spreads from the old quay and the town centre out to family housing and the harbour edge. A flat above a shop and a house with a garden are different places to put an outdoor unit. We do not price either from the town name. We need photos of the room and the outside wall.',
+      'We have not published a Poole case study. The nearest finished job we can show is next door in Bournemouth: a Daikin 3.5kW wall unit in a dining room, fitted on 19 July 2026. That was a Bournemouth house, not a Poole one. It is useful only as an example of the sort of single-room wall unit we fit along this coast.',
+      `Poole sits with Christchurch and Bournemouth on the Dorset coast, west of the New Forest. The [Dorset](/areas/dorset/) page lists the other Dorset towns. Published prices are on the [air conditioning cost](/air-conditioning-cost/) page. ${whatsappSend}. A survey is only if it is needed.`,
+    ],
+    servicesIntro: 'In Poole we quote for home air conditioning, heating and cooling, servicing and repairs. Commercial and ducted work is quoted the same way, from photos, when the building can take it.',
+    services: ['home-air-conditioning', 'heating-and-cooling', 'servicing', 'repairs'],
+    nearby: ['bournemouth', 'christchurch', 'wimborne'],
+    answerFaqs: [
+      {
+        q: 'Do you install air conditioning in Poole?',
+        a: `Yes. Poole is already named as inside the ${business.radiusMiles} mile radius of the Ringwood showroom at ${showroom}.`,
+      },
+      {
+        q: 'Do you have a Poole case study?',
+        a: 'Not yet. The nearest written-up job is a Daikin dining-room install in Bournemouth, which is a different town.',
+      },
+      {
+        q: 'How much does air conditioning installation cost in Poole?',
+        a: `A Clivet single room, our cheapest published system, is from ${business.priceFrom} at 0% VAT. It is not the price of every brand. See the [cost guide](/air-conditioning-cost/).`,
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is Poole in the same area as Bournemouth?',
+        a: 'They are neighbouring Dorset towns. A job in one is not a job in the other. We still quote each address from its own photos.',
+      },
+      {
+        q: 'Where is the showroom if I want to see a unit first?',
+        a: `At ${showroom}, in Ringwood. Poole does not have a No1 showroom.`,
+      },
+    ],
+  },
+  {
+    slug: 'southampton',
+    name: 'Southampton',
+    county: 'Hampshire',
+    title: 'Air Conditioning in Southampton | No1 Air Con',
+    description: 'Air conditioning in Southampton, and a real install in Warsash, just outside the city. Two Daikin units, fitted in one day.',
+    h1: 'Air conditioning in Southampton',
+    eyebrow: 'Hampshire',
+    lead: 'Southampton is a Hampshire city on the Solent. The showroom is in Ringwood, and Southampton is already named as inside our 25 mile radius. The job we can show you is not in the city centre. It is in Warsash, just outside Southampton.',
+    paragraphs: [
+      'Southampton is a city of terraces, flats and newer estates, with the port on one side and the river on the other. Warsash is a village on the coast to the east of the city, towards the Hamble. It is not a Southampton city address. We say that because the case study people find from this page is a chalet bungalow in Warsash.',
+      'After that house was insulated it got very hot in summer, especially a child’s bedroom upstairs. On 15 June 2026 we fitted two Daikin Sensira 3.5kW single-split wall units, one indoor unit and one outdoor unit for each room. Both systems were installed in one day. The write-up names the rooms, the units and the date.',
+      `A Southampton city address is quoted the same way as Warsash: photos, measurements and a floor plan, then a remote quote. ${whatsappSend}. A survey is only if it is needed. Prices we publish are on the [air conditioning cost](/air-conditioning-cost/) page. The rest of the county is on the [Hampshire](/areas/hampshire/) page.`,
+    ],
+    servicesIntro: 'The Southampton page is here for city addresses and for people searching from Warsash. The finished job we can show is the Warsash chalet bungalow.',
+    services: ['home-air-conditioning', 'heating-and-cooling', 'servicing', 'repairs'],
+    nearby: ['new-milton', 'ringwood'],
+    feature: {
+      href: '/case-studies/warsash-chalet-bungalow/',
+      src: '/images/case-studies/warsash-chalet-bungalow-childs-bedroom-daikin-800.webp',
+      width: 800,
+      height: 1067,
+      alt: "Daikin wall-mounted air conditioning unit fitted high on the sloped wall of a child's bedroom in a Warsash chalet bungalow, just outside Southampton",
+      title: 'Chalet bungalow in Warsash, just outside Southampton',
+      text: 'Two Daikin Sensira 3.5kW wall units, fitted in one day on 15 June 2026. Warsash is a village outside Southampton, not a city-centre job.',
+    },
+    answerFaqs: [
+      {
+        q: 'Do you install air conditioning in Southampton?',
+        a: `Yes. Southampton is already named as inside the ${business.radiusMiles} mile radius of the Ringwood showroom. Send photos, measurements and a floor plan. ${whatsappSend}.`,
+      },
+      {
+        q: 'Is the Warsash case study in Southampton?',
+        a: 'Warsash is just outside Southampton, on the Hampshire coast. It is not in Southampton city. The case study says Warsash, Southampton so people can find the area. The house is a chalet bungalow in the village.',
+      },
+      {
+        q: 'What was fitted in Warsash?',
+        a: 'Two Daikin Sensira 3.5kW single-split wall units, installed in one day on 15 June 2026. The house had got very hot after it was insulated, especially a child’s bedroom.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'How much does air conditioning installation cost in Southampton?',
+        a: `The cheapest system we publish is a Clivet single room from ${business.priceFrom} at 0% VAT. That price is not for every brand. The [cost guide](/air-conditioning-cost/) explains the other published prices.`,
+      },
+      {
+        q: 'Can I see the Warsash photos?',
+        a: 'Yes. The Warsash case study has the bedroom photo, the outdoor units and the facts.',
+      },
+    ],
+  },
+  {
+    slug: 'portsmouth',
+    name: 'Portsmouth',
+    county: 'Hampshire',
+    title: 'Air Conditioning in Portsmouth | No1 Air Con',
+    description: 'Air conditioning installation in Portsmouth, Hampshire. The showroom is in Ringwood. Call to check an address is inside the area we cover.',
+    h1: 'Air conditioning in Portsmouth',
+    eyebrow: 'Hampshire',
+    lead: 'Portsmouth is a Hampshire city on the east side of the county. The showroom is in Ringwood, on the western edge. We work within 25 miles of that showroom. A Portsmouth address needs a check before we say yes.',
+    paragraphs: [
+      'Portsmouth is not one of the places we already list as inside the 25 mile radius. Southampton is on that list. Portsmouth is further east, on its own island, with terraces, flats and houses packed closer than a New Forest village. We will not invent a Portsmouth job, a driving time, or a promise that every postcode is covered.',
+      `If you have a Portsmouth address, call ${business.phone} or send the photos. We will say whether it is inside the area we cover. If it is, the quote is the same remote quote we use everywhere else: photos, measurements and a floor plan. ${whatsappSend}. A survey is only if it is needed.`,
+      'The nearest written-up Hampshire job is in Warsash, just outside Southampton, not in Portsmouth. Two Daikin Sensira 3.5kW wall units were fitted there in one day on 15 June 2026. It shows the kind of home install we do. It is not a Portsmouth install.',
+      `Prices we are willing to publish are on the [air conditioning cost](/air-conditioning-cost/) page. The cheapest is a Clivet single room from ${business.priceFrom} at 0% VAT, and that is not a price for every brand. The rest of the county is on the [Hampshire](/areas/hampshire/) page.`,
+    ],
+    servicesIntro: 'Where a Portsmouth address is inside the area we cover, the usual work is a home wall unit, heating and cooling, servicing and repairs.',
+    services: ['home-air-conditioning', 'heating-and-cooling', 'servicing', 'repairs'],
+    nearby: ['southampton'],
+    answerFaqs: [
+      {
+        q: 'Do you install air conditioning in Portsmouth?',
+        a: `The showroom is in Ringwood and we work within ${business.radiusMiles} miles of it. Portsmouth is further east than the places we already name. Call ${business.phone} with the address and we will say yes or no.`,
+      },
+      {
+        q: 'How much is air conditioning installation in Portsmouth?',
+        a: `If we cover the address, a Clivet single room is from ${business.priceFrom} at 0% VAT. That is the cheapest Clivet option, not every brand. The [cost guide](/air-conditioning-cost/) has the other published prices.`,
+      },
+      {
+        q: 'Is there a Portsmouth case study?',
+        a: 'No. The Hampshire job we have written up is a chalet bungalow in Warsash, just outside Southampton.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Where would I see a unit before deciding?',
+        a: `At the showroom, ${showroom}. There is no No1 showroom in Portsmouth.`,
+      },
+      {
+        q: 'Do you claim a same-day Portsmouth visit?',
+        a: 'No. We do not publish a journey time. Most installs, once booked, are done in a day. The lead time is 4 to 8 weeks, and stock is often sooner. That is not a promise for the next job.',
+      },
+    ],
+  },
 ];
 
 export function getTown(slug) {
