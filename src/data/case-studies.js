@@ -13,6 +13,14 @@ export const caseStudies = [
     h1: 'Air conditioning a chalet bungalow in Warsash, Southampton',
     eyebrow: 'Case study',
     lead: 'Two Daikin Sensira 3.5kW wall units, fitted in one day on 15 June 2026.',
+    card: {
+      src: '/images/case-studies/warsash-chalet-bungalow-childs-bedroom-daikin-800.webp',
+      srcset: '/images/case-studies/warsash-chalet-bungalow-childs-bedroom-daikin-800.webp 800w, /images/case-studies/warsash-chalet-bungalow-childs-bedroom-daikin.webp 1600w',
+      width: 800,
+      height: 1067,
+      alt: "Daikin wall-mounted air conditioning unit fitted high on the sloped wall of a child's bedroom in a Warsash chalet bungalow",
+      facts: ['2 x Daikin Sensira 3.5kW', 'Fitted in one day', 'June 2026'],
+    },
   },
   {
     slug: 'single-room-home',
