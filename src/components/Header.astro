@@ -55,7 +55,15 @@ const current = (href) => (path === href ? 'page' : undefined);
         </div>
         <a class="nav-link" href="/about/" aria-current={current('/about/')}>About</a>
         <a class="nav-link" href="/about/#showroom">Showroom</a>
-        <a class="nav-link" href="/reviews/" aria-current={current('/reviews/')}>Reviews</a>
+        <div class="nav-item">
+          <a class="nav-link" href="/reviews/" aria-current={path.startsWith('/reviews/') || path.startsWith('/case-studies/') ? 'page' : undefined}>
+            Reviews <Icon name="chevron" size={16} />
+          </a>
+          <div class="nav-sub">
+            <a href="/reviews/" aria-current={current('/reviews/')}>Reviews</a>
+            <a href="/case-studies/" aria-current={path.startsWith('/case-studies/') ? 'page' : undefined}>Case Studies</a>
+          </div>
+        </div>
         <a class="nav-link" href="/contact/" aria-current={current('/contact/')}>Contact</a>
       </nav>
     </div>
@@ -81,7 +89,13 @@ const current = (href) => (path === href ? 'page' : undefined);
     </div>
     <a class="mobile-link" href="/about/" aria-current={current('/about/')}>About</a>
     <a class="mobile-link" href="/about/#showroom">Showroom</a>
-    <a class="mobile-link" href="/reviews/" aria-current={current('/reviews/')}>Reviews</a>
+    <button class="sub-toggle" type="button" data-sub-toggle aria-expanded="false" aria-controls="mobile-reviews">
+      Reviews <Icon name="chevron" size={18} />
+    </button>
+    <div id="mobile-reviews" class="mobile-sub" hidden>
+      <a href="/reviews/" aria-current={current('/reviews/')}>Reviews</a>
+      <a href="/case-studies/" aria-current={path.startsWith('/case-studies/') ? 'page' : undefined}>Case Studies</a>
+    </div>
     <a class="mobile-link" href="/contact/" aria-current={current('/contact/')}>Contact</a>
     <a class="mobile-link" href="/faqs/">FAQs</a>
     <div class="mobile-contact">
