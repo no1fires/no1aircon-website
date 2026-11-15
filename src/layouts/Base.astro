@@ -3,8 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
-import EntityFacts from '../components/EntityFacts.astro';
-import { INDEXABLE, business, contentUpdated } from '../data/business.js';
+import { INDEXABLE, business } from '../data/business.js';
 import { buildGraph } from '../lib/schema.js';
 
 const {
@@ -13,7 +12,6 @@ const {
   crumbs = [],
   faqs = [],
   service = null,
-  updated = contentUpdated,
   hideReviews = false,
 } = Astro.props;
 
@@ -65,7 +63,6 @@ const whatsapp = business.whatsappIntl
   <Header />
   <main id="main-content">
     <slot />
-    <EntityFacts updated={updated} />
   </main>
   {!hideReviews && <GoogleReviews />}
   <Footer />
