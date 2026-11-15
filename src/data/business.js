@@ -1,10 +1,9 @@
 // Single source of truth for name, address and phone (NAP).
 // Keep these identical to the Google Business Profile and every listing.
 //
-// INDEXABLE: leave false until launch so the preview is not indexed.
-// Flip to true when the domain is ready. That one change removes the
-// noindex meta tag, allows crawlers in robots.txt, and publishes the sitemap.
-export const INDEXABLE = false;
+// INDEXABLE: true publishes the site. It removes the noindex meta tag,
+// allows crawlers in robots.txt, and publishes the sitemap.
+export const INDEXABLE = true;
 
 export const contentUpdated = '2026-10-28';
 
