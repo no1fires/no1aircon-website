@@ -120,14 +120,13 @@ export const buyerFaqs = [
     q: 'Are there grants or VAT relief for home air conditioning?',
     paragraphs: [
       'Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. HMRC zero-rates the supply and installation of a permanently fixed air source heat pump, including a unit that heats and cools, in residential accommodation from 1 May 2023 to 31 March 2027. Portable units do not qualify. From 1 April 2027 the relief is due to change.',
-      'The Boiler Upgrade Scheme includes a £2,500 grant for an eligible air-to-air heat pump in England and Wales, but the installer has to be MCS certified and the system has to meet the scheme rules, including being set up for the property’s heating. MCS says air-to-air installer certification is not yet in place, so that grant cannot be claimed on a standard install today. We have not said that we will offer it.',
+      'The Boiler Upgrade Scheme grant needs an MCS-certified installer. No1 is not MCS certified, so a No1 install is not eligible for the grant.',
       `Our cheapest system is a Clivet single room from ${business.priceFrom} (0% VAT). A multi-room system is from ${business.multiRoomFrom} including VAT. On a qualifying home install, that VAT rate is 0% until 31 March 2027.`,
     ],
     sources: [
       { name: 'HMRC VAT Notice 708/6', url: 'https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086' },
       { name: 'GOV.UK, VAT on energy-saving products', url: 'https://www.gov.uk/tax-on-shopping/energy-saving-products' },
       { name: 'Ofgem, Boiler Upgrade Scheme', url: 'https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners' },
-      { name: 'MCS, air-to-air heat pumps', url: 'https://mcscertified.com/consumers/technologies/air-to-air-heat-pumps/' },
     ],
   },
 ];

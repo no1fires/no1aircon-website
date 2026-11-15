@@ -6,7 +6,6 @@
 export const placeholders = {
   whatsapp: '[TODO: add WhatsApp number]',
   companyNumber: '[TODO: add company number]',
-  vatNumber: '[TODO: add VAT number]',
   googleRating: '[TODO: add Google rating]',
   reviewCount: '[TODO: add review count]',
   reviews: '[TODO: add real customer reviews — name, town, what was fitted, and the words they used]',

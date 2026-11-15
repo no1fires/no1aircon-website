@@ -48,11 +48,9 @@ export const business = {
   // Stated on the current site. Do not publish an F-Gas or REFCOM number.
   refcomCertified: true,
   sister: { name: 'No1 Fires', url: 'https://no1fires.co.uk' },
-  // Null until Danny supplies them. Pages show the matching placeholder.
   whatsapp: '07457 405634',
   whatsappIntl: '447457405634',
   companyNumber: '14778718',
-  vatNumber: null,
   // Danny confirmed these showroom hours. Closed Sunday and Monday.
   // Pages print them through openingHoursText().
   hours: [
