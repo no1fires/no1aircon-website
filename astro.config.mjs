@@ -15,7 +15,7 @@ export default defineConfig({
           '/case-studies/multi-room-heating-and-cooling/',
           '/case-studies/commercial-space/',
         ];
-        return INDEXABLE && !page.includes('/404') && !hiddenStudies.some((path) => page.includes(path));
+        return INDEXABLE && !page.includes('/404') && !page.includes('/design-options/') && !hiddenStudies.some((path) => page.includes(path));
       },
     }),
   ],
