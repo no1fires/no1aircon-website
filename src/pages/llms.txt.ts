@@ -46,11 +46,15 @@ ${previewNote}## What they do
 
 ## Areas
 
-Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton.
+Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth.
+
+Bournemouth has a Daikin dining-room case study. Southampton's written-up job is in Warsash, just outside the city, not in Southampton city. Portsmouth is further east than the places already named inside the 25-mile radius, so an address there is checked first.
 
 The showroom address is on Christchurch Road in Ringwood. That is not the town of Christchurch.
 
-Also inside the 25-mile radius, without their own pages: Bournemouth, Poole, Lymington, Southampton, Salisbury, New Forest.
+Also inside the 25-mile radius, without their own pages: Lymington, Salisbury, New Forest.
+
+Cost guide: https://no1aircon.co.uk/air-conditioning-cost/ . Cheapest published system is a Clivet single room from £1,395 at 0% VAT, not a price for every brand. Multi-room from £3,499. Servicing from £125 a year. No1 is not MCS certified, so installs do not qualify for the Boiler Upgrade Scheme grant.
 
 ## Contact
 
@@ -83,6 +87,11 @@ Also inside the 25-mile radius, without their own pages: Bournemouth, Poole, Lym
 - https://no1aircon.co.uk/areas/christchurch/
 - https://no1aircon.co.uk/areas/wimborne/
 - https://no1aircon.co.uk/areas/new-milton/
+- https://no1aircon.co.uk/areas/bournemouth/
+- https://no1aircon.co.uk/areas/poole/
+- https://no1aircon.co.uk/areas/southampton/
+- https://no1aircon.co.uk/areas/portsmouth/
+- https://no1aircon.co.uk/air-conditioning-cost/
 - https://no1aircon.co.uk/case-studies/
 - https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
 - https://no1aircon.co.uk/case-studies/westbury-lounge-air-conditioning/
@@ -116,7 +125,7 @@ Q: Does a No1 install qualify for the £2,500 Boiler Upgrade Scheme grant?
 A: No. The grant needs an MCS-certified installer. No1 Air Con is not MCS certified, so installs by No1 do not qualify. Ofgem publishes the rules at https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners
 
 Q: Which towns have pages?
-A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne and New Milton.
+A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth. The cost guide is https://no1aircon.co.uk/air-conditioning-cost/ .
 `;
 
 export function GET() {

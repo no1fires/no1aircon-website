@@ -88,10 +88,7 @@ export const brands = [
 
 // Towns we already say we cover, beyond the eight launch pages.
 export const alsoCovered = [
-  'Bournemouth',
-  'Poole',
   'Lymington',
-  'Southampton',
   'Salisbury',
   'New Forest',
 ];

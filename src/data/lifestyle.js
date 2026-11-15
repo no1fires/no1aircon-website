@@ -124,6 +124,10 @@ export const townPhotos = {
   christchurch: lobby('center 14%'),
   wimborne: meeting1('62% 28%'),
   'new-milton': rubyMeet('center 10%'),
+  bournemouth: pearl('center 22%'),
+  poole: ay('center 32%'),
+  southampton: bedroom('center 18%'),
+  portsmouth: lobby('center 16%'),
 };
 
 export const casePhotos = {
@@ -156,6 +160,10 @@ export const photoLabel = {
   christchurch: 'MSZ-LN Pearl White lobby',
   wimborne: 'Meeting room, white wall unit (1)',
   'new-milton': 'MSZ-LN Ruby Red, small meeting room',
+  bournemouth: 'MSZ-LN Pearl White room setting',
+  poole: 'MSZ-AY white room setting',
+  southampton: 'MSZ-LN Natural White bedroom',
+  portsmouth: 'MSZ-LN Pearl White lobby',
   'single-room-home': 'MSZ-LN Onyx Black home office',
   'multi-room-heating-and-cooling': 'MSZ-LN Pearl White room setting',
   'commercial-space': 'Meeting room, white wall unit (2)',
