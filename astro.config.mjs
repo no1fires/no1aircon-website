@@ -9,7 +9,14 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => INDEXABLE && !page.includes('/robots.txt'),
+      filter: (page) => {
+        const hiddenStudies = [
+          '/case-studies/single-room-home/',
+          '/case-studies/multi-room-heating-and-cooling/',
+          '/case-studies/commercial-space/',
+        ];
+        return INDEXABLE && !page.includes('/404') && !hiddenStudies.some((path) => page.includes(path));
+      },
     }),
   ],
 });

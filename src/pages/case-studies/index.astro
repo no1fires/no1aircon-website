@@ -2,10 +2,13 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
 import { caseStudies } from '../../data/case-studies.js';
+import { pagePhotos } from '../../data/lifestyle.js';
 
+const published = caseStudies.filter((study) => study.published);
 const title = 'Air Conditioning Case Studies | No1 Air Con';
-const description = 'Placeholder case studies for No1 Air Con. Real jobs, towns and photos have not been added yet, and none of these pages invent them.';
+const description = 'Real air conditioning installs in Warsash, Westbury and Bournemouth, with the town and the equipment named.';
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Case studies', href: '/case-studies/' },
@@ -14,19 +17,113 @@ const crumbs = [
 <Base title={title} description={description} crumbs={crumbs}>
   <PageHero
     eyebrow="Case studies"
-    title="Real jobs will replace these pages"
-    lead="Three slots are ready: a single room, a multi-room heating and cooling system, and a commercial space. They are marked as placeholders so they cannot be mistaken for finished work."
+    title="Air conditioning we have fitted"
+    lead="Real jobs, with the town and the equipment named."
     crumbs={crumbs}
+    photo={pagePhotos.caseStudies}
   />
+  <GuideSection />
   <section class="section">
-    <div class="container area-grid">
-      {caseStudies.map((study) => (
-        <a class="area-link" href={`/case-studies/${study.slug}/`}>
-          {study.name}
-          <span>{study.lead}</span>
-        </a>
-      ))}
+    <div class="container">
+      <div class="feature-grid">
+        {published.map((study) => (
+          <a class="feature-card" href={`/case-studies/${study.slug}/`}>
+            {study.card && (
+              <img
+                src={study.card.src}
+                srcset={study.card.srcset}
+                alt={study.card.alt}
+                width={study.card.width}
+                height={study.card.height}
+                sizes="(min-width: 860px) 520px, 100vw"
+                style={study.card.position ? `object-position: ${study.card.position}` : undefined}
+              />
+            )}
+            <div>
+              <h2>{study.name}</h2>
+              <p>{study.lead}</p>
+              {study.card?.facts?.length > 0 && (
+                <ul>
+                  {study.card.facts.map((fact) => <li>{fact}</li>)}
+                </ul>
+              )}
+              <span class="btn">Read the case study</span>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
   <QuoteSection />
 </Base>
+
+<style>
+  .feature-grid { display: grid; gap: 22px; }
+  .feature-card {
+    display: grid;
+    background: var(--blue);
+    border-radius: 16px;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 14px 32px rgba(15, 30, 61, 0.14);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .feature-card:hover {
+    color: #fff;
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px rgba(15, 30, 61, 0.2);
+  }
+  .feature-card:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+  .feature-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center 32%;
+  }
+  .feature-card div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 26px 24px 28px;
+  }
+  .feature-card h2 { color: #fff; font-size: clamp(1.7rem, 3vw, 2.25rem); }
+  .feature-card p { margin: 0; color: #fff; font-size: 1.0625rem; }
+  .feature-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 2px 0 6px;
+    padding: 0;
+    list-style: none;
+  }
+  .feature-card li {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+  .feature-card .btn { align-self: flex-start; }
+  @media (min-width: 860px) {
+    .feature-card { grid-template-columns: minmax(300px, 0.92fr) 1.08fr; }
+    .feature-card img { height: 440px; }
+    .feature-card div { padding: 36px 40px; }
+  }
+  @media (min-width: 860px) {
+    .feature-grid:has(> :nth-child(2)) { grid-template-columns: 1fr 1fr; }
+    .feature-grid:has(> :nth-child(2)) .feature-card { grid-template-columns: 1fr; }
+    .feature-grid:has(> :nth-child(2)) .feature-card img { height: 240px; }
+    .feature-grid:has(> :nth-child(2)) .feature-card h2 { font-size: 1.45rem; }
+    .feature-grid:has(> :nth-child(2)) .feature-card div { padding: 22px 20px 24px; }
+  }
+  @media (min-width: 1040px) {
+    .feature-grid:has(> :nth-child(3)) { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .feature-card { transition: none; }
+    .feature-card:hover { transform: none; }
+  }
+</style>

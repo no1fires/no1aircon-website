@@ -1,0 +1,18 @@
+---
+import { business } from '../data/business.js';
+
+const address = `${business.street}, ${business.town} ${business.postcode}`;
+const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&z=16&output=embed`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+---
+<div class="map-panel">
+  <div class="map-wrap">
+    <iframe
+      title={`Map of the ${business.name} showroom at ${address}`}
+      src={mapSrc}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  <a class="map-directions" href={directionsUrl} target="_blank" rel="noopener noreferrer">Get directions</a>
+</div>

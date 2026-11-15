@@ -2,9 +2,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import EntityFacts from '../components/EntityFacts.astro';
-import Icon from '../components/Icon.astro';
-import { INDEXABLE, business, contentUpdated } from '../data/business.js';
+import GoogleReviews from '../components/GoogleReviews.astro';
+import { INDEXABLE, business } from '../data/business.js';
 import { buildGraph } from '../lib/schema.js';
 
 const {
@@ -13,14 +12,25 @@ const {
   crumbs = [],
   faqs = [],
   service = null,
-  updated = contentUpdated,
+  hideReviews = false,
+  forceNoindex = false,
+  hideCanonical = false,
+  article = null,
+  ogImage = null,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const graph = buildGraph({ canonical, crumbs, faqs, service });
+const graph = buildGraph({ canonical, crumbs, faqs, service, article });
 const json = JSON.stringify(graph).replace(/</g, '\\u003c');
-const image = `${business.url}/images/og-default.png`;
-const whatsapp = business.whatsappIntl ? `https://wa.me/${String(business.whatsappIntl).replace('+', '')}` : '';
+const image = ogImage?.src ?? `${business.url}/images/og-default.png`;
+const imageWidth = ogImage?.width ?? 1200;
+const imageHeight = ogImage?.height ?? 630;
+const imageType = ogImage?.type ?? 'image/png';
+const imageAlt = ogImage?.alt ?? 'No1 Air Conditioning, Ringwood showroom, Hampshire and Dorset';
+const whatsappText = "Hi No1 Air Con, I'd like to ask about air conditioning.";
+const whatsapp = business.whatsappIntl
+  ? `https://wa.me/${String(business.whatsappIntl).replace('+', '')}?text=${encodeURIComponent(whatsappText)}`
+  : '';
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -29,8 +39,8 @@ const whatsapp = business.whatsappIntl ? `https://wa.me/${String(business.whatsa
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonical} />
-  {!INDEXABLE && <meta name="robots" content="noindex" />}
+  {!hideCanonical && <link rel="canonical" href={canonical} />}
+  {(!INDEXABLE || forceNoindex) && <meta name="robots" content="noindex" />}
   <meta name="theme-color" content="#0f1e3d" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_GB" />
@@ -39,10 +49,10 @@ const whatsapp = business.whatsappIntl ? `https://wa.me/${String(business.whatsa
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={image} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="No1 Air Conditioning, Ringwood showroom, Hampshire and Dorset" />
+  <meta property="og:image:width" content={imageWidth} />
+  <meta property="og:image:height" content={imageHeight} />
+  <meta property="og:image:type" content={imageType} />
+  <meta property="og:image:alt" content={imageAlt} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
@@ -61,18 +71,17 @@ const whatsapp = business.whatsappIntl ? `https://wa.me/${String(business.whatsa
   <Header />
   <main id="main-content">
     <slot />
-    <EntityFacts updated={updated} />
   </main>
+  {!hideReviews && <GoogleReviews />}
   <Footer />
   <div class="float-stack">
     {whatsapp && (
-      <a class="float-btn wa" href={whatsapp} aria-label="WhatsApp No1 Air Conditioning">
-        <Icon name="quote" size={26} />
+      <a class="float-btn wa" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Message us on WhatsApp">
+        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10.1 10.1 0 0 0 4.65 1.14h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 13.84c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.12.11-1.81-.11-.42-.14-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.26-.28.57-.35.76-.35h.55c.17 0 .41-.07.64.49.24.58.81 2 .88 2.14.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.56.16.28.7 1.16 1.51 1.88 1.04.92 1.91 1.21 2.19 1.35.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.19-.27.37-.23.62-.14.26.09 1.62.76 1.9.9.28.14.46.21.53.32.07.12.07.68-.17 1.36z"/>
+        </svg>
       </a>
     )}
-    <a class="float-btn" href={`tel:${business.phoneIntl}`} aria-label={`Call ${business.phone}`}>
-      <Icon name="phone" size={26} />
-    </a>
   </div>
   <script>
     import '../scripts/site.js';

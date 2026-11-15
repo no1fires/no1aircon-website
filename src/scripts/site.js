@@ -118,6 +118,53 @@ function fallbackMessage(form) {
   return `The online form is not connected yet, so this has not been sent. Call <a href="${phoneHref}">${phone}</a> or email <a href="mailto:${email}">${email}</a>.`;
 }
 
+function postQuote(endpoint, payload) {
+  return fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+    body: new URLSearchParams(payload),
+  }).then((response) => {
+    if (!response.ok) throw new Error('Request failed');
+  });
+}
+
+// JSON POST. If the browser cannot read the response because of CORS, send the
+// same payload in a no-cors request so it still arrives, and treat that as sent.
+async function postGuide(endpoint, payload) {
+  const body = JSON.stringify(payload);
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+    });
+    if (!response.ok) throw new Error('Request failed');
+  } catch (error) {
+    if (!(error instanceof TypeError)) throw error;
+    await fetch(endpoint, { method: 'POST', mode: 'no-cors', body });
+  }
+}
+
+function showGuideSuccess(status, pdf) {
+  if (status) {
+    status.className = 'status is-ok';
+    status.replaceChildren();
+    status.append('Thanks. Your guide is ready. ');
+    if (pdf) {
+      const link = document.createElement('a');
+      link.href = pdf;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Download the guide';
+      status.append(link, '. ');
+    }
+    status.append('A copy is also on its way by email.');
+  }
+  if (!pdf) return;
+  const opened = window.open(pdf, '_blank', 'noopener,noreferrer');
+  if (opened) opened.opener = null;
+}
+
 function setupForms() {
   document.querySelectorAll('form[data-form]').forEach((form) => {
     form.addEventListener('submit', async (event) => {
@@ -165,10 +212,23 @@ function setupForms() {
         return;
       }
 
-      const payload = { formType: form.dataset.form, page: form.dataset.page || window.location.pathname };
+      const fields = {};
       new FormData(form).forEach((value, key) => {
-        if (key !== 'company_website') payload[key] = String(value).trim();
+        if (key !== 'company_website') fields[key] = String(value).trim();
       });
+      const page = form.dataset.page || window.location.pathname;
+      const isGuide = form.dataset.form === 'buyers-guide';
+      const payload = isGuide
+        ? {
+          first_name: fields.name || '',
+          name: fields.name || '',
+          email: fields.email || '',
+          phone: fields.phone || '',
+          source: 'New AC website - guide',
+          formType: 'buyers-guide',
+          page,
+        }
+        : { ...fields, formType: form.dataset.form, page };
 
       const endpoint = (form.dataset.endpoint || '').trim();
       if (!endpoint.startsWith('https://')) {
@@ -185,16 +245,14 @@ function setupForms() {
         status.textContent = 'Sending…';
       }
 
+      const guidePdf = form.dataset.guidePdf || '';
+
       try {
-        const body = new URLSearchParams(payload);
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body,
-        });
-        if (!response.ok) throw new Error('Request failed');
+        if (isGuide) await postGuide(endpoint, payload);
+        else await postQuote(endpoint, payload);
         form.reset();
-        if (status) {
+        if (isGuide) showGuideSuccess(status, guidePdf);
+        else if (status) {
           status.className = 'status is-ok';
           status.textContent = form.dataset.success || 'Thanks. We have received this and will be in touch.';
         }
@@ -226,8 +284,123 @@ function setupMaps() {
   });
 }
 
+function setupGuideFocus() {
+  const focusField = () => {
+    const hash = window.location.hash;
+    if (hash !== '#guide' && hash !== '#guide-form') return;
+    const form = document.getElementById('guide-form');
+    const field = form && form.querySelector('input[name="name"]');
+    if (!field) return;
+    window.requestAnimationFrame(() => {
+      field.focus({ preventScroll: true });
+    });
+  };
+  focusField();
+  window.addEventListener('hashchange', focusField);
+}
+
+function setupInstalls() {
+  document.querySelectorAll('[data-install-root]').forEach((group) => {
+    const root = group.querySelector('[data-install-carousel]');
+    const dialog = group.querySelector('[data-install-lightbox]');
+    if (!root || !dialog) return;
+    setupInstall(root, dialog);
+  });
+}
+
+function setupInstall(root, dialog) {
+  const viewport = root.querySelector('.install-viewport');
+  const track = root.querySelector('.install-track');
+  const cards = [...track.children];
+  const prev = root.querySelector('[data-install-prev]');
+  const next = root.querySelector('[data-install-next]');
+  const dotsWrap = root.querySelector('[data-install-dots]');
+  const full = dialog.querySelector('[data-install-full]');
+  const caption = dialog.querySelector('[data-install-caption]');
+  let index = 0;
+  let moved = false;
+
+  const perView = () => (window.matchMedia('(min-width: 900px)').matches ? 3 : 1);
+  const maxIndex = () => Math.max(0, cards.length - perView());
+
+  const go = (nextIndex) => {
+    index = Math.max(0, Math.min(maxIndex(), nextIndex));
+    const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+    const step = cards[0].getBoundingClientRect().width + gap;
+    track.style.transform = `translateX(${-index * step}px)`;
+    prev.disabled = index === 0;
+    next.disabled = index === maxIndex();
+    dotsWrap.querySelectorAll('button').forEach((dot, dotIndex) => {
+      dot.setAttribute('aria-current', dotIndex === index ? 'true' : 'false');
+    });
+  };
+
+  const buildDots = () => {
+    dotsWrap.replaceChildren();
+    const count = maxIndex() + 1;
+    for (let i = 0; i < count; i += 1) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show installation group ${i + 1}`);
+      dot.addEventListener('click', () => go(i));
+      dotsWrap.append(dot);
+    }
+    go(Math.min(index, maxIndex()));
+  };
+
+  prev.addEventListener('click', () => go(index - 1));
+  next.addEventListener('click', () => go(index + 1));
+
+  let startX = 0;
+  let dragging = false;
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    dragging = true;
+    moved = false;
+    startX = event.clientX;
+  });
+  viewport.addEventListener('pointermove', (event) => {
+    if (!dragging) return;
+    if (Math.abs(event.clientX - startX) > 10) moved = true;
+  });
+  const endDrag = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    const delta = event.clientX - startX;
+    if (delta <= -40) go(index + 1);
+    else if (delta >= 40) go(index - 1);
+  };
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', () => { dragging = false; });
+  viewport.addEventListener('click', (event) => {
+    if (!moved) return;
+    event.preventDefault();
+    event.stopPropagation();
+    moved = false;
+  }, true);
+
+  root.querySelectorAll('[data-install-open]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (moved) return;
+      full.src = button.dataset.src;
+      full.alt = button.dataset.alt;
+      caption.textContent = button.dataset.caption;
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+    });
+  });
+  dialog.querySelector('[data-install-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  buildDots();
+  window.addEventListener('resize', buildDots);
+}
+
 setupNav();
 setupFaq();
 setupReveal();
 setupForms();
 setupMaps();
+setupGuideFocus();
+setupInstalls();

@@ -1,0 +1,260 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
+import FaqList from '../../components/FaqList.astro';
+import RichText from '../../components/RichText.astro';
+import { business } from '../../data/business.js';
+import { getCaseStudy } from '../../data/case-studies.js';
+
+const study = getCaseStudy('warsash-chalet-bungalow');
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Case studies', href: '/case-studies/' },
+  { name: study.name, href: `/case-studies/${study.slug}/` },
+];
+
+const photos = [
+  {
+    name: 'warsash-chalet-bungalow-daikin-outdoor-unit-gable',
+    alt: 'Daikin outdoor unit on the rendered gable end of a chalet bungalow in Warsash, with white trunking running up the wall',
+    caption: 'One outdoor unit on the rendered gable, with the pipework in white trunking.',
+  },
+  {
+    name: 'warsash-chalet-bungalow-daikin-outdoor-unit-roof',
+    alt: 'Daikin outdoor unit on the timber cladding above the roof slope of a chalet bungalow in Warsash',
+    caption: 'The second outdoor unit on the timber cladding, above the roof slope.',
+  },
+  {
+    name: 'warsash-chalet-bungalow-daikin-indoor-unit-bedroom',
+    alt: 'Daikin Sensira wall unit high on the wall of a navy, space-themed bedroom in a chalet bungalow in Warsash',
+    caption: 'The wall unit in the child’s bedroom, fitted high on the wall.',
+  },
+];
+
+const facts = [
+  ['Location', 'Warsash, Southampton'],
+  ['Property', 'Chalet bungalow conversion'],
+  ['Problem', 'Very hot in summer after the house was insulated, especially a child’s bedroom'],
+  ['System', 'Two single-split systems'],
+  ['Units', '2 x Daikin Sensira 3.5kW wall units, with two outdoor units'],
+  ['Install time', 'One day, 15 June 2026, about 07:30 to 14:45'],
+];
+
+const faqs = [
+  {
+    q: 'Why do chalet bungalows overheat after insulation?',
+    a: 'Insulation slows heat leaving the building. Rooms close under the roof also pick up heat from the sun. After this chalet bungalow in Warsash was insulated and upgraded, it got very hot in summer, especially the child’s bedroom.',
+  },
+  {
+    q: 'Why two single splits rather than a multi-split?',
+    a: 'A single split is one indoor unit and one outdoor unit, so that room has its own control. This job used two single splits, which means two indoor units and two outdoor units. A multi-split would put both indoor units on one outdoor unit.',
+  },
+  {
+    q: 'How long did the Warsash install take?',
+    a: 'One day. The team was on site on 15 June 2026 from about 07:30 to 14:45. The electrical work was a consumer unit MCB upgrade and two switched fused spurs.',
+  },
+  {
+    q: 'Is a wall unit suitable in a child’s bedroom?',
+    a: 'The indoor unit is a wall unit, so it is mounted high on the wall rather than standing on the floor. In this bedroom it sits above the chest of drawers. The outdoor units are outside the house.',
+  },
+];
+
+const bedroomPhoto = {
+  name: 'warsash-chalet-bungalow-childs-bedroom-daikin',
+  alt: "Daikin wall-mounted air conditioning unit fitted high on the sloped wall of a child's bedroom in a Warsash chalet bungalow",
+  caption: "The wall unit fitted high on the sloped wall of the child's bedroom.",
+};
+
+const article = {
+  headline: study.h1,
+  description: study.description,
+  datePublished: '2026-06-15',
+  image: [bedroomPhoto, ...photos].map((photo) => ({
+    '@type': 'ImageObject',
+    contentUrl: `${business.url}/images/case-studies/${photo.name}.webp`,
+    url: `${business.url}/images/case-studies/${photo.name}.webp`,
+    caption: photo.caption,
+    description: photo.alt,
+    width: 1600,
+    height: 2133,
+    encodingFormat: 'image/webp',
+  })),
+    about: {
+    '@type': 'Service',
+    name: 'Home air conditioning',
+    url: `${business.url}/services/home-air-conditioning/`,
+    provider: { '@id': `${business.url}/#business` },
+  },
+  contentLocation: {
+    '@type': 'Place',
+    name: 'Warsash, Southampton',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Warsash',
+      addressRegion: 'Southampton',
+    },
+  },
+};
+---
+<Base
+  title={study.title}
+  description={study.description}
+  crumbs={crumbs}
+  faqs={faqs}
+  article={article}
+  ogImage={{
+    src: `${business.url}/images/case-studies/${bedroomPhoto.name}.webp`,
+    width: 1600,
+    height: 2133,
+    type: 'image/webp',
+    alt: bedroomPhoto.alt,
+  }}
+>
+  <PageHero
+    eyebrow="Case study · Warsash, Southampton"
+    title={study.h1}
+    lead="Two Daikin Sensira wall units for a chalet bungalow that got too hot after it was insulated."
+    crumbs={crumbs}
+    photo={{
+      src: `/images/case-studies/${bedroomPhoto.name}.webp`,
+      srcset: `/images/case-studies/${bedroomPhoto.name}-800.webp 800w, /images/case-studies/${bedroomPhoto.name}.webp 1600w`,
+      width: 1600,
+      height: 2133,
+      alt: bedroomPhoto.alt,
+      portrait: true,
+      position: 'center 32%',
+    }}
+  />
+  <section class="section">
+    <div class="container study-layout">
+      <div class="prose">
+        <p class="quick-answer">
+          <strong>Quick answer.</strong> In June 2026 No1 Air Con fitted two Daikin Sensira 3.5kW single-split wall units to Martin’s chalet bungalow conversion in Warsash, near Southampton. After the owners insulated and upgraded the house, it got very hot in summer, especially their three-year-old daughter’s bedroom. Both systems were installed in one day on 15 June 2026.
+        </p>
+        <h2>The job in brief</h2>
+        <dl class="facts">
+          {facts.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>
+          Warsash is on the Hampshire coast, near Southampton. The area we cover from the Ringwood showroom is set out on the <a href="/areas/hampshire/">Hampshire</a> page. The system itself is a <a href="/services/home-air-conditioning/">single-room home air conditioning</a> install, done twice: one split for each room.
+        </p>
+      </div>
+      <div class="study-photos">
+        {photos.map((photo) => (
+          <figure class="fit-photo">
+            <picture>
+              <source
+                type="image/avif"
+                srcset={`/images/case-studies/${photo.name}-800.avif 800w, /images/case-studies/${photo.name}-1600.avif 1600w`}
+                sizes="(min-width: 900px) 360px, 100vw"
+              />
+              <source
+                type="image/webp"
+                srcset={`/images/case-studies/${photo.name}-800.webp 800w, /images/case-studies/${photo.name}-1600.webp 1600w`}
+                sizes="(min-width: 900px) 360px, 100vw"
+              />
+              <img src={`/images/case-studies/${photo.name}.webp`} alt={photo.alt} width="800" height="1067" loading="lazy" />
+            </picture>
+            <figcaption>{photo.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="prose study-body">
+        <h2>Why do chalet bungalows overheat after insulation?</h2>
+        <p>
+          A chalet bungalow has rooms in the roof. Those rooms sit under the tiles, so they pick up heat from the sun as well as from the rooms below. That is ordinary solar gain. It is not a fault in the building.
+        </p>
+        <p>
+          Insulation is there to keep warmth in during winter. The same insulation slows heat leaving in summer. Once this house had been insulated and upgraded, the upstairs rooms, and the child’s bedroom in particular, got very hot. A wall unit cools the room it is fitted in. The same type of unit can heat that room in winter, because a split system is an air-to-air heat pump. It does not heat the rest of the house or the hot water.
+        </p>
+        <p>
+          The same pattern shows up in loft conversions. A bedroom built into the roof has less mass between it and the sun, so it warms up faster than a room on the floor below. Air conditioning for a chalet bungalow is usually about those upstairs rooms, not about cooling every space in the house.
+        </p>
+
+        <h2>Why two single splits rather than a multi-split?</h2>
+        <p>
+          No1 fitted two single-split systems. Each one is a Daikin Sensira 3.5kW wall unit indoors and its own outdoor unit. A single split gives that room its own control, so one bedroom can be on while the other is off.
+        </p>
+        <p>
+          A multi-split would have put both indoor units onto one outdoor unit. That uses one outdoor unit for several rooms. It was not what was fitted here. Two single splits meant two outdoor units: one on the rendered gable, one on the timber cladding above the roof slope. The pipework on the gable is in white trunking.
+        </p>
+        <p>
+          Daikin is one of the <a href="/#brands-heading">brands we install</a>. The Sensira is a wall unit for a bedroom or living room. It cools, and it can heat. We have not published a noise or efficiency figure for this model on this page.
+        </p>
+
+        <h2>How long did it take?</h2>
+        <p>
+          The install was done in one day, on 15 June 2026. The team was on site from about 07:30 to 14:45. That covered both indoor units, both outdoor units, and the electrical work: a consumer unit MCB upgrade and two switched fused spurs, one for each system.
+        </p>
+        <p>
+          Most of our installation jobs are done in a day. The lead time before a date is 4 to 8 weeks, and stock is often available sooner. That is the general lead time, not a promise for the next job.
+        </p>
+
+        <h2>Is it safe in a child’s bedroom?</h2>
+        <p>
+          The indoor unit in the bedroom is a wall unit, mounted high on the wall above the chest of drawers. It is not a floor-standing unit. The bedroom is the child’s space-themed room. The outdoor units are outside, one on the gable and one above the roof slope.
+        </p>
+        <p>
+          A wall unit conditions the air in that room. It does not replace a window lock, a stair gate, or any other part of making a bedroom suitable for a child. If you want the same kind of system for a bedroom that is too hot after insulation, send photos of the room and the outside wall.
+        </p>
+      </div>
+    </div>
+  </section>
+  <FaqList faqs={faqs} heading="Questions about this install" />
+  <GuideSection />
+  <section class="section">
+    <div class="container prose">
+      <h2>Ask about a room that is too hot</h2>
+      <p>
+        <RichText text="Tell us the town, the room and what the outside wall looks like. Photos, measurements and a floor plan are enough for a remote quote. WhatsApp is the easiest way to send them (07457 405634). Send on WhatsApp." />
+      </p>
+      <p><a class="btn" href="#quote">Get a free quote</a></p>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>
+
+<style>
+  .study-layout {
+    display: grid;
+    gap: 32px;
+  }
+  .quick-answer {
+    background: var(--pale);
+    border-radius: 16px;
+    padding: 18px 20px;
+    color: var(--navy);
+  }
+  .facts {
+    display: grid;
+    gap: 12px;
+    margin: 0 0 1.25rem;
+  }
+  .facts div {
+    display: grid;
+    gap: 2px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .facts dt {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .facts dd { margin: 0; color: var(--navy); font-weight: 700; }
+  .study-photos { display: grid; gap: 18px; }
+  @media (min-width: 900px) {
+    .study-layout { grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.7fr); align-items: start; }
+    .study-body { grid-column: 1; }
+    .study-photos { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: calc(var(--header) + 16px); }
+  }
+</style>

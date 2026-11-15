@@ -2,11 +2,16 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
-import { caseStudies, getCaseStudy } from '../../data/case-studies.js';
+import GuideSection from '../../components/GuideSection.astro';
+import { getCaseStudy } from '../../data/case-studies.js';
 import { getService } from '../../data/services.js';
+import { casePhotos } from '../../data/lifestyle.js';
+import RichText from '../../components/RichText.astro';
 
 export function getStaticPaths() {
-  return caseStudies.map((study) => ({ params: { slug: study.slug } }));
+  // Unpublished entries are not real jobs. They are not routed, so the
+  // placeholder URLs 404 instead of being reachable.
+  return [];
 }
 
 const study = getCaseStudy(Astro.params.slug);
@@ -17,24 +22,13 @@ const crumbs = [
   { name: study.name, href: `/case-studies/${study.slug}/` },
 ];
 ---
-<Base title={study.title} description={study.description} crumbs={crumbs}>
-  <PageHero eyebrow={study.eyebrow} title={study.h1} lead={study.lead} crumbs={crumbs} />
+<Base title={study.title} description={study.description} crumbs={crumbs} forceNoindex>
+  <PageHero eyebrow={study.eyebrow} title={study.h1} lead={study.lead} crumbs={crumbs} photo={casePhotos[study.slug]} />
+  <GuideSection />
   <section class="section">
     <div class="container prose">
-      <div class="todo-slot">
-        <h2>Placeholder, not a real job</h2>
-        <p>Do not treat the fields below as something that happened. They are blanks for Danny to replace.</p>
-        <dl>
-          {study.fields.map((field) => (
-            <div style="margin-top:12px;">
-              <dt><strong>{field.label}</strong></dt>
-              <dd class="todo">{field.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-      {study.explainer.map((paragraph) => <p>{paragraph}</p>)}
-      {service && <p>The service this will illustrate is <a href={`/services/${service.slug}/`}>{service.name}</a>.</p>}
+      {study.explainer.map((paragraph) => <p><RichText text={paragraph} /></p>)}
+      {service && <p>Read more about <a href={`/services/${service.slug}/`}>{service.name}</a>.</p>}
     </div>
   </section>
   <QuoteSection />

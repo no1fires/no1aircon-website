@@ -1,0 +1,230 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
+import FaqList from '../../components/FaqList.astro';
+import RichText from '../../components/RichText.astro';
+import { business } from '../../data/business.js';
+import { getCaseStudy } from '../../data/case-studies.js';
+
+const study = getCaseStudy('westbury-lounge-air-conditioning');
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Case studies', href: '/case-studies/' },
+  { name: study.name, href: `/case-studies/${study.slug}/` },
+];
+
+const hero = {
+  name: 'westbury-lounge-haier-indoor-unit',
+  alt: 'Haier wall-mounted air conditioner high on a beige living-room wall beside curtains in Westbury, Wiltshire',
+  width: 1200,
+  height: 1600,
+};
+const outdoor = {
+  name: 'westbury-lounge-haier-outdoor-unit',
+  alt: 'Cream outdoor air conditioner on a red-brick rear wall in Westbury, Wiltshire',
+  caption: 'The outdoor unit on the red-brick rear wall.',
+  width: 1600,
+  height: 1200,
+};
+
+const facts = [
+  ['Location', 'Westbury, Wiltshire'],
+  ['Room', 'Lounge'],
+  ['System', '3.5kW Haier single split'],
+  ['Trunking', 'Black'],
+  ['Fitted', 'Saturday 1 August 2026, by Dan and Tom'],
+  ['Job', 'Completed'],
+];
+
+const review = 'We’ve just had a air conditioner fitted into our lounge and I’m so happy with Dan (sorry forgot the other chaps name… Tom maybe?) they were very helpful, efficient and extremely tidy.. can definitely recommend them.. so much so I’m now looking into a new gas fire from them!';
+
+const faqs = [
+  {
+    q: 'What was fitted in the Westbury lounge?',
+    a: 'A 3.5kW Haier single split. That is one indoor unit in the lounge and one outdoor unit. The trunking is black. The outdoor unit is on the red-brick rear wall.',
+  },
+  {
+    q: 'Who fitted the Westbury air conditioning, and when?',
+    a: 'Dan and Tom fitted it on Saturday 1 August 2026. The job is complete.',
+  },
+  {
+    q: 'What did Bryan say about the install?',
+    a: `Bryan left a 5-star Google review: “${review}”`,
+  },
+  {
+    q: 'Can No1 fit a gas fire as well?',
+    a: 'Bryan wrote that he is looking into a new gas fire. No1 Fires is the fireplace company in the same group. This case study is the air conditioning job only.',
+  },
+];
+
+const images = [hero, outdoor].map((photo) => ({
+  '@type': 'ImageObject',
+  contentUrl: `${business.url}/images/case-studies/${photo.name}.webp`,
+  url: `${business.url}/images/case-studies/${photo.name}.webp`,
+  caption: photo.caption || photo.alt,
+  description: photo.alt,
+  width: photo.width,
+  height: photo.height,
+  encodingFormat: 'image/webp',
+}));
+
+const article = {
+  headline: study.h1,
+  description: study.description,
+  datePublished: '2026-08-01',
+  image: images,
+  about: {
+    '@type': 'Service',
+    name: 'Home air conditioning',
+    url: `${business.url}/services/home-air-conditioning/`,
+    provider: { '@id': `${business.url}/#business` },
+  },
+  contentLocation: {
+    '@type': 'Place',
+    name: 'Westbury, Wiltshire',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Westbury',
+      addressRegion: 'Wiltshire',
+    },
+  },
+};
+---
+<Base
+  title={study.title}
+  description={study.description}
+  crumbs={crumbs}
+  faqs={faqs}
+  article={article}
+  ogImage={{
+    src: `${business.url}/images/case-studies/${hero.name}.webp`,
+    width: hero.width,
+    height: hero.height,
+    type: 'image/webp',
+    alt: hero.alt,
+  }}
+>
+  <PageHero
+    eyebrow="Case study · Westbury, Wiltshire"
+    title={study.h1}
+    lead="A 3.5kW Haier single split in a lounge, with black trunking, fitted by Dan and Tom."
+    crumbs={crumbs}
+    photo={{
+      src: `/images/case-studies/${hero.name}.webp`,
+      srcset: `/images/case-studies/${hero.name}-800.webp 600w, /images/case-studies/${hero.name}.webp 1200w`,
+      width: hero.width,
+      height: hero.height,
+      alt: hero.alt,
+      portrait: true,
+      position: 'center 18%',
+    }}
+  />
+  <section class="section">
+    <div class="container study-layout">
+      <div class="prose">
+        <p class="quick-answer">
+          <strong>Quick answer.</strong> On Saturday 1 August 2026, Dan and Tom fitted a 3.5kW Haier single-split air conditioner in Bryan’s lounge in Westbury, Wiltshire. The trunking is black. The job is complete. Bryan left a 5-star Google review.
+        </p>
+        <h2>The job in brief</h2>
+        <dl class="facts">
+          {facts.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>
+          A single split is one indoor unit and one outdoor unit, for the room it is fitted in. This one is in the lounge. The same kind of system is covered on the <a href="/services/home-air-conditioning/">home air conditioning</a> page.
+        </p>
+      </div>
+      <div class="study-photos">
+        <figure class="fit-photo">
+          <picture>
+            <source
+              type="image/avif"
+              srcset={`/images/case-studies/${outdoor.name}-800.avif 800w, /images/case-studies/${outdoor.name}-1600.avif 1600w`}
+              sizes="(min-width: 900px) 360px, 100vw"
+            />
+            <source
+              type="image/webp"
+              srcset={`/images/case-studies/${outdoor.name}-800.webp 800w, /images/case-studies/${outdoor.name}-1600.webp 1600w`}
+              sizes="(min-width: 900px) 360px, 100vw"
+            />
+            <img src={`/images/case-studies/${outdoor.name}.webp`} alt={outdoor.alt} width={outdoor.width} height={outdoor.height} loading="lazy" />
+          </picture>
+          <figcaption>{outdoor.caption}</figcaption>
+        </figure>
+      </div>
+      <div class="prose study-body">
+        <h2>A lounge install, kept tidy</h2>
+        <p>
+          The indoor unit is a Haier wall unit, high on the lounge wall. The outdoor unit is on the red-brick rear wall. The pipework is in black trunking.
+        </p>
+        <p>
+          Haier is the brand that was fitted on this job. The <a href="/#brands-heading">brands we install</a> as our usual range are listed on the homepage. This page does not add a noise figure or an efficiency figure for this unit.
+        </p>
+
+        <h2>What Bryan said</h2>
+        <p>Bryan left a 5-star review on Google. This is his review, in his words:</p>
+        <blockquote>
+          <p>{review}</p>
+        </blockquote>
+        <p>The review names Dan, and it guesses at the second installer. The job record is that Dan and Tom fitted it.</p>
+
+        <h2>A gas fire, if he goes ahead</h2>
+        <p>
+          Bryan wrote that he is looking into a new gas fire. <a href="https://www.gasandelectricfireplaces.co.uk" target="_blank" rel="noopener noreferrer">No1 Fires</a> is the fireplace company in the same group. That is the link already used in the site footer. This case study stops at the air conditioning. It does not say a fire has been booked.
+        </p>
+      </div>
+    </div>
+  </section>
+  <FaqList faqs={faqs} heading="Questions about this install" />
+  <GuideSection />
+  <section class="section">
+    <div class="container prose">
+      <h2>Ask about a lounge</h2>
+      <p>
+        <RichText text="Tell us the town and the room. Photos, measurements and a floor plan are enough for a remote quote. WhatsApp is the easiest way to send them (07457 405634). Send on WhatsApp." />
+      </p>
+      <p><a class="btn" href="#quote">Get a free quote</a></p>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>
+
+<style>
+  .study-layout { display: grid; gap: 32px; }
+  .quick-answer {
+    background: var(--pale);
+    border-radius: 16px;
+    padding: 18px 20px;
+    color: var(--navy);
+  }
+  .facts { display: grid; gap: 12px; margin: 0 0 1.25rem; }
+  .facts div { display: grid; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .facts dt {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .facts dd { margin: 0; color: var(--navy); font-weight: 700; }
+  blockquote {
+    margin: 0 0 1rem;
+    padding: 16px 18px;
+    border-left: 4px solid var(--blue);
+    background: var(--off-white);
+    border-radius: 0 12px 12px 0;
+  }
+  blockquote p { margin: 0; color: var(--navy); }
+  .study-photos { display: grid; gap: 18px; }
+  @media (min-width: 900px) {
+    .study-layout { grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.7fr); align-items: start; }
+    .study-body { grid-column: 1; }
+    .study-photos { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: calc(var(--header) + 16px); }
+  }
+</style>

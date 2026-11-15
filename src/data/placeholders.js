@@ -6,7 +6,6 @@
 export const placeholders = {
   whatsapp: '[TODO: add WhatsApp number]',
   companyNumber: '[TODO: add company number]',
-  vatNumber: '[TODO: add VAT number]',
   googleRating: '[TODO: add Google rating]',
   reviewCount: '[TODO: add review count]',
   reviews: '[TODO: add real customer reviews — name, town, what was fitted, and the words they used]',
@@ -14,7 +13,6 @@ export const placeholders = {
   quoteTurnaround: '[TODO: add typical quote turnaround]',
   installTimeSingle: '[TODO: add typical single-room install time]',
   installTimeCommercial: '[TODO: add typical commercial install time]',
-  multiRoomPrice: '[TODO: add multi-room price]',
   commercialPrice: '[TODO: add commercial price]',
   ductedPrice: '[TODO: add ducted system price]',
   servicingPrice: '[TODO: add servicing price]',
@@ -26,7 +24,6 @@ export const placeholders = {
   accreditations: '[TODO: confirm accreditations and approved-brand listings]',
   googleBusinessUrl: '[TODO: add Google Business Profile URL]',
   linkedinUrl: '[TODO: add LinkedIn URL]',
-  buyersGuide: '[TODO: add the home air conditioning buyer\'s guide PDF]',
   retentionPeriod: '[TODO: add how long enquiry records are kept]',
   processors: '[TODO: confirm CRM and any other companies that process enquiry data]',
   privacyReview: '[TODO: check this privacy policy against the current no1aircon.co.uk policy and replace anything that should carry over]',
