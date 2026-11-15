@@ -16,12 +16,17 @@ const {
   forceNoindex = false,
   hideCanonical = false,
   article = null,
+  ogImage = null,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const graph = buildGraph({ canonical, crumbs, faqs, service, article });
 const json = JSON.stringify(graph).replace(/</g, '\\u003c');
-const image = `${business.url}/images/og-default.png`;
+const image = ogImage?.src ?? `${business.url}/images/og-default.png`;
+const imageWidth = ogImage?.width ?? 1200;
+const imageHeight = ogImage?.height ?? 630;
+const imageType = ogImage?.type ?? 'image/png';
+const imageAlt = ogImage?.alt ?? 'No1 Air Conditioning, Ringwood showroom, Hampshire and Dorset';
 const whatsappText = "Hi No1 Air Con, I'd like to ask about air conditioning.";
 const whatsapp = business.whatsappIntl
   ? `https://wa.me/${String(business.whatsappIntl).replace('+', '')}?text=${encodeURIComponent(whatsappText)}`
@@ -44,10 +49,10 @@ const whatsapp = business.whatsappIntl
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={image} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="No1 Air Conditioning, Ringwood showroom, Hampshire and Dorset" />
+  <meta property="og:image:width" content={imageWidth} />
+  <meta property="og:image:height" content={imageHeight} />
+  <meta property="og:image:type" content={imageType} />
+  <meta property="og:image:alt" content={imageAlt} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />

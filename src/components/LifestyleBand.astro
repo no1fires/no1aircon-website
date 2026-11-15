@@ -11,7 +11,7 @@ const sizes = photo.portrait
   ? '(min-width: 1024px) 420px, calc(100vw - 40px)'
   : '(min-width: 1024px) 520px, calc(100vw - 40px)';
 ---
-<figure class:list={['life-frame', photo.portrait && 'is-portrait']}>
+<figure class:list={['life-frame', photo.portrait && 'is-portrait', photo.position && 'is-focused']} style={photo.position ? `--life-pos: ${photo.position}` : undefined}>
   {photo.asset ? (
     <Picture
       src={assets[photo.asset]}
@@ -53,6 +53,11 @@ const sizes = photo.portrait
     width: 100%;
     height: auto;
     object-fit: contain;
+  }
+  .life-frame.is-focused img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: var(--life-pos, center 30%);
   }
   @media (min-width: 1024px) {
     .life-frame.is-portrait { width: min(100%, 420px); }

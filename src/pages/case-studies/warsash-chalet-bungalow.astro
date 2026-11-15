@@ -71,7 +71,7 @@ const article = {
   headline: study.h1,
   description: study.description,
   datePublished: '2026-06-15',
-  image: [...photos, bedroomPhoto].map((photo) => `${business.url}/images/case-studies/${photo.name}.webp`),
+  image: [bedroomPhoto, ...photos].map((photo) => `${business.url}/images/case-studies/${photo.name}.webp`),
   about: {
     '@type': 'Service',
     name: 'Home air conditioning',
@@ -80,19 +80,33 @@ const article = {
   },
 };
 ---
-<Base title={study.title} description={study.description} crumbs={crumbs} faqs={faqs} article={article}>
+<Base
+  title={study.title}
+  description={study.description}
+  crumbs={crumbs}
+  faqs={faqs}
+  article={article}
+  ogImage={{
+    src: `${business.url}/images/case-studies/${bedroomPhoto.name}.webp`,
+    width: 1600,
+    height: 2133,
+    type: 'image/webp',
+    alt: bedroomPhoto.alt,
+  }}
+>
   <PageHero
     eyebrow="Case study · Warsash"
     title={study.h1}
     lead="Two Daikin Sensira wall units for a chalet bungalow that got too hot after it was insulated."
     crumbs={crumbs}
     photo={{
-      src: '/images/case-studies/warsash-chalet-bungalow-daikin-indoor-unit-bedroom.webp',
-      srcset: '/images/case-studies/warsash-chalet-bungalow-daikin-indoor-unit-bedroom-800.webp 800w, /images/case-studies/warsash-chalet-bungalow-daikin-indoor-unit-bedroom.webp 1600w',
+      src: `/images/case-studies/${bedroomPhoto.name}.webp`,
+      srcset: `/images/case-studies/${bedroomPhoto.name}-800.webp 800w, /images/case-studies/${bedroomPhoto.name}.webp 1600w`,
       width: 1600,
       height: 2133,
-      alt: 'Daikin Sensira wall unit high on the wall of a navy, space-themed bedroom in a chalet bungalow in Warsash',
+      alt: bedroomPhoto.alt,
       portrait: true,
+      position: 'center 32%',
     }}
   />
   <section class="section">
@@ -166,22 +180,6 @@ const article = {
         </p>
 
         <h2>Is it safe in a child’s bedroom?</h2>
-        <figure class="fit-photo">
-          <picture>
-            <source
-              type="image/avif"
-              srcset={`/images/case-studies/${bedroomPhoto.name}-800.avif 800w, /images/case-studies/${bedroomPhoto.name}-1600.avif 1600w`}
-              sizes="(min-width: 900px) 640px, 100vw"
-            />
-            <source
-              type="image/webp"
-              srcset={`/images/case-studies/${bedroomPhoto.name}-800.webp 800w, /images/case-studies/${bedroomPhoto.name}-1600.webp 1600w`}
-              sizes="(min-width: 900px) 640px, 100vw"
-            />
-            <img src={`/images/case-studies/${bedroomPhoto.name}.webp`} alt={bedroomPhoto.alt} width="800" height="1067" loading="lazy" />
-          </picture>
-          <figcaption>{bedroomPhoto.caption}</figcaption>
-        </figure>
         <p>
           The indoor unit in the bedroom is a wall unit, mounted high on the wall above the chest of drawers. It is not a floor-standing unit. The bedroom is the child’s space-themed room. The outdoor units are outside, one on the gable and one above the roof slope.
         </p>
