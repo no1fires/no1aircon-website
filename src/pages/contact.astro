@@ -43,3 +43,20 @@ const whatsappHref = business.whatsappIntl
   </section>
   <QuoteSection title="Send an enquiry" />
 </Base>
+
+<style>
+  :global(.page-hero .lead a[href*="wa.me"]) {
+    color: var(--orange);
+    text-decoration-color: var(--orange);
+  }
+  :global(.page-hero .lead a[href*="wa.me"]:hover),
+  :global(.page-hero .lead a[href*="wa.me"]:focus-visible) {
+    color: #ff7a45;
+    text-decoration-color: #ff7a45;
+  }
+  :global(.page-hero .lead a[href*="wa.me"]:focus-visible) {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+</style>
