@@ -17,7 +17,7 @@ export const towns = [
       'Ringwood sits on the western edge of the New Forest. The centre still has a market-town high street, with older houses close in and newer estates out towards Poulner and Hightown. Cottages on the forest side often have thick walls and small rooms. Estates from the last forty years usually have lofts we can work in and a clearer place for an outdoor unit.',
       'Christchurch Road is in Ringwood. It is not in the town of Christchurch, which is a separate page and a separate drive south. If you are coming to the showroom, use the Ringwood address.',
       'High-street shops, salons and small offices call us as well as householders. A wall unit is usually enough for a room above a shop. A ceiling cassette is the conversation when the floor is open and the ceiling will take it.',
-      'Because we are based here, a Ringwood visit is the simplest one we do, and a lot of jobs do not need one. When we do visit, we still write it up properly: room size, glass, where the pipes can run, and whether the outdoor unit would face a neighbour.',
+      'Because we are based here, a Ringwood visit is the simplest one we do, and a lot of jobs do not need one. When we do visit, we still write it up properly: room size, glass, where the pipes can run, and whether the outdoor unit would face a neighbour. A recent job quoted from this showroom is a Daikin garden room in Ferndown. The write-up is the [Ferndown garden room case study](/case-studies/ferndown-daikin-garden-room-air-conditioning/).',
     ],
     servicesIntro: 'In Ringwood we fit the full range, and you can compare the brands in the showroom the same day as a conversation about the house.',
     services: ['home-air-conditioning', 'heating-and-cooling', 'commercial-air-conditioning', 'servicing', 'repairs', 'ducted-and-ceiling-systems'],
@@ -105,11 +105,21 @@ export const towns = [
       'Ferndown is a larger Dorset town than its neighbours, with a lot of detached houses and bungalows built from the 1960s onwards, plus newer estates. Lofts are usually reachable, power is usually straightforward, and many of the houses are big enough that one room is not the whole job. Multi-room systems, with two or three indoor units on one outdoor unit, come up here more often than they do in a cottage town.',
       `The industrial estates are a different kind of work. Offices, workshops and storage that get hot under a roof need photos, measurements and a floor plan so we can judge the heat load, not a guess from the floor area. ${whatsappSend}. We agree access so the install does not shut a unit for longer than it has to. We quote remotely. A survey is only if it is needed.`,
       'Servicing is a steady part of the Ferndown work. Systems fitted a few years ago, including ones we did not install, still need a yearly check if the warranty is to stay valid. We service Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung.',
-      'St Leonards and West Moors sit between Ferndown and the showroom, so the drive is a normal local call. West Moors does not have its own page yet.',
+      'St Leonards and West Moors sit between Ferndown and the showroom, so the drive is a normal local call. West Moors does not have its own page yet. One finished Ferndown job is a garden room with a roof lantern: a Daikin Sensira 3.5kW unit, fitted on 16 November 2026. The write-up is the [Ferndown garden room case study](/case-studies/ferndown-daikin-garden-room-air-conditioning/).',
     ],
     servicesIntro: 'In Ferndown the useful set is home air conditioning for the larger houses, commercial work on the estates, and servicing once the system is in.',
     services: ['home-air-conditioning', 'commercial-air-conditioning', 'servicing', 'heating-and-cooling'],
     nearby: ['st-leonards', 'verwood', 'wimborne'],
+    feature: {
+      href: '/case-studies/ferndown-daikin-garden-room-air-conditioning/',
+      src: '/images/case-studies/ferndown-garden-room-daikin-indoor-unit-800.webp',
+      width: 600,
+      height: 800,
+      position: 'center 28%',
+      alt: 'Close-up of a Daikin Sensira wall-mounted air conditioner in Ferndown, Dorset',
+      title: 'Garden room in Ferndown, Dorset',
+      text: 'A Daikin Sensira 3.5kW single split, fitted by Matt in one day on 16 November 2026. It heats and cools a garden room with a roof lantern.',
+    },
     answerFaqs: [
       {
         q: 'Do you install air conditioning in Ferndown?',
@@ -132,6 +142,10 @@ export const towns = [
       {
         q: 'Is Ferndown in the same area as the Ringwood showroom?',
         a: 'Ferndown is in Dorset and the showroom is in Ringwood, Hampshire. They are about 7 miles apart via the A31. We treat Ferndown as a core town, not an edge case.',
+      },
+      {
+        q: 'Is there a Ferndown case study?',
+        a: 'Yes. A garden room with a roof lantern had a Daikin Sensira 3.5kW single split fitted on 16 November 2026. The write-up is the [Ferndown garden room case study](/case-studies/ferndown-daikin-garden-room-air-conditioning/).',
       },
     ],
   },
@@ -418,7 +432,7 @@ export const towns = [
     lead: 'Poole is the harbour town next to Bournemouth. The showroom is in Ringwood, and Poole is already named as inside our 25 mile radius. We quote from photos, measurements and a floor plan.',
     paragraphs: [
       'Poole spreads from the old quay and the town centre out to family housing and the harbour edge. A flat above a shop and a house with a garden are different places to put an outdoor unit. We do not price either from the town name. We need photos of the room and the outside wall.',
-      'We have not published a Poole case study. The nearest finished job we can show is next door in Bournemouth: a Daikin 3.5kW wall unit in a dining room, fitted on 19 July 2026. That was a Bournemouth house, not a Poole one. It is useful only as an example of the sort of single-room wall unit we fit along this coast.',
+      'We have not published a Poole case study. The nearest finished jobs we can show are in neighbouring towns, not in Poole. Bournemouth has a Daikin 3.5kW dining-room unit, fitted on 19 July 2026. Ferndown has a Daikin Sensira 3.5kW garden room, fitted on 16 November 2026. That write-up is the [Ferndown garden room case study](/case-studies/ferndown-daikin-garden-room-air-conditioning/).',
       `Poole sits with Christchurch and Bournemouth on the Dorset coast, west of the New Forest. The [Dorset](/areas/dorset/) page lists the other Dorset towns. Published prices are on the [air conditioning cost](/air-conditioning-cost/) page. ${whatsappSend}. A survey is only if it is needed.`,
     ],
     servicesIntro: 'In Poole we quote for home air conditioning, heating and cooling, servicing and repairs. Commercial and ducted work is quoted the same way, from photos, when the building can take it.',
@@ -431,7 +445,7 @@ export const towns = [
       },
       {
         q: 'Do you have a Poole case study?',
-        a: 'Not yet. The nearest written-up job is a Daikin dining-room install in Bournemouth, which is a different town.',
+        a: 'Not a Poole job. The nearest written-up jobs are in neighbouring towns: a Daikin dining room in Bournemouth, and a [Daikin Sensira garden room in Ferndown](/case-studies/ferndown-daikin-garden-room-air-conditioning/).',
       },
       {
         q: 'How much does air conditioning installation cost in Poole?',

@@ -1,0 +1,282 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import GuideSection from '../../components/GuideSection.astro';
+import FaqList from '../../components/FaqList.astro';
+import RichText from '../../components/RichText.astro';
+import { business } from '../../data/business.js';
+import { getCaseStudy } from '../../data/case-studies.js';
+
+const study = getCaseStudy('ferndown-daikin-garden-room-air-conditioning');
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Case studies', href: '/case-studies/' },
+  { name: study.name, href: `/case-studies/${study.slug}/` },
+];
+
+const hero = {
+  name: 'ferndown-garden-room-daikin-indoor-unit',
+  alt: 'Close-up of a Daikin Sensira wall-mounted air conditioner in Ferndown, Dorset',
+  caption: 'The Daikin Sensira wall unit. This frame is a close-up of the indoor unit.',
+  width: 1200,
+  height: 1600,
+  small: 600,
+  full: 1200,
+};
+
+const photos = [
+  {
+    name: 'ferndown-garden-room-before',
+    alt: 'Garden room in Ferndown, Dorset, with a large roof lantern, before the air conditioner was fitted',
+    caption: 'The garden room before the install, with the roof lantern, sofa and plants.',
+    width: 1200,
+    height: 1600,
+    small: 600,
+    full: 1200,
+  },
+  {
+    name: 'ferndown-garden-room-before-wall',
+    alt: 'The long wall of a garden room in Ferndown, Dorset, before the air conditioner was fitted',
+    caption: 'The wall the indoor unit went on, before the install.',
+    width: 1600,
+    height: 1200,
+    small: 800,
+    full: 1600,
+  },
+  {
+    name: 'ferndown-garden-room-folding-doors-before',
+    alt: 'Folding doors from a lounge into a garden room in Ferndown, Dorset, before the air conditioner was fitted',
+    caption: 'The garden room from the lounge, through the folding doors, before the install.',
+    width: 1200,
+    height: 1600,
+    small: 600,
+    full: 1200,
+  },
+  {
+    name: 'ferndown-garden-room-daikin-outdoor-unit',
+    alt: 'Wall-mounted Daikin outdoor unit with white trunking in Ferndown, Dorset',
+    caption: 'The outdoor unit on an external wall, with white trunking and an IP-rated switched fused spur.',
+    width: 1200,
+    height: 1600,
+    small: 600,
+    full: 1200,
+  },
+  {
+    name: 'ferndown-garden-room-daikin-outdoor-unit-front',
+    alt: 'Front of a wall-mounted Daikin outdoor unit in Ferndown, Dorset',
+    caption: 'A second view of the outdoor unit, from the front.',
+    width: 1200,
+    height: 1600,
+    small: 600,
+    full: 1200,
+  },
+];
+
+const facts = [
+  ['Location', 'Ferndown, Dorset'],
+  ['Room', 'Garden room, with a roof lantern and folding doors to the lounge'],
+  ['System', 'Daikin Sensira 3.5kW single split'],
+  ['What it does', 'Heats and cools'],
+  ['Outdoor unit', 'Wall-mounted, with white trunking'],
+  ['Electrical', 'IP-rated switched fused spur'],
+  ['Quoted', '31 October 2026, remotely'],
+  ['Fitted', 'Monday 16 November 2026, about 09:30 to 13:50, by Matt'],
+  ['Job', 'Commissioned, tested, and added to the annual servicing list'],
+];
+
+const faqs = [
+  {
+    q: 'What was fitted in the Ferndown garden room?',
+    a: 'A Daikin Sensira 3.5kW single split. The indoor unit is wall-hung. The outdoor unit is wall-mounted on an external wall, with white trunking and an IP-rated switched fused spur. Matt fitted it on Monday 16 November 2026. He was on site from about 09:30 to 13:50. The system was commissioned and tested.',
+  },
+  {
+    q: 'Why did the garden room need air conditioning?',
+    a: 'The room has a large roof lantern and folding doors to the lounge. It got too hot in summer, which heated the lounge, and it was a bit cold in winter. Andrew asked whether the system could also heat. This Daikin heats and cools.',
+  },
+  {
+    q: 'How was the Ferndown job quoted?',
+    a: 'Andrew sent photos and details. No1 quoted remotely on 31 October 2026. The install was booked for Monday 16 November 2026. The showroom is in Ringwood.',
+  },
+  {
+    q: 'Who fitted it, and how long did it take?',
+    a: 'Matt fitted it in one day, on Monday 16 November 2026. He was on site from about 09:30 to 13:50. The system was commissioned and tested.',
+  },
+  {
+    q: 'What happens after the install?',
+    a: 'The system was added to our annual servicing list.',
+  },
+];
+
+const images = [hero, ...photos].map((photo) => ({
+  '@type': 'ImageObject',
+  contentUrl: `${business.url}/images/case-studies/${photo.name}.webp`,
+  url: `${business.url}/images/case-studies/${photo.name}.webp`,
+  caption: photo.caption,
+  description: photo.alt,
+  width: photo.width,
+  height: photo.height,
+  encodingFormat: 'image/webp',
+}));
+
+const article = {
+  headline: study.h1,
+  description: study.description,
+  datePublished: '2026-11-16',
+  image: images,
+  about: {
+    '@type': 'Service',
+    name: 'Home air conditioning',
+    url: `${business.url}/services/home-air-conditioning/`,
+    provider: { '@id': `${business.url}/#business` },
+  },
+  contentLocation: {
+    '@type': 'Place',
+    name: 'Ferndown, Dorset',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ferndown',
+      addressRegion: 'Dorset',
+    },
+  },
+};
+---
+<Base
+  title={study.title}
+  description={study.description}
+  crumbs={crumbs}
+  faqs={faqs}
+  article={article}
+  ogImage={{
+    src: `${business.url}/images/case-studies/${hero.name}.webp`,
+    width: hero.width,
+    height: hero.height,
+    type: 'image/webp',
+    alt: hero.alt,
+  }}
+>
+  <PageHero
+    eyebrow="Case study · Ferndown, Dorset"
+    title={study.h1}
+    lead="A Daikin Sensira 3.5kW single split in a garden room, fitted by Matt in one day on 16 November 2026."
+    crumbs={crumbs}
+    photo={{
+      src: `/images/case-studies/${hero.name}.webp`,
+      srcset: `/images/case-studies/${hero.name}-800.webp ${hero.small}w, /images/case-studies/${hero.name}.webp ${hero.full}w`,
+      width: hero.width,
+      height: hero.height,
+      alt: hero.alt,
+      portrait: true,
+      position: 'center 32%',
+    }}
+  />
+  <section class="section">
+    <div class="container study-layout">
+      <div class="prose">
+        <p class="quick-answer">
+          <strong>Quick answer.</strong> On 31 October 2026 No1 quoted Andrew remotely for a garden room in Ferndown, Dorset. The room has a large roof lantern and folding doors to the lounge. It got too hot in summer, which heated the lounge, and it was a bit cold in winter. On Monday 16 November 2026 Matt fitted a Daikin Sensira 3.5kW single split in one day, from about 09:30 to 13:50. It heats and cools. The outdoor unit is wall-mounted, with white trunking and an IP-rated switched fused spur. The system was commissioned and tested, and added to the annual servicing list.
+        </p>
+        <h2>The job in brief</h2>
+        <dl class="facts">
+          {facts.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>
+          This job is in <a href="/areas/ferndown/">Ferndown</a>. The county page is <a href="/areas/dorset/">Dorset</a>. The showroom, and the place the remote quote was sent from, is in <a href="/areas/ringwood/">Ringwood</a>. Published prices are on the <a href="/air-conditioning-cost/">air conditioning cost</a> page. This system is a <a href="/services/home-air-conditioning/">home air conditioning</a> install for one room.
+        </p>
+      </div>
+      <div class="study-photos">
+        {photos.map((photo) => (
+          <figure class="fit-photo">
+            <picture>
+              <source
+                type="image/avif"
+                srcset={`/images/case-studies/${photo.name}-800.avif ${photo.small}w, /images/case-studies/${photo.name}-1600.avif ${photo.full}w`}
+                sizes="(min-width: 900px) 360px, 100vw"
+              />
+              <source
+                type="image/webp"
+                srcset={`/images/case-studies/${photo.name}-800.webp ${photo.small}w, /images/case-studies/${photo.name}-1600.webp ${photo.full}w`}
+                sizes="(min-width: 900px) 360px, 100vw"
+              />
+              <img src={`/images/case-studies/${photo.name}.webp`} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" />
+            </picture>
+            <figcaption>{photo.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="prose study-body">
+        <h2>A garden room that heated the lounge</h2>
+        <p>
+          The room is a garden room in Ferndown, Dorset. It has a large roof lantern, and it opens onto the lounge through folding doors. In summer the room got too hot, and that heat went through into the lounge. In winter it was a bit cold.
+        </p>
+        <p>
+          Andrew asked whether the system could heat as well as cool. The unit fitted here is a Daikin Sensira 3.5kW single split. It does both. The indoor unit is wall-hung. The photos of the room itself are the before pictures: the roof lantern, the long wall, and the view from the lounge through the folding doors. The photo at the top of this page is a close-up of the indoor unit. It does not show the lantern.
+        </p>
+
+        <h2>Quoted from the photos</h2>
+        <p>
+          Andrew sent photos and the details of the room. No1 quoted remotely on 31 October 2026, from the <a href="/areas/ringwood/">Ringwood</a> showroom. The install was booked for Monday 16 November 2026.
+        </p>
+
+        <h2>Fitted in one day</h2>
+        <p>
+          Matt fitted the system on Monday 16 November 2026. He was on site from about 09:30 to 13:50. The outdoor unit is wall-mounted on an external wall. The pipework is in white trunking, and the electrical connection is an IP-rated switched fused spur. The system was commissioned and tested the same day.
+        </p>
+        <p>
+          Daikin is one of the <a href="/#brands-heading">brands we install</a>. This page does not add a noise figure or an efficiency figure for this unit.
+        </p>
+
+        <h2>After the install</h2>
+        <p>
+          The system was added to our annual servicing list.
+        </p>
+      </div>
+    </div>
+  </section>
+  <FaqList faqs={faqs} heading="Questions about this install" />
+  <GuideSection />
+  <section class="section">
+    <div class="container prose">
+      <h2>Ask about a garden room</h2>
+      <p>
+        <RichText text="Tell us the town and the room. Photos, measurements and a floor plan are enough for a remote quote. WhatsApp is the easiest way to send them (07457 405634). Send on WhatsApp." />
+      </p>
+      <p><a class="btn" href="#quote">Get a free quote</a></p>
+    </div>
+  </section>
+  <QuoteSection />
+</Base>
+
+<style>
+  .study-layout { display: grid; gap: 32px; }
+  .quick-answer {
+    background: var(--pale);
+    border-radius: 16px;
+    padding: 18px 20px;
+    color: var(--navy);
+  }
+  .facts { display: grid; gap: 12px; margin: 0 0 1.25rem; }
+  .facts div { display: grid; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .facts dt {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .facts dd { margin: 0; color: var(--navy); font-weight: 700; }
+  .study-photos { display: grid; gap: 18px; }
+  .fit-photo { margin: 0; }
+  .fit-photo img { width: 100%; height: auto; border-radius: 12px; }
+  .fit-photo figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; }
+  @media (min-width: 900px) {
+    .study-layout { grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.7fr); align-items: start; }
+    .study-body { grid-column: 1; }
+    .study-photos { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: calc(var(--header) + 16px); }
+  }
+</style>

@@ -42,13 +42,14 @@ ${previewNote}## What they do
 - Warsash, Hampshire. A chalet bungalow conversion near Southampton. After insulation the house got very hot in summer, especially a child's bedroom. Two Daikin Sensira 3.5kW single-split wall units, two outdoor units, installed in one day on 15 June 2026. https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
 - Westbury, Wiltshire. A 3.5kW Haier single split in a lounge, with black trunking, fitted on Saturday 1 August 2026 by Dan and Tom. The job is complete. https://no1aircon.co.uk/case-studies/westbury-lounge-air-conditioning/
 - Bournemouth. A Daikin 3.5kW wall unit in a dining room, fitted on Sunday 19 July 2026 by Dan in one morning, for Juliet's mother-in-law. Juliet had already had a Daikin 3.5kW back-to-back system fitted at her own home in St Ives, near Ringwood, in June 2026. https://no1aircon.co.uk/case-studies/bournemouth-daikin-air-conditioning/
+- Ferndown, Dorset. Andrew's garden room, with a roof lantern and folding doors to the lounge, got too hot in summer and a bit cold in winter. A Daikin Sensira 3.5kW single split, fitted by Matt on 16 November 2026. https://no1aircon.co.uk/case-studies/ferndown-daikin-garden-room-air-conditioning/
 - Unpublished case-study URLs are not real jobs and stay out of the sitemap.
 
 ## Areas
 
 Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth.
 
-Bournemouth has a Daikin dining-room case study. Southampton's written-up job is in Warsash, just outside the city, not in Southampton city. Portsmouth is further east than the places already named inside the 25-mile radius, so an address there is checked first.
+Bournemouth has a Daikin dining-room case study. Ferndown has a Daikin Sensira garden-room case study. Southampton's written-up job is in Warsash, just outside the city, not in Southampton city. Portsmouth is further east than the places already named inside the 25-mile radius, so an address there is checked first.
 
 The showroom address is on Christchurch Road in Ringwood. That is not the town of Christchurch.
 
@@ -96,6 +97,7 @@ Cost guide: https://no1aircon.co.uk/air-conditioning-cost/ . Cheapest published 
 - https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
 - https://no1aircon.co.uk/case-studies/westbury-lounge-air-conditioning/
 - https://no1aircon.co.uk/case-studies/bournemouth-daikin-air-conditioning/
+- https://no1aircon.co.uk/case-studies/ferndown-daikin-garden-room-air-conditioning/
 - https://no1aircon.co.uk/about/
 - https://no1aircon.co.uk/reviews/
 - https://no1aircon.co.uk/contact/
