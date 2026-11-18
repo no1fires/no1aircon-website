@@ -45,7 +45,7 @@ Put real values on the matching fields in `src/data/business.js` (or the reviews
 | CRM / processors to name in the privacy policy | Privacy. The launch notes mention GoHighLevel and Leadzilla |
 | Check privacy against the current site | Privacy page |
 | Check or replace terms | Terms page |
-| Analytics choice (Cloudflare Web Analytics or GA4) | Cookie policy. Do not add a tracker without updating that page |
+| Analytics | Done. Google Analytics 4 and the cookie banner. The measurement ID and the empty Meta and Google Ads placeholders are in `src/data/tracking.js`. |
 | Showroom photo, team or van photo, install photos | About, homepage, case studies |
 | A real local job for each town page | The dashed box on every town page |
 | Three case studies: town, what was fitted, why, photo, and a customer name only with permission | `src/data/case-studies.js` |

@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
 import { INDEXABLE, business } from '../data/business.js';
+import CookieBanner from '../components/CookieBanner.astro';
 import { buildGraph } from '../lib/schema.js';
 
 const {
@@ -57,6 +58,17 @@ const whatsapp = business.whatsappIntl
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={image} />
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+  </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -74,6 +86,7 @@ const whatsapp = business.whatsappIntl
   </main>
   {!hideReviews && <GoogleReviews />}
   <Footer />
+  <CookieBanner />
   <div class="float-stack">
     {whatsapp && (
       <a class="float-btn wa" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Message us on WhatsApp">

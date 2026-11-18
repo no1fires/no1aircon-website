@@ -130,7 +130,7 @@ const group = [
   <div class="container footer-base">
     <p>© {year} {business.legalName}, trading as {business.name}.</p>
     <p>
-      <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/cookies/">Cookies</a>
+      <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/cookies/">Cookies</a> · <button type="button" class="cookie-settings" data-cookie-settings>Cookie settings</button>
     </p>
   </div>
   <div class="container">
@@ -139,6 +139,20 @@ const group = [
 </footer>
 
 <style>
+  .cookie-settings {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: rgba(255, 255, 255, 0.78);
+    font: inherit;
+    font-weight: 600;
+    line-height: inherit;
+    vertical-align: baseline;
+    cursor: pointer;
+  }
+  .cookie-settings:hover { color: var(--orange); }
   .footer-reg {
     margin: 12px 0 0;
     font-size: 0.8125rem;

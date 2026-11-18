@@ -1,3 +1,5 @@
+import { trackEvent, setupConsent } from './consent.js';
+
 document.documentElement.classList.add('js');
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -251,10 +253,15 @@ function setupForms() {
         if (isGuide) await postGuide(endpoint, payload);
         else await postQuote(endpoint, payload);
         form.reset();
-        if (isGuide) showGuideSuccess(status, guidePdf);
-        else if (status) {
+        if (isGuide) {
+          showGuideSuccess(status, guidePdf);
+          trackEvent('guide_signup');
+        } else if (status) {
           status.className = 'status is-ok';
           status.textContent = form.dataset.success || 'Thanks. We have received this and will be in touch.';
+          trackEvent('generate_lead');
+        } else {
+          trackEvent('generate_lead');
         }
       } catch {
         if (status) {
@@ -397,6 +404,7 @@ function setupInstall(root, dialog) {
   window.addEventListener('resize', buildDots);
 }
 
+setupConsent();
 setupNav();
 setupFaq();
 setupReveal();
