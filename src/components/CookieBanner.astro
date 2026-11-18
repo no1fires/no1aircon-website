@@ -1,0 +1,98 @@
+---
+---
+<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookies" tabindex="-1" hidden>
+  <div class="cookie-banner-inner">
+    <p id="cookie-banner-text">We use cookies to understand how people use our site and to measure our adverts.</p>
+    <div class="cookie-banner-actions">
+      <button class="cookie-choice" type="button" data-cookie-reject>Reject</button>
+      <button class="cookie-choice" type="button" data-cookie-accept>Accept</button>
+    </div>
+  </div>
+</div>
+<script is:inline>
+  (function () {
+    try {
+      var choice = localStorage.getItem('n1_cookie_consent');
+      if (choice === 'accepted' || choice === 'rejected') return;
+    } catch (error) {
+      /* Show the banner when storage cannot be read. */
+    }
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    banner.hidden = false;
+    document.body.classList.add('cookie-open');
+  })();
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 70;
+    background: #fff;
+    color: var(--navy);
+    border-top: 3px solid var(--orange);
+    box-shadow: 0 -8px 24px rgba(15, 30, 61, 0.12);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .cookie-banner:focus {
+    outline: none;
+  }
+  .cookie-banner:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: -2px;
+  }
+  .cookie-banner-inner {
+    width: min(1120px, calc(100% - 32px));
+    margin-inline: auto;
+    padding: 14px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+  }
+  .cookie-banner p {
+    flex: 1 1 260px;
+    margin: 0;
+    color: var(--ink);
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    font-weight: 500;
+  }
+  .cookie-banner-actions {
+    display: flex;
+    flex: 1 1 220px;
+    gap: 10px;
+  }
+  .cookie-choice {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0.7rem 1.1rem;
+    border: 2px solid var(--navy);
+    border-radius: 5px;
+    background: #fff;
+    color: var(--navy);
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+  }
+  .cookie-choice:hover {
+    background: var(--off-white);
+    color: var(--navy);
+  }
+  :global(body.cookie-open .float-stack) {
+    bottom: calc(var(--cookie-h, 160px) + 16px);
+  }
+  @media (min-width: 720px) {
+    .cookie-banner-actions {
+      flex: 0 0 auto;
+      width: 248px;
+    }
+  }
+</style>

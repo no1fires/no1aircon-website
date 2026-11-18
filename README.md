@@ -42,6 +42,40 @@ Icons already available: `home`, `sun`, `building`, `clipboard`, `wrench`, `fan`
 
 Set `quoteEndpoint` in `src/data/business.js` to the public GHL webhook URL, or set `PUBLIC_QUOTE_ENDPOINT` at build time if the URL contains a token. Leave it empty until then. The form checks name, phone, email, postcode or town, service and message in the browser, ignores a filled honeypot, and tells people to call `01425 333760` if the form cannot be sent.
 
+## Analytics and advertising
+
+Google Analytics 4 and the cookie banner are configured in `src/data/tracking.js`. `GA_MEASUREMENT_ID` is `G-QVDHD76KGR`. That ID is public. It is not a secret.
+
+The banner remembers Accept or Reject in this browser (`localStorage` key `n1_cookie_consent`). Until the visitor presses Accept, the page does not load `gtag.js`, a Meta pixel or a Google Ads tag. Reject leaves them unloaded, so the browser does not call `google-analytics.com` and does not get a `_ga` cookie. Consent Mode starts every page with `analytics_storage`, `ad_storage`, `ad_user_data` and `ad_personalization` set to `denied`, and switches them to `granted` only after Accept.
+
+Cookie settings in the footer opens the banner again.
+
+These events are sent with `gtag` and also pushed to `window.dataLayer`, with the page path only. They never include a name, email address or phone number.
+
+- `generate_lead` — the quote or contact form, only after the submission has succeeded
+- `guide_signup` — the buyer’s guide form, only after the submission has succeeded
+- `click_call` — a click on a `tel:` link
+- `click_whatsapp` — a click on a WhatsApp link
+- `click_email` — a click on a `mailto:` link
+
+The embedded quote form counts as a success when GoHighLevel tells the page a lead was stored. A failed send, a validation error, or the hidden spam field does not count.
+
+### Switch on Meta Pixel or Google Ads
+
+Both are off, because `META_PIXEL_ID`, `GOOGLE_ADS_ID` and `GOOGLE_ADS_CONVERSION_LABEL` are empty strings. Nothing is loaded for them.
+
+To switch one on, edit `src/data/tracking.js`, fill the value, and rebuild:
+
+- `META_PIXEL_ID` — the Meta Pixel ID, digits only, for example `123456789012345`.
+- `GOOGLE_ADS_ID` — the Google Ads tag ID, for example `AW-123456789`.
+- `GOOGLE_ADS_CONVERSION_LABEL` — the label from the Google Ads conversion action.
+
+Leave a value as `''` to keep that piece off. An empty Meta ID does not load `fbevents.js`. An empty Google Ads ID does not configure an Ads tag. A label on its own, with no Ads ID, does not send a conversion.
+
+After the IDs are filled, the tags still wait for Accept. They use the same banner as Analytics. Each of the five events above then also sends a Meta `Lead` (when the pixel ID is set) and a Google Ads conversion (when both the Ads ID and the label are set). The conversion uses that one label for every event, so phone, WhatsApp, email, quote and guide successes all count towards it. Split them in Google Ads later if you need separate actions.
+
+`node --test tests/consent-rules.test.js` checks that empty advertising IDs stay unloaded, and that events keep only the page path.
+
 ## Commands
 
 ```bash
