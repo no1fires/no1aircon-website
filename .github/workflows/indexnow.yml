@@ -1,0 +1,23 @@
+# Runs after a push to main. Cloudflare deploys the site separately.
+# continue-on-error keeps a failed submission from failing this workflow,
+# and the script itself always exits 0 so it cannot fail the deploy.
+name: IndexNow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Submit sitemap URLs to IndexNow
+        continue-on-error: true
+        run: node scripts/indexnow.mjs
