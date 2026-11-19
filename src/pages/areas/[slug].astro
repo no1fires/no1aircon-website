@@ -43,7 +43,7 @@ const distance = town.miles === 0
     <section class="section" style="padding-top:0;" aria-labelledby="town-case-heading">
       <div class="container">
         <a class="case-feature" href={town.feature.href}>
-          <img src={town.feature.src} alt={town.feature.alt} width={town.feature.width} height={town.feature.height} />
+          <img src={town.feature.src} alt={town.feature.alt} width={town.feature.width} height={town.feature.height} style={town.feature.position ? `object-position: ${town.feature.position}` : undefined} />
           <div>
             <p class="eyebrow">Case study</p>
             <h2 id="town-case-heading">{town.feature.title}</h2>
