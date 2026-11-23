@@ -46,7 +46,9 @@ ${previewNote}## What they do
 
 ## Areas
 
-Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth.
+Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), West Moors, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth.
+
+West Moors is a village in East Dorset, a few miles south-west of the Ringwood showroom, near Ferndown and St Leonards. It has its own page. No West Moors case study is published.
 
 Bournemouth has a Daikin dining-room case study. Southampton's written-up job is in Warsash, just outside the city, not in Southampton city. Portsmouth is further east than the places already named inside the 25-mile radius, so an address there is checked first.
 
@@ -84,6 +86,7 @@ Cost guide: https://no1aircon.co.uk/air-conditioning-cost/ . Cheapest published 
 - https://no1aircon.co.uk/areas/ferndown/
 - https://no1aircon.co.uk/areas/verwood/
 - https://no1aircon.co.uk/areas/st-leonards/
+- https://no1aircon.co.uk/areas/west-moors/
 - https://no1aircon.co.uk/areas/christchurch/
 - https://no1aircon.co.uk/areas/wimborne/
 - https://no1aircon.co.uk/areas/new-milton/
@@ -125,7 +128,7 @@ Q: Does a No1 install qualify for the £2,500 Boiler Upgrade Scheme grant?
 A: No. The grant needs an MCS-certified installer. No1 Air Con is not MCS certified, so installs by No1 do not qualify. Ofgem publishes the rules at https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners
 
 Q: Which towns have pages?
-A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth. The cost guide is https://no1aircon.co.uk/air-conditioning-cost/ .
+A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, West Moors, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth. The cost guide is https://no1aircon.co.uk/air-conditioning-cost/ .
 `;
 
 export function GET() {

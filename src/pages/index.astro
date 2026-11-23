@@ -202,7 +202,7 @@ const steps = [
         {towns.map((town) => (
           <a class="area-link" href={`/areas/${town.slug}/`}>
             {town.name}
-            <span>{town.county}{town.miles ? ` · about ${town.miles} miles` : ' · showroom'}</span>
+            <span>{town.county}{typeof town.miles === 'number' && town.miles > 0 ? ` · about ${town.miles} miles` : town.miles === 0 || town.miles == null ? ' · showroom' : ` · ${town.miles}`}</span>
           </a>
         ))}
       </div>

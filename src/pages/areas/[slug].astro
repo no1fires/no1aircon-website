@@ -28,7 +28,9 @@ const distance = town.miles === 0
   ? `The showroom is in ${town.name}, at ${business.street}.`
   : Number.isFinite(town.miles)
     ? `${town.name} is about ${town.miles} miles from the showroom at ${business.street}, ${business.town}.`
-    : `The showroom is in Ringwood, at ${business.street}, ${business.town}.`;
+    : typeof town.miles === 'string'
+      ? `${town.name} is ${town.miles} of the showroom at ${business.street}, ${business.town}.`
+      : `The showroom is in Ringwood, at ${business.street}, ${business.town}.`;
 ---
 <Base title={town.title} description={town.description} crumbs={crumbs} faqs={[...town.answerFaqs, ...town.faqs]}>
   <PageHero eyebrow={town.eyebrow} title={town.h1} lead={town.lead} crumbs={crumbs} photo={townPhotos[town.slug]} />

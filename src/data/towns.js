@@ -21,7 +21,7 @@ export const towns = [
     ],
     servicesIntro: 'In Ringwood we fit the full range, and you can compare the brands in the showroom the same day as a conversation about the house.',
     services: ['home-air-conditioning', 'heating-and-cooling', 'commercial-air-conditioning', 'servicing', 'repairs', 'ducted-and-ceiling-systems'],
-    nearby: ['fordingbridge', 'verwood', 'st-leonards'],
+    nearby: ['fordingbridge', 'verwood', 'st-leonards', 'west-moors'],
     answerFaqs: [
       {
         q: 'Where is the No1 Air Con showroom?',
@@ -105,11 +105,11 @@ export const towns = [
       'Ferndown is a larger Dorset town than its neighbours, with a lot of detached houses and bungalows built from the 1960s onwards, plus newer estates. Lofts are usually reachable, power is usually straightforward, and many of the houses are big enough that one room is not the whole job. Multi-room systems, with two or three indoor units on one outdoor unit, come up here more often than they do in a cottage town.',
       `The industrial estates are a different kind of work. Offices, workshops and storage that get hot under a roof need photos, measurements and a floor plan so we can judge the heat load, not a guess from the floor area. ${whatsappSend}. We agree access so the install does not shut a unit for longer than it has to. We quote remotely. A survey is only if it is needed.`,
       'Servicing is a steady part of the Ferndown work. Systems fitted a few years ago, including ones we did not install, still need a yearly check if the warranty is to stay valid. We service Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung.',
-      'St Leonards and West Moors sit between Ferndown and the showroom, so the drive is a normal local call. West Moors does not have its own page yet.',
+      'St Leonards and West Moors sit between Ferndown and the showroom, so the drive is a normal local call. [West Moors](/areas/west-moors/) has its own page.',
     ],
     servicesIntro: 'In Ferndown the useful set is home air conditioning for the larger houses, commercial work on the estates, and servicing once the system is in.',
     services: ['home-air-conditioning', 'commercial-air-conditioning', 'servicing', 'heating-and-cooling'],
-    nearby: ['st-leonards', 'verwood', 'wimborne'],
+    nearby: ['st-leonards', 'verwood', 'wimborne', 'west-moors'],
     answerFaqs: [
       {
         q: 'Do you install air conditioning in Ferndown?',
@@ -153,7 +153,7 @@ export const towns = [
     ],
     servicesIntro: 'Home air conditioning and heating and cooling are the Verwood work. Servicing follows once the system has been in for a year.',
     services: ['home-air-conditioning', 'heating-and-cooling', 'servicing', 'repairs'],
-    nearby: ['ringwood', 'ferndown', 'st-leonards'],
+    nearby: ['ringwood', 'ferndown', 'st-leonards', 'west-moors'],
     answerFaqs: [
       {
         q: 'Do you cover Verwood?',
@@ -197,7 +197,7 @@ export const towns = [
     ],
     servicesIntro: 'The St Leonards work is home systems, heating and cooling for garden rooms and offices, and repairs when something fails.',
     services: ['home-air-conditioning', 'heating-and-cooling', 'repairs', 'ducted-and-ceiling-systems'],
-    nearby: ['ringwood', 'ferndown', 'verwood'],
+    nearby: ['ringwood', 'ferndown', 'verwood', 'west-moors'],
     answerFaqs: [
       {
         q: 'Which St Leonards do you cover?',
@@ -220,6 +220,55 @@ export const towns = [
       {
         q: 'Where should the outdoor unit go?',
         a: 'Somewhere it can be fixed securely, with a short tidy pipe run, and not aimed at a neighbour’s window or your own seating area. We agree the spot before we fit anything.',
+      },
+    ],
+  },
+  {
+    slug: 'west-moors',
+    name: 'West Moors',
+    county: 'Dorset',
+    // No measured mileage is published. The phrase is the distance we are willing to state.
+    miles: 'a few miles south-west',
+    title: 'Air Conditioning in West Moors | No1 Air Con',
+    description: 'Air conditioning installation in West Moors, a Dorset village near Ferndown and St Leonards. Remote quotes from our Ringwood showroom.',
+    h1: 'Air conditioning in West Moors',
+    eyebrow: 'Dorset',
+    lead: 'West Moors is a village in East Dorset, a few miles south-west of the Ringwood showroom, near Ferndown and St Leonards. We quote remotely and install for homes there.',
+    paragraphs: [
+      `West Moors sits between the Ringwood showroom and Ferndown, with St Leonards nearby. The showroom is at ${showroom}. Christchurch Road is in Ringwood. It is not the town of Christchurch. You can compare Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung there and hear them running. You do not have to visit to get a price.`,
+      `Send photos of the room and the outside wall, measurements and a floor plan. ${whatsappSend}. We quote remotely. A survey is only if it is needed, and if we visit that survey is free. Most jobs are done in a day. The lead time is 4 to 8 weeks. We hold a lot of stock, so it is often sooner, but that is not a promise for the next job.`,
+      `A Clivet single room is installed from ${business.priceFrom} (0% VAT). Multi-room systems, with two, three or four indoor units on one outdoor unit, are from ${business.multiRoomFrom}. Qualifying home air-to-air heat pump installs are 0% VAT until 31 March 2027. The systems are air-to-air heat pumps: they heat the room the indoor unit is in, as well as cool it. They do not heat a hot-water cylinder or replace a boiler on their own.`,
+      `${business.warranty} Servicing is from ${business.servicingFrom}. We service Mitsubishi Electric, Daikin, Clivet, Toshiba, Panasonic and Samsung, including systems we did not install. Annual servicing keeps the warranty valid. We have not published a West Moors case study. Payment is 50% deposit and 50% on completion. Finance is not offered at the moment.`,
+    ],
+    servicesIntro: 'In West Moors the useful set is a home system, heating and cooling for the rooms that have a unit, then servicing and repairs once it is in.',
+    services: ['home-air-conditioning', 'heating-and-cooling', 'servicing', 'repairs'],
+    nearby: ['ferndown', 'st-leonards', 'verwood', 'ringwood'],
+    answerFaqs: [
+      {
+        q: 'Do you install air conditioning in West Moors?',
+        a: `Yes. West Moors is a village in East Dorset, a few miles south-west of the showroom at ${showroom}, near Ferndown and St Leonards. It is inside the ${business.radiusMiles} miles we cover. Send photos, measurements and a floor plan and we quote remotely. ${whatsappSend}.`,
+      },
+      {
+        q: 'How far is West Moors from the showroom?',
+        a: `A few miles south-west. The showroom is at ${showroom}, on Christchurch Road in Ringwood, not in Christchurch town. You can visit and hear the units, or send the photos and we will quote without a visit.`,
+      },
+      {
+        q: 'How much does air conditioning cost in West Moors?',
+        a: `A Clivet single room is from ${business.priceFrom} (0% VAT). That is the cheapest system we publish, not a price for every brand. Multi-room systems from ${business.multiRoomFrom}. Servicing is from ${business.servicingFrom}. The [cost guide](/air-conditioning-cost/) sets out what those prices do and do not include.`,
+      },
+    ],
+    faqs: [
+      {
+        q: 'Does a West Moors install qualify for the Boiler Upgrade Scheme grant?',
+        a: 'No. The £2,500 Boiler Upgrade Scheme grant needs an MCS-certified installer. No1 Air Con is not MCS certified, so an install by No1 does not qualify. [Ofgem publishes the scheme rules](https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners).',
+      },
+      {
+        q: 'What warranty and servicing apply in West Moors?',
+        a: `${business.warranty} Servicing is recommended yearly and is from ${business.servicingFrom}. A service cleans the unit inside and out, checks it is working properly and checks for leaks. Skipping the service is the usual reason a warranty claim is turned down.`,
+      },
+      {
+        q: 'Which places near West Moors do you cover?',
+        a: `Ferndown, St Leonards, Verwood and Ringwood all have their own pages. We install within ${business.radiusMiles} miles of the Ringwood showroom. Call ${business.phone} if you are unsure whether an address is inside that area.`,
       },
     ],
   },
