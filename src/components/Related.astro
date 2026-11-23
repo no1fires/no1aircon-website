@@ -28,7 +28,7 @@ const { services = [], towns = [], heading = 'Keep reading' } = Astro.props;
             {towns.map((town) => (
               <a class="area-link" href={`/areas/${town.slug}/`}>
                 Air conditioning in {town.name}
-                <span>{town.county}{town.miles ? `, about ${town.miles} miles from the showroom` : ', our showroom town'}</span>
+                <span>{town.county}{typeof town.miles === 'number' && town.miles > 0 ? `, about ${town.miles} miles from the showroom` : town.miles === 0 || town.miles == null ? ', our showroom town' : `, ${town.miles} of the showroom`}</span>
               </a>
             ))}
           </div>
