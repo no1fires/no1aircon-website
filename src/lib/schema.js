@@ -5,18 +5,23 @@ const businessId = `${business.url}/#business`;
 const websiteId = `${business.url}/#website`;
 const ogImage = `${business.url}/images/og-default.png`;
 
-function areaServed() {
-  return towns.map((town) => ({
+function cityServed(place) {
+  return {
     '@type': 'City',
-    name: town.name,
+    name: place.name,
     containedInPlace: {
       '@type': 'AdministrativeArea',
-      name: town.county,
+      name: place.county,
     },
-  }));
+  };
 }
 
-function businessNode() {
+function areaServed(locality) {
+  if (locality) return cityServed(locality);
+  return towns.map((town) => cityServed(town));
+}
+
+function businessNode(locality = null) {
   const sameAs = [business.facebook, business.instagram, business.googleBusiness, business.linkedin].filter(Boolean);
   const node = {
     '@type': 'HVACBusiness',
@@ -74,7 +79,7 @@ function businessNode() {
       latitude: business.geo.lat,
       longitude: business.geo.lng,
     },
-    areaServed: areaServed(),
+    areaServed: areaServed(locality),
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: business.phoneIntl,
@@ -208,11 +213,25 @@ function articleNode(article, canonical) {
   };
 }
 
-export function buildGraph({ canonical, crumbs = [], faqs = [], service = null, article = null }) {
-  const graph = [businessNode(), websiteNode()];
+function localityServiceNode(locality, canonical) {
+  return {
+    '@type': 'Service',
+    name: `Air conditioning installation in ${locality.name}`,
+    serviceType: 'Air conditioning installation',
+    description: locality.description,
+    url: canonical,
+    image: ogImage,
+    provider: { '@id': businessId },
+    areaServed: cityServed(locality),
+  };
+}
+
+export function buildGraph({ canonical, crumbs = [], faqs = [], service = null, article = null, locality = null }) {
+  const graph = [businessNode(locality), websiteNode()];
   if (crumbs.length) graph.push(breadcrumbNode(crumbs));
   if (article) graph.push(articleNode(article, canonical));
   if (service) graph.push(serviceNode(service, canonical));
+  else if (locality) graph.push(localityServiceNode(locality, canonical));
   if (faqs.length) graph.push(faqNode(faqs));
   return {
     '@context': 'https://schema.org',

@@ -32,7 +32,13 @@ const distance = town.miles === 0
       ? `${town.name} is ${town.miles} of the showroom at ${business.street}, ${business.town}.`
       : `The showroom is in Ringwood, at ${business.street}, ${business.town}.`;
 ---
-<Base title={town.title} description={town.description} crumbs={crumbs} faqs={[...town.answerFaqs, ...town.faqs]}>
+<Base
+  title={town.title}
+  description={town.description}
+  crumbs={crumbs}
+  faqs={[...town.answerFaqs, ...town.faqs]}
+  locality={town.background ? { name: town.name, county: town.county, description: town.description } : null}
+>
   <PageHero eyebrow={town.eyebrow} title={town.h1} lead={town.lead} crumbs={crumbs} photo={townPhotos[town.slug]} />
   <QuickAnswers faqs={town.answerFaqs} />
   <section class="section">

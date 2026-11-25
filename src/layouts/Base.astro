@@ -18,10 +18,11 @@ const {
   hideCanonical = false,
   article = null,
   ogImage = null,
+  locality = null,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const graph = buildGraph({ canonical, crumbs, faqs, service, article });
+const graph = buildGraph({ canonical, crumbs, faqs, service, article, locality });
 const json = JSON.stringify(graph).replace(/</g, '\\u003c');
 const image = ogImage?.src ?? `${business.url}/images/og-default.png`;
 const imageWidth = ogImage?.width ?? 1200;

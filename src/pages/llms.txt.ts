@@ -46,15 +46,17 @@ ${previewNote}## What they do
 
 ## Areas
 
-Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), West Moors, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth.
+Pages: Ringwood (showroom), Fordingbridge, Ferndown, Verwood, St Leonards and St Ives in Dorset (not St Leonards-on-Sea), West Moors, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton, Portsmouth and Salisbury.
 
 West Moors is a village in East Dorset, a few miles south-west of the Ringwood showroom, near Ferndown and St Leonards. It has its own page. No West Moors case study is published.
 
-Bournemouth has a Daikin dining-room case study. Southampton's written-up job is in Warsash, just outside the city, not in Southampton city. Portsmouth is further east than the places already named inside the 25-mile radius, so an address there is checked first.
+Salisbury, Wiltshire, is about 17 miles north of the showroom on the A338, through Fordingbridge and Downton. It has its own page. No Salisbury case study is published. The systems quoted there are air-to-air heat pumps, for cooling in summer and heating the same room in winter.
+
+Bournemouth has a Daikin dining-room case study. Southampton's written-up job is in Warsash, just outside the city, not in Southampton city. Portsmouth is about 40 miles east of Ringwood, further than the 25-mile radius, so an address there is checked first. The Portsmouth page describes Southsea, Old Portsmouth, the terraces and the mainland side at Cosham. No Portsmouth case study is published.
 
 The showroom address is on Christchurch Road in Ringwood. That is not the town of Christchurch.
 
-Also inside the 25-mile radius, without their own pages: Lymington, Salisbury, New Forest.
+Also inside the 25-mile radius, without their own pages: Lymington, New Forest.
 
 Cost guide: https://no1aircon.co.uk/air-conditioning-cost/ . Cheapest published system is a Clivet single room from £1,395 at 0% VAT, not a price for every brand. Multi-room from £3,499. Servicing from £125 a year. No1 is not MCS certified, so installs do not qualify for the Boiler Upgrade Scheme grant.
 
@@ -94,6 +96,7 @@ Cost guide: https://no1aircon.co.uk/air-conditioning-cost/ . Cheapest published 
 - https://no1aircon.co.uk/areas/poole/
 - https://no1aircon.co.uk/areas/southampton/
 - https://no1aircon.co.uk/areas/portsmouth/
+- https://no1aircon.co.uk/areas/salisbury/
 - https://no1aircon.co.uk/air-conditioning-cost/
 - https://no1aircon.co.uk/case-studies/
 - https://no1aircon.co.uk/case-studies/warsash-chalet-bungalow/
@@ -128,7 +131,7 @@ Q: Does a No1 install qualify for the £2,500 Boiler Upgrade Scheme grant?
 A: No. The grant needs an MCS-certified installer. No1 Air Con is not MCS certified, so installs by No1 do not qualify. Ofgem publishes the rules at https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners
 
 Q: Which towns have pages?
-A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, West Moors, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton and Portsmouth. The cost guide is https://no1aircon.co.uk/air-conditioning-cost/ .
+A: Ringwood, Fordingbridge, Ferndown, Verwood, St Leonards, West Moors, Christchurch, Wimborne, New Milton, Bournemouth, Poole, Southampton, Portsmouth and Salisbury. Salisbury is about 17 miles north, in Wiltshire. Portsmouth is about 40 miles east and an address there is checked first, because it is outside the 25-mile radius. The cost guide is https://no1aircon.co.uk/air-conditioning-cost/ .
 `;
 
 export function GET() {

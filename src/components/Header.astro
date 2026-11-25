@@ -6,6 +6,7 @@ import Icon from './Icon.astro';
 
 const path = Astro.url.pathname;
 const current = (href) => (path === href ? 'page' : undefined);
+const navTowns = towns.filter((town) => !town.background);
 ---
 <header id="site-header" class="site-header">
   <div class="header-top">
@@ -47,7 +48,7 @@ const current = (href) => (path === href ? 'page' : undefined);
             Areas <Icon name="chevron" size={16} />
           </a>
           <div class="nav-sub">
-            {towns.map((town) => (
+            {navTowns.map((town) => (
               <a href={`/areas/${town.slug}/`} aria-current={current(`/areas/${town.slug}/`)}>{town.name}</a>
             ))}
             <a href="/areas/">All areas</a>
@@ -84,7 +85,7 @@ const current = (href) => (path === href ? 'page' : undefined);
       Areas <Icon name="chevron" size={18} />
     </button>
     <div id="mobile-areas" class="mobile-sub" hidden>
-      {towns.map((town) => <a href={`/areas/${town.slug}/`}>{town.name}</a>)}
+      {navTowns.map((town) => <a href={`/areas/${town.slug}/`}>{town.name}</a>)}
       <a href="/areas/">All areas</a>
     </div>
     <a class="mobile-link" href="/about/" aria-current={current('/about/')}>About</a>

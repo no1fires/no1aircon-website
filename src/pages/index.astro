@@ -12,6 +12,8 @@ import RichText from '../components/RichText.astro';
 import { services } from '../data/services.js';
 import { towns } from '../data/towns.js';
 
+const areaTowns = towns.filter((town) => !town.background);
+
 const title = 'Air Conditioning Installers in Dorset & Hampshire | No1 Air Con';
 const description = 'Air con installation, servicing and repairs across Dorset & Hampshire from our Ringwood showroom. Single rooms from £1,395 (0% VAT). 5-year warranty.';
 const steps = [
@@ -199,7 +201,7 @@ const steps = [
         <p>Eight towns have their own pages, written for the houses and businesses there. We also travel within {business.radiusMiles} miles of our Ringwood showroom.</p>
       </div>
       <div class="area-grid">
-        {towns.map((town) => (
+        {areaTowns.map((town) => (
           <a class="area-link" href={`/areas/${town.slug}/`}>
             {town.name}
             <span>{town.county}{typeof town.miles === 'number' && town.miles > 0 ? ` · about ${town.miles} miles` : town.miles === 0 || town.miles == null ? ' · showroom' : ` · ${town.miles}`}</span>

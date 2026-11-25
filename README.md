@@ -21,11 +21,12 @@ Search indexing is off until launch. See [TODO-INFO.md](TODO-INFO.md).
 1. Add an object to the `towns` array in `src/data/towns.js`.
 2. Use a new `slug` (the URL will be `/areas/your-slug/`).
 3. Write a local introduction, the services that actually suit that town, nearby town slugs, and answer-style questions. Do not only swap the town name.
-4. Add the slug to `nearby` on the neighbouring towns.
+4. Add the slug to `nearby` on one or two neighbouring towns.
+   Set `background: true` to keep that town out of the header and the homepage. The page still appears on `/areas/`, in the footer and in the sitemap.
 5. Mention the town in `public/llms.txt`.
 6. Run `npm run build`.
 
-The town is added to the navigation, the footer, the areas hub and the business schema automatically, because those read `towns`.
+The town is added to the footer, the areas hub and the business schema automatically, because those read `towns`. It is also added to the header and the homepage unless `background` is set.
 
 ## Add a service page
 
