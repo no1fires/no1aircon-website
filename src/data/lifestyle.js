@@ -129,6 +129,7 @@ export const townPhotos = {
   poole: ay('center 32%'),
   southampton: bedroom('center 18%'),
   portsmouth: lobby('center 16%'),
+  salisbury: onyxMeet('center 22%'),
 };
 
 export const casePhotos = {
@@ -166,6 +167,7 @@ export const photoLabel = {
   poole: 'MSZ-AY white room setting',
   southampton: 'MSZ-LN Natural White bedroom',
   portsmouth: 'MSZ-LN Pearl White lobby',
+  salisbury: 'MSZ-LN Onyx Black, small meeting room',
   'single-room-home': 'MSZ-LN Onyx Black home office',
   'multi-room-heating-and-cooling': 'MSZ-LN Pearl White room setting',
   'commercial-space': 'Meeting room, white wall unit (2)',
